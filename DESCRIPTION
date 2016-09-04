@@ -1,0 +1,27 @@
+Package: rcompanion
+Version: 0.5.0
+Date: 2016-09-01
+Title: Functions and Datasets for rcompanion.org
+Authors@R: person("Salvatore","Mangiafico",email="mangiafico@njaes.rutgers.edu",role=c("aut","cre"))
+Description: Functions and datasets to support "Summary and Analysis of
+             Extension Education Program Evaluation in R" and "An R
+             Companion for the Handbook of Biological Statistics". 
+             Vignettes are available at http://rcompanion.org.
+URL: http://rcompanion.org/
+Depends: R (>= 3.3.1)
+Imports: stats (>= 3.3.1), graphics (>= 3.3.1), boot (>= 1.3-18),
+        DescTools (>= 0.99.17), multcompView (>= 0.1-7), plyr (>=
+        1.8.4), EMT (>= 1.1), coin (>= 1.1-2), lattice (>= 0.20-33),
+        RVAideMemoire (>= 0.9-60), nortest (>= 1.0-4), hermite (>=
+        1.1.1)
+Suggests:
+Author: Salvatore Mangiafico [aut, cre]
+Maintainer: Salvatore Mangiafico <mangiafico@njaes.rutgers.edu>
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
+NeedsCompilation: no
+Packaged: 2016-09-04 17:21:23 UTC; salma
+Repository: CRAN
+Date/Publication: 2016-09-04 20:48:16
