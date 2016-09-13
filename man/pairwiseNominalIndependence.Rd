@@ -24,8 +24,7 @@ If \code{"column"}, treats the columns as the grouping variable.}
 \item{method}{The method to adjust multiple p-values. 
 See \code{\link{p.adjust}}.}
 
-\item{correct}{The correction method to pass to \code{GTest}
-See \code{\link{GTest}}.}
+\item{correct}{The correction method to pass to \code{\link{GTest}}.}
 
 \item{digits}{The number of significant digits in the output.}
 
@@ -34,10 +33,6 @@ See \code{\link{GTest}}.}
 }
 \value{
 A data frame of comparisons, p-values, and adjusted p-values.
-        
- @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
-          \code{\link{nominalSymmetryTest}}, 
-          \code{\link{pairwiseNominalMatrix}}
 }
 \description{
 Conducts pairwise tests for a 2-dimensional matrix,
@@ -45,14 +40,14 @@ Conducts pairwise tests for a 2-dimensional matrix,
              levels, as a post-hoc test. Conducts Fisher exact, Chi-square,
              or G-test.
 }
-\details{
-(None.)
-}
 \examples{
 ### Independence test for a 4 x 2 matrix
 data(Anderson)
 fisher.test(Anderson)
-pairwiseNominalIndependence(Anderson)
+pairwiseNominalIndependence(Anderson,
+                            fisher = TRUE,
+                            gtest  = FALSE,
+                            chisq  = FALSE)
                                                               
 }
 \author{
@@ -60,6 +55,11 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \references{
 \url{http://rcompanion.org/handbook/H_04.html}
+}
+\seealso{
+\code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
+          \code{\link{nominalSymmetryTest}}, 
+          \code{\link{pairwiseNominalMatrix}}
 }
 \concept{
 Chi-square G-test Fisher contingency table nominal

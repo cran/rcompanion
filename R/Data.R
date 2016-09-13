@@ -1,3 +1,14 @@
+#' @title Hypothetical data for ratings of Pooh, Piglet, and Tigger
+#'
+#' @description A data frame of Likert responses for instructors Pooh Bear,
+#'              Piglet, and Tigger.
+#'              Hypothetical data.
+#' 
+#' @source \url{http://rcompanion.org/handbook/F_08.html}
+"PoohPiglet"
+
+###############################################################################
+
 #' @title Hypothetical data for paired ratings of Pooh Bear
 #'
 #' @description A data frame of Likert responses for instructor Pooh Bear
@@ -31,7 +42,7 @@
 
 ###############################################################################
 
-#' @title Hypothetical data for change in religion after a caucausing event
+#' @title Hypothetical data for change in religion after a caucusing event
 #'
 #' @description A matrix of paired counts for religion of people before 
 #'              and after an event.
@@ -85,7 +96,7 @@
 
 #' @title Hypothetical data for Brendon Small and company
 #'
-#' @description A data frame of intake of calories and sodium for students 
+#' @description A data frame of the intake of calories and sodium for students 
 #'              in five classes. Hypothetical data.
 #' 
 #' @source \url{http://rcompanion.org/handbook/I_10.html}

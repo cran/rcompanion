@@ -22,14 +22,14 @@ If \code{TRUE}, then the density is shown.}
 
 \item{lwd}{The width of the line in the plot.}
 
-\item{adjust}{Passed to  \code{density}. A lower value makes the density
+\item{adjust}{Passed to \code{\link{density}}. A lower value makes the density
 plot smoother.}
 
-\item{bw}{Passed to  \code{density}. See \code{?density}}
+\item{bw}{Passed to \code{\link{density}}.}
 
-\item{kernel}{Passed to  \code{density}. See \code{?density}}
+\item{kernel}{Passed to \code{\link{density}}.}
 
-\item{...}{Other arguments passed to \code{hist}.}
+\item{...}{Other arguments passed to \code{\link{hist}}.}
 }
 \value{
 Produces a plot. Returns nothing.

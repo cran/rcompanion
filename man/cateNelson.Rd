@@ -9,9 +9,9 @@ cateNelson(x, y, plotit = TRUE, hollow = TRUE, xlab = "X", ylab = "Y",
   ythreshold = 0.1)
 }
 \arguments{
-\item{x}{A vector of values for x-axis.}
+\item{x}{A vector of values for the x variable.}
 
-\item{y}{A vector of values for y-axis.}
+\item{y}{A vector of values for the y variable.}
 
 \item{plotit}{If \code{TRUE}, produces plots of the output.}
 
@@ -40,21 +40,21 @@ to display in the output. A value of \code{1} would display
 all of them.}
 }
 \value{
-A data frame of statistics from the analysis: number of observations
+A data frame of statistics from the analysis: number of observations,
         critical level for x, sum of squares, critical value for y, the
         number of observations in each of the quadrants (I, II, III, IV),
         the number of observations that conform with the model, 
         the proportion of observations that conform with the model, 
         the number of observations that do not conform to the model,
         the proportion of observations that do not conform to the model,
-        and a p-value for the Fisher exact test for the data divided up into
+        and a p-value for the Fisher exact test for the data divided into
         the groups indicated by the model.
         
         Output also includes printed lists of critical values,
         explanation of the values in the data frame,
-        and plots: y vs. x; sum of square vs. critical x value,
+        and plots: y vs. x; sum of squares vs. critical x value;
         the number of observations that do not conform to the model vs.
-        critical y value, 
+        critical y value; 
         and y vs. x with the critical values shown as lines on the plot, 
         and the quadrants labeled.
 }
@@ -73,8 +73,8 @@ Cate-Nelson analysis divides bivariate data into two groups.
           The analysis is useful for bivariate data which don't conform well
           to linear, curvilinear, or plateau models.
           
-          This function will fail if either the largest two or smallest two
-          x values are identical
+          This function will fail if either of the largest two or smallest 
+          two x values are identical.
 }
 \note{
 The method in this function follows \cite{Cate, R. B., & Nelson, L.A. 

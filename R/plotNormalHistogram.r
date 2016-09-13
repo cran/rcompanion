@@ -13,7 +13,7 @@
 #' @param linecol The color of the line in the plot.
 #' @param lwd The width of the line in the plot.
 #' @param length The number of points in the line in the plot.
-#' @param ... Other arguments passed to \code{hist}.
+#' @param ... Other arguments passed to \code{\link{hist}}.
 #' 
 #' @details  The function relies on the \code{hist} function. The normal curve
 #'           has the same mean and standard deviation as the values in the

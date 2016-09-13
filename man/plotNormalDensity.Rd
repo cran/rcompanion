@@ -25,14 +25,14 @@ plotNormalDensity(x, col1 = "white", col2 = "gray", col3 = "blue",
 
 \item{length}{The number of points in the line in the plot.}
 
-\item{adjust}{Passed to  \code{density}. A lower value makes the density
-plot smoother.}
+\item{adjust}{Passed to  \code{\link{density}}. 
+A lower value makes the density plot smoother.}
 
-\item{bw}{Passed to  \code{density}. See \code{?density}}
+\item{bw}{Passed to  \code{\link{density}}.}
 
-\item{kernel}{Passed to  \code{density}. See \code{?density}}
+\item{kernel}{Passed to  \code{\link{density}}.}
 
-\item{...}{Other arguments passed to \code{plot}.}
+\item{...}{Other arguments passed to \code{\link{plot}}.}
 }
 \value{
 Produces a plot. Returns nothing.

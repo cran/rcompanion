@@ -29,10 +29,8 @@
 #'                    See \code{\link{boot.ci}}.
 #' @param wilcox If \code{TRUE}, includes the wilcox confidence
 #'                    intervals from  \code{\link{wilcox.test}}.
-#'                    See \code{\link{boot.ci}}.
 #' @param exact If \code{TRUE}, includes the "exact" confidence
 #'                    intervals from  \code{\link{MedianCI}}.
-#'                    See \code{\link{boot.ci}}.                                   
 #' @param digits The number of significant figures to use in output.
 #' @param ... Other arguments passed to the \code{boot} function.
 #'                

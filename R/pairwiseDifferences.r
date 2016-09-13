@@ -1,11 +1,11 @@
 #' @title Pairwise differences for unreplicated CBD 
 #'
-#' @description Calculates the differences in the responses variable
+#' @description Calculates the differences in the response variable
 #'              for each pair of levels of a grouping variable 
 #'              in an unreplicated complete block design.
 #'              
-#' @param x The vector of response variable
-#' @param g The vector of the grouping variable
+#' @param x The vector of the response variable.
+#' @param g The vector of the grouping variable.
 #' @param plotit If \code{TRUE}, then produces bar plots of the differences.
 #' @param factorize If \code{TRUE}, then adds a column to the output 
 #'                  data frame consisting of the differences as
@@ -23,7 +23,7 @@
 #'           The function assumes that the data are in complete block design.
 #'           That is,
 #'           for any level of the grouping variable in Group 1 there exists
-#'           a pair in Group 2, and so on.
+#'           one paired value in Group 2, and so on.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_10.html}

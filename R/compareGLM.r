@@ -5,7 +5,7 @@
 #' @param fits A series of model object names, separated by commas.
 #' @param ... Other arguments passed to \code{list}.
 #' 
-#' @details  Produces a table of fit statistics for multiple lm models: 
+#' @details  Produces a table of fit statistics for multiple glm models: 
 #'           AIC, AICc, BIC, p-value, pseudo R-squared
 #'           (McFadden, Cox and Snell, Nagelkerke).
 #'           
@@ -23,7 +23,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/rcompanion/e_07.html}
-#' @seealso \code{\link{compareLM}}
+#' @seealso \code{\link{compareLM}}, \code{\link{pairwiseModelAnova}}
 #' @concept AIC BIC AICc p-value pseudo R-squared glm
 #' @return A list of two objects: The series of model calls, and a data 
 #'         frame of statistics for each model.

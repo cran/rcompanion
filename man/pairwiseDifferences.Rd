@@ -7,9 +7,9 @@
 pairwiseDifferences(x, g, plotit = FALSE, factorize = FALSE)
 }
 \arguments{
-\item{x}{The vector of response variable}
+\item{x}{The vector of the response variable.}
 
-\item{g}{The vector of the grouping variable}
+\item{g}{The vector of the grouping variable.}
 
 \item{plotit}{If \code{TRUE}, then produces bar plots of the differences.}
 
@@ -25,7 +25,7 @@ A data frame of the paired groups, the differences in
         If \code{plotit = TRUE}, then also produce one or more plots.
 }
 \description{
-Calculates the differences in the responses variable
+Calculates the differences in the response variable
              for each pair of levels of a grouping variable 
              in an unreplicated complete block design.
 }
@@ -41,7 +41,7 @@ The main use of the function is to check the shape of the
           The function assumes that the data are in complete block design.
           That is,
           for any level of the grouping variable in Group 1 there exists
-          a pair in Group 2, and so on.
+          one paired value in Group 2, and so on.
 }
 \examples{
 ### Two-sample paired data example with bar plot

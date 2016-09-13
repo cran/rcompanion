@@ -19,7 +19,7 @@ A list of two objects: The series of model calls, and a data
 Produces a table of fit statistics for multiple glm models.
 }
 \details{
-Produces a table of fit statistics for multiple lm models: 
+Produces a table of fit statistics for multiple glm models: 
           AIC, AICc, BIC, p-value, pseudo R-squared
           (McFadden, Cox and Snell, Nagelkerke).
           
@@ -55,7 +55,7 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \url{http://rcompanion.org/rcompanion/e_07.html}
 }
 \seealso{
-\code{\link{compareLM}}
+\code{\link{compareLM}}, \code{\link{pairwiseModelAnova}}
 }
 \concept{
 AIC BIC AICc p-value pseudo R-squared glm

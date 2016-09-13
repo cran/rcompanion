@@ -29,7 +29,7 @@ A data frame of geometric means, standard deviations, standard
 }
 \description{
 Calculates geometric means and confidence intervals for
-             groups
+             groups.
 }
 \details{
 The function computes means, standard deviations, standard errors, 

@@ -10,11 +10,11 @@
 #' @param main The title displayed for the plot.
 #' @param linecol The color of the line in the plot.
 #' @param lwd The width of the line in the plot.
-#' @param adjust Passed to  \code{density}. A lower value makes the density
+#' @param adjust Passed to \code{\link{density}}. A lower value makes the density
 #'               plot smoother.
-#' @param bw Passed to  \code{density}. See \code{?density}
-#' @param kernel Passed to  \code{density}. See \code{?density}
-#' @param ... Other arguments passed to \code{hist}.
+#' @param bw Passed to \code{\link{density}}.
+#' @param kernel Passed to \code{\link{density}}.
+#' @param ... Other arguments passed to \code{\link{hist}}.
 #' 
 #' @details  The function relies on the \code{hist} function. The density curve
 #'           relies on the \code{density} function.

@@ -35,10 +35,11 @@ A list containing: a data frame of results of the global test;
 }
 \description{
 Conducts pairwise McNemar, exact, and permutation
-             tests as a post-hoc to Cochran Q test
+             tests as a post-hoc to Cochran Q test.
 }
 \details{
-The component post-hoc tests must be 2 x 2.
+The component tables for the pairwise tests
+         must be of size 2 x 2.
 }
 \examples{
 ### Cochran Q post-hoc example
@@ -47,11 +48,11 @@ library(RVAideMemoire)
 cochran.qtest(Response ~ Practice | Student,
               data = HayleySmith)
 pairwiseMcnemar(x       = HayleySmith$Response,
-               g       = HayleySmith$Practice,
-               block   = HayleySmith$Student,
-               test    = "exact",
-               method  = "fdr",
-               digits  = 3)
+                g       = HayleySmith$Practice,
+                block   = HayleySmith$Student,
+                test    = "exact",
+                method  = "fdr",
+                digits  = 3)
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

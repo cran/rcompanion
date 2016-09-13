@@ -11,7 +11,8 @@ nagelkerke(fit, null = NULL)
 
 \item{null}{The null model object against which to compare the fitted model 
 object. The null model must be nested in the fitted model to be 
-valid.}
+valid. This is optional for some model objects
+and required for others.}
 }
 \value{
 A list of four objects describing the models used, the pseudo 
@@ -20,7 +21,7 @@ A list of four objects describing the models used, the pseudo
 }
 \description{
 Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
-             R-squared measures, along with p-values, for models
+             R-squared measures, along with p-values, for models.
 }
 \details{
 Pseudo R-squared values are not directly comparable to the  
@@ -36,8 +37,9 @@ Pseudo R-squared values are not directly comparable to the
           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,      
           clm, clmm, vglm, glmer, negbin, zeroinfl.            
                                       
-          Model objects nls, lmer, glmer and clmm require the null model to 
-          be defined. Other objects use the \code{update} function to
+          Model objects that require the null model to 
+          be defined are nls, lmer, glmer and clmm. 
+          Other objects use the \code{update} function to
           define the null model.
           
           Likelihoods are found using ML (\code{REML = FALSE}).

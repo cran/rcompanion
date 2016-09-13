@@ -1,7 +1,7 @@
 #' @title Groupwise geometric means and confidence intervals 
 #'
 #' @description Calculates geometric means and confidence intervals for
-#'              groups
+#'              groups.
 #' 
 #' @param data The data frame to use.
 #' @param var The measurement variable to use. The name is in double quotes.

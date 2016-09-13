@@ -1,7 +1,7 @@
 #' @title Pairwise McNemar and related tests for Cochran Q test post-hoc
 #'
 #' @description Conducts pairwise McNemar, exact, and permutation
-#'              tests as a post-hoc to Cochran Q test
+#'              tests as a post-hoc to Cochran Q test.
 #' 
 #' @param x The response variable.
 #' @param g The grouping variable.
@@ -17,7 +17,8 @@
 #' @param correct If \code{TRUE}, applies a continuity correction
 #'                for the McNemar test.       
 #' 
-#' @details The component post-hoc tests must be 2 x 2.
+#' @details The component tables for the pairwise tests
+#'          must be of size 2 x 2.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_07.html}
@@ -36,12 +37,12 @@
 #' library(RVAideMemoire)
 #' cochran.qtest(Response ~ Practice | Student,
 #'               data = HayleySmith)
-#'pairwiseMcnemar(x       = HayleySmith$Response,
-#'                g       = HayleySmith$Practice,
-#'                block   = HayleySmith$Student,
-#'                test    = "exact",
-#'                method  = "fdr",
-#'                digits  = 3)
+#' pairwiseMcnemar(x       = HayleySmith$Response,
+#'                 g       = HayleySmith$Practice,
+#'                 block   = HayleySmith$Student,
+#'                 test    = "exact",
+#'                 method  = "fdr",
+#'                 digits  = 3)
                                                               
 #' @importFrom stats xtabs mcnemar.test binom.test
 #' @importFrom RVAideMemoire cochran.qtest

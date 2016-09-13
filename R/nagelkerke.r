@@ -1,12 +1,13 @@
 #' @title Pseudo r-squared measures for various models
 #'
 #' @description Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
-#'              R-squared measures, along with p-values, for models
+#'              R-squared measures, along with p-values, for models.
 #' 
 #' @param fit The fitted model object for which to determine pseudo r-squared.
 #' @param null The null model object against which to compare the fitted model 
 #'             object. The null model must be nested in the fitted model to be 
-#'             valid.
+#'             valid. This is optional for some model objects
+#'             and required for others.
 #' @details  Pseudo R-squared values are not directly comparable to the  
 #'           R-squared for OLS models.  Nor can they be interpreted as the  
 #'           proportion of the variability in the dependent variable that is  
@@ -20,8 +21,9 @@
 #'           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,      
 #'           clm, clmm, vglm, glmer, negbin, zeroinfl.            
 #'                                       
-#'           Model objects nls, lmer, glmer and clmm require the null model to 
-#'           be defined. Other objects use the \code{update} function to
+#'           Model objects that require the null model to 
+#'           be defined are nls, lmer, glmer and clmm. 
+#'           Other objects use the \code{update} function to
 #'           define the null model.
 #'           
 #'           Likelihoods are found using ML (\code{REML = FALSE}).                                                                                       

@@ -20,7 +20,8 @@ A list of four objects describing the models used, the pseudo
 }
 \description{
 Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
-             R-squared measures, along with p-values, for hermite regression.
+             R-squared measures, along with p-value for the model, 
+             for hermite regression objects.
 }
 \details{
 Hermite regression is performed with the \code{hermite} package.

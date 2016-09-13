@@ -7,7 +7,8 @@
 nominalSymmetryTest(x, method = "fdr", digits = 3, ...)
 }
 \arguments{
-\item{x}{A two-way contingency table. It must square. It can have two or
+\item{x}{A two-way contingency table. It must be square. 
+It can have two or
 more levels for each dimension.}
 
 \item{method}{The method to adjust multiple p-values. 
@@ -21,19 +22,22 @@ See \code{\link{p.adjust}}.}
 A list containing: a data frame of results of the global test;
         a data frame of results of the pairwise results;
         and a data frame mentioning the p-value adjustment method.
-        
- @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
-          \code{\link{pairwiseNominalIndependence}}, 
-          \code{\link{pairwiseNominalMatrix}}
 }
 \description{
-Conducts an omnibus exact symmetry test for a paired 
-             contingency table and pairwise tests.  This is similar to  
+Conducts an omnibus symmetry test for a paired 
+             contingency table and then post-hoc pairwise tests.  
+             This is similar to  
              McNemar and McNemar-Bowker tests in use.
 }
 \details{
-Conducts an exact test of symmetry using an equivalent multinomial
-         goodness-of-fit test.
+If Monte Carlo is not used, the test of symmetry uses
+         an exact test by conducting either a binomial 
+         or multinomial goodness-of-fit test.
+         
+         These are equivalent to uncorrected 
+         McNemar and McNemar-Bowker tests,
+         but will not fail when there are zeros in critical
+         cells, as will the \code{mcnemar.test} function.
 }
 \examples{
 ### 2 x 2 repeated matrix example
@@ -58,6 +62,11 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \references{
 \url{http://rcompanion.org/handbook/H_05.html}
+}
+\seealso{
+\code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
+         \code{\link{pairwiseNominalIndependence}}, 
+         \code{\link{pairwiseNominalMatrix}}
 }
 \concept{
 McNemar Bowker contingency table symmetry nominal

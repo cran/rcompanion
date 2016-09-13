@@ -14,13 +14,10 @@
 #' @param chisq   If \code{"TRUE"}, conducts Chi-square test of association.
 #' @param method  The method to adjust multiple p-values. 
 #'                See \code{\link{p.adjust}}.
-#' @param correct The correction method to pass to \code{GTest}
-#'                See \code{\link{GTest}}.
+#' @param correct The correction method to pass to \code{\link{GTest}}.
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments, passed to \code{\link{fisher.test}}, 
 #'            \code{\link{GTest}}, or \code{\link{chisq.test}}.
-#' 
-#' @details (None.)
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_04.html}
@@ -38,8 +35,12 @@
 #' ### Independence test for a 4 x 2 matrix
 #' data(Anderson)
 #' fisher.test(Anderson)
-#' Anderson2 = Anderson[(c("Heimlich", "Bloom", "Dougal", "Cobblestone")),]
-#' PT = pairwiseNominalMatrix(Anderson2)$Adjusted
+#' Anderson = Anderson[(c("Heimlich", "Bloom", "Dougal", "Cobblestone")),]
+#' PT = pairwiseNominalMatrix(Anderson,
+#'                            fisher = TRUE,
+#'                            gtest  = FALSE,
+#'                            chisq  = FALSE)$Adjusted
+#' PT
 #' library(multcompView)
 #' multcompLetters(PT)
 #'                                                               

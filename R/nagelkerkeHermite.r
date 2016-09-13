@@ -1,7 +1,8 @@
 #' @title Pseudo r-squared measures for hermite models
 #'
 #' @description Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
-#'              R-squared measures, along with p-values, for hermite regression.
+#'              R-squared measures, along with p-value for the model, 
+#'              for hermite regression objects.
 #' 
 #' @param fit The fitted model object for which to determine pseudo r-squared.
 #' @param null The null model object against which to compare the fitted model 

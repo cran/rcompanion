@@ -23,7 +23,7 @@ If \code{TRUE}, then the density is shown.}
 
 \item{length}{The number of points in the line in the plot.}
 
-\item{...}{Other arguments passed to \code{hist}.}
+\item{...}{Other arguments passed to \code{\link{hist}}.}
 }
 \value{
 Produces a plot. Returns nothing.

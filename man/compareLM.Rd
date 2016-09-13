@@ -64,7 +64,7 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
             \url{http://rcompanion.org/rcompanion/e_05.html}
 }
 \seealso{
-\code{\link{compareGLM}}
+\code{\link{compareGLM}}, \code{\link{pairwiseModelAnova}}
 }
 \concept{
 AIC BIC AICc p-value R-squared

@@ -13,11 +13,11 @@
 #' @param main The title displayed for the plot.
 #' @param lwd The width of the line in the plot.
 #' @param length The number of points in the line in the plot.
-#' @param adjust Passed to  \code{density}. A lower value makes the density
-#'               plot smoother.
-#' @param bw Passed to  \code{density}. See \code{?density}
-#' @param kernel Passed to  \code{density}. See \code{?density}
-#' @param ... Other arguments passed to \code{plot}.
+#' @param adjust Passed to  \code{\link{density}}. 
+#'        A lower value makes the density plot smoother.
+#' @param bw Passed to  \code{\link{density}}.
+#' @param kernel Passed to  \code{\link{density}}.
+#' @param ... Other arguments passed to \code{\link{plot}}.
 #' 
 #' @details  The function plots a polygon based on the \code{density} function. 
 #'           The normal curve has the same mean and standard deviation as the 

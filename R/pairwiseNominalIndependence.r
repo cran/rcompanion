@@ -14,20 +14,17 @@
 #' @param chisq   If \code{"TRUE"}, conducts Chi-square test of association.
 #' @param method  The method to adjust multiple p-values. 
 #'                See \code{\link{p.adjust}}.
-#' @param correct The correction method to pass to \code{GTest}
-#'                See \code{\link{GTest}}.
+#' @param correct The correction method to pass to \code{\link{GTest}}.
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments, passed to \code{\link{fisher.test}}, 
 #'            \code{\link{GTest}}, or \code{\link{chisq.test}}.
-#' 
-#' @details (None.)
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_04.html}
 #' @concept Chi-square G-test Fisher contingency table nominal
 #' @return A data frame of comparisons, p-values, and adjusted p-values.
 #'         
-#'  @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
+#' @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
 #'           \code{\link{nominalSymmetryTest}}, 
 #'           \code{\link{pairwiseNominalMatrix}}
 #'         
@@ -35,7 +32,10 @@
 #' ### Independence test for a 4 x 2 matrix
 #' data(Anderson)
 #' fisher.test(Anderson)
-#' pairwiseNominalIndependence(Anderson)
+#' pairwiseNominalIndependence(Anderson,
+#'                             fisher = TRUE,
+#'                             gtest  = FALSE,
+#'                             chisq  = FALSE)
 #'                                                               
 #' @importFrom stats fisher.test chisq.test
 #' @importFrom DescTools GTest

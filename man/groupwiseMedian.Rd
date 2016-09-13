@@ -45,12 +45,10 @@ intervals for the group means by bootstrap.
 See \code{\link{boot.ci}}.}
 
 \item{wilcox}{If \code{TRUE}, includes the wilcox confidence
-intervals from  \code{\link{wilcox.test}}.
-See \code{\link{boot.ci}}.}
+intervals from  \code{\link{wilcox.test}}.}
 
 \item{exact}{If \code{TRUE}, includes the "exact" confidence
-intervals from  \code{\link{MedianCI}}.
-See \code{\link{boot.ci}}.}
+intervals from  \code{\link{MedianCI}}.}
 
 \item{digits}{The number of significant figures to use in output.}
 

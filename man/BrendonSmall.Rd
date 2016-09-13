@@ -12,7 +12,7 @@
 BrendonSmall
 }
 \description{
-A data frame of intake of calories and sodium for students 
+A data frame of the intake of calories and sodium for students 
              in five classes. Hypothetical data.
 }
 \keyword{datasets}

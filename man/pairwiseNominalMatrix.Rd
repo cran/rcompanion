@@ -23,8 +23,7 @@ If \code{"column"}, treats the columns as the grouping variable.}
 \item{method}{The method to adjust multiple p-values. 
 See \code{\link{p.adjust}}.}
 
-\item{correct}{The correction method to pass to \code{GTest}
-See \code{\link{GTest}}.}
+\item{correct}{The correction method to pass to \code{\link{GTest}}.}
 
 \item{digits}{The number of significant digits in the output.}
 
@@ -47,15 +46,16 @@ Conducts pairwise tests for a 2-dimensional matrix,
              levels, as a post-hoc test. Conducts Fisher exact, Chi-square,
              or G-test.
 }
-\details{
-(None.)
-}
 \examples{
 ### Independence test for a 4 x 2 matrix
 data(Anderson)
 fisher.test(Anderson)
-Anderson2 = Anderson[(c("Heimlich", "Bloom", "Dougal", "Cobblestone")),]
-PT = pairwiseNominalMatrix(Anderson2)$Adjusted
+Anderson = Anderson[(c("Heimlich", "Bloom", "Dougal", "Cobblestone")),]
+PT = pairwiseNominalMatrix(Anderson,
+                           fisher = TRUE,
+                           gtest  = FALSE,
+                           chisq  = FALSE)$Adjusted
+PT
 library(multcompView)
 multcompLetters(PT)
                                                               
