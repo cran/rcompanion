@@ -48,7 +48,7 @@ pairwisePermutationTest(x      = PoohPiglet$Likert,
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \references{
-\url{http://rcompanion.org/rcompanion/d_06a.html}
+\url{http://rcompanion.org/handbook/K_02.html}
 }
 \seealso{
 \code{\link{pairwisePermutationMatrix}}

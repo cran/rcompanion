@@ -29,7 +29,7 @@ Conducts pairwise two-sample permutation tests across groups.
 \details{
 Permutation tests are non-parametric tests 
          that do not assume normally-distributed errors.
-         See \url{http://rcompanion.org/rcompanion/d_06a.html} for
+         See \url{http://rcompanion.org/handbook/K_02.html} for
          futher discussion of this test.
 
          The \code{pairwisePermutationTest} function

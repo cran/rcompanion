@@ -1,42 +1,48 @@
-#' @title Pairwise two-sample permutation tests with matrix output
+#' @title Pairwise two-sample permutation symmetry 
+#'        tests with matrix output
 #'
-#' @description Conducts pairwise two-sample permutation tests across groups.
+#' @description Conducts pairwise two-sample permutation tests
+#'              for symmetry across groups.
 #' 
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
+#' @param b      The blocking variable as a vector.
 #' @param method The p-value adjustment method to use for multiple tests.
 #'               See \code{\link{p.adjust}}.
 #' @param ...    Additional arguments passed to
-#'               \code{\link{independence_test}}.               
+#'               \code{\link{symmetry_test}}.               
 #'             
 #' @details Permutation tests are non-parametric tests 
 #'          that do not assume normally-distributed errors.
-#'          See \url{http://rcompanion.org/handbook/K_02.html} for
+#'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
 #'          futher discussion of this test.
 #' 
-#'          The \code{pairwisePermutationTest} function
+#'          The \code{pairwisePermutationSymmetryMatrix} function
 #'          can be used as a post-hoc method following an omnibus 
-#'          permutation test analogous to a one-way analysis
+#'          permutation test analogous to a paired one-way analysis
 #'          of variance.
 #'          The matrix output can be converted to a compact letter display.                                                                                   
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/rcompanion/d_06a.html}
-#' @seealso \code{\link{pairwisePermutationTest}}
-#' @concept permutation nonparametric post-hoc one-way cld
+#' @references \url{http://rcompanion.org/handbook/K_03.html}
+#' @seealso \code{\link{pairwisePermutationSymmetry}}
+#' @concept permutation nonparametric post-hoc one-way cld symmetry
 #' @return A list consisting of:
 #'         A matrix of p-values;
 #'         the p-value adjustment method;
 #'         a matrix of adjusted p-values. 
 #'         
 #' @examples
-#' data(PoohPiglet)
-#' PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-#'                         levels=c("Pooh", "Tigger", "Piglet"))),]               
-#' PT = pairwisePermutationMatrix(x      = PoohPiglet$Likert,
-#'                                g      = PoohPiglet$Speaker,
-#'                                exact  = NULL,
-#'                                method = "fdr")$Adjusted
+#' data(BobBelcher)
+#' BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+#'                         levels=c("Linda Belcher", "Louise Belcher",
+#'                                  "Tina Belcher", "Bob Belcher",
+#'                                  "Gene Belcher"))),]
+#' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
+#' PT = pairwisePermutationSymmetryMatrix(x      = BobBelcher$Likert.f,
+#'                                        g      = BobBelcher$Instructor,
+#'                                        b      = BobBelcher$Rater,
+#'                                        method = "fdr")$Adjusted
 #' PT
 #' library(multcompView)
 #' multcompLetters(PT,
@@ -45,16 +51,16 @@
 #'                 Letters=letters)   
 #' 
 #' @importFrom stats p.adjust
-#' @importFrom coin independence_test statistic
+#' @importFrom coin symmetry_test statistic
 #' 
 #' @export  
 
-pairwisePermutationMatrix = 
-  function(x, g, method = "fdr", ...)
+pairwisePermutationSymmetryMatrix = 
+  function(x, g, b, method = "fdr", ...)
   {
   n = length(unique(g))
   N = n*n
-  d = data.frame(x = x, g = g)
+  d = data.frame(x = x, g = g, b = b)
   Y = matrix(rep(NA_real_, N),ncol=n)
   rownames(Y)=unique(g)
   colnames(Y)=unique(g)
@@ -69,7 +75,7 @@ pairwisePermutationMatrix =
      Datay = subset(d, g==unique(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
-     z = independence_test(x ~ g2, data=Dataz, ...)                  
+     z = symmetry_test(x ~ g2|b, data=Dataz, ...)                  
    Y[i,j] = signif(pvalue(z), digits = 4)
    } 
    }

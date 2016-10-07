@@ -1,7 +1,8 @@
-69227660b0c278922cf6838953ecb1be *DESCRIPTION
-bc316d36c8ab92ef8feaf58eae04befa *NAMESPACE
+15f44374b0112fa61cacc8990c2c5fc4 *DESCRIPTION
+fb12457e6f3e05080d3f44b7fdf5d5bb *NAMESPACE
 38ee65221b47823e2e0096f83aa3f864 *R/Data.R
 2957b943a8d92529eb1c2df056cfa3bc *R/cateNelson.r
+48ed2aa0e7b11cd7b01f2a760b2dbc83 *R/cldList.r
 67d93db1078f20de3a198d3bbef57a6e *R/compareGLM.r
 b3c1f291f38d06809fd28df91044996f *R/compareLM.r
 e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
@@ -24,8 +25,10 @@ f757b2f8d92d3e3ef8af4f2423cd29da *R/pairwiseModelAnova.r
 03123ee079f6cffcdddea05b602779ec *R/pairwiseOrdinalPairedMatrix.r
 a493754a31a2dbedd81f75ece30161b3 *R/pairwiseOrdinalPairedTest.r
 db63304b0e46ff8acdd7b42669249035 *R/pairwiseOrdinalTest.r
-02a2309a045714d27ff31af4b7943d2f *R/pairwisePermutationMatrix.r
-c88073c6f86833ade07652bbd74d77e3 *R/pairwisePermutationTest.r
+b26f816f1e9f54c001f7d1e6e4ee2188 *R/pairwisePermutationMatrix.r
+30a703325ace490d8b76d8c0e7e9a799 *R/pairwisePermutationSymmetry.r
+aeff85f4b1bbb5a1cff28c83bad72533 *R/pairwisePermutationSymmetryMatrix.r
+bcd11ca24850ae688ea473cc3a918008 *R/pairwisePermutationTest.r
 8bee09913a34b4f37215e8b2861180c2 *R/pairwiseRobustMatrix.r
 c6f57eb2df358abb1a2114ff4884a39e *R/pairwiseRobustTest.r
 f2d85563172d57881031a1e8733b2839 *R/pairwiseSignMatrix.r
@@ -63,6 +66,7 @@ d0ae1e0954767db5986b76c15ba7ec95 *man/Nurseries.Rd
 3d799158e927f4aad9b6fb3de8ae9fad *man/PoohPiglet.Rd
 e109f9d7391c46b1b41fd4d64e08403c *man/Religion.Rd
 6b274715273de098eedb5073c652045c *man/cateNelson.Rd
+e491e781aaed709682c6541cc4bbce8c *man/cldList.Rd
 9d3b6a7c5a057ac460d65f78ce32c830 *man/compareGLM.Rd
 adfb27bad7607b0a015d45938d129b4c *man/compareLM.Rd
 9f1776459bd868a7879aebd81a6cdd69 *man/fullPTable.Rd
@@ -85,8 +89,10 @@ e228c14e8e5b492845eb6f9d7a67e938 *man/pairwiseModelAnova.Rd
 cdaedfa5d87365562a6b085efbd8a206 *man/pairwiseOrdinalPairedMatrix.Rd
 389ecd8e1dac9ae60286f3f029d5c5bd *man/pairwiseOrdinalPairedTest.Rd
 82acb0a36cf3dea79f109c0473744626 *man/pairwiseOrdinalTest.Rd
-c5a073811bb39132f846bded31e7922a *man/pairwisePermutationMatrix.Rd
-4aa1e861e98d3b7cec6a514317fbb325 *man/pairwisePermutationTest.Rd
+dc5160f0391a67a31949b020be60eebe *man/pairwisePermutationMatrix.Rd
+f5a46bc39d034d269a7b685a5b051ee0 *man/pairwisePermutationSymmetry.Rd
+8ccfc163aa0023a06eabf29974a257f1 *man/pairwisePermutationSymmetryMatrix.Rd
+a1218df8638d5472b2ceaf5ed08a8db4 *man/pairwisePermutationTest.Rd
 fc75c2fc210c6387bd9fa623ba9ed453 *man/pairwiseRobustMatrix.Rd
 3d3b3f3f26bc44b1a3c9ef6c07b52617 *man/pairwiseRobustTest.Rd
 4e78f586103f33cd59079e2116dfe291 *man/pairwiseSignMatrix.Rd
