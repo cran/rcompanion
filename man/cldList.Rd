@@ -5,7 +5,8 @@
 \title{Compact letter display for lists of comparisons}
 \usage{
 cldList(comparison, p.value, threshold = 0.05, print.comp = FALSE,
-  remove.space = TRUE, remove.equal = TRUE, remove.zero = TRUE, ...)
+  remove.space = TRUE, remove.equal = TRUE, remove.zero = TRUE,
+  swap.colon = TRUE, swap.vs = FALSE, ...)
 }
 \arguments{
 \item{comparison}{A vector of text describing comparisons, 
@@ -31,6 +32,12 @@ comparisons}
 \item{remove.zero}{If \code{TRUE}, removes "0" from the text of the
 comparisons}
 
+\item{swap.colon}{If \code{TRUE}, swaps ":" with "-" in the text of the
+comparisons}
+
+\item{swap.vs}{If \code{TRUE}, swaps "vs" with "-" in the text of the
+comparisons}
+
 \item{...}{Additional arguments passed to
 \code{multcompLetters}}
 }
@@ -48,9 +55,13 @@ This function relies upon the \code{multcompLetters}
           comparisons
           passed to \code{multcompLetters} should be in the form
           "Treat.A-Treat.B".  Currently \code{cldList} removes
-          spaces, equal signs, and zeros by default, and so can use 
+          spaces, equal signs, and zeros, by default, 
+          and so can use 
           text in the form e.g.
           "Treat.A - Treat.B = 0".
+          It also changes ":" to "-", and so can use
+          text in the form e.g.
+          "Treat.A : Treat.B".
 }
 \examples{
 data(PoohPiglet)

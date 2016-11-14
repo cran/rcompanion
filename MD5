@@ -1,8 +1,8 @@
-15f44374b0112fa61cacc8990c2c5fc4 *DESCRIPTION
+97285bd27676545876cec81cd8bc5c5b *DESCRIPTION
 fb12457e6f3e05080d3f44b7fdf5d5bb *NAMESPACE
-38ee65221b47823e2e0096f83aa3f864 *R/Data.R
+29da021073e66e436f9833aed655b7ef *R/Data.R
 2957b943a8d92529eb1c2df056cfa3bc *R/cateNelson.r
-48ed2aa0e7b11cd7b01f2a760b2dbc83 *R/cldList.r
+8646d80c44b626c927428d4b55c3b372 *R/cldList.r
 67d93db1078f20de3a198d3bbef57a6e *R/compareGLM.r
 b3c1f291f38d06809fd28df91044996f *R/compareLM.r
 e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
@@ -11,7 +11,7 @@ e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
 4125b6bbacad9eae6a01be58001c81af *R/groupwiseHuber.r
 d9b5ab3b726989bce52b2b1a515d7778 *R/groupwiseMean.r
 11964159e40f3f82a918e3827519365f *R/groupwiseMedian.r
-f6777f03a98f8b60b996159be3b3125e *R/nagelkerke.r
+06435f6ca2ba1526d21922d903cef6a6 *R/nagelkerke.r
 bfa2b87121936b8a7181af36a7db04bf *R/nagelkerkeHermite.r
 9d2dffac031d3f5a24f31bd3fea4e41e *R/nominalSymmetryTest.r
 acff94974c27bdecaa579b312ef8d6cd *R/pairwiseDifferences.r
@@ -36,7 +36,7 @@ ff6c3d9c498cc2ecef5f9cf694afcf56 *R/pairwiseSignTest.r
 bf9260ae48692ab3caca389cda83f5ed *R/plotDensityHistogram.r
 520b763aece496d28ec6667a3a1e63ee *R/plotNormalDensity.r
 0bfe221e88b867080aa85a95a0ab64c3 *R/plotNormalHistogram.r
-5301ce63476c3bdc914ed4e129eac251 *R/plotPredy.r
+a3580ffe4d8d5b40f702ff7ea476fdc2 *R/plotPredy.r
 5269695a748fba6a536a0f723cbbf661 *R/rcompanion-package.r
 f7e4d3bf9717364b69feea8566ee50a1 *R/transformTukey.r
 9b8ec3ae7a8b446fd136c4b747f9ed23 *data/Anderson.rda
@@ -45,6 +45,7 @@ a482b6f2bfdad5ee0f89c26daeab549c *data/AndersonRainBarrel.rda
 9464409252f4f05d81f17d4f8cda2190 *data/AndersonRainGarden.rda
 3583bd27f9ed363cef918e79fe7932b8 *data/BobBelcher.rda
 7343a205e127f2a020ed32d1b3a83df6 *data/BrendonSmall.rda
+8c30e5392a122f592df1c4e6055ed234 *data/BullyHill.rda
 16ff9517a4ba1941c6eed015fc9be81a *data/Catbus.rda
 c44a4c879bcd264701bb95cb6eda09a6 *data/HayleySmith.rda
 be4c1e6e96fbc329b88ece4e5038e963 *data/Monarchs.rda
@@ -58,6 +59,7 @@ a3098519f671c1f9766d07e347db2260 *man/AndersonRainBarrel.Rd
 1e74ade8ab4a9cd48069e3a045000416 *man/AndersonRainGarden.Rd
 d242b71fdb0824b6f6f33a8e77e478f9 *man/BobBelcher.Rd
 7fe7d2d58c3567cdca9f27dd6805dbd1 *man/BrendonSmall.Rd
+0fc07a841ccd7dfc6d2d4e2aef0f0ee1 *man/BullyHill.Rd
 0b7c2bbaf85329218be4f5c315fcd49b *man/Catbus.Rd
 080bd6bc4718b7c4ec9ae7ae9284018f *man/HayleySmith.Rd
 b58c4200ecdb57cf6aca100f6e88444a *man/Monarchs.Rd
@@ -66,7 +68,7 @@ d0ae1e0954767db5986b76c15ba7ec95 *man/Nurseries.Rd
 3d799158e927f4aad9b6fb3de8ae9fad *man/PoohPiglet.Rd
 e109f9d7391c46b1b41fd4d64e08403c *man/Religion.Rd
 6b274715273de098eedb5073c652045c *man/cateNelson.Rd
-e491e781aaed709682c6541cc4bbce8c *man/cldList.Rd
+ac436accf16a6a8060c0660b49e9a7cc *man/cldList.Rd
 9d3b6a7c5a057ac460d65f78ce32c830 *man/compareGLM.Rd
 adfb27bad7607b0a015d45938d129b4c *man/compareLM.Rd
 9f1776459bd868a7879aebd81a6cdd69 *man/fullPTable.Rd
@@ -75,7 +77,7 @@ adfb27bad7607b0a015d45938d129b4c *man/compareLM.Rd
 fcc660a43f5056a11d9ee3390a32c2ec *man/groupwiseHuber.Rd
 a7e27ca6fea6b65e46b0785e54f22f43 *man/groupwiseMean.Rd
 305834cf8dfa3dde7067468194af6c75 *man/groupwiseMedian.Rd
-535fca8641296e6f647b6e153b07c400 *man/nagelkerke.Rd
+788bea54bdc4b9c0b4cc3e5a6429ef3b *man/nagelkerke.Rd
 8f7f2f147e7c3875aa52ecd292c25adf *man/nagelkerkeHermite.Rd
 5c60cfe97821b1f10e49a74ed622afb8 *man/nominalSymmetryTest.Rd
 84d5f15be096973ee2213fd8b9e5426d *man/pairwiseDifferences.Rd
@@ -100,6 +102,6 @@ c73368801e08877420da8e557f9f42e0 *man/pairwiseSignTest.Rd
 4c9526b4f916afa3d2a61e4c3727adb2 *man/plotDensityHistogram.Rd
 43d3322805289cd18efa4842a2e1230c *man/plotNormalDensity.Rd
 025a5654070719bc170c486cb93b3124 *man/plotNormalHistogram.Rd
-b4badfd7bef9c44593cd10ce73163f13 *man/plotPredy.Rd
+254eb08d10bf5086e3a968878334eaf9 *man/plotPredy.Rd
 ba03bcd6209d827832034250d00a8b7d *man/rcompanion-package.Rd
 b4e77c70c95106ac0007e99777f980bb *man/transformTukey.Rd

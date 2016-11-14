@@ -18,15 +18,21 @@
 #'           Cox and Snell is also referred to as ML. Nagelkerke is also  
 #'           referred to as Cragg and Uhler.
 #'           
-#'           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,      
-#'           clm, clmm, vglm, glmer, negbin, zeroinfl.            
+#'           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
+#'           clm, clmm, vglm, glmer, negbin, zeroinfl, betareg.            
 #'                                       
 #'           Model objects that require the null model to 
 #'           be defined are nls, lmer, glmer and clmm. 
 #'           Other objects use the \code{update} function to
 #'           define the null model.
 #'           
-#'           Likelihoods are found using ML (\code{REML = FALSE}).                                                                                       
+#'           Likelihoods are found using ML (\code{REML = FALSE}).
+#'           
+#'           Caveats:
+#'           Some pseudo R-squared measures may not be appropriate
+#'           or useful for some model types.
+#'           Calculations are based on log likelihood values for models.
+#'           Results may be different than those based on deviance.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/G_10.html}
@@ -76,7 +82,8 @@ function(fit, null=NULL)
              | class(fit)[1]=="negbin"
              | class(fit)[1]=="zeroinfl"
              | class(fit)[1]=="clm"
-             | class(fit)[1]=="vglm")
+             | class(fit)[1]=="vglm"
+             | class(fit)[1]=="betareg")
    BOGGLE = (class(fit)[1]=="nls"
              | class(fit)[1]=="lmerMod"
              | class(fit)[1]=="glmerMod"

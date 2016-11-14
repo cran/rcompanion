@@ -25,6 +25,7 @@
 #' @param lty    The style of the plotted line.
 #' @param lwd    The width of the plotted line.
 #' @param col    The col of the plotted line.
+#' @param type   Passed to \code{predict}. Required for certain models.
 #' @param ...    Other arguments passed to \code{plot}.
 #' 
 #' @details  Any model for which \code{predict()} is defined can be used.
@@ -74,6 +75,19 @@
 #'           model = model,
 #'           xlab  = "Calories per day",
 #'           ylab  = "Sodium intake per day")
+#'
+#' ### Logistic regression example requires type option
+#' data(BullyHill)
+#' Trials = cbind(BullyHill$Pass, BullyHill$Fail)
+#' model.log = glm(Trials ~ Grade, data = BullyHill,
+#'                 family = binomial(link="logit"))
+#' plotPredy(data  = BullyHill,
+#'           y     = "Percent",
+#'           x     = "Grade",
+#'           model = model.log,
+#'           type  = "response",
+#'           xlab  = "Grade",
+#'           ylab  = "Proportion passing")
 #' 
 #' @importFrom graphics plot lines
 #' @importFrom stats lm predict nls formula
@@ -83,7 +97,7 @@
 plotPredy = function (data, x, y, model, order=1,
                        x2=NULL, x3=NULL, x4=NULL, x5=NULL,
                        pch=16, xlab="X", ylab="Y", length = 1000,
-                       lty=1, lwd=2, col="blue", ...) {
+                       lty=1, lwd=2, col="blue", type=NULL, ...) {
    Formula = formula(paste(y, "~", x, sep=" "))
    i = as.numeric(seq(min(data[,x]), max(data[,x]), len=length))
    if(order==1){D1 = data.frame(X=i)
@@ -106,7 +120,8 @@ plotPredy = function (data, x, y, model, order=1,
    names(D1)[3] = x3
    names(D1)[4] = x4
    names(D1)[5] = x5}
-   predy = predict(model, D1)
+   if(is.null(type)) {predy = predict(model, D1)}
+   if(!is.null(type)) {predy = predict(model, D1, type=type)}
    plot(Formula, data = data, pch=pch, xlab=xlab, ylab=ylab, ...)
    lines(i, predy,
          lty=lty,                                  

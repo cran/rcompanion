@@ -18,6 +18,10 @@
 #'                      comparisons
 #' @param remove.zero   If \code{TRUE}, removes "0" from the text of the
 #'                      comparisons
+#' @param swap.colon    If \code{TRUE}, swaps ":" with "-" in the text of the
+#'                      comparisons
+#' @param swap.vs       If \code{TRUE}, swaps "vs" with "-" in the text of the
+#'                      comparisons                      
 #' @param ...           Additional arguments passed to
 #'                      \code{multcompLetters}              
 #'             
@@ -26,9 +30,13 @@
 #'           comparisons
 #'           passed to \code{multcompLetters} should be in the form
 #'           "Treat.A-Treat.B".  Currently \code{cldList} removes
-#'           spaces, equal signs, and zeros by default, and so can use 
+#'           spaces, equal signs, and zeros, by default, 
+#'           and so can use 
 #'           text in the form e.g.
 #'           "Treat.A - Treat.B = 0".
+#'           It also changes ":" to "-", and so can use
+#'           text in the form e.g.
+#'           "Treat.A : Treat.B".
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_08.html}
@@ -61,13 +69,19 @@ cldList = function(comparison,
                    remove.space  = TRUE,
                    remove.equal  = TRUE,
                    remove.zero   = TRUE,
+                   swap.colon    = TRUE,
+                   swap.vs       = FALSE,
                    ...)
 {
 Comparison = p.value < threshold
 
+if (sum(Comparison) == 0){stop("No significant differences.", call.=FALSE)}
+
 if(remove.space == TRUE) {comparison = gsub(" ", "", comparison)}
 if(remove.equal == TRUE) {comparison = gsub("=", "", comparison)}
 if(remove.zero  == TRUE) {comparison = gsub("0", "", comparison)}
+if(swap.colon   == TRUE) {comparison = gsub(":", "-", comparison)}
+if(swap.vs      == TRUE) {comparison = gsub("vs", "-", comparison)}
 
 names(Comparison) = comparison
 

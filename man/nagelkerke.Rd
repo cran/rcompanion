@@ -34,8 +34,8 @@ Pseudo R-squared values are not directly comparable to the
           Cox and Snell is also referred to as ML. Nagelkerke is also  
           referred to as Cragg and Uhler.
           
-          Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,      
-          clm, clmm, vglm, glmer, negbin, zeroinfl.            
+          Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
+          clm, clmm, vglm, glmer, negbin, zeroinfl, betareg.            
                                       
           Model objects that require the null model to 
           be defined are nls, lmer, glmer and clmm. 
@@ -43,6 +43,12 @@ Pseudo R-squared values are not directly comparable to the
           define the null model.
           
           Likelihoods are found using ML (\code{REML = FALSE}).
+          
+          Caveats:
+          Some pseudo R-squared measures may not be appropriate
+          or useful for some model types.
+          Calculations are based on log likelihood values for models.
+          Results may be different than those based on deviance.
 }
 \examples{
 ### Logistic regression example

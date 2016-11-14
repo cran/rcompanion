@@ -1,3 +1,12 @@
+#' @title Hypothetical data for proportion of students passing a certification
+#'
+#' @description A data frame of counts of students passing and failing.
+#'              Hypothetical data.
+#' 
+#' @source \url{http://rcompanion.org/handbook/J_02.html}
+"BullyHill"
+
+###############################################################################
 #' @title Hypothetical data for ratings of Pooh, Piglet, and Tigger
 #'
 #' @description A data frame of Likert responses for instructors Pooh Bear,

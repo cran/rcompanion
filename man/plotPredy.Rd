@@ -6,7 +6,7 @@
 \usage{
 plotPredy(data, x, y, model, order = 1, x2 = NULL, x3 = NULL, x4 = NULL,
   x5 = NULL, pch = 16, xlab = "X", ylab = "Y", length = 1000,
-  lty = 1, lwd = 2, col = "blue", ...)
+  lty = 1, lwd = 2, col = "blue", type = NULL, ...)
 }
 \arguments{
 \item{data}{The name of the data frame.}
@@ -45,6 +45,8 @@ polynomial x variable.}
 \item{lwd}{The width of the plotted line.}
 
 \item{col}{The col of the plotted line.}
+
+\item{type}{Passed to \code{predict}. Required for certain models.}
 
 \item{...}{Other arguments passed to \code{plot}.}
 }
@@ -99,6 +101,19 @@ plotPredy(data  = BrendonSmall,
           model = model,
           xlab  = "Calories per day",
           ylab  = "Sodium intake per day")
+
+### Logistic regression example requires type option
+data(BullyHill)
+Trials = cbind(BullyHill$Pass, BullyHill$Fail)
+model.log = glm(Trials ~ Grade, data = BullyHill,
+                family = binomial(link="logit"))
+plotPredy(data  = BullyHill,
+          y     = "Percent",
+          x     = "Grade",
+          model = model.log,
+          type  = "response",
+          xlab  = "Grade",
+          ylab  = "Proportion passing")
 
 }
 \author{
