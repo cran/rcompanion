@@ -146,3 +146,15 @@
 "Nurseries"
 
 ###############################################################################
+
+#' @title Hypothetical data for students' breakfast habits and travel to school
+#'
+#' @description A two-dimensional contingency table, in which Breakfast 
+#'              is an ordered nominal variable,
+#'              and Travel is a non-ordered nominal variable.
+#'              Hypothetical data.
+#' 
+#' @source \url{http://rcompanion.org/handbook/H_09.html}
+"Breakfast"
+
+###############################################################################

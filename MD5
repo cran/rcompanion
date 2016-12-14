@@ -1,6 +1,6 @@
-97285bd27676545876cec81cd8bc5c5b *DESCRIPTION
-fb12457e6f3e05080d3f44b7fdf5d5bb *NAMESPACE
-29da021073e66e436f9833aed655b7ef *R/Data.R
+2c120d3f4dca7e6215cc02fe51c964ab *DESCRIPTION
+da4e732cb29543144ad9217f294be7f7 *NAMESPACE
+adb8112fbae66d7b9f80876c68c185f5 *R/Data.R
 2957b943a8d92529eb1c2df056cfa3bc *R/cateNelson.r
 8646d80c44b626c927428d4b55c3b372 *R/cldList.r
 67d93db1078f20de3a198d3bbef57a6e *R/compareGLM.r
@@ -21,6 +21,7 @@ ae49a0f22a4dd0536dc21b7baaa9b2f1 *R/pairwiseMedianTest.r
 f757b2f8d92d3e3ef8af4f2423cd29da *R/pairwiseModelAnova.r
 40a7c899f1e3868047598da31da31c2e *R/pairwiseNominalIndependence.r
 3684bc04ffd97fa18efd41218b75840d *R/pairwiseNominalMatrix.r
+1da25c04611c9c5d6bc4165553884978 *R/pairwiseOrdinalIndependence.r
 9db6cbebc06a1e19ec7ae899dc41edd2 *R/pairwiseOrdinalMatrix.r
 03123ee079f6cffcdddea05b602779ec *R/pairwiseOrdinalPairedMatrix.r
 a493754a31a2dbedd81f75ece30161b3 *R/pairwiseOrdinalPairedTest.r
@@ -44,6 +45,7 @@ b8c561a2595e6a5647a795669520fc51 *data/AndersonBias.rda
 a482b6f2bfdad5ee0f89c26daeab549c *data/AndersonRainBarrel.rda
 9464409252f4f05d81f17d4f8cda2190 *data/AndersonRainGarden.rda
 3583bd27f9ed363cef918e79fe7932b8 *data/BobBelcher.rda
+57ac3fa3b3cdfaaf93f7f8231f05c2bb *data/Breakfast.rda
 7343a205e127f2a020ed32d1b3a83df6 *data/BrendonSmall.rda
 8c30e5392a122f592df1c4e6055ed234 *data/BullyHill.rda
 16ff9517a4ba1941c6eed015fc9be81a *data/Catbus.rda
@@ -58,6 +60,7 @@ be4c1e6e96fbc329b88ece4e5038e963 *data/Monarchs.rda
 a3098519f671c1f9766d07e347db2260 *man/AndersonRainBarrel.Rd
 1e74ade8ab4a9cd48069e3a045000416 *man/AndersonRainGarden.Rd
 d242b71fdb0824b6f6f33a8e77e478f9 *man/BobBelcher.Rd
+26fc4383ad3a8880416000e66f7022df *man/Breakfast.Rd
 7fe7d2d58c3567cdca9f27dd6805dbd1 *man/BrendonSmall.Rd
 0fc07a841ccd7dfc6d2d4e2aef0f0ee1 *man/BullyHill.Rd
 0b7c2bbaf85329218be4f5c315fcd49b *man/Catbus.Rd
@@ -87,6 +90,7 @@ b24af7b146b865fc3e8491565adcfd96 *man/pairwiseMedianMatrix.Rd
 e228c14e8e5b492845eb6f9d7a67e938 *man/pairwiseModelAnova.Rd
 53728c3897796f39c5e38550ac3cd680 *man/pairwiseNominalIndependence.Rd
 17e1889b7d1f2937d8bf1d76c081603b *man/pairwiseNominalMatrix.Rd
+9850177d4803b20f35e6df278f3787a1 *man/pairwiseOrdinalIndependence.Rd
 419135992cca4f8b660a2e54f53fe301 *man/pairwiseOrdinalMatrix.Rd
 cdaedfa5d87365562a6b085efbd8a206 *man/pairwiseOrdinalPairedMatrix.Rd
 389ecd8e1dac9ae60286f3f029d5c5bd *man/pairwiseOrdinalPairedTest.Rd
