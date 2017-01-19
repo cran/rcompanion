@@ -11,7 +11,7 @@
 #'             
 #' @details Permutation tests are non-parametric tests 
 #'          that do not assume normally-distributed errors.
-#'          See \url{http://rcompanion.org/handbook/K_02.html} for
+#'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
 #'          futher discussion of this test.
 #' 
 #'          The \code{pairwisePermutationTest} function
@@ -21,7 +21,7 @@
 #'          The matrix output can be converted to a compact letter display.                                                                                   
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/rcompanion/d_06a.html}
+#' @references \url{http://rcompanion.org/handbook/K_02.html}
 #' @seealso \code{\link{pairwisePermutationTest}}
 #' @concept permutation nonparametric post-hoc one-way cld
 #' @return A list consisting of:
@@ -31,13 +31,13 @@
 #'         
 #' @examples
 #' data(PoohPiglet)
-#' PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-#'                         levels=c("Pooh", "Tigger", "Piglet"))),]               
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+#'                             levels=c("Pooh", "Tigger", "Piglet"))               
 #' PT = pairwisePermutationMatrix(x      = PoohPiglet$Likert,
 #'                                g      = PoohPiglet$Speaker,
-#'                                exact  = NULL,
-#'                                method = "fdr")$Adjusted
+#'                                method = "fdr")
 #' PT
+#' PT = PT$Adjusted
 #' library(multcompView)
 #' multcompLetters(PT,
 #'                 compare="<",
@@ -52,21 +52,22 @@
 pairwisePermutationMatrix = 
   function(x, g, method = "fdr", ...)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  n = length(levels(g))
   N = n*n
   d = data.frame(x = x, g = g)
   Y = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Y)=unique(g)
-  colnames(Y)=unique(g)
+  rownames(Y)=levels(g)
+  colnames(Y)=levels(g)
   Z = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Z)=unique(g)
-  colnames(Z)=unique(g)
+  rownames(Z)=levels(g)
+  colnames(Z)=levels(g)
   k=0
   for(i in 1:(n-1)){
      for(j in (i+1):n){
      k=k+1
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
      z = independence_test(x ~ g2, data=Dataz, ...)                  

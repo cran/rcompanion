@@ -66,8 +66,8 @@ Any model for which \code{predict()} is defined can be used.
 data(BrendonSmall)
 model = lm(Weight ~ Calories, data = BrendonSmall) 
 plotPredy(data  = BrendonSmall,
-          y     = "Weight",
-          x     = "Calories",
+          y     = Weight,
+          x     = Calories,
           model = model,
           xlab  = "Calories per day",
           ylab  = "Weight in kilograms")
@@ -77,9 +77,9 @@ data(BrendonSmall)
 BrendonSmall$Calories2 = BrendonSmall$Calories * BrendonSmall$Calories
 model = lm(Sodium ~ Calories + Calories2, data = BrendonSmall) 
 plotPredy(data  = BrendonSmall,
-          y     = "Sodium",
-          x     = "Calories",
-          x2    = "Calories2",
+          y     = Sodium,
+          x     = Calories,
+          x2    = Calories2,
           model = model,
           order = 2,
           xlab  = "Calories per day",
@@ -96,8 +96,8 @@ model = nls(Sodium ~ quadplat(Calories, a, b, clx),
                          b   = 0.359,
                          clx = 2304))
 plotPredy(data  = BrendonSmall,
-          y     = "Sodium",
-          x     = "Calories",
+          y     = Sodium,
+          x     = Calories,
           model = model,
           xlab  = "Calories per day",
           ylab  = "Sodium intake per day")
@@ -108,8 +108,8 @@ Trials = cbind(BullyHill$Pass, BullyHill$Fail)
 model.log = glm(Trials ~ Grade, data = BullyHill,
                 family = binomial(link="logit"))
 plotPredy(data  = BullyHill,
-          y     = "Percent",
-          x     = "Grade",
+          y     = Percent,
+          x     = Grade,
           model = model.log,
           type  = "response",
           xlab  = "Grade",

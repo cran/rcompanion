@@ -30,7 +30,7 @@ Conducts pairwise two-sample permutation tests
 \details{
 Permutation tests are non-parametric tests 
          that do not assume normally-distributed errors.
-         See \url{http://rcompanion.org/handbook/K_03.html} for
+         See \url{http://rcompanion.org/rcompanion/d_06a.html} for
          futher discussion of this test.
 
          The \code{pairwisePermutationSymmetry} function
@@ -40,22 +40,26 @@ Permutation tests are non-parametric tests
 }
 \examples{
 data(BobBelcher)
-BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
-                        levels=c("Linda Belcher", "Louise Belcher",
+BobBelcher$Instructor = factor(BobBelcher$Instructor, 
+                               levels=c("Linda Belcher", "Louise Belcher",
                                  "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))),]
+                                 "Gene Belcher"))
 BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
-pairwisePermutationSymmetry(x      = BobBelcher$Likert.f,
-                            g      = BobBelcher$Instructor,
-                            b      = BobBelcher$Rater,
-                            method = "fdr")
+PT = pairwisePermutationSymmetry(x      = BobBelcher$Likert.f,
+                                 g      = BobBelcher$Instructor,
+                                 b      = BobBelcher$Rater,
+                                 method = "fdr")
+PT
+cldList(comparison = PT$Comparison,
+        p.value    = PT$p.adjust,
+        threshold  = 0.05)
 
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \references{
-\url{http://rcompanion.org/rcompanion/d_06a.html}
+\url{http://rcompanion.org/handbook/K_03.html}
 }
 \seealso{
 \code{\link{pairwisePermutationSymmetryMatrix}}

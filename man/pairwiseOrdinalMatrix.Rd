@@ -46,8 +46,8 @@ Ordinal regression
 \examples{
 data(PoohPiglet)
 PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-                        levels=c("Pooh", "Tigger", "Piglet"))),]               
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+                             levels=c("Pooh", "Tigger", "Piglet"))               
 PT = pairwiseOrdinalMatrix(x      = PoohPiglet$Likert.f,
                            g      = PoohPiglet$Speaker,
                            method = "fdr")$Adjusted

@@ -33,12 +33,16 @@
 #'         
 #' @examples
 #' data(PoohPiglet)
-#' PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-#'                         levels=c("Pooh", "Tigger", "Piglet"))),]
-#' pairwiseRobustTest(x      = PoohPiglet$Likert,
-#'                    g      = PoohPiglet$Speaker,
-#'                    method = "fdr")
-#' 
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+#'                             levels=c("Pooh", "Tigger", "Piglet"))
+#' PT = pairwiseRobustTest(x      = PoohPiglet$Likert,
+#'                         g      = PoohPiglet$Speaker,
+#'                         method = "fdr")
+#' PT
+#' cldList(comparison = PT$Comparison,
+#'         p.value    = PT$p.adjust,
+#'         threshold  = 0.05)
+#'        
 #' @importFrom stats p.adjust anova
 #' @importFrom WRS2 pb2gen
 #' 
@@ -47,7 +51,8 @@
 pairwiseRobustTest = 
   function(x, g, est="mom", nboot=599, method="fdr", ...)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  n = length(levels(g))
   N = n*(n-1)/2
   d = data.frame(x = x, g = g)
   Z = data.frame(Comparison=rep("A", N),
@@ -59,10 +64,10 @@ pairwiseRobustTest =
   for(i in 1:(n-1)){
      for(j in (i+1):n){
        k=k+1
-     Namea = as.character(unique(g)[i])
-     Nameb = as.character(unique(g)[j])
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Namea = as.character(levels(g)[i])
+     Nameb = as.character(levels(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
      print(paste0("comparison ",k," ..."))

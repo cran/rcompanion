@@ -40,11 +40,13 @@
 #'                                 g = Pooh$Time,
 #'                                 plotit = TRUE)
 #' 
-#' ### Unreplicated complete block design example with histograms
+#' ### Unreplicated complete block design example with bar plots
 #' data(BobBelcher)
-#' Bob.diff = pairwiseDifferences(x= BobBelcher$Likert, g=BobBelcher$Instructor)
+#' Bob.diff = pairwiseDifferences(x= BobBelcher$Likert, 
+#'                                g=BobBelcher$Instructor, 
+#'                                factorize=TRUE)
 #' library(lattice)
-#' histogram(~ Difference | Comparison,
+#' histogram(~ Difference.f | Comparison,
 #'          data=Bob.diff,
 #'          type = "count",
 #'          layout=c(2,5))
@@ -57,12 +59,13 @@
 pairwiseDifferences = 
   function(x, g, plotit=FALSE, factorize=FALSE)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  n = length(levels(g))
   N = n*(n-1)/2
   Flength = rep(NA, n)
   i=0
   for(i in (i+1):n){
-     Flength[i] = length(g[g==unique(g)[i]])
+     Flength[i] = length(g[g==levels(g)[i]])
      }
   m = min(Flength)
   M = N * m
@@ -74,10 +77,10 @@ pairwiseDifferences =
   i=0; j=0; k=0; l=0              
   for(i in 1:(n-1)){
      for(j in (i+1):n){
-     Namea = as.character(unique(g)[i])
-     Nameb = as.character(unique(g)[j])
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Namea = as.character(levels(g)[i])
+     Nameb = as.character(levels(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      for(k in 1:m){
      l=l+1
      a = Datax$x[k]

@@ -43,8 +43,8 @@ Mood's median test compares medians among two or more groups.
 }
 \examples{
 data(PoohPiglet)
-PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-                        levels=c("Pooh", "Tigger", "Piglet"))),]               
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+                            levels=c("Pooh", "Tigger", "Piglet"))               
 PT = pairwiseMedianMatrix(x      = PoohPiglet$Likert,
                           g      = PoohPiglet$Speaker,
                           exact  = NULL,

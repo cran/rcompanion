@@ -34,10 +34,10 @@
 #'         
 #' @examples
 #' data(BobBelcher)
-#' BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+#' BobBelcher$Instructor = factor(BobBelcher$Instructor, 
 #'                         levels=c("Linda Belcher", "Louise Belcher",
 #'                                  "Tina Belcher", "Bob Belcher",
-#'                                  "Gene Belcher"))),]
+#'                                  "Gene Belcher"))
 #' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
 #' PT = pairwisePermutationSymmetryMatrix(x      = BobBelcher$Likert.f,
 #'                                        g      = BobBelcher$Instructor,
@@ -58,21 +58,23 @@
 pairwisePermutationSymmetryMatrix = 
   function(x, g, b, method = "fdr", ...)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  if(!is.factor(b)){g=factor(b)}
+  n = length(levels(g))
   N = n*n
   d = data.frame(x = x, g = g, b = b)
   Y = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Y)=unique(g)
-  colnames(Y)=unique(g)
+  rownames(Y)=levels(g)
+  colnames(Y)=levels(g)
   Z = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Z)=unique(g)
-  colnames(Z)=unique(g)
+  rownames(Z)=levels(g)
+  colnames(Z)=levels(g)
   k=0
   for(i in 1:(n-1)){
      for(j in (i+1):n){
      k=k+1
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
      z = symmetry_test(x ~ g2|b, data=Dataz, ...)                  

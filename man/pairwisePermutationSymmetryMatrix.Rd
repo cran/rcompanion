@@ -44,10 +44,10 @@ Permutation tests are non-parametric tests
 }
 \examples{
 data(BobBelcher)
-BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+BobBelcher$Instructor = factor(BobBelcher$Instructor, 
                         levels=c("Linda Belcher", "Louise Belcher",
                                  "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))),]
+                                 "Gene Belcher"))
 BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
 PT = pairwisePermutationSymmetryMatrix(x      = BobBelcher$Likert.f,
                                        g      = BobBelcher$Instructor,

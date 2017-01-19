@@ -50,11 +50,13 @@ Pooh.diff = pairwiseDifferences(x = Pooh$Likert,
                                 g = Pooh$Time,
                                 plotit = TRUE)
 
-### Unreplicated complete block design example with histograms
+### Unreplicated complete block design example with bar plots
 data(BobBelcher)
-Bob.diff = pairwiseDifferences(x= BobBelcher$Likert, g=BobBelcher$Instructor)
+Bob.diff = pairwiseDifferences(x= BobBelcher$Likert, 
+                               g=BobBelcher$Instructor, 
+                               factorize=TRUE)
 library(lattice)
-histogram(~ Difference | Comparison,
+histogram(~ Difference.f | Comparison,
          data=Bob.diff,
          type = "count",
          layout=c(2,5))

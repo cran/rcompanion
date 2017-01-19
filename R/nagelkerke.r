@@ -19,7 +19,7 @@
 #'           referred to as Cragg and Uhler.
 #'           
 #'           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
-#'           clm, clmm, vglm, glmer, negbin, zeroinfl, betareg.            
+#'           clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, rq.            
 #'                                       
 #'           Model objects that require the null model to 
 #'           be defined are nls, lmer, glmer and clmm. 
@@ -75,7 +75,7 @@
 nagelkerke = 
 function(fit, null=NULL)
 {
-   TOGGLE = (class(fit)[1]=="lm"
+   TOGGLE =   (class(fit)[1]=="lm"
              | class(fit)[1]=="gls"
              | class(fit)[1]=="lme"
              | class(fit)[1]=="glm"
@@ -83,17 +83,19 @@ function(fit, null=NULL)
              | class(fit)[1]=="zeroinfl"
              | class(fit)[1]=="clm"
              | class(fit)[1]=="vglm"
-             | class(fit)[1]=="betareg")
-   BOGGLE = (class(fit)[1]=="nls"
+             | class(fit)[1]=="betareg"
+             | class(fit)[1]=="rq")
+   BOGGLE =   (class(fit)[1]=="nls"
              | class(fit)[1]=="lmerMod"
              | class(fit)[1]=="glmerMod"
              | class(fit)[1]=="merModLmerTest"
              | class(fit)[1]=="clmm")
-   SMOGGLE = (class(fit)[1]=="lmerMod"
+   SMOGGLE =   (class(fit)[1]=="lmerMod"
               | class(fit)[1]=="glmerMod"
               | class(fit)[1]=="merModLmerTest"
               | class(fit)[1]=="vglm")
-   ZOGGLE = (class(fit)[1]=="zeroinfl")
+   ZOGGLE  = (class(fit)[1]=="zeroinfl")
+   ZOGGLE2 = (class(fit)[1]=="rq")
    NOGGLE = is.null(null)
    ERROR = "Note: For models fit with REML, these statistics are based on refitting with ML"
    
@@ -133,7 +135,8 @@ function(fit, null=NULL)
   if (!SMOGGLE2){Y[2]= toString(null$call)}
   if (SMOGGLE2){Y[2]= toString(null@call)}
  
-  if(!ZOGGLE){N = nobs(fit)}
+  if(!ZOGGLE & !ZOGGLE2){N = nobs(fit)}
+  if(!ZOGGLE &  ZOGGLE2){N = length(fit$y)}
   if(ZOGGLE){N = fit$n}  
   m = suppressWarnings(logLik(fit, REML=FALSE))[1]
   n = suppressWarnings(logLik(null, REML=FALSE))[1]

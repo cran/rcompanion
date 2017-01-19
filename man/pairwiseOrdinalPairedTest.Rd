@@ -48,16 +48,20 @@ Ordinal regression
 \examples{
 data(BobBelcher)
 BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered = TRUE)
-BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+BobBelcher$Instructor = factor(BobBelcher$Instructor, 
                         levels=c("Linda Belcher", "Louise Belcher",
                                  "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))),] 
-pairwiseOrdinalPairedTest(x      = BobBelcher$Likert.f,
-                          g      = BobBelcher$Instructor,
-                          b      = BobBelcher$Rater,
-                          threshold="equidistant",
-                          method = "fdr")
-
+                                 "Gene Belcher")) 
+PT = pairwiseOrdinalPairedTest(x      = BobBelcher$Likert.f,
+                               g      = BobBelcher$Instructor,
+                               b      = BobBelcher$Rater,
+                               threshold="equidistant",
+                               method = "fdr")
+PT
+cldList(comparison = PT$Comparison,
+        p.value    = PT$p.adjust,
+        threshold  = 0.05)
+        
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

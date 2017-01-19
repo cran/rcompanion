@@ -47,12 +47,21 @@ data(HayleySmith)
 library(RVAideMemoire)
 cochran.qtest(Response ~ Practice | Student,
               data = HayleySmith)
-pairwiseMcnemar(x       = HayleySmith$Response,
-                g       = HayleySmith$Practice,
-                block   = HayleySmith$Student,
-                test    = "exact",
-                method  = "fdr",
-                digits  = 3)
+HayleySmith$Practice = factor(HayleySmith$Practice,
+                       levels=c("MowHeight", "SoilTest",
+                                "Clippings", "Irrigation"))
+PT = pairwiseMcnemar(x       = HayleySmith$Response,
+                     g       = HayleySmith$Practice,
+                     block   = HayleySmith$Student,
+                    test    = "exact",
+                    method  = "fdr",
+                    digits  = 3)
+PT
+PT = PT$Pairwise
+cldList(comparison = PT$Comparison,
+        p.value    = PT$p.adjust,
+        threshold  = 0.05)
+                                                             
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

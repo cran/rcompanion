@@ -38,8 +38,8 @@
 #' @examples
 #' data(PoohPiglet)
 #' PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-#' PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-#'                         levels=c("Pooh", "Tigger", "Piglet"))),]               
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+#'                              levels=c("Pooh", "Tigger", "Piglet"))               
 #' PT = pairwiseOrdinalMatrix(x      = PoohPiglet$Likert.f,
 #'                            g      = PoohPiglet$Speaker,
 #'                            method = "fdr")$Adjusted
@@ -58,21 +58,22 @@
 pairwiseOrdinalMatrix = 
   function(x, g, method = "fdr", ...)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  n = length(levels(g))
   N = n*n
   d = data.frame(x = x, g = g)
   Y = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Y)=unique(g)
-  colnames(Y)=unique(g)
+  rownames(Y)=levels(g)
+  colnames(Y)=levels(g)
   Z = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Z)=unique(g)
-  colnames(Z)=unique(g)
+  rownames(Z)=levels(g)
+  colnames(Z)=levels(g)
   k=0
   for(i in 1:(n-1)){
      for(j in (i+1):n){
      k=k+1
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
      z = clm(x ~ g2, data=Dataz, ...)

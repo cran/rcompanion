@@ -2,20 +2,20 @@
 % Please edit documentation in R/pairwiseOrdinalIndependence.r
 \name{pairwiseOrdinalIndependence}
 \alias{pairwiseOrdinalIndependence}
-\title{Pairwise tests of independence for tables with one ordinal variable}
+\title{Pairwise tests of independence for tables with one ordered nominal variable}
 \usage{
 pairwiseOrdinalIndependence(x, compare = "row", scores = NULL,
   method = "fdr", digits = 3, ...)
 }
 \arguments{
-\item{x}{A two-way contingency table. One dimension is ordinal and one
-is un-ordered nominal.}
+\item{x}{A two-way contingency table. One dimension is ordered and one
+is non-ordered nominal.}
 
 \item{compare}{If \code{"row"}, treats the rows as the grouping variable.
 If \code{"column"}, treats the columns as the grouping 
 variable.}
 
-\item{scores}{Optional vector to specify the spacing of the ordinal
+\item{scores}{Optional vector to specify the spacing of the ordered
 variable.}
 
 \item{method}{The method to adjust multiple p-values. 
@@ -30,11 +30,12 @@ A data frame of comparisons, p-values, and adjusted p-values.
 }
 \description{
 Conducts pairwise tests for a 2-dimensional table,
-             in which one variable is ordinal and one variable
-             is nominal.  The function relies on the \code{coin} package.
+             in which one variable is ordered nominal and one variable
+             is non-ordered nominal.  
+             The function relies on the \code{coin} package.
 }
 \examples{
-### Independence test for table with one ordinal variable
+### Independence test for table with one ordered variable
 data(Breakfast)
 require(coin)
 chisq_test(Breakfast,
@@ -69,6 +70,6 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \code{\link{pairwiseNominalIndependence}}
 }
 \concept{
-Linear-by-linear Contingency table ordinal Chi-square.
+Linear-by-linear Contingency table Ordinal Ordered Chi-square.
 }
 

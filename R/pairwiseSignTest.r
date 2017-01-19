@@ -35,24 +35,28 @@
 #' BobBelcher = BobBelcher[order(BobBelcher$Instructor, BobBelcher$Rater),]
 #' friedman.test(Likert ~ Instructor | Rater,
 #'               data = BobBelcher)
-#' BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+#' BobBelcher$Instructor = factor(BobBelcher$Instructor, 
 #'                         levels=c("Linda Belcher", "Louise Belcher",
 #'                                  "Tina Belcher", "Bob Belcher",
-#'                                  "Gene Belcher"))),] 
-#' pairwiseSignTest(x      = BobBelcher$Likert,
-#'                  g      = BobBelcher$Instructor,
-#'                  method = "fdr")
-#' 
+#'                                  "Gene Belcher"))
+#' PT = pairwiseSignTest(x      = BobBelcher$Likert,
+#'                       g      = BobBelcher$Instructor,
+#'                       method = "fdr")
+#' PT
+#' cldList(comparison = PT$Comparison,
+#'         p.value    = PT$p.adjust,
+#'         threshold  = 0.05)
+#'         
 #' @importFrom stats p.adjust
 #' @importFrom BSDA SIGN.test
 #' 
 #' @export
 
-
 pairwiseSignTest = 
   function(x, g, method = "fdr", ...)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  n = length(levels(g))
   N = n*(n-1)/2
   d = data.frame(x = x, g = g)
   Z = data.frame(Comparison=rep("A", N),
@@ -64,10 +68,10 @@ pairwiseSignTest =
   for(i in 1:(n-1)){
      for(j in (i+1):n){
        k=k+1
-     Namea = as.character(unique(g)[i])
-     Nameb = as.character(unique(g)[j])
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Namea = as.character(levels(g)[i])
+     Nameb = as.character(levels(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      z = SIGN.test(Datax$x, Datay$x, conf.level=1, ...)
      P = signif(z$p.value, digits=4)
      S = signif(z$statistic, digits=4)

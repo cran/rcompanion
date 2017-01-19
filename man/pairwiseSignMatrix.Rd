@@ -46,10 +46,10 @@ The two sample paired sign test compares medians
 data(BobBelcher)
 friedman.test(Likert ~ Instructor | Rater,
               data = BobBelcher)
-BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+BobBelcher$Instructor = factor(BobBelcher$Instructor, 
                         levels=c("Linda Belcher", "Louise Belcher",
                                  "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))),]             
+                                 "Gene Belcher"))             
 PT = pairwiseSignMatrix(x      = BobBelcher$Likert,
                         g      = BobBelcher$Instructor,
                         method = "fdr")$Adjusted

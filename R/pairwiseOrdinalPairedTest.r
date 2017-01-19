@@ -39,16 +39,20 @@
 #' @examples
 #' data(BobBelcher)
 #' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered = TRUE)
-#' BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+#' BobBelcher$Instructor = factor(BobBelcher$Instructor, 
 #'                         levels=c("Linda Belcher", "Louise Belcher",
 #'                                  "Tina Belcher", "Bob Belcher",
-#'                                  "Gene Belcher"))),] 
-#' pairwiseOrdinalPairedTest(x      = BobBelcher$Likert.f,
-#'                           g      = BobBelcher$Instructor,
-#'                           b      = BobBelcher$Rater,
-#'                           threshold="equidistant",
-#'                           method = "fdr")
-#' 
+#'                                  "Gene Belcher")) 
+#' PT = pairwiseOrdinalPairedTest(x      = BobBelcher$Likert.f,
+#'                                g      = BobBelcher$Instructor,
+#'                                b      = BobBelcher$Rater,
+#'                                threshold="equidistant",
+#'                                method = "fdr")
+#' PT
+#' cldList(comparison = PT$Comparison,
+#'         p.value    = PT$p.adjust,
+#'         threshold  = 0.05)
+#'         
 #' @importFrom stats p.adjust pchisq
 #' @importFrom ordinal clmm
 #' 
@@ -57,7 +61,9 @@
 pairwiseOrdinalPairedTest = 
   function(x, g, b, method = "fdr", ...)
   {
-  n = length(unique(g))
+  if(!is.factor(g)){g=factor(g)}
+  if(!is.factor(b)){g=factor(b)}
+  n = length(levels(g))
   N = n*(n-1)/2
   d = data.frame(x = x, g = g, b = b)
   Z = data.frame(Comparison=rep("A", N),
@@ -68,10 +74,10 @@ pairwiseOrdinalPairedTest =
   for(i in 1:(n-1)){
      for(j in (i+1):n){
        k=k+1
-     Namea = as.character(unique(g)[i])
-     Nameb = as.character(unique(g)[j])
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Namea = as.character(levels(g)[i])
+     Nameb = as.character(levels(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
      z = clmm(x ~ g2 + (1|b), data=Dataz, ...)

@@ -40,8 +40,8 @@
 #' data(BrendonSmall)
 #' model = lm(Weight ~ Calories, data = BrendonSmall) 
 #' plotPredy(data  = BrendonSmall,
-#'           y     = "Weight",
-#'           x     = "Calories",
+#'           y     = Weight,
+#'           x     = Calories,
 #'           model = model,
 #'           xlab  = "Calories per day",
 #'           ylab  = "Weight in kilograms")
@@ -51,9 +51,9 @@
 #' BrendonSmall$Calories2 = BrendonSmall$Calories * BrendonSmall$Calories
 #' model = lm(Sodium ~ Calories + Calories2, data = BrendonSmall) 
 #' plotPredy(data  = BrendonSmall,
-#'           y     = "Sodium",
-#'           x     = "Calories",
-#'           x2    = "Calories2",
+#'           y     = Sodium,
+#'           x     = Calories,
+#'           x2    = Calories2,
 #'           model = model,
 #'           order = 2,
 #'           xlab  = "Calories per day",
@@ -70,8 +70,8 @@
 #'                          b   = 0.359,
 #'                          clx = 2304))
 #' plotPredy(data  = BrendonSmall,
-#'           y     = "Sodium",
-#'           x     = "Calories",
+#'           y     = Sodium,
+#'           x     = Calories,
 #'           model = model,
 #'           xlab  = "Calories per day",
 #'           ylab  = "Sodium intake per day")
@@ -82,8 +82,8 @@
 #' model.log = glm(Trials ~ Grade, data = BullyHill,
 #'                 family = binomial(link="logit"))
 #' plotPredy(data  = BullyHill,
-#'           y     = "Percent",
-#'           x     = "Grade",
+#'           y     = Percent,
+#'           x     = Grade,
 #'           model = model.log,
 #'           type  = "response",
 #'           xlab  = "Grade",
@@ -98,6 +98,12 @@ plotPredy = function (data, x, y, model, order=1,
                        x2=NULL, x3=NULL, x4=NULL, x5=NULL,
                        pch=16, xlab="X", ylab="Y", length = 1000,
                        lty=1, lwd=2, col="blue", type=NULL, ...) {
+   x=as.character(substitute(x))
+   y=as.character(substitute(y))
+   if(order>1){x2=as.character(substitute(x2))}
+   if(order>2){x3=as.character(substitute(x3))}
+   if(order>3){x4=as.character(substitute(x4))}
+   if(order>4){x5=as.character(substitute(x5))}
    Formula = formula(paste(y, "~", x, sep=" "))
    i = as.numeric(seq(min(data[,x]), max(data[,x]), len=length))
    if(order==1){D1 = data.frame(X=i)

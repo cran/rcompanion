@@ -43,12 +43,16 @@ Ordinal regression
 \examples{
 data(PoohPiglet)
 PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-                        levels=c("Pooh", "Tigger", "Piglet"))),]
-pairwiseOrdinalTest(x      = PoohPiglet$Likert.f,
-                    g      = PoohPiglet$Speaker,
-                    method = "fdr")
-
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+                        levels=c("Pooh", "Tigger", "Piglet"))
+PT = pairwiseOrdinalTest(x      = PoohPiglet$Likert.f,
+                         g      = PoohPiglet$Speaker,
+                         method = "fdr")
+PT
+cldList(comparison = PT$Comparison,
+        p.value    = PT$p.adjust,
+        threshold  = 0.05)
+ 
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

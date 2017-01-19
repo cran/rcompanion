@@ -37,13 +37,21 @@
 #' library(RVAideMemoire)
 #' cochran.qtest(Response ~ Practice | Student,
 #'               data = HayleySmith)
-#' pairwiseMcnemar(x       = HayleySmith$Response,
-#'                 g       = HayleySmith$Practice,
-#'                 block   = HayleySmith$Student,
-#'                 test    = "exact",
-#'                 method  = "fdr",
-#'                 digits  = 3)
-                                                              
+#' HayleySmith$Practice = factor(HayleySmith$Practice,
+#'                        levels=c("MowHeight", "SoilTest",
+#'                                 "Clippings", "Irrigation"))
+#' PT = pairwiseMcnemar(x       = HayleySmith$Response,
+#'                      g       = HayleySmith$Practice,
+#'                      block   = HayleySmith$Student,
+#'                     test    = "exact",
+#'                     method  = "fdr",
+#'                     digits  = 3)
+#' PT
+#' PT = PT$Pairwise
+#' cldList(comparison = PT$Comparison,
+#'         p.value    = PT$p.adjust,
+#'         threshold  = 0.05)
+#'                                                              
 #' @importFrom stats xtabs mcnemar.test binom.test
 #' @importFrom RVAideMemoire cochran.qtest
 #' @importFrom coin symmetry_test pvalue
@@ -53,7 +61,10 @@
 pairwiseMcnemar = 
   function(x, g, block, test="exact", method="fdr", digits=3, correct=FALSE)
   {
-  Name = as.character(unique(g))
+    print(levels(g))
+  if(!is.factor(g)){g=factor(g)}
+  if(!is.factor(block)){block=factor(block)}  
+  Name = as.character(levels(g))
   n = length(Name)
   N = n*(n-1)/2
   data = data.frame(x = x, g = g, block = block)

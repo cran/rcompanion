@@ -43,6 +43,10 @@
 #' @examples
 #' data(BobBelcher)
 #' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered = TRUE)
+#' BobBelcher$Instructor = factor(BobBelcher$Instructor,
+#'                                levels=c("Linda Belcher", "Louise Belcher",
+#'                                  "Tina Belcher", "Bob Belcher",
+#'                                  "Gene Belcher"))
 #' BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
 #'                         levels=c("Linda Belcher", "Louise Belcher",
 #'                                  "Tina Belcher", "Bob Belcher",
@@ -67,21 +71,21 @@
 pairwiseOrdinalPairedMatrix = 
   function(x, g, b, method = "fdr", ...)
   {
-  n = length(unique(g))
+  n = length(levels(g))
   N = n*n
   d = data.frame(x = x, g = g, b = b)
   Y = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Y)=unique(g)
-  colnames(Y)=unique(g)
+  rownames(Y)=levels(g)
+  colnames(Y)=levels(g)
   Z = matrix(rep(NA_real_, N),ncol=n)
-  rownames(Z)=unique(g)
-  colnames(Z)=unique(g)
+  rownames(Z)=levels(g)
+  colnames(Z)=levels(g)
   k=0
   for(i in 1:(n-1)){
      for(j in (i+1):n){
      k=k+1
-     Datax = subset(d, g==unique(g)[i])
-     Datay = subset(d, g==unique(g)[j])
+     Datax = subset(d, g==levels(g)[i])
+     Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
      z = clmm(x ~ g2 + (1|b), data=Dataz, ...)

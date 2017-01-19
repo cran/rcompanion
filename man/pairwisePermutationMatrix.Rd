@@ -29,7 +29,7 @@ Conducts pairwise two-sample permutation tests across groups.
 \details{
 Permutation tests are non-parametric tests 
          that do not assume normally-distributed errors.
-         See \url{http://rcompanion.org/handbook/K_02.html} for
+         See \url{http://rcompanion.org/rcompanion/d_06a.html} for
          futher discussion of this test.
 
          The \code{pairwisePermutationTest} function
@@ -40,13 +40,13 @@ Permutation tests are non-parametric tests
 }
 \examples{
 data(PoohPiglet)
-PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-                        levels=c("Pooh", "Tigger", "Piglet"))),]               
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+                            levels=c("Pooh", "Tigger", "Piglet"))               
 PT = pairwisePermutationMatrix(x      = PoohPiglet$Likert,
                                g      = PoohPiglet$Speaker,
-                               exact  = NULL,
-                               method = "fdr")$Adjusted
+                               method = "fdr")
 PT
+PT = PT$Adjusted
 library(multcompView)
 multcompLetters(PT,
                 compare="<",
@@ -58,7 +58,7 @@ multcompLetters(PT,
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \references{
-\url{http://rcompanion.org/rcompanion/d_06a.html}
+\url{http://rcompanion.org/handbook/K_02.html}
 }
 \seealso{
 \code{\link{pairwisePermutationTest}}

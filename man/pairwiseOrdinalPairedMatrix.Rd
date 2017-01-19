@@ -52,6 +52,10 @@ Ordinal regression
 \examples{
 data(BobBelcher)
 BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered = TRUE)
+BobBelcher$Instructor = factor(BobBelcher$Instructor,
+                               levels=c("Linda Belcher", "Louise Belcher",
+                                 "Tina Belcher", "Bob Belcher",
+                                 "Gene Belcher"))
 BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
                         levels=c("Linda Belcher", "Louise Belcher",
                                  "Tina Belcher", "Bob Belcher",

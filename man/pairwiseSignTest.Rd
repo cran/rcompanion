@@ -44,14 +44,18 @@ data(BobBelcher)
 BobBelcher = BobBelcher[order(BobBelcher$Instructor, BobBelcher$Rater),]
 friedman.test(Likert ~ Instructor | Rater,
               data = BobBelcher)
-BobBelcher = BobBelcher[order(factor(BobBelcher$Instructor, 
+BobBelcher$Instructor = factor(BobBelcher$Instructor, 
                         levels=c("Linda Belcher", "Louise Belcher",
                                  "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))),] 
-pairwiseSignTest(x      = BobBelcher$Likert,
-                 g      = BobBelcher$Instructor,
-                 method = "fdr")
-
+                                 "Gene Belcher"))
+PT = pairwiseSignTest(x      = BobBelcher$Likert,
+                      g      = BobBelcher$Instructor,
+                      method = "fdr")
+PT
+cldList(comparison = PT$Comparison,
+        p.value    = PT$p.adjust,
+        threshold  = 0.05)
+        
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

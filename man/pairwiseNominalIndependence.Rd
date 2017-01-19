@@ -44,10 +44,15 @@ Conducts pairwise tests for a 2-dimensional matrix,
 ### Independence test for a 4 x 2 matrix
 data(Anderson)
 fisher.test(Anderson)
-pairwiseNominalIndependence(Anderson,
-                            fisher = TRUE,
-                            gtest  = FALSE,
-                            chisq  = FALSE)
+Anderson = Anderson[(c("Heimlich", "Bloom", "Dougal", "Cobblestone")),]
+PT = pairwiseNominalIndependence(Anderson,
+                                 fisher = TRUE,
+                                 gtest  = FALSE,
+                                 chisq  = FALSE)
+PT                                
+cldList(comparison = PT$Comparison,
+        p.value    = PT$p.adj.Fisher,
+        threshold  = 0.05)                             
                                                               
 }
 \author{

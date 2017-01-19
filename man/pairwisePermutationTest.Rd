@@ -37,11 +37,15 @@ Permutation tests are non-parametric tests
 }
 \examples{
 data(PoohPiglet)
-PoohPiglet = PoohPiglet[order(factor(PoohPiglet$Speaker, 
-                        levels=c("Pooh", "Tigger", "Piglet"))),]
-pairwisePermutationTest(x      = PoohPiglet$Likert,
-                        g      = PoohPiglet$Speaker,
-                        method = "fdr")
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
+                            levels=c("Pooh", "Tigger", "Piglet"))
+PT = pairwisePermutationTest(x      = PoohPiglet$Likert,
+                             g      = PoohPiglet$Speaker,
+                             method = "fdr")
+PT
+cldList(comparison = PT$Comparison,
+       p.value    = PT$p.adjust,
+       threshold  = 0.05)
 
 }
 \author{
