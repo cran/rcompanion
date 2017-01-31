@@ -4,10 +4,16 @@
 \alias{pairwiseMcnemar}
 \title{Pairwise McNemar and related tests for Cochran Q test post-hoc}
 \usage{
-pairwiseMcnemar(x, g, block, test = "exact", method = "fdr", digits = 3,
+pairwiseMcnemar(formula = NULL, data = NULL, x = NULL, g = NULL,
+  block = NULL, test = "exact", method = "fdr", digits = 3,
   correct = FALSE)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group | block.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable.}
 
 \item{g}{The grouping variable.}
@@ -40,6 +46,18 @@ Conducts pairwise McNemar, exact, and permutation
 \details{
 The component tables for the pairwise tests
          must be of size 2 x 2.
+         
+         The input should include either \code{formula} and \code{data};
+         or \code{x}, \code{g}, and \code{block}.
+}
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+         The second variable on the
+         right side is used for the blocking variable.
 }
 \examples{
 ### Cochran Q post-hoc example
@@ -48,14 +66,13 @@ library(RVAideMemoire)
 cochran.qtest(Response ~ Practice | Student,
               data = HayleySmith)
 HayleySmith$Practice = factor(HayleySmith$Practice,
-                       levels=c("MowHeight", "SoilTest",
-                                "Clippings", "Irrigation"))
-PT = pairwiseMcnemar(x       = HayleySmith$Response,
-                     g       = HayleySmith$Practice,
-                     block   = HayleySmith$Student,
-                    test    = "exact",
-                    method  = "fdr",
-                    digits  = 3)
+                          levels = c("MowHeight", "SoilTest",
+                                     "Clippings", "Irrigation"))
+PT = pairwiseMcnemar(Response ~ Practice | Student,
+                     data    = HayleySmith,
+                     test    = "exact",
+                     method  = "fdr",
+                     digits  = 3)
 PT
 PT = PT$Pairwise
 cldList(comparison = PT$Comparison,

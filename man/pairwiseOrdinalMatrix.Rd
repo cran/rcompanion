@@ -4,9 +4,15 @@
 \alias{pairwiseOrdinalMatrix}
 \title{Pairwise two-sample ordinal regression with matrix output}
 \usage{
-pairwiseOrdinalMatrix(x, g, method = "fdr", ...)
+pairwiseOrdinalMatrix(formula = NULL, data = NULL, x = NULL, g = NULL,
+  method = "fdr", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable as a vector.}
 
 \item{g}{The grouping variable as a vector.}
@@ -43,13 +49,20 @@ Ordinal regression
          
          The \code{x} variable must be an ordered factor.
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+}
 \examples{
 data(PoohPiglet)
 PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-                             levels=c("Pooh", "Tigger", "Piglet"))               
-PT = pairwiseOrdinalMatrix(x      = PoohPiglet$Likert.f,
-                           g      = PoohPiglet$Speaker,
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+                     levels = c("Pooh", "Tigger", "Piglet"))       
+PT = pairwiseOrdinalMatrix(Likert.f ~ Speaker,
+                           data   = PoohPiglet,
                            method = "fdr")$Adjusted
 PT                          
 library(multcompView)

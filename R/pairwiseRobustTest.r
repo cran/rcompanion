@@ -1,7 +1,9 @@
 #' @title Pairwise two-sample robust tests
 #'
 #' @description Performs pairwise two-sample robust tests across groups.
-#' 
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group.
+#' @param data   The data frame to use.
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param est    Estimate used for group comparisons.
@@ -14,7 +16,9 @@
 #' @param ...    Additional arguments passed to
 #'               \code{\link{pb2gen}}.               
 #'             
-#' @details 
+#' @details The input should include either \code{formula} and \code{data};
+#'          or \code{x}, and \code{g}.
+#'          
 #'          The \code{WRS2} package provides functions for robust estimation
 #'          and hypothesis testing.  This function invokes the
 #'          \code{pb2gen} to make pairwise comparisons among
@@ -30,13 +34,19 @@
 #' @concept robust Huber post-hoc one-way
 #' @return A dataframe of the groups being compared, the p-values,
 #'         and the adjusted p-values. 
-#'         
+#'      
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.       
+#'               
 #' @examples
 #' data(PoohPiglet)
-#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-#'                             levels=c("Pooh", "Tigger", "Piglet"))
-#' PT = pairwiseRobustTest(x      = PoohPiglet$Likert,
-#'                         g      = PoohPiglet$Speaker,
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+#'                      levels = c("Pooh", "Tigger", "Piglet"))
+#' PT = pairwiseRobustTest(Likert ~ Speaker,
+#'                         data   = PoohPiglet,
 #'                         method = "fdr")
 #' PT
 #' cldList(comparison = PT$Comparison,
@@ -49,8 +59,14 @@
 #' @export
 
 pairwiseRobustTest = 
-  function(x, g, est="mom", nboot=599, method="fdr", ...)
+  function(formula=NULL, data=NULL,
+           x=NULL, g=NULL, 
+           est="mom", nboot=599, method="fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
   if(!is.factor(g)){g=factor(g)}
   n = length(levels(g))
   N = n*(n-1)/2

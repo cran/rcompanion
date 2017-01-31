@@ -4,9 +4,15 @@
 \alias{pairwiseMedianTest}
 \title{Pairwise Mood's median tests}
 \usage{
-pairwiseMedianTest(x, g, exact = NULL, method = "fdr", ...)
+pairwiseMedianTest(formula = NULL, data = NULL, x = NULL, g = NULL,
+  exact = NULL, method = "fdr", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable as a vector.}
 
 \item{g}{The grouping variable as a vector.}
@@ -30,7 +36,10 @@ A dataframe of the groups being compared, the p-values,
 Conducts pairwise Mood's median tests across groups.
 }
 \details{
-Mood's median test compares medians among two or more groups.
+The input should include either \code{formula} and \code{data};
+         or \code{x}, and \code{g}.
+         
+         Mood's median test compares medians among two or more groups.
          See \url{http://rcompanion.org/handbook/F_09.html} for
          futher discussion of this test.
 
@@ -38,12 +47,19 @@ Mood's median test compares medians among two or more groups.
          can be used as a post-hoc method following an omnibus Mood's
          median test.
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+}
 \examples{
 data(PoohPiglet)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-                            levels=c("Pooh", "Tigger", "Piglet"))
-PT = pairwiseMedianTest(x      = PoohPiglet$Likert,
-                        g      = PoohPiglet$Speaker,
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+                     levels = c("Pooh", "Tigger", "Piglet"))
+PT = pairwiseMedianTest(Likert ~ Speaker,
+                        data   = PoohPiglet,
                         exact  = NULL,
                         method = "fdr")
 PT                         

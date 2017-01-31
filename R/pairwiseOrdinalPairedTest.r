@@ -2,7 +2,9 @@
 #'
 #' @description Performs pairwise two-sample ordinal regression across groups
 #'              for paired or blocked data.
-#' 
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group | block.
+#' @param data   The data frame to use.
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param b      The blocking variable as a vector.
@@ -11,7 +13,9 @@
 #' @param ...    Additional arguments passed to
 #'               \code{\link{clmm}}.               
 #'             
-#' @details 
+#' @details The input should include either \code{formula} and \code{data};
+#'          or \code{x}, \code{g}, and \code{b}.
+#'          
 #'          Ordinal regression 
 #'          is analogous to general linear regression or generalized linear
 #'          regression for cases where 
@@ -35,19 +39,26 @@
 #' @concept ordinal regression post-hoc one-way paired blocks
 #' @return A dataframe of the groups being compared, the p-values,
 #'         and the adjusted p-values. 
-#'         
+#'
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.
+#'          The second variable on the
+#'          right side is used for the blocking variable.
+#'
 #' @examples
 #' data(BobBelcher)
 #' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered = TRUE)
-#' BobBelcher$Instructor = factor(BobBelcher$Instructor, 
-#'                         levels=c("Linda Belcher", "Louise Belcher",
-#'                                  "Tina Belcher", "Bob Belcher",
-#'                                  "Gene Belcher")) 
-#' PT = pairwiseOrdinalPairedTest(x      = BobBelcher$Likert.f,
-#'                                g      = BobBelcher$Instructor,
-#'                                b      = BobBelcher$Rater,
-#'                                threshold="equidistant",
-#'                                method = "fdr")
+#' BobBelcher$Instructor = factor( BobBelcher$Instructor, 
+#'                   levels = c("Linda Belcher", "Louise Belcher",
+#'                              "Tina Belcher", "Bob Belcher",
+#'                              "Gene Belcher"))
+#' PT = pairwiseOrdinalPairedTest(Likert.f ~ Instructor | Rater,
+#'                                data      = BobBelcher,
+#'                                threshold = "equidistant",
+#'                                method    = "fdr")
 #' PT
 #' cldList(comparison = PT$Comparison,
 #'         p.value    = PT$p.adjust,
@@ -59,8 +70,15 @@
 #' @export
 
 pairwiseOrdinalPairedTest = 
-  function(x, g, b, method = "fdr", ...)
+  function(formula=NULL, data=NULL,
+           x=NULL, g=NULL, b=NULL,
+           method = "fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    b  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[2])))
+    }
   if(!is.factor(g)){g=factor(g)}
   if(!is.factor(b)){g=factor(b)}
   n = length(levels(g))

@@ -2,6 +2,9 @@
 #'
 #' @description Conducts pairwise Mood's median tests across groups.
 #' 
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group.
+#' @param data   The data frame to use.
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param exact  If \code{TRUE}, then asks the \code{mood.medtest} function
@@ -13,14 +16,16 @@
 #' @param ...    Additional arguments passed to
 #'               code{\link{mood.medtest}}.               
 #'             
-#' @details Mood's median test compares medians among two or more groups.
+#' @details The input should include either \code{formula} and \code{data};
+#'          or \code{x}, and \code{g}.
+#'          
+#'          Mood's median test compares medians among two or more groups.
 #'          See \url{http://rcompanion.org/handbook/F_09.html} for
 #'          futher discussion of this test.
 #' 
 #'          The \code{pairwiseMedianTest} function
 #'          can be used as a post-hoc method following an omnibus Mood's
 #'          median test.
-#'                                                                                              
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_09.html}
@@ -29,12 +34,18 @@
 #' @return A dataframe of the groups being compared, the p-values,
 #'         and the adjusted p-values. 
 #'         
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.   
+#'          
 #' @examples
 #' data(PoohPiglet)
-#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-#'                             levels=c("Pooh", "Tigger", "Piglet"))
-#' PT = pairwiseMedianTest(x      = PoohPiglet$Likert,
-#'                         g      = PoohPiglet$Speaker,
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+#'                      levels = c("Pooh", "Tigger", "Piglet"))
+#' PT = pairwiseMedianTest(Likert ~ Speaker,
+#'                         data   = PoohPiglet,
 #'                         exact  = NULL,
 #'                         method = "fdr")
 #' PT                         
@@ -48,8 +59,14 @@
 #' @export
 
 pairwiseMedianTest = 
-  function(x, g, exact = NULL, method = "fdr", ...)
+  function(formula=NULL, data=NULL, 
+    x=NULL, g=NULL, 
+    exact = NULL, method = "fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
   if(!is.factor(g)){g=factor(g)}
   n = length(levels(g))
   N = n*(n-1)/2

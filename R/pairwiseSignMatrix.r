@@ -2,7 +2,10 @@
 #'
 #' @description Conducts pairwise sign tests across groups
 #'              for paired data.
-#' 
+
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group.
+#' @param data   The data frame to use.                
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param method The p-value adjustment method to use for multiple tests.
@@ -10,7 +13,10 @@
 #' @param ...    Additional arguments passed to
 #'               \code{\link{SIGN.test}}.               
 #'             
-#' @details The two sample paired sign test compares medians 
+#' @details The input should include either \code{formula} and \code{data};
+#'          or \code{x}, and \code{g}.
+#'          
+#'          The two sample paired sign test compares medians 
 #'          among two groups with paired data.
 #'          See \url{http://rcompanion.org/handbook/F_07.html} for
 #'          futher discussion of this test.
@@ -32,17 +38,23 @@
 #'         A matrix of p-values;
 #'         the p-value adjustment method;
 #'         a matrix of adjusted p-values. 
-#'         
+#'
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.         
+#'                           
 #' @examples
 #' data(BobBelcher)
 #' friedman.test(Likert ~ Instructor | Rater,
 #'               data = BobBelcher)
-#' BobBelcher$Instructor = factor(BobBelcher$Instructor, 
-#'                         levels=c("Linda Belcher", "Louise Belcher",
-#'                                  "Tina Belcher", "Bob Belcher",
-#'                                  "Gene Belcher"))             
-#' PT = pairwiseSignMatrix(x      = BobBelcher$Likert,
-#'                         g      = BobBelcher$Instructor,
+#' BobBelcher$Instructor = factor( BobBelcher$Instructor, 
+#'                   levels = c("Linda Belcher", "Louise Belcher",
+#'                              "Tina Belcher", "Bob Belcher",
+#'                              "Gene Belcher"))          
+#' PT = pairwiseSignMatrix(Likert ~ Instructor,
+#'                         data   = BobBelcher,
 #'                         method = "fdr")$Adjusted
 #' PT
 #' library(multcompView)
@@ -57,8 +69,14 @@
 #' @export
 
   pairwiseSignMatrix = 
-  function(x, g, method = "fdr", ...)
+  function(formula=NULL, data=NULL, 
+           x=NULL, g=NULL, 
+           method = "fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
   if(!is.factor(g)){g=factor(g)}
   n = length(levels(g))
   N = n*n

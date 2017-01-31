@@ -1,7 +1,9 @@
 #' @title Pairwise two-sample ordinal regression with matrix output
 #'
 #' @description Performs pairwise two-sample ordinal regression across groups.
-#' 
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group.
+#' @param data   The data frame to use.
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param method The p-value adjustment method to use for multiple tests.
@@ -24,8 +26,14 @@
 #'          a one-way analysis of variance.
 #'          The matrix output can be converted to a compact letter display.
 #'          
-#'          The \code{x} variable must be an ordered factor.                                   
-#'           
+#'          The \code{x} variable must be an ordered factor.
+#'                                             
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.
+#'                   
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/G_07.html}
 #' @seealso \code{\link{pairwiseOrdinalTest}}
@@ -38,10 +46,10 @@
 #' @examples
 #' data(PoohPiglet)
 #' PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-#'                              levels=c("Pooh", "Tigger", "Piglet"))               
-#' PT = pairwiseOrdinalMatrix(x      = PoohPiglet$Likert.f,
-#'                            g      = PoohPiglet$Speaker,
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+#'                      levels = c("Pooh", "Tigger", "Piglet"))       
+#' PT = pairwiseOrdinalMatrix(Likert.f ~ Speaker,
+#'                            data   = PoohPiglet,
 #'                            method = "fdr")$Adjusted
 #' PT                          
 #' library(multcompView)
@@ -56,8 +64,15 @@
 #' @export  
 
 pairwiseOrdinalMatrix = 
-  function(x, g, method = "fdr", ...)
+  function(formula=NULL, data=NULL,
+           x=NULL, g=NULL, 
+           method = "fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
+
   if(!is.factor(g)){g=factor(g)}
   n = length(levels(g))
   N = n*n

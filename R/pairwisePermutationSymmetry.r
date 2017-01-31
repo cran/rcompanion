@@ -3,6 +3,9 @@
 #' @description Conducts pairwise two-sample permutation tests 
 #'              of symmetry across groups.
 #' 
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group | block.
+#' @param data   The data frame to use.                 
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param b      The blocking variable as a vector.
@@ -11,7 +14,10 @@
 #' @param ...    Additional arguments passed to
 #'               \code{\link{symmetry_test}}.               
 #'             
-#' @details Permutation tests are non-parametric tests 
+#' @details The input should include either \code{formula} and \code{data};
+#'          or \code{x}, \code{g}, and \code{b}.
+#' 
+#'          Permutation tests are non-parametric tests 
 #'          that do not assume normally-distributed errors.
 #'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
 #'          futher discussion of this test.
@@ -21,24 +27,30 @@
 #'          permutation test
 #'          analogous to a paired one-way analysis of variance.
 #'                                                                                              
-#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/K_03.html}
 #' @seealso \code{\link{pairwisePermutationSymmetryMatrix}}
 #' @concept permutation nonparametric post-hoc one-way symmetry
 #' @return A dataframe of the groups being compared, the p-values,
 #'         and the adjusted p-values. 
-#'         
+#'
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.
+#'          The second variable on the
+#'          right side is used for the blocking variable.
+#'
 #' @examples
 #' data(BobBelcher)
-#' BobBelcher$Instructor = factor(BobBelcher$Instructor, 
-#'                                levels=c("Linda Belcher", "Louise Belcher",
-#'                                  "Tina Belcher", "Bob Belcher",
-#'                                  "Gene Belcher"))
+#' BobBelcher$Instructor = factor( BobBelcher$Instructor, 
+#'                   levels = c("Linda Belcher", "Louise Belcher",
+#'                              "Tina Belcher", "Bob Belcher",
+#'                              "Gene Belcher"))
 #' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
-#' PT = pairwisePermutationSymmetry(x      = BobBelcher$Likert.f,
-#'                                  g      = BobBelcher$Instructor,
-#'                                  b      = BobBelcher$Rater,
+#' PT = pairwisePermutationSymmetry(Likert.f ~ Instructor | Rater,
+#'                                  data      = BobBelcher,
 #'                                  method = "fdr")
 #' PT
 #' cldList(comparison = PT$Comparison,
@@ -51,8 +63,15 @@
 #' @export
 
 pairwisePermutationSymmetry = 
-  function(x, g, b, method = "fdr", ...)
+  function(formula=NULL, data=NULL,
+           x=NULL, g=NULL, b=NULL, 
+           method = "fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    b  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[2])))
+    }
   if(!is.factor(g)){g=factor(g)}
   if(!is.factor(b)){g=factor(b)}
   n = length(levels(g))

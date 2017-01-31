@@ -4,9 +4,15 @@
 \alias{pairwisePermutationMatrix}
 \title{Pairwise two-sample permutation tests with matrix output}
 \usage{
-pairwisePermutationMatrix(x, g, method = "fdr", ...)
+pairwisePermutationMatrix(formula = NULL, data = NULL, x = NULL,
+  g = NULL, method = "fdr", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable as a vector.}
 
 \item{g}{The grouping variable as a vector.}
@@ -27,7 +33,10 @@ A list consisting of:
 Conducts pairwise two-sample permutation tests across groups.
 }
 \details{
-Permutation tests are non-parametric tests 
+The input should include either \code{formula} and \code{data};
+         or \code{x}, and \code{g}.
+
+         Permutation tests are non-parametric tests 
          that do not assume normally-distributed errors.
          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
          futher discussion of this test.
@@ -38,12 +47,19 @@ Permutation tests are non-parametric tests
          of variance.
          The matrix output can be converted to a compact letter display.
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+}
 \examples{
 data(PoohPiglet)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-                            levels=c("Pooh", "Tigger", "Piglet"))               
-PT = pairwisePermutationMatrix(x      = PoohPiglet$Likert,
-                               g      = PoohPiglet$Speaker,
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+                     levels = c("Pooh", "Tigger", "Piglet"))            
+PT = pairwisePermutationMatrix(Likert ~ Speaker,
+                               data   = PoohPiglet,
                                method = "fdr")
 PT
 PT = PT$Adjusted

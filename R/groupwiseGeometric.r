@@ -2,7 +2,9 @@
 #'
 #' @description Calculates geometric means and confidence intervals for
 #'              groups.
-#' 
+#'              
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variables. e.g. y ~ x1 + x2. 
 #' @param data The data frame to use.
 #' @param var The measurement variable to use. The name is in double quotes.
 #' @param group The grouping variable to use. The name is in double quotes.
@@ -12,14 +14,25 @@
 #' @param digits The number of significant figures to use in output.
 #' @param ... Other arguments.  Not currently useful.
 #'                
-#' @details The function computes means, standard deviations, standard errors, 
+#' @details The input should include either \code{formula} and \code{data};
+#'              or \code{data}, \code{var}, and \code{group}. (See examples).
+#' 
+#'          The function computes means, standard deviations, standard errors, 
 #'          and confidence intervals on log-transformed values. Confidence
 #'          intervals are calculated in the traditional
 #'          manner with the t-distribution.  These statistics assume that
 #'          the data are log-normally distributed. For data not meeting this
 #'          assumption, medians and confidence intervals by bootstrap may be more 
-#'          appropriate. 
+#'          appropriate.
 #'          
+#' @note    The parsing of the formula is simplistic. The first variable on the
+#'          left side is used as the measurement variable.  The variables on the
+#'          right side are used for the grouping variables.
+#'          
+#'        Results for ungrouped (one-sample) data can be obtained by either
+#'          setting the right side of the formula to 1, e.g.  y ~ 1, or by
+#'          setting \code{group=NULL}.                
+#'              
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/C_03.html}
 #' @seealso \code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}}
@@ -29,6 +42,12 @@
 #'         errors, and confidence intervals.
 #'          
 #' @examples
+#' ### Example with formula notation 
+#' data(Catbus)
+#' groupwiseGeometric(Steps ~ Sex + Teacher,
+#'                    data   = Catbus)
+#'
+#' ### Example with variable notation                                              
 #' data(Catbus)
 #' groupwiseGeometric(data   = Catbus,
 #'                    var    = "Steps",
@@ -39,8 +58,14 @@
 #' 
 #' @export
 
-groupwiseGeometric = function (data, group, var, conf=0.95, na.rm = TRUE, 
+groupwiseGeometric = function (formula=NULL, data=NULL, var=NULL,
+                               group=NULL,  
+                               conf=0.95, na.rm = TRUE, 
                                 digits=3, ...) {
+  if(!is.null(formula)){
+    var   = all.vars(formula[[2]])[1]
+    group = all.vars(formula[[3]])
+    }
  Confy = function (x, ...){
         S = sd(x)
         N = length(x)

@@ -2,6 +2,9 @@
 #'
 #' @description Conducts pairwise two-sample permutation tests across groups.
 #' 
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group.
+#' @param data   The data frame to use.
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param method The p-value adjustment method to use for multiple tests.
@@ -9,7 +12,10 @@
 #' @param ...    Additional arguments passed to
 #'               \code{\link{independence_test}}.               
 #'             
-#' @details Permutation tests are non-parametric tests 
+#' @details The input should include either \code{formula} and \code{data};
+#'          or \code{x}, and \code{g}.
+#'          
+#'          Permutation tests are non-parametric tests 
 #'          that do not assume normally-distributed errors.
 #'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
 #'          futher discussion of this test.
@@ -26,18 +32,24 @@
 #' @concept permutation nonparametric post-hoc one-way
 #' @return A dataframe of the groups being compared, the p-values,
 #'         and the adjusted p-values. 
-#'         
+#'
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.
+#'
 #' @examples
 #' data(PoohPiglet)
-#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-#'                             levels=c("Pooh", "Tigger", "Piglet"))
-#' PT = pairwisePermutationTest(x      = PoohPiglet$Likert,
-#'                              g      = PoohPiglet$Speaker,
+#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+#'                      levels = c("Pooh", "Tigger", "Piglet"))
+#' PT = pairwisePermutationTest(Likert ~   Speaker,
+#'                              data   = PoohPiglet,
 #'                              method = "fdr")
 #' PT
 #' cldList(comparison = PT$Comparison,
-#'        p.value    = PT$p.adjust,
-#'        threshold  = 0.05)
+#'         p.value    = PT$p.adjust,
+#'         threshold  = 0.05)
 #' 
 #' @importFrom stats p.adjust
 #' @importFrom coin independence_test statistic
@@ -45,8 +57,14 @@
 #' @export
 
 pairwisePermutationTest = 
-  function(x, g, method = "fdr", ...)
+  function(formula=NULL, data=NULL, 
+           x=NULL, g=NULL, 
+           method = "fdr", ...)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
   if(!is.factor(g)){g=factor(g)}
   n = length(levels(g))
   N = n*(n-1)/2

@@ -4,6 +4,9 @@
 #'              for each pair of levels of a grouping variable 
 #'              in an unreplicated complete block design.
 #'              
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group.
+#' @param data   The data frame to use.
 #' @param x The vector of the response variable.
 #' @param g The vector of the grouping variable.
 #' @param plotit If \code{TRUE}, then produces bar plots of the differences.
@@ -25,6 +28,9 @@
 #'           for any level of the grouping variable in Group 1 there exists
 #'           one paired value in Group 2, and so on.
 #'           
+#'           The input should include either \code{formula} and \code{data};
+#'           or \code{x}, and \code{g}.
+#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_10.html}
 #' @concept paired t-test rank-sum friedman quade histogram
@@ -32,18 +38,24 @@
 #'         their response variables,
 #'         and optionally the differences expressed as a factor variable.
 #'         If \code{plotit = TRUE}, then also produce one or more plots.
-#'         
+#'
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.
+#'          
 #' @examples
 #' ### Two-sample paired data example with bar plot
 #' data(Pooh)
-#' Pooh.diff = pairwiseDifferences(x = Pooh$Likert, 
-#'                                 g = Pooh$Time,
+#' Pooh.diff = pairwiseDifferences(Likert ~ Time, 
+#'                                 data=Pooh, 
 #'                                 plotit = TRUE)
 #' 
 #' ### Unreplicated complete block design example with bar plots
 #' data(BobBelcher)
-#' Bob.diff = pairwiseDifferences(x= BobBelcher$Likert, 
-#'                                g=BobBelcher$Instructor, 
+#' Bob.diff = pairwiseDifferences(Likert ~ Instructor,
+#'                                data=BobBelcher, 
 #'                                factorize=TRUE)
 #' library(lattice)
 #' histogram(~ Difference.f | Comparison,
@@ -57,8 +69,13 @@
 #' @export
 
 pairwiseDifferences = 
-  function(x, g, plotit=FALSE, factorize=FALSE)
+  function(formula=NULL, data=NULL,
+           x=NULL, g=NULL, plotit=FALSE, factorize=FALSE)
   {
+  if(!is.null(formula)){
+    x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
   if(!is.factor(g)){g=factor(g)}
   n = length(levels(g))
   N = n*(n-1)/2

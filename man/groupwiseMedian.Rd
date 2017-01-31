@@ -4,17 +4,21 @@
 \alias{groupwiseMedian}
 \title{Groupwise medians and confidence intervals}
 \usage{
-groupwiseMedian(data, group, var, conf = 0.95, R = 5000, boot = FALSE,
-  pseudo = FALSE, basic = FALSE, normal = FALSE, percentile = FALSE,
-  bca = TRUE, wilcox = FALSE, exact = FALSE, digits = 3, ...)
+groupwiseMedian(formula = NULL, data = NULL, var = NULL, group = NULL,
+  conf = 0.95, R = 5000, boot = FALSE, pseudo = FALSE, basic = FALSE,
+  normal = FALSE, percentile = FALSE, bca = TRUE, wilcox = FALSE,
+  exact = FALSE, digits = 3, ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variables. e.g. y ~ x1 + x2.}
+
 \item{data}{The data frame to use.}
+
+\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{group}{The grouping variable to use. The name is in double quotes.
 Multiple names are listed as a vector. (See example.)}
-
-\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{conf}{The confidence interval to use.}
 
@@ -62,16 +66,36 @@ Calculates medians and confidence intervals for
              groups.
 }
 \details{
-With some options, the function may not handle missing values well.
+The input should include either \code{formula} and \code{data};
+             or \code{data}, \code{var}, and \code{group}. (See examples).
+          
+         With some options, the function may not handle missing values well.
          This seems to happen particularly with \code{bca = TRUE}.
 }
+\note{
+The parsing of the formula is simplistic. The first variable on the
+         left side is used as the measurement variable.  The variables on the
+         right side are used for the grouping variables.
+         
+       Results for ungrouped (one-sample) data can be obtained by either
+         setting the right side of the formula to 1, e.g.  y ~ 1, or by
+         setting \code{group=NULL}.
+}
 \examples{
+### Example with formula notation
+data(Catbus)
+groupwiseMedian(Steps ~ Teacher + Sex,
+                data         = Catbus,
+                bca         = FALSE,
+                percentile  = TRUE)
+                
+### Example with variable notation
 data(Catbus)
 groupwiseMedian(data         = Catbus,
-                 var         = "Steps",
-                 group       = c("Teacher", "Sex"),
-                 bca         = FALSE,
-                 percentile  = TRUE)
+                var         = "Steps",
+                group       = c("Teacher", "Sex"),
+                bca         = FALSE,
+                percentile  = TRUE)
                       
 }
 \author{

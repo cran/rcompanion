@@ -4,9 +4,15 @@
 \alias{pairwiseDifferences}
 \title{Pairwise differences for unreplicated CBD}
 \usage{
-pairwiseDifferences(x, g, plotit = FALSE, factorize = FALSE)
+pairwiseDifferences(formula = NULL, data = NULL, x = NULL, g = NULL,
+  plotit = FALSE, factorize = FALSE)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The vector of the response variable.}
 
 \item{g}{The vector of the grouping variable.}
@@ -42,18 +48,28 @@ The main use of the function is to check the shape of the
           That is,
           for any level of the grouping variable in Group 1 there exists
           one paired value in Group 2, and so on.
+          
+          The input should include either \code{formula} and \code{data};
+          or \code{x}, and \code{g}.
+}
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
 }
 \examples{
 ### Two-sample paired data example with bar plot
 data(Pooh)
-Pooh.diff = pairwiseDifferences(x = Pooh$Likert, 
-                                g = Pooh$Time,
+Pooh.diff = pairwiseDifferences(Likert ~ Time, 
+                                data=Pooh, 
                                 plotit = TRUE)
 
 ### Unreplicated complete block design example with bar plots
 data(BobBelcher)
-Bob.diff = pairwiseDifferences(x= BobBelcher$Likert, 
-                               g=BobBelcher$Instructor, 
+Bob.diff = pairwiseDifferences(Likert ~ Instructor,
+                               data=BobBelcher, 
                                factorize=TRUE)
 library(lattice)
 histogram(~ Difference.f | Comparison,

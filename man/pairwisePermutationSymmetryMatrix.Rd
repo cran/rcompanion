@@ -5,9 +5,15 @@
 \title{Pairwise two-sample permutation symmetry 
        tests with matrix output}
 \usage{
-pairwisePermutationSymmetryMatrix(x, g, b, method = "fdr", ...)
+pairwisePermutationSymmetryMatrix(formula = NULL, data = NULL, x = NULL,
+  g = NULL, b = NULL, method = "fdr", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable as a vector.}
 
 \item{g}{The grouping variable as a vector.}
@@ -31,7 +37,10 @@ Conducts pairwise two-sample permutation tests
              for symmetry across groups.
 }
 \details{
-Permutation tests are non-parametric tests 
+The input should include either \code{formula} and \code{data};
+         or \code{x}, \code{g}, and \code{b}.
+         
+         Permutation tests are non-parametric tests 
          that do not assume normally-distributed errors.
          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
          futher discussion of this test.
@@ -42,16 +51,24 @@ Permutation tests are non-parametric tests
          of variance.
          The matrix output can be converted to a compact letter display.
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+         The second variable on the
+         right side is used for the blocking variable.
+}
 \examples{
 data(BobBelcher)
-BobBelcher$Instructor = factor(BobBelcher$Instructor, 
-                        levels=c("Linda Belcher", "Louise Belcher",
-                                 "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))
+BobBelcher$Instructor = factor( BobBelcher$Instructor, 
+                  levels = c("Linda Belcher", "Louise Belcher",
+                             "Tina Belcher", "Bob Belcher",
+                             "Gene Belcher"))
 BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
-PT = pairwisePermutationSymmetryMatrix(x      = BobBelcher$Likert.f,
-                                       g      = BobBelcher$Instructor,
-                                       b      = BobBelcher$Rater,
+PT = pairwisePermutationSymmetryMatrix(Likert.f ~ Instructor | Rater,
+                                       data   = BobBelcher,
                                        method = "fdr")$Adjusted
 PT
 library(multcompView)

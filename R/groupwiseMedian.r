@@ -2,7 +2,9 @@
 #'
 #' @description Calculates medians and confidence intervals for
 #'              groups.
-#' 
+#'
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variables. e.g. y ~ x1 + x2. 
 #' @param data The data frame to use.
 #' @param var The measurement variable to use. The name is in double quotes.
 #' @param group The grouping variable to use. The name is in double quotes.
@@ -34,9 +36,20 @@
 #' @param digits The number of significant figures to use in output.
 #' @param ... Other arguments passed to the \code{boot} function.
 #'                
-#' @details With some options, the function may not handle missing values well.
+#' @details The input should include either \code{formula} and \code{data};
+#'              or \code{data}, \code{var}, and \code{group}. (See examples).
+#'           
+#'          With some options, the function may not handle missing values well.
 #'          This seems to happen particularly with \code{bca = TRUE}.
 #'          
+#' @note    The parsing of the formula is simplistic. The first variable on the
+#'          left side is used as the measurement variable.  The variables on the
+#'          right side are used for the grouping variables.
+#'          
+#'        Results for ungrouped (one-sample) data can be obtained by either
+#'          setting the right side of the formula to 1, e.g.  y ~ 1, or by
+#'          setting \code{group=NULL}.                
+#'                    
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/E_04.html}
 #' @seealso \code{\link{groupwiseMean}}, \code{\link{groupwiseHuber}}
@@ -45,12 +58,20 @@
 #' @return A data frame of requested statistics by group.
 #'          
 #' @examples
+#' ### Example with formula notation
+#' data(Catbus)
+#' groupwiseMedian(Steps ~ Teacher + Sex,
+#'                 data         = Catbus,
+#'                 bca         = FALSE,
+#'                 percentile  = TRUE)
+#'                 
+#' ### Example with variable notation
 #' data(Catbus)
 #' groupwiseMedian(data         = Catbus,
-#'                  var         = "Steps",
-#'                  group       = c("Teacher", "Sex"),
-#'                  bca         = FALSE,
-#'                  percentile  = TRUE)
+#'                 var         = "Steps",
+#'                 group       = c("Teacher", "Sex"),
+#'                 bca         = FALSE,
+#'                 percentile  = TRUE)
 #'                       
 #' @importFrom boot boot boot.ci
 #' @importFrom plyr ddply rename
@@ -60,13 +81,18 @@
 #' @export
 
 groupwiseMedian = 
-  function(data, group, var, conf=0.95, R=5000,
+  function(formula=NULL, data=NULL, var=NULL, group=NULL,
+           conf=0.95, R=5000,
            boot=FALSE,  pseudo=FALSE,
            basic=FALSE, normal=FALSE,
            percentile=FALSE, bca=TRUE, 
            wilcox=FALSE,  exact=FALSE, 
            digits=3, ...)
   {
+  if(!is.null(formula)){
+    var   = all.vars(formula[[2]])[1]
+    group = all.vars(formula[[3]])
+    }
   ####################
   DF=
     ddply(.data=data,

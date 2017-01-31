@@ -2,7 +2,10 @@
 #'
 #' @description Conducts pairwise McNemar, exact, and permutation
 #'              tests as a post-hoc to Cochran Q test.
-#' 
+#'              
+#' @param formula A formula indicating the measurement variable and
+#'                the grouping variable. e.g. y ~ group | block.
+#' @param data   The data frame to use. 
 #' @param x The response variable.
 #' @param g The grouping variable.
 #' @param block The blocking variable.
@@ -19,6 +22,9 @@
 #' 
 #' @details The component tables for the pairwise tests
 #'          must be of size 2 x 2.
+#'          
+#'          The input should include either \code{formula} and \code{data};
+#'          or \code{x}, \code{g}, and \code{block}.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_07.html}
@@ -26,6 +32,14 @@
 #' @return A list containing: a data frame of results of the global test;
 #'         a data frame of results of the pairwise results;
 #'         and a data frame mentioning the p-value adjustment method.
+#'         
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.
+#'          The second variable on the
+#'          right side is used for the blocking variable.  
 #'  
 #' @seealso \code{\link{nominalSymmetryTest}}, \code{\link{groupwiseCMH}},
 #'          \code{\link{pairwiseNominalIndependence}}, 
@@ -38,14 +52,13 @@
 #' cochran.qtest(Response ~ Practice | Student,
 #'               data = HayleySmith)
 #' HayleySmith$Practice = factor(HayleySmith$Practice,
-#'                        levels=c("MowHeight", "SoilTest",
-#'                                 "Clippings", "Irrigation"))
-#' PT = pairwiseMcnemar(x       = HayleySmith$Response,
-#'                      g       = HayleySmith$Practice,
-#'                      block   = HayleySmith$Student,
-#'                     test    = "exact",
-#'                     method  = "fdr",
-#'                     digits  = 3)
+#'                           levels = c("MowHeight", "SoilTest",
+#'                                      "Clippings", "Irrigation"))
+#' PT = pairwiseMcnemar(Response ~ Practice | Student,
+#'                      data    = HayleySmith,
+#'                      test    = "exact",
+#'                      method  = "fdr",
+#'                      digits  = 3)
 #' PT
 #' PT = PT$Pairwise
 #' cldList(comparison = PT$Comparison,
@@ -59,9 +72,15 @@
 #' @export
 
 pairwiseMcnemar = 
-  function(x, g, block, test="exact", method="fdr", digits=3, correct=FALSE)
+  function(formula=NULL, data=NULL,
+           x=NULL, g=NULL, block=NULL, 
+           test="exact", method="fdr", digits=3, correct=FALSE)
   {
-    print(levels(g))
+  if(!is.null(formula)){
+    x      = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    g      = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    block  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[2])))
+  }
   if(!is.factor(g)){g=factor(g)}
   if(!is.factor(block)){block=factor(block)}  
   Name = as.character(levels(g))

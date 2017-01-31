@@ -4,16 +4,19 @@
 \alias{groupwiseGeometric}
 \title{Groupwise geometric means and confidence intervals}
 \usage{
-groupwiseGeometric(data, group, var, conf = 0.95, na.rm = TRUE,
-  digits = 3, ...)
+groupwiseGeometric(formula = NULL, data = NULL, var = NULL,
+  group = NULL, conf = 0.95, na.rm = TRUE, digits = 3, ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variables. e.g. y ~ x1 + x2.}
+
 \item{data}{The data frame to use.}
+
+\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{group}{The grouping variable to use. The name is in double quotes.
 Multiple names are listed as a vector. (See example.)}
-
-\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{conf}{The confidence interval to use.}
 
@@ -32,7 +35,10 @@ Calculates geometric means and confidence intervals for
              groups.
 }
 \details{
-The function computes means, standard deviations, standard errors, 
+The input should include either \code{formula} and \code{data};
+             or \code{data}, \code{var}, and \code{group}. (See examples).
+
+         The function computes means, standard deviations, standard errors, 
          and confidence intervals on log-transformed values. Confidence
          intervals are calculated in the traditional
          manner with the t-distribution.  These statistics assume that
@@ -40,7 +46,22 @@ The function computes means, standard deviations, standard errors,
          assumption, medians and confidence intervals by bootstrap may be more 
          appropriate.
 }
+\note{
+The parsing of the formula is simplistic. The first variable on the
+         left side is used as the measurement variable.  The variables on the
+         right side are used for the grouping variables.
+         
+       Results for ungrouped (one-sample) data can be obtained by either
+         setting the right side of the formula to 1, e.g.  y ~ 1, or by
+         setting \code{group=NULL}.
+}
 \examples{
+### Example with formula notation 
+data(Catbus)
+groupwiseGeometric(Steps ~ Sex + Teacher,
+                   data   = Catbus)
+
+### Example with variable notation                                              
 data(Catbus)
 groupwiseGeometric(data   = Catbus,
                    var    = "Steps",

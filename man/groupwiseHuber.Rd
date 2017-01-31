@@ -4,19 +4,23 @@
 \alias{groupwiseHuber}
 \title{Groupwise Huber M-estimators and confidence intervals}
 \usage{
-groupwiseHuber(data, group, var, conf.level = 0.95, conf.type = "wald", ...)
+groupwiseHuber(formula = NULL, data = NULL, var = NULL, group = NULL,
+  conf.level = 0.95, ci.type = "wald", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variables. e.g. y ~ x1 + x2.}
+
 \item{data}{The data frame to use.}
+
+\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{group}{The grouping variable to use. The name is in double quotes.
 Multiple names are listed as a vector. (See example.)}
 
-\item{var}{The measurement variable to use. The name is in double quotes.}
-
 \item{conf.level}{The confidence interval to use.}
 
-\item{conf.type}{The type of confidence interval to use. Can be
+\item{ci.type}{The type of confidence interval to use. Can be
 \code{"wald"} or \code{"boot"}.
 See \code{\link{HuberM}} for details.}
 
@@ -32,14 +36,33 @@ Calculates Huber M-estimator and confidence intervals for
 \details{
 A wrapper for the \code{\link{HuberM}} function
          to allow easy output for multiple groups.
+         
+         The input should include either \code{formula} and \code{data};
+             or \code{data}, \code{var}, and \code{group}. (See examples).
+}
+\note{
+The parsing of the formula is simplistic. The first variable on the
+         left side is used as the measurement variable.  The variables on the
+         right side are used for the grouping variables.          
+         
+       Results for ungrouped (one-sample) data can be obtained by either
+         setting the right side of the formula to 1, e.g.  y ~ 1, or by
+         setting \code{group=NULL}.
 }
 \examples{
+### Example with formula notation
+data(Catbus)
+groupwiseHuber(Steps ~ Teacher + Sex,
+               data      = Catbus,
+               ci.type = "wald")
+               
+### Example with variable notation
 data(Catbus)
 groupwiseHuber(data      = Catbus,
                var       = "Steps",
                group     = c("Teacher", "Sex"),
-               conf.type = "wald")
-                      
+               ci.type = "wald")
+                                      
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

@@ -4,9 +4,15 @@
 \alias{pairwiseSignMatrix}
 \title{Pairwise sign tests for paired data with matrix output}
 \usage{
-pairwiseSignMatrix(x, g, method = "fdr", ...)
+pairwiseSignMatrix(formula = NULL, data = NULL, x = NULL, g = NULL,
+  method = "fdr", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable as a vector.}
 
 \item{g}{The grouping variable as a vector.}
@@ -28,7 +34,10 @@ Conducts pairwise sign tests across groups
              for paired data.
 }
 \details{
-The two sample paired sign test compares medians 
+The input should include either \code{formula} and \code{data};
+         or \code{x}, and \code{g}.
+         
+         The two sample paired sign test compares medians 
          among two groups with paired data.
          See \url{http://rcompanion.org/handbook/F_07.html} for
          futher discussion of this test.
@@ -42,16 +51,23 @@ The two sample paired sign test compares medians
          the blocking variable, so that the first observation of Group 1
          is paired with the first observation of Group 2, and so on.
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+}
 \examples{
 data(BobBelcher)
 friedman.test(Likert ~ Instructor | Rater,
               data = BobBelcher)
-BobBelcher$Instructor = factor(BobBelcher$Instructor, 
-                        levels=c("Linda Belcher", "Louise Belcher",
-                                 "Tina Belcher", "Bob Belcher",
-                                 "Gene Belcher"))             
-PT = pairwiseSignMatrix(x      = BobBelcher$Likert,
-                        g      = BobBelcher$Instructor,
+BobBelcher$Instructor = factor( BobBelcher$Instructor, 
+                  levels = c("Linda Belcher", "Louise Belcher",
+                             "Tina Belcher", "Bob Belcher",
+                             "Gene Belcher"))          
+PT = pairwiseSignMatrix(Likert ~ Instructor,
+                        data   = BobBelcher,
                         method = "fdr")$Adjusted
 PT
 library(multcompView)

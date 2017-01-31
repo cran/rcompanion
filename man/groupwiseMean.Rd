@@ -4,17 +4,21 @@
 \alias{groupwiseMean}
 \title{Groupwise means and confidence intervals}
 \usage{
-groupwiseMean(data, group, var, conf = 0.95, R = 5000, boot = FALSE,
-  traditional = TRUE, normal = FALSE, basic = FALSE, percentile = FALSE,
-  bca = FALSE, digits = 3, ...)
+groupwiseMean(formula = NULL, data = NULL, var = NULL, group = NULL,
+  conf = 0.95, R = 5000, boot = FALSE, traditional = TRUE,
+  normal = FALSE, basic = FALSE, percentile = FALSE, bca = FALSE,
+  digits = 3, ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variables. e.g. y ~ x1 + x2.}
+
 \item{data}{The data frame to use.}
+
+\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{group}{The grouping variable to use. The name is in double quotes.
 Multiple names are listed as a vector. (See example.)}
-
-\item{var}{The measurement variable to use. The name is in double quotes.}
 
 \item{conf}{The confidence interval to use.}
 
@@ -56,17 +60,37 @@ Calculates means and confidence intervals for
              groups.
 }
 \details{
-With some options, the function may not handle missing values well.
+The input should include either \code{formula} and \code{data};
+             or \code{data}, \code{var}, and \code{group}. (See examples).
+         
+         With some options, the function may not handle missing values well.
          This seems to happen particularly with \code{bca = TRUE}.
 }
+\note{
+The parsing of the formula is simplistic. The first variable on the
+         left side is used as the measurement variable.  The variables on the
+         right side are used for the grouping variables.
+         
+       Results for ungrouped (one-sample) data can be obtained by either
+         setting the right side of the formula to 1, e.g.  y ~ 1, or by
+         setting \code{group=NULL}.
+}
 \examples{
+### Example with formula notation
+data(Catbus)
+groupwiseMean(Steps ~ Teacher + Sex,
+              data        = Catbus,
+              traditional = FALSE,
+              percentile  = TRUE)
+
+### Example with variable notation
 data(Catbus)
 groupwiseMean(data        = Catbus,
               var         = "Steps",
               group       = c("Teacher", "Sex"),
               traditional = FALSE,
               percentile  = TRUE)
-                      
+                                     
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

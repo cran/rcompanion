@@ -4,9 +4,15 @@
 \alias{pairwiseOrdinalTest}
 \title{Pairwise two-sample ordinal regression}
 \usage{
-pairwiseOrdinalTest(x, g, method = "fdr", ...)
+pairwiseOrdinalTest(formula = NULL, data = NULL, x = NULL, g = NULL,
+  method = "fdr", ...)
 }
 \arguments{
+\item{formula}{A formula indicating the measurement variable and
+the grouping variable. e.g. y ~ group.}
+
+\item{data}{The data frame to use.}
+
 \item{x}{The response variable as a vector.}
 
 \item{g}{The grouping variable as a vector.}
@@ -25,7 +31,10 @@ A dataframe of the groups being compared, the p-values,
 Performs pairwise two-sample ordinal regression across groups.
 }
 \details{
-Ordinal regression 
+The input should include either \code{formula} and \code{data};
+         or \code{x}, and \code{g}.
+         
+         Ordinal regression 
          is analogous to general linear regression or generalized linear
          regression for cases where 
          the dependent variable
@@ -40,13 +49,20 @@ Ordinal regression
          
          The \code{x} variable must be an ordered factor.
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+}
 \examples{
 data(PoohPiglet)
 PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker, 
-                        levels=c("Pooh", "Tigger", "Piglet"))
-PT = pairwiseOrdinalTest(x      = PoohPiglet$Likert.f,
-                         g      = PoohPiglet$Speaker,
+PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
+                     levels = c("Pooh", "Tigger", "Piglet"))
+PT = pairwiseOrdinalTest(Likert.f ~ Speaker,
+                         data   = PoohPiglet,
                          method = "fdr")
 PT
 cldList(comparison = PT$Comparison,
