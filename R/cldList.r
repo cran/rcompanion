@@ -2,6 +2,11 @@
 #'
 #' @description Produces a compact letter display (cld) from pairwise 
 #'              comparisons that were summarized in a table of comparisons
+#'
+#' @param formula A formula indicating the variable holding p-values and
+#'                the variable holding the comparisons. 
+#'                e.g. P.adj ~ Comparison.
+#' @param data   The data frame to use.
 #' @param comparison A vector of text describing comparisons, 
 #'                   with each element in a form similar to
 #'                   "Treat.A - Treat.B = 0".  Spaces and "=" and "0"
@@ -25,7 +30,10 @@
 #' @param ...           Additional arguments passed to
 #'                      \code{multcompLetters}              
 #'             
-#' @details  This function relies upon the \code{multcompLetters}
+#' @details  The input should include either \code{formula} and \code{data};
+#'           or \code{comparison} and \code{p.value}.
+#'           
+#'           This function relies upon the \code{multcompLetters}
 #'           function in the \code{multcompView} package. The text for the
 #'           comparisons
 #'           passed to \code{multcompLetters} should be in the form
@@ -43,7 +51,13 @@
 #' @concept compact letter display cld post-hoc
 #' @return A data frame of group names, group separation letters,
 #'         and monospaced separtions letters
-#'                   
+#'
+#' @note  The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.  
+#'      
 #' @examples
 #' data(PoohPiglet)
 #' PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
@@ -54,16 +68,18 @@
 #'               method="bh")
 #' DT = DT$res
 #' DT
-#' cldList(comparison       = DT$Comparison,
-#'         p.value          = DT$P.adj,
-#'         threshold        = 0.05)
+#' cldList(P.adj ~ Comparison,
+#'         data      = DT,
+#'         threshold = 0.05)
 #' 
 #' @importFrom multcompView multcompLetters
 #' 
 #' @export
  
-cldList = function(comparison, 
-                   p.value, 
+cldList = function(formula       = NULL,
+                   data          = NULL, 
+                   comparison    = NULL, 
+                   p.value       = NULL, 
                    threshold     = 0.05,
                    print.comp    = FALSE,
                    remove.space  = TRUE,
@@ -73,6 +89,10 @@ cldList = function(comparison,
                    swap.vs       = FALSE,
                    ...)
 {
+  if(!is.null(formula)){
+    p.value     = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+    comparison  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    }
 Comparison = p.value < threshold
 
 if (sum(Comparison) == 0){stop("No significant differences.", call.=FALSE)}

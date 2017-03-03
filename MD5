@@ -1,8 +1,8 @@
-b8c5c72dd4167285aaa00c1c31995228 *DESCRIPTION
+ac6b8e6694bf4ee3fb244be4bcd9ad75 *DESCRIPTION
 ebec85b809f6839806298c2dc5f8987d *NAMESPACE
 adb8112fbae66d7b9f80876c68c185f5 *R/Data.R
 2957b943a8d92529eb1c2df056cfa3bc *R/cateNelson.r
-8646d80c44b626c927428d4b55c3b372 *R/cldList.r
+5baf92b6b1eea31036f3320103df5436 *R/cldList.r
 67d93db1078f20de3a198d3bbef57a6e *R/compareGLM.r
 b3c1f291f38d06809fd28df91044996f *R/compareLM.r
 e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
@@ -72,7 +72,7 @@ d0ae1e0954767db5986b76c15ba7ec95 *man/Nurseries.Rd
 3d799158e927f4aad9b6fb3de8ae9fad *man/PoohPiglet.Rd
 e109f9d7391c46b1b41fd4d64e08403c *man/Religion.Rd
 6b274715273de098eedb5073c652045c *man/cateNelson.Rd
-ac436accf16a6a8060c0660b49e9a7cc *man/cldList.Rd
+4210b29dae18a66ed315ebe83750557b *man/cldList.Rd
 9d3b6a7c5a057ac460d65f78ce32c830 *man/compareGLM.Rd
 adfb27bad7607b0a015d45938d129b4c *man/compareLM.Rd
 9f1776459bd868a7879aebd81a6cdd69 *man/fullPTable.Rd

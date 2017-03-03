@@ -4,11 +4,18 @@
 \alias{cldList}
 \title{Compact letter display for lists of comparisons}
 \usage{
-cldList(comparison, p.value, threshold = 0.05, print.comp = FALSE,
-  remove.space = TRUE, remove.equal = TRUE, remove.zero = TRUE,
-  swap.colon = TRUE, swap.vs = FALSE, ...)
+cldList(formula = NULL, data = NULL, comparison = NULL, p.value = NULL,
+  threshold = 0.05, print.comp = FALSE, remove.space = TRUE,
+  remove.equal = TRUE, remove.zero = TRUE, swap.colon = TRUE,
+  swap.vs = FALSE, ...)
 }
 \arguments{
+\item{formula}{A formula indicating the variable holding p-values and
+the variable holding the comparisons. 
+e.g. P.adj ~ Comparison.}
+
+\item{data}{The data frame to use.}
+
 \item{comparison}{A vector of text describing comparisons, 
 with each element in a form similar to
 "Treat.A - Treat.B = 0".  Spaces and "=" and "0"
@@ -50,7 +57,10 @@ Produces a compact letter display (cld) from pairwise
              comparisons that were summarized in a table of comparisons
 }
 \details{
-This function relies upon the \code{multcompLetters}
+The input should include either \code{formula} and \code{data};
+          or \code{comparison} and \code{p.value}.
+          
+          This function relies upon the \code{multcompLetters}
           function in the \code{multcompView} package. The text for the
           comparisons
           passed to \code{multcompLetters} should be in the form
@@ -63,6 +73,13 @@ This function relies upon the \code{multcompLetters}
           text in the form e.g.
           "Treat.A : Treat.B".
 }
+\note{
+The parsing of the formula is simplistic. 
+         The first variable on the
+         left side is used as the measurement variable.  
+         The first variable on the
+         right side is used for the grouping variable.
+}
 \examples{
 data(PoohPiglet)
 PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
@@ -73,9 +90,9 @@ DT = dunnTest(Likert ~ Speaker,
               method="bh")
 DT = DT$res
 DT
-cldList(comparison       = DT$Comparison,
-        p.value          = DT$P.adj,
-        threshold        = 0.05)
+cldList(P.adj ~ Comparison,
+        data      = DT,
+        threshold = 0.05)
 
 }
 \author{
