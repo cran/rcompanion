@@ -6,8 +6,12 @@
 #' @param fit The fitted model object for which to determine pseudo r-squared.
 #' @param null The null model object against which to compare the fitted model 
 #'             object. The null model must be nested in the fitted model to be 
-#'             valid. This is optional for some model objects
-#'             and required for others.
+#'             valid. Specifying the null
+#'             is optional for some model object types
+#'             and is required for others.
+#' @param restrictNobs If \code{TRUE}, limits the observations for the null
+#'                     model to those used in the fitted model.
+#'                     Works with only some model object types.
 #' @details  Pseudo R-squared values are not directly comparable to the  
 #'           R-squared for OLS models.  Nor can they be interpreted as the  
 #'           proportion of the variability in the dependent variable that is  
@@ -19,18 +23,34 @@
 #'           referred to as Cragg and Uhler.
 #'           
 #'           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
-#'           clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, rq.            
+#'           clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, and rq.            
 #'                                       
 #'           Model objects that require the null model to 
-#'           be defined are nls, lmer, glmer and clmm. 
+#'           be defined are nls, lmer, glmer, and clmm. 
 #'           Other objects use the \code{update} function to
 #'           define the null model.
 #'           
 #'           Likelihoods are found using ML (\code{REML = FALSE}).
 #'           
-#'           Caveats:
+#'           The fitted model and the null model
+#'           should be properly nested.
+#'           That is, the terms of one need to be a subset of the the other,
+#'           and they should have the same set of observations.
+#'           One issue arises when there are \code{NA}
+#'           values in one variable but not another, and observations with 
+#'           \code{NA} are removed in the model fitting.  The result may be
+#'           fitted and null models with
+#'           different sets of observations.
+#'           Setting \code{restrictNobs} to \code{TRUE} 
+#'           ensures that only observations in
+#'           the fit model are used in the null model.
+#'           This appears to work for \code{lm} and some \code{glm} models,
+#'           but causes the function to fail for other model
+#'           object types.
+#'           
 #'           Some pseudo R-squared measures may not be appropriate
 #'           or useful for some model types.
+#'           
 #'           Calculations are based on log likelihood values for models.
 #'           Results may be different than those based on deviance.
 #'           
@@ -38,10 +58,16 @@
 #' @references \url{http://rcompanion.org/handbook/G_10.html}
 #' @seealso \code{\link{nagelkerkeHermite}}
 #' @concept pseudo r-squared cox snell nagelkerke likelihood
-#' @return A list of four objects describing the models used, the pseudo 
-#'         r-squared values, the likelihood ratio test for the model, and any
-#'         warning messages. 
-#'         
+#' @return A list of six objects describing the models used, the pseudo 
+#'         r-squared values, the likelihood ratio test for the model,
+#'         the number of obervaton for the models,
+#'         messages, and any warnings.
+#'
+#' @section Acknowledgements:
+#'          My thanks to
+#'          Jan-Herman Kuiper of Keele University for suggesting
+#'          the \code{restrictNobs} fix.
+#'          
 #' @examples
 #' ### Logistic regression example
 #' data(AndersonBias)
@@ -73,7 +99,7 @@
 #' @export
 
 nagelkerke = 
-function(fit, null=NULL)
+function(fit, null=NULL, restrictNobs=FALSE)
 {
    TOGGLE =   (class(fit)[1]=="lm"
              | class(fit)[1]=="gls"
@@ -97,9 +123,14 @@ function(fit, null=NULL)
    ZOGGLE  = (class(fit)[1]=="zeroinfl")
    ZOGGLE2 = (class(fit)[1]=="rq")
    NOGGLE = is.null(null)
-   ERROR = "Note: For models fit with REML, these statistics are based on refitting with ML"
+   ERROR  = "Note: For models fit with REML, these statistics are based on refitting with ML"
+   ERROR2 = "None"
+    
+  if(!restrictNobs & NOGGLE  & TOGGLE){null = update(fit, ~ 1)}
+  if(restrictNobs  & NOGGLE  & TOGGLE){null = update(fit, ~ 1, data=fit$model)}
    
-  if(NOGGLE & TOGGLE){null = update(fit, ~ 1)}
+  if(restrictNobs  & !NOGGLE){null = update(null, data=fit$model)}
+    
   if(NOGGLE & BOGGLE)
      {ERROR = "You need to supply a null model for nls, lmer, glmer, or clmm"}
   if((!TOGGLE) & (!BOGGLE))
@@ -119,11 +150,17 @@ function(fit, null=NULL)
              ncol=1)
   colnames(Z) = c("Pseudo.R.squared")
   rownames(Z) = c("McFadden", "Cox and Snell (ML)", 
-                  "Nagelkerke (Cragg and Uhler)") 
+                  "Nagelkerke (Cragg and Uhler)")
+  
   X = matrix(rep(NA,4),
              ncol=4)
   colnames(X) = c("Df.diff","LogLik.diff","Chisq","p.value")
   rownames(X) = ""
+  
+  U = matrix(rep(NA,2),
+            ncol=1)
+  colnames(U) = ""
+  rownames(U) = c("Model:", "Null:")
   
   if(TOGGLE | BOGGLE){
   if (!SMOGGLE){Y[1]= toString(fit$call)}
@@ -134,10 +171,19 @@ function(fit, null=NULL)
  
   if (!SMOGGLE2){Y[2]= toString(null$call)}
   if (SMOGGLE2){Y[2]= toString(null@call)}
+    
+  U[1,1]= nobs(fit); U[2,1]= nobs(null)  
  
-  if(!ZOGGLE & !ZOGGLE2){N = nobs(fit)}
-  if(!ZOGGLE &  ZOGGLE2){N = length(fit$y)}
-  if(ZOGGLE){N = fit$n}  
+  if(!ZOGGLE & !ZOGGLE2){N = nobs(fit)
+                         U[1,1]= nobs(fit); U[2,1]= nobs(null)}
+  if(!ZOGGLE &  ZOGGLE2){N = length(fit$y)
+                         U[1,1]= length(fit$y); U[2,1]= length(null$y)}
+  if(ZOGGLE){N = fit$n
+             U[1,1]= fit$n; U[2,1]= null$n}
+
+  if(U[1,1] != U[2,1]){
+    ERROR2 = "WARNING: Fitted and null models have different numbers of observations"}
+  
   m = suppressWarnings(logLik(fit, REML=FALSE))[1]
   n = suppressWarnings(logLik(null, REML=FALSE))[1]
   mf = 1 - m/n
@@ -164,8 +210,11 @@ function(fit, null=NULL)
   
   W=ERROR
   
-  V = list(Y, Z, X, W) 
-  names(V) = c("Models", "Pseudo.R.squared.for.model.vs.null", "Likelihood.ratio.test",
-               "Messages")
+  WW=ERROR2
+  
+  V = list(Y, Z, X, U, W, WW) 
+  names(V) = c("Models", "Pseudo.R.squared.for.model.vs.null", 
+               "Likelihood.ratio.test", "Number.of.observations",
+               "Messages", "Warnings")
   return(V)            
 }

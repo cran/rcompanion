@@ -38,13 +38,12 @@ library(multcompView)
 multcompLetters(PT1)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/F_08.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 pairwise multiple comparisons cld
 }
-

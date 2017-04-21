@@ -18,4 +18,3 @@ A two-dimensional contingency table, in which Breakfast
              Hypothetical data.
 }
 \keyword{datasets}
-

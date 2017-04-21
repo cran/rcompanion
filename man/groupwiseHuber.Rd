@@ -64,9 +64,6 @@ groupwiseHuber(data      = Catbus,
                ci.type = "wald")
                                       
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/rcompanion/d_08a.html}
 }
@@ -74,7 +71,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}}
          \code{\link{groupwiseGeometric}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 huber m-estimator confidence interval robust bootstrap
 }
-

@@ -20,4 +20,3 @@ A data frame with two variables: size of plant nursery in
              the nursery
 }
 \keyword{datasets}
-

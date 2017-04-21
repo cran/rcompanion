@@ -70,16 +70,15 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)
  
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/G_07.html}
 }
 \seealso{
 \code{\link{pairwiseOrdinalMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 ordinal regression post-hoc one-way
 }
-

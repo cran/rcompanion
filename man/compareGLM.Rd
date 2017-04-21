@@ -48,16 +48,15 @@ model.3 = glm(Result ~ County + Sex + County:Sex, weight = Count,
 compareGLM(model.0, model.1, model.2, model.3)              
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/rcompanion/e_07.html}
 }
 \seealso{
 \code{\link{compareLM}}, \code{\link{pairwiseModelAnova}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 AIC BIC AICc p-value pseudo R-squared glm
 }
-

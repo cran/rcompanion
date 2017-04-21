@@ -17,4 +17,3 @@ A matrix of paired counts for religion of people before
              Hypothetical data.
 }
 \keyword{datasets}
-

@@ -16,4 +16,3 @@ A data frame of the number of steps taken by students in three
              classes. Hypothetical data.
 }
 \keyword{datasets}
-

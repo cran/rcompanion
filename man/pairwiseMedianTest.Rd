@@ -68,16 +68,15 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)                         
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/F_09.html}
 }
 \seealso{
 \code{\link{pairwiseMedianMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 moods median nonparametric post-hoc one-way
 }
-

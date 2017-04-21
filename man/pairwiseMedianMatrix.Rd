@@ -73,16 +73,15 @@ multcompLetters(PT,
                 Letters=letters)                    
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/F_09.html}
 }
 \seealso{
 \code{\link{pairwiseMedianTest}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 moods median nonparametric post-hoc one-way cld
 }
-

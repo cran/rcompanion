@@ -16,4 +16,3 @@ A data frame of the number of monarch butterflies in three
              gardens. Hypothetical data.
 }
 \keyword{datasets}
-

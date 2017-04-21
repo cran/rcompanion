@@ -4,20 +4,26 @@
 \alias{nagelkerke}
 \title{Pseudo r-squared measures for various models}
 \usage{
-nagelkerke(fit, null = NULL)
+nagelkerke(fit, null = NULL, restrictNobs = FALSE)
 }
 \arguments{
 \item{fit}{The fitted model object for which to determine pseudo r-squared.}
 
 \item{null}{The null model object against which to compare the fitted model 
 object. The null model must be nested in the fitted model to be 
-valid. This is optional for some model objects
-and required for others.}
+valid. Specifying the null
+is optional for some model object types
+and is required for others.}
+
+\item{restrictNobs}{If \code{TRUE}, limits the observations for the null
+model to those used in the fitted model.
+Works with only some model object types.}
 }
 \value{
-A list of four objects describing the models used, the pseudo 
-        r-squared values, the likelihood ratio test for the model, and any
-        warning messages.
+A list of six objects describing the models used, the pseudo 
+        r-squared values, the likelihood ratio test for the model,
+        the number of obervaton for the models,
+        messages, and any warnings.
 }
 \description{
 Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
@@ -35,21 +41,44 @@ Pseudo R-squared values are not directly comparable to the
           referred to as Cragg and Uhler.
           
           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
-          clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, rq.            
+          clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, and rq.            
                                       
           Model objects that require the null model to 
-          be defined are nls, lmer, glmer and clmm. 
+          be defined are nls, lmer, glmer, and clmm. 
           Other objects use the \code{update} function to
           define the null model.
           
           Likelihoods are found using ML (\code{REML = FALSE}).
           
-          Caveats:
+          The fitted model and the null model
+          should be properly nested.
+          That is, the terms of one need to be a subset of the the other,
+          and they should have the same set of observations.
+          One issue arises when there are \code{NA}
+          values in one variable but not another, and observations with 
+          \code{NA} are removed in the model fitting.  The result may be
+          fitted and null models with
+          different sets of observations.
+          Setting \code{restrictNobs} to \code{TRUE} 
+          ensures that only observations in
+          the fit model are used in the null model.
+          This appears to work for \code{lm} and some \code{glm} models,
+          but causes the function to fail for other model
+          object types.
+          
           Some pseudo R-squared measures may not be appropriate
           or useful for some model types.
+          
           Calculations are based on log likelihood values for models.
           Results may be different than those based on deviance.
 }
+\section{Acknowledgements}{
+
+         My thanks to
+         Jan-Herman Kuiper of Keele University for suggesting
+         the \code{restrictNobs} fix.
+}
+
 \examples{
 ### Logistic regression example
 data(AndersonBias)
@@ -77,16 +106,15 @@ null.model = nls(Sodium ~ nullfunct(Calories, m),
 nagelkerke(model, null=null.model)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/G_10.html}
 }
 \seealso{
 \code{\link{nagelkerkeHermite}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 pseudo r-squared cox snell nagelkerke likelihood
 }
-

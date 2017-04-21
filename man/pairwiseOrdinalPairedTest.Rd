@@ -80,16 +80,15 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)
         
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/G_08.html}
 }
 \seealso{
 \code{\link{pairwiseOrdinalPairedMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 ordinal regression post-hoc one-way paired blocks
 }
-

@@ -50,15 +50,14 @@ groupwiseSum(data        = AndersonBias,
              group       = c("Result", "Sex"))
                       
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \seealso{
 \code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}},
          \code{\link{groupwiseHuber}},
          \code{\link{groupwiseGeometric}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 sum
 }
-

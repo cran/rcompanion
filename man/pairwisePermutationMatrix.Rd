@@ -70,16 +70,15 @@ multcompLetters(PT,
                 Letters=letters)   
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/K_02.html}
 }
 \seealso{
 \code{\link{pairwisePermutationTest}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 permutation nonparametric post-hoc one-way cld
 }
-

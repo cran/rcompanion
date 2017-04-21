@@ -92,9 +92,6 @@ groupwiseMean(data        = Catbus,
               percentile  = TRUE)
                                      
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/C_03.html}
 }
@@ -102,7 +99,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \code{\link{groupwiseMedian}}, \code{\link{groupwiseHuber}}
          \code{\link{groupwiseGeometric}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 mean confidence interval bootstrap
 }
-

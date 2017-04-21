@@ -16,4 +16,3 @@ A data frame of the intake of calories and sodium for students
              in five classes. Hypothetical data.
 }
 \keyword{datasets}
-

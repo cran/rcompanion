@@ -60,16 +60,15 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)         
                                                               
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/H_09.html}
 }
 \seealso{
 \code{\link{pairwiseNominalIndependence}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 Linear-by-linear Contingency table Ordinal Ordered Chi-square.
 }
-

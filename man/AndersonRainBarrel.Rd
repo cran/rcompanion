@@ -16,4 +16,3 @@ A matrix of paired counts for students planning to install rain
              barrels before and after a class. Hypothetical data.
 }
 \keyword{datasets}
-

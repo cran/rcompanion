@@ -61,9 +61,10 @@
 #' ### Example with formula notation
 #' data(Catbus)
 #' groupwiseMedian(Steps ~ Teacher + Sex,
-#'                 data         = Catbus,
+#'                 data        = Catbus,
 #'                 bca         = FALSE,
-#'                 percentile  = TRUE)
+#'                 percentile  = TRUE,
+#'                 R           = 1000)
 #'                 
 #' ### Example with variable notation
 #' data(Catbus)
@@ -71,7 +72,8 @@
 #'                 var         = "Steps",
 #'                 group       = c("Teacher", "Sex"),
 #'                 bca         = FALSE,
-#'                 percentile  = TRUE)
+#'                 percentile  = TRUE,
+#'                 R           = 1000)
 #'                       
 #' @importFrom boot boot boot.ci
 #' @importFrom plyr ddply rename

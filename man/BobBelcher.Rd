@@ -18,4 +18,3 @@ A data frame of Likert responses for five
              Hypothetical data.
 }
 \keyword{datasets}
-

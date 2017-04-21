@@ -57,9 +57,6 @@ nominalSymmetryTest(Religion,
                     ntrial     = 10000)
                                                               
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/H_05.html}
 }
@@ -68,7 +65,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
          \code{\link{pairwiseNominalIndependence}}, 
          \code{\link{pairwiseNominalMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 McNemar Bowker contingency table symmetry nominal
 }
-

@@ -72,16 +72,15 @@ multcompLetters(PT,
                 Letters=letters)
                  
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/G_07.html}
 }
 \seealso{
 \code{\link{pairwiseOrdinalTest}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 ordinal regression post-hoc one-way cld
 }
-

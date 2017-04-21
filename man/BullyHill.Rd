@@ -16,4 +16,3 @@ A data frame of counts of students passing and failing.
              Hypothetical data.
 }
 \keyword{datasets}
-

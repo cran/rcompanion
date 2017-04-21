@@ -14,9 +14,11 @@ object. The null model must be nested in the fitted model to be
 valid.}
 }
 \value{
-A list of four objects describing the models used, the pseudo 
-        r-squared values, the likelihood ratio test for the model, and AIC
-        for the fitted and null models.
+A list of six objects describing the models used, the pseudo 
+        r-squared values, the likelihood ratio test for the model, the AIC
+        for the fitted and null models,
+        the number of observations for the models,
+        and any warnings.
 }
 \description{
 Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
@@ -28,6 +30,11 @@ Hermite regression is performed with the \code{hermite} package.
           
           For pseudo r-squared measures, Cox and Snell is also referred to 
           as ML. Nagelkerke is also referred to as Cragg and Uhler.
+          
+          The fit model and the null model
+          should be properly nested.
+          That is, the terms of one need to be a subset of the the other,
+          and they should have the same set of observations.
 }
 \examples{
 data(Monarchs)
@@ -43,16 +50,15 @@ null = glm.hermite(Monarchs ~ 1,
 nagelkerkeHermite(model, null)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/J_01.html}
 }
 \seealso{
 \code{\link{nagelkerke}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 pseudo r-squared cox snell nagelkerke likelihood hermite
 }
-

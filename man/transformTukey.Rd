@@ -52,13 +52,12 @@ Conc = rlnorm(100)
 Conc.trans = transformTukey(Conc)
                       
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/I_12.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 Tukey ladder transform normal
 }
-

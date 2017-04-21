@@ -55,9 +55,6 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)                             
                                                               
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/H_04.html}
 }
@@ -66,7 +63,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
           \code{\link{nominalSymmetryTest}}, 
           \code{\link{pairwiseNominalMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 Chi-square G-test Fisher contingency table nominal
 }
-

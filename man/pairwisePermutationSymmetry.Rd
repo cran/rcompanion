@@ -72,16 +72,15 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/K_03.html}
 }
 \seealso{
 \code{\link{pairwisePermutationSymmetryMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 permutation nonparametric post-hoc one-way symmetry
 }
-

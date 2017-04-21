@@ -70,16 +70,15 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)
        
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/rcompanion/d_08a.html}
 }
 \seealso{
 \code{\link{pairwiseRobustMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 robust Huber post-hoc one-way
 }
-

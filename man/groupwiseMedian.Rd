@@ -85,9 +85,10 @@ The parsing of the formula is simplistic. The first variable on the
 ### Example with formula notation
 data(Catbus)
 groupwiseMedian(Steps ~ Teacher + Sex,
-                data         = Catbus,
+                data        = Catbus,
                 bca         = FALSE,
-                percentile  = TRUE)
+                percentile  = TRUE,
+                R           = 1000)
                 
 ### Example with variable notation
 data(Catbus)
@@ -95,11 +96,9 @@ groupwiseMedian(data         = Catbus,
                 var         = "Steps",
                 group       = c("Teacher", "Sex"),
                 bca         = FALSE,
-                percentile  = TRUE)
+                percentile  = TRUE,
+                R           = 1000)
                       
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \references{
 \url{http://rcompanion.org/handbook/E_04.html}
@@ -108,7 +107,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \code{\link{groupwiseMean}}, \code{\link{groupwiseHuber}}
          \code{\link{groupwiseGeometric}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 median confidence interval bootstrap
 }
-

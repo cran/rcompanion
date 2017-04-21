@@ -77,16 +77,15 @@ multcompLetters(PT,
                 Letters=letters)
                  
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/F_10.html}
 }
 \seealso{
 \code{\link{pairwiseSignTest}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 median nonparametric post-hoc paired Friedman unreplicated cld
 }
-

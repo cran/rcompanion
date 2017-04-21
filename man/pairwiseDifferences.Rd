@@ -78,13 +78,12 @@ histogram(~ Difference.f | Comparison,
          layout=c(2,5))
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/F_10.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 paired t-test rank-sum friedman quade histogram
 }
-

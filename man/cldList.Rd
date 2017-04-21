@@ -95,13 +95,12 @@ cldList(P.adj ~ Comparison,
         threshold = 0.05)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/F_08.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 compact letter display cld post-hoc
 }
-

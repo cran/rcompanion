@@ -60,13 +60,12 @@ library(multcompView)
 multcompLetters(PT)
                                                               
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/H_04.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 Chi-square G-test Fisher contingency table nominal
 }
-

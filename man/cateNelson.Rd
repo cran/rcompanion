@@ -100,13 +100,12 @@ cateNelson(x          = Nurseries$Size,
            ythreshold = 0.15)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/rcompanion/h_02.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 Cate Nelson bivariate soil agronomy
 }
-

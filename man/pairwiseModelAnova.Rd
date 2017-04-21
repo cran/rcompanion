@@ -45,13 +45,12 @@ model.4 = lm(Sodium ~ Calories + Calories2 + Calories3 + Calories4,
 pairwiseModelAnova(model.1, model.2, model.3, model.4)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \seealso{
 \code{\link{compareGLM}}, \code{\link{compareLM}}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 likelihood ratio anova model
 }
-

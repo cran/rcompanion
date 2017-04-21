@@ -13,13 +13,20 @@
 #'           For pseudo r-squared measures, Cox and Snell is also referred to 
 #'           as ML. Nagelkerke is also referred to as Cragg and Uhler.
 #'           
+#'           The fit model and the null model
+#'           should be properly nested.
+#'           That is, the terms of one need to be a subset of the the other,
+#'           and they should have the same set of observations.           
+#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/J_01.html}
 #' @seealso \code{\link{nagelkerke}}
 #' @concept pseudo r-squared cox snell nagelkerke likelihood hermite
-#' @return A list of four objects describing the models used, the pseudo 
-#'         r-squared values, the likelihood ratio test for the model, and AIC
-#'         for the fitted and null models.
+#' @return A list of six objects describing the models used, the pseudo 
+#'         r-squared values, the likelihood ratio test for the model, the AIC
+#'         for the fitted and null models,
+#'         the number of observations for the models,
+#'         and any warnings.
 #'         
 #' @examples
 #' data(Monarchs)
@@ -62,8 +69,20 @@ function(fit, null)
   colnames(Y) = ""
   rownames(Y) = c("Model:", "Null:")
   
+  U = matrix(rep(NA,2),
+            ncol=1)
+  colnames(U) = ""
+  rownames(U) = c("Model:", "Null:")
+  
+  WW = "None"
+  
   Y[1] = toString(summary(fit)$call)
   Y[2] = toString(summary(null)$call)
+  U[1] = length(fit$fitted.values)
+  U[2] = length(null$fitted.values)
+  
+  if (U[1] != U[2]){
+    WW = "WARNING: Fitted and null models have different numbers of observations"}
  
   N = length(fit$fitted.values)
   m = fit$loglik
@@ -93,7 +112,8 @@ function(fit, null)
   W[1] = signif(summary(fit)$aic, digits=5)
   W[2] = signif(summary(null)$aic, digits=5)
   
-  V = list(Y, Z, X, W) 
-  names(V) = c("Models", "Pseudo.R.squared.for.model.vs.null", "Likelihood.ratio.test", "AIC")
+  V = list(Y, Z, X, W, U, WW) 
+  names(V) = c("Models", "Pseudo.R.squared.for.model.vs.null", "Likelihood.ratio.test", "AIC", "Number.of.observations",
+               "Warnings")
   return(V)            
 }

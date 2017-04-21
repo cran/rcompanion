@@ -47,16 +47,15 @@ model = lm(Steps ~ Sex + Teacher,
  plotNormalHistogram(residuals(model))          
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/I_01.html}
 }
 \seealso{
 \code{\link{plotNormalDensity}} \code{\link{plotDensityHistogram}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 normal distribution histogram
 }
-

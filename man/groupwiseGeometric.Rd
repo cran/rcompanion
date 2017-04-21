@@ -68,9 +68,6 @@ groupwiseGeometric(data   = Catbus,
                    group  = c("Sex", "Teacher"))
                       
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/C_03.html}
 }
@@ -78,7 +75,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}}
          \code{\link{groupwiseHuber}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 geometric mean confidence interval standard deviation error
 }
-

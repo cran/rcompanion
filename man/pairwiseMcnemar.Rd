@@ -80,9 +80,6 @@ cldList(comparison = PT$Comparison,
         threshold  = 0.05)
                                                              
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/H_07.html}
 }
@@ -91,7 +88,9 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
          \code{\link{pairwiseNominalIndependence}}, 
          \code{\link{pairwiseNominalMatrix}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 McNemar Cochran Q permutation exact
 }
-

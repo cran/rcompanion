@@ -17,4 +17,3 @@ pesticicde training course across four counties, with sex of students.
 Hypothetical data.
 }
 \keyword{datasets}
-

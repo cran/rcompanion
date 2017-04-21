@@ -17,4 +17,3 @@ A data frame in long form with yes/no responses for four
              Hypothetical data.
 }
 \keyword{datasets}
-

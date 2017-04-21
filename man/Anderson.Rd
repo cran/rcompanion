@@ -16,4 +16,3 @@ A matrix of counts for students passing or failing a pesticide
 training course across four counties. Hypothetical data.
 }
 \keyword{datasets}
-

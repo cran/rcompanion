@@ -17,4 +17,3 @@ A data frame of Likert responses for instructors Pooh Bear,
              Hypothetical data.
 }
 \keyword{datasets}
-

@@ -116,13 +116,12 @@ plotPredy(data  = BullyHill,
           ylab  = "Proportion passing")
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/handbook/I_10.html}
+}
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{
 plot polynomial bivariate
 }
-

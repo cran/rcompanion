@@ -75,16 +75,15 @@ multcompLetters(PT,
                 Letters=letters)
 
 }
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
 \references{
 \url{http://rcompanion.org/rcompanion/d_08a.html}
 }
 \seealso{
 \code{\link{pairwiseRobustTest}}
 }
+\author{
+Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+}
 \concept{
 robust Huber post-hoc one-way
 }
-
