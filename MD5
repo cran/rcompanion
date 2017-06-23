@@ -1,4 +1,4 @@
-439cd7214a3fa7b3b6c3625af03afc0e *DESCRIPTION
+6b665fd51c7233d734b813517c558236 *DESCRIPTION
 ebec85b809f6839806298c2dc5f8987d *NAMESPACE
 adb8112fbae66d7b9f80876c68c185f5 *R/Data.R
 2957b943a8d92529eb1c2df056cfa3bc *R/cateNelson.r
@@ -12,7 +12,7 @@ e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
 e15560b1d51e7d98a813b6b9b698ad62 *R/groupwiseMean.r
 d4f5445ff83fafef92a533d01d56be4d *R/groupwiseMedian.r
 283732157338a6cf0b15cdc46ef541f0 *R/groupwiseSum.r
-fae23c246811a7c72373e7cbebf055fe *R/nagelkerke.r
+c8879486c17a94b01736569db6a60d16 *R/nagelkerke.r
 c635406eb2837549572739b819bc0c3d *R/nagelkerkeHermite.r
 9d2dffac031d3f5a24f31bd3fea4e41e *R/nominalSymmetryTest.r
 cf247a5cf1b79bf195a854c3be370b8e *R/pairwiseDifferences.r

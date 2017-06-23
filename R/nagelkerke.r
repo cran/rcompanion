@@ -125,7 +125,7 @@ function(fit, null=NULL, restrictNobs=FALSE)
    NOGGLE = is.null(null)
    ERROR  = "Note: For models fit with REML, these statistics are based on refitting with ML"
    ERROR2 = "None"
-    
+   
   if(!restrictNobs & NOGGLE  & TOGGLE){null = update(fit, ~ 1)}
   if(restrictNobs  & NOGGLE  & TOGGLE){null = update(fit, ~ 1, data=fit$model)}
    
@@ -171,8 +171,6 @@ function(fit, null=NULL, restrictNobs=FALSE)
  
   if (!SMOGGLE2){Y[2]= toString(null$call)}
   if (SMOGGLE2){Y[2]= toString(null@call)}
-    
-  U[1,1]= nobs(fit); U[2,1]= nobs(null)  
  
   if(!ZOGGLE & !ZOGGLE2){N = nobs(fit)
                          U[1,1]= nobs(fit); U[2,1]= nobs(null)}
