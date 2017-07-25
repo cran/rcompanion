@@ -61,7 +61,7 @@ compareLM(model.1, model.2, model.3, model.4)
             \url{http://rcompanion.org/rcompanion/e_05.html}
 }
 \seealso{
-\code{\link{compareGLM}}, \code{\link{pairwiseModelAnova}}
+\code{\link{compareGLM}}, \code{\link{pairwiseModelAnova}}, , \code{\link{accuracy}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

@@ -27,7 +27,7 @@
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/I_10.html}
 #'             \url{http://rcompanion.org/rcompanion/e_05.html}
-#' @seealso \code{\link{compareGLM}}, \code{\link{pairwiseModelAnova}}
+#' @seealso \code{\link{compareGLM}}, \code{\link{pairwiseModelAnova}}, , \code{\link{accuracy}}
 #' @concept AIC BIC AICc p-value R-squared
 #' @return A list of two objects: The series of model calls, and a data 
 #'         frame of statistics for each model.
