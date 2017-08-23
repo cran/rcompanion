@@ -90,22 +90,23 @@ percentileTest =
            r=1000, digits=4, progress="TRUE")
   {
   if(is.null(formula)){
-    var   = c(x,y)
-    xname = tail(as.character(substitute(x)), n=1)
-    yname = tail(as.character(substitute(y)), n=1)
+    xy   = c(x,y)
+    xname = paste(as.character(substitute(x)), collapse=" ")
+    yname = paste(as.character(substitute(y)), collapse=" ")
     g     = factor(c(rep(xname, length(x)), rep(yname, length(y))))
     }
 if(!is.null(formula)){
-var  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
+xy   = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
 g    = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
 if(!is.factor(g)){g=factor(g)}
 }
- Complete = complete.cases(var, g)
- var = var[Complete]
+ Complete = complete.cases(xy, g)
+ xy = xy[Complete]
  g   = g[Complete]
  g   = droplevels(g)
- x   = var[g == levels(g)[1]]
- y   = var[g == levels(g)[2]]
+ x   = xy[g == levels(g)[1]]
+ y   = xy[g == levels(g)[2]]
+ xy  = c(x, y)
  
  PropA = NA
  PropB = NA
@@ -128,7 +129,7 @@ if(!is.factor(g)){g=factor(g)}
   Count = 0
   if (progress){tick=r/100}
   for(i in 1:r){
-  S = sample(var, replace=FALSE)
+  S = sample(xy, replace=FALSE)
   Sx   = S[g == levels(g)[1]]
   Sy   = S[g == levels(g)[2]]
 

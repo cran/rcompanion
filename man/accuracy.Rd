@@ -2,7 +2,8 @@
 % Please edit documentation in R/accuracy.r
 \name{accuracy}
 \alias{accuracy}
-\title{Minimum maximum accuracy, mean absolute percent error, and root mean square error}
+\title{Minimum maximum accuracy, mean absolute percent error, 
+       root mean square error, and Efron's pseudo r-squared}
 \usage{
 accuracy(fits, plotit = TRUE, digits = 3, ...)
 }
@@ -27,11 +28,17 @@ Produces a table of fit statistics for multiple models.
 Produces a table of fit statistics for multiple models: 
           minimum maximum accuracy, mean absolute percentage error,
           root mean square error, normalized root mean square error,
-          and accuracy based on normalized root mean square error.
+          accuracy based on normalized root mean square error, and Efron's
+          pseudo r-squared.
           
           For minimum maximum accuracy, larger indicates
           a better fit, 
           and a perfect fit is equal to 1.
+          
+          For mean absolute error (MAE), smaller
+          indicates a better fit,
+          and a perfect fit is equal to 0.
+          It has the same units as the dependent variable.
           
           For mean absolute percent error (MAPE), smaller
           indicates a better fit,
@@ -44,11 +51,17 @@ Produces a table of fit statistics for multiple models:
           the mean or the median of the values of the dependent variable. 
           
           NRMSE accuracy values are calculated as 1 minus
-          NRMSE.  Like minimum maximum accuracy, larger indicates a
+          NRMSE. Larger indicates a
           better fit, and a perfect fit is equal to 1.
           
+          Efron's pseudo r-squared is calculated as 1 minus the residual sum 
+          of squares divided by the total sum of squares.  For linear models
+          (\code{lm} model objects), Efron's pseudo r-squared will be equal  
+          to r-squared.  For other models, it should not be interpreted
+          as r-squared, but can still be useful as a relative measure.
+          
           Model objects currently supported: lm, glm, nls, betareg, gls,
-          lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
+          lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
 }
 \examples{
 data(BrendonSmall)
@@ -64,6 +77,14 @@ model.4 = nls(Sodium ~ quadplat(Calories, a, b, clx),
               data = BrendonSmall,
               start = list(a=519, b=0.359, clx = 2300))
 accuracy(list(model.1, model.2, model.3, model.4), plotit=FALSE)
+
+### Perfect and poor model fits
+X = c(1, 2,  3,  4,  5,  6, 7, 8, 9, 10, 11, 12)
+Y = c(1, 2,  3,  4,  5,  6, 7, 8, 9, 10, 11, 12)
+Z = c(1, 12, 13, 6, 10, 13, 4, 3, 5,  6, 10, 14)
+perfect = lm(Y ~ X)
+poor    = lm(Z ~ X)
+accuracy(list(perfect, poor), plotit=FALSE)
 
 }
 \references{

@@ -1,4 +1,5 @@
-#' @title Minimum maximum accuracy, mean absolute percent error, and root mean square error
+#' @title Minimum maximum accuracy, mean absolute percent error, 
+#'        root mean square error, and Efron's pseudo r-squared
 #'
 #' @description Produces a table of fit statistics for multiple models.
 #' 
@@ -11,11 +12,17 @@
 #' @details  Produces a table of fit statistics for multiple models: 
 #'           minimum maximum accuracy, mean absolute percentage error,
 #'           root mean square error, normalized root mean square error,
-#'           and accuracy based on normalized root mean square error.
+#'           accuracy based on normalized root mean square error, and Efron's
+#'           pseudo r-squared.
 #'           
 #'           For minimum maximum accuracy, larger indicates
 #'           a better fit, 
 #'           and a perfect fit is equal to 1.
+#'           
+#'           For mean absolute error (MAE), smaller
+#'           indicates a better fit,
+#'           and a perfect fit is equal to 0.
+#'           It has the same units as the dependent variable.
 #'           
 #'           For mean absolute percent error (MAPE), smaller
 #'           indicates a better fit,
@@ -28,11 +35,17 @@
 #'           the mean or the median of the values of the dependent variable. 
 #'           
 #'           NRMSE accuracy values are calculated as 1 minus
-#'           NRMSE.  Like minimum maximum accuracy, larger indicates a
+#'           NRMSE. Larger indicates a
 #'           better fit, and a perfect fit is equal to 1.
 #'           
+#'           Efron's pseudo r-squared is calculated as 1 minus the residual sum 
+#'           of squares divided by the total sum of squares.  For linear models
+#'           (\code{lm} model objects), Efron's pseudo r-squared will be equal  
+#'           to r-squared.  For other models, it should not be interpreted
+#'           as r-squared, but can still be useful as a relative measure.
+#'           
 #'           Model objects currently supported: lm, glm, nls, betareg, gls,
-#'           lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
+#'           lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
 #'           
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
@@ -57,6 +70,14 @@
 #'               start = list(a=519, b=0.359, clx = 2300))
 #' accuracy(list(model.1, model.2, model.3, model.4), plotit=FALSE)
 #' 
+#' ### Perfect and poor model fits
+#' X = c(1, 2,  3,  4,  5,  6, 7, 8, 9, 10, 11, 12)
+#' Y = c(1, 2,  3,  4,  5,  6, 7, 8, 9, 10, 11, 12)
+#' Z = c(1, 12, 13, 6, 10, 13, 4, 3, 5,  6, 10, 14)
+#' perfect = lm(Y ~ X)
+#' poor    = lm(Z ~ X)
+#' accuracy(list(perfect, poor), plotit=FALSE)
+#' 
 #' @importFrom graphics plot
 #' @importFrom stats predict residuals
 #' 
@@ -72,6 +93,7 @@ function (fits, plotit=TRUE, digits=3, ...)
  rownames(Y) = seq(1,n)
 
  Z = data.frame(Min.max.accuracy=rep(NA,n),
+                MAE=rep(NA,n),
                 MAPE=rep(NA,n),
                 MSE=rep(NA,n),
                 RMSE=rep(NA,n),
@@ -79,6 +101,7 @@ function (fits, plotit=TRUE, digits=3, ...)
                 NRMSE.median=rep(NA,n),
                 NRMSE.mean.accuracy=rep(NA,n),
                 NRMSE.median.accuracy=rep(NA,n),
+                Efron.r.squared=rep(NA,n),
                 stringsAsFactors=FALSE) 
    for(i in 1:n)
     {
@@ -170,24 +193,30 @@ function (fits, plotit=TRUE, digits=3, ...)
     
      data = data.frame(cbind(actual=actual, predy=predy))
      mma  = mean(apply(data, 1, min) / apply(data, 1, max))
-     mape = mean(abs((predy - actual))/actual)
+     mae = mean(abs(predy - actual))
+     mape = mean(abs(predy - actual)/actual)
      mse  = mean((actual - predy)^2)
      rmse = sqrt(mse)
      nrmse_mean = rmse/mean(actual)
      nrmse_median = rmse/median(actual)
      acc_nrmse_mean = 1 - nrmse_mean
      acc_nrmse_median = 1 - nrmse_median
+     Var = sum((actual - mean(actual))^2)
+     RSS = sum((actual - predy)^2)
+     var_r_squared = 1 - RSS / Var
     
-     Z[i,]=c(NA,NA)
+     Z[i,]=rep(NA,10)
      if(TOGGLE==TRUE){
-     Z[i,]=c(signif(mma,              digits=digits),
-             signif(mape,             digits=digits),
-             signif(mse,              digits=digits),
-             signif(rmse,             digits=digits),
-             signif(nrmse_mean,       digits=digits),
-             signif(nrmse_median,     digits=digits),
-             signif(acc_nrmse_mean,   digits=digits),
-             signif(acc_nrmse_median, digits=digits))
+     Z[i,]=c(signif(mma,                digits=digits),
+             signif(mae,                digits=digits),
+             signif(mape,               digits=digits),
+             signif(mse,                digits=digits),
+             signif(rmse,               digits=digits),
+             signif(nrmse_mean,         digits=digits),
+             signif(nrmse_median,       digits=digits),
+             signif(acc_nrmse_mean,     digits=digits),
+             signif(acc_nrmse_median,   digits=digits),
+             signif(var_r_squared,      digits=digits))
      if(plotit){plot(data$actual, data$predy, 
                       main=paste0("Model ", i),
                       xlab="Actual", ylab="Predicted",

@@ -110,7 +110,7 @@ nagelkerke(model, null=null.model)
 \url{http://rcompanion.org/handbook/G_10.html}
 }
 \seealso{
-\code{\link{nagelkerkeHermite}}
+\code{\link{accuracy}} \code{\link{nagelkerkeHermite}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
