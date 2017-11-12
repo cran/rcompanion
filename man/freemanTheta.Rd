@@ -69,6 +69,9 @@ Freeman, L.C. 1965. Elementary Applied Statistics for Students
 
             \url{http://rcompanion.org/handbook/H_11.html}
 }
+\seealso{
+\code{\link{epsilonSquared}}
+}
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }

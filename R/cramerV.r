@@ -1,4 +1,4 @@
-#' @title Cramer V
+#' @title Cramer's V (phi)
 #'
 #' @description Calculates Cramer's V for a table of nominal variables.
 #' 
@@ -9,6 +9,7 @@
 #'          the second dimension of a two-way table.
 #' @param digits The number of significant digits in the output.              
 #' @param bias.correct If \code{TRUE}, a bias correction is applied.
+#' @param ...    Additional arguments passed to \code{chisq.test}. 
 #' 
 #' @details  Cramer's V is used as a measure of association
 #'           between two nominal variables, or as an effect size
@@ -19,22 +20,33 @@
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_10.html}
 #' @concept correlation phi cramer V
+#' @seealso \code{\link{cohenW}}
 #' @return A single statistic, Cramer's V.
 #'         
 #' @examples
+#' ### Example with table
 #' data(Anderson)
 #' fisher.test(Anderson)
 #' cramerV(Anderson)
+#'
+#' ### Example with two vectors
+#' Species = c(rep("Species1", 16), rep("Species2", 16))
+#' Color   = c(rep(c("blue", "blue", "blue", "green"),4),
+#'             rep(c("green", "green", "green", "blue"),4))
+#' fisher.test(Species, Color)
+#' cramerV(Species, Color)
 #' 
 #' @importFrom stats chisq.test
 #' 
 #' @export
 
-cramerV = function(x, y=NULL, digits=4, bias.correct=FALSE) {
+cramerV = function(x, y=NULL, digits=4, bias.correct=FALSE, ...) {
   CV=NULL
+  if(is.factor(x)){x=as.vector(x)}
+  if(is.factor(y)){x=as.vector(y)}
   if(is.vector(x) & is.vector(y)){
   N = length(x)
-  Chi.sq = suppressWarnings(chisq.test(x, y, correct=FALSE)$statistic)
+  Chi.sq = suppressWarnings(chisq.test(x, y, correct=FALSE, ...)$statistic)
   Phi =  Chi.sq / N
   R   = length(unique(x))
   C   = length(unique(y))
@@ -45,7 +57,7 @@ cramerV = function(x, y=NULL, digits=4, bias.correct=FALSE) {
   
  if(is.table(x)){
   N = sum(x)
-  Chi.sq = suppressWarnings(chisq.test(x, correct=FALSE)$statistic)
+  Chi.sq = suppressWarnings(chisq.test(x, correct=FALSE, ...)$statistic)
   Phi =  Chi.sq / N
   R   = nrow(x)
   C   = ncol(x)

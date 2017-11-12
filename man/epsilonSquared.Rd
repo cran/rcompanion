@@ -47,6 +47,9 @@ epsilonSquared(x = PoohPiglet$Likert, g = PoohPiglet$Speaker)
 \references{
 \url{http://rcompanion.org/handbook/H_11.html}
 }
+\seealso{
+\code{\link{freemanTheta}}
+}
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }

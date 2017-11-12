@@ -19,6 +19,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_11.html}
+#' @seealso \code{\link{freemanTheta}}
 #' @concept correlation epsilon ordinal nominal
 #' @return A single statistic, epsilon-squared
 #'         
