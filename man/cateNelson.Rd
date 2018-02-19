@@ -6,7 +6,7 @@
 \usage{
 cateNelson(x, y, plotit = TRUE, hollow = TRUE, xlab = "X", ylab = "Y",
   trend = "positive", clx = 1, cly = 1, xthreshold = 0.1,
-  ythreshold = 0.1)
+  ythreshold = 0.1, progress = TRUE, verbose = TRUE, listout = FALSE)
 }
 \arguments{
 \item{x}{A vector of values for the x variable.}
@@ -38,6 +38,16 @@ all of them.}
 \item{ythreshold}{Indicates the proportion of potential critical y values
 to display in the output. A value of \code{1} would display
 all of them.}
+
+\item{progress}{If \code{TRUE}, prints an indicator of progress as for loops
+progress.}
+
+\item{verbose}{If \code{FALSE}, suppresses printed output of tables.}
+
+\item{listout}{If \code{TRUE}, outputs a list of data frames instead of a
+a single data frame.  This allows a data frame of critical
+values and associated statistics to be extracted, for example
+if one would want to sort by Cramer's V.}
 }
 \value{
 A data frame of statistics from the analysis: number of observations,
@@ -47,7 +57,9 @@ A data frame of statistics from the analysis: number of observations,
         the proportion of observations that conform with the model, 
         the number of observations that do not conform to the model,
         the proportion of observations that do not conform to the model,
-        and a p-value for the Fisher exact test for the data divided into
+        a p-value for the Fisher exact test for the data divided into
+        the groups indicated by the model,
+        and Cramer's V for the data divided into
         the groups indicated by the model.
         
         Output also includes printed lists of critical values,

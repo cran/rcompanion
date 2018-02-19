@@ -1,8 +1,8 @@
-db3cbcd76938fa2451122dcdcf750d7d *DESCRIPTION
+903c0355d843ed6f0508e38172cf96eb *DESCRIPTION
 ca094716f8dc4a0d452721cfe8768fde *NAMESPACE
 adb8112fbae66d7b9f80876c68c185f5 *R/Data.R
 accb3ca84f4da4405942c96e1ff25613 *R/accuracy.r
-2957b943a8d92529eb1c2df056cfa3bc *R/cateNelson.r
+348042e4d078bfd781da5355e02cd967 *R/cateNelson.r
 5baf92b6b1eea31036f3320103df5436 *R/cldList.r
 3d59a86ba672174aad30ef8b260e3e75 *R/cohenW.r
 68cf40ea4a3c059f025b6e8d3e5aa57c *R/compareGLM.r
@@ -34,7 +34,7 @@ eda604a2d27dcb744f30c26ff99ad9d1 *R/pairwiseOrdinalMatrix.r
 8728bddcb67dd48f987fac3291e99135 *R/pairwiseOrdinalPairedMatrix.r
 85e44234f0b88129ac0910c8ce37c5f7 *R/pairwiseOrdinalPairedTest.r
 dabd54e88897ff1c5caeeb664c24b688 *R/pairwiseOrdinalTest.r
-5ed61f9e74a36e82879c23e469d52681 *R/pairwisePercentileTest.r
+2c063b86c8d3761eee2de07a97edb109 *R/pairwisePercentileTest.r
 17b38e4d04307ace9b187370f2cb9e7c *R/pairwisePermutationMatrix.r
 2209fb0fbdb0c64dfb3b62e2ea80dbd3 *R/pairwisePermutationSymmetry.r
 6984423c4c9cc8813703740f1363993a *R/pairwisePermutationSymmetryMatrix.r
@@ -82,7 +82,7 @@ b5a9c3fb6b86b25bbbd7b4db5c256ea8 *man/Monarchs.Rd
 4e6a2e6c6689109b0bdb0d449c6389f6 *man/PoohPiglet.Rd
 b5d3b40194e3361df6c8f4418e9e6f4d *man/Religion.Rd
 6c58861740c22af11a1913454a33bd63 *man/accuracy.Rd
-dffb23b3a8498d52fb8ce14c689255b7 *man/cateNelson.Rd
+e231700fcc68197fa96c16d2ad185e7a *man/cateNelson.Rd
 dc22b75bdcb62d4953848228d37ce50a *man/cldList.Rd
 70cdc7b9b4fb2384ee73da3ff3d71e53 *man/cohenW.Rd
 3e7fffd997a6fe74cb2efbbebb80ab2b *man/compareGLM.Rd
@@ -114,7 +114,7 @@ fbb21c63d195db6367645193c777c75f *man/pairwiseOrdinalMatrix.Rd
 b37419043fcb053b0eac533c0d7599c1 *man/pairwiseOrdinalPairedMatrix.Rd
 6a5598aa4c8e014cff4db8e3420d3a29 *man/pairwiseOrdinalPairedTest.Rd
 582b38d777acce9eadbbf2c0e2f03ef1 *man/pairwiseOrdinalTest.Rd
-a4495e316abad34057a9e841663d4236 *man/pairwisePercentileTest.Rd
+7fd7386009ef2d3efb8ef92784cf1220 *man/pairwisePercentileTest.Rd
 34ceb0e1d693bad1068d9695e85843d5 *man/pairwisePermutationMatrix.Rd
 22186da9deb1d5f16724893ac122392e *man/pairwisePermutationSymmetry.Rd
 0c6597134b296f8fa97b8ac573167866 *man/pairwisePermutationSymmetryMatrix.Rd

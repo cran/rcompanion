@@ -76,6 +76,7 @@ The parsing of the formula is simplistic.
          right side is used for the grouping variable.
 }
 \examples{
+\dontrun{
 data(BrendonSmall)
 PT = pairwisePercentileTest(Sodium ~ Instructor, 
                             data = BrendonSmall, 
@@ -95,6 +96,7 @@ PT
 cldList(p.adjust ~ Comparison,
         data       = PT,
         threshold  = 0.05)                         
+}
 
 }
 \references{
