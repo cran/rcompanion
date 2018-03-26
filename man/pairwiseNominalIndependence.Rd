@@ -6,7 +6,7 @@
 \usage{
 pairwiseNominalIndependence(x, compare = "row", fisher = TRUE,
   gtest = TRUE, chisq = TRUE, method = "fdr", correct = "none",
-  digits = 3, ...)
+  cramer = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{x}{A two-way contingency table. At least one dimension should have
@@ -25,6 +25,9 @@ If \code{"column"}, treats the columns as the grouping variable.}
 See \code{\link{p.adjust}}.}
 
 \item{correct}{The correction method to pass to \code{\link{GTest}}.}
+
+\item{cramer}{If \code{"TRUE"}, includes and effect size, Cramer's V in the
+output.}
 
 \item{digits}{The number of significant digits in the output.}
 
@@ -48,7 +51,8 @@ Anderson = Anderson[(c("Heimlich", "Bloom", "Dougal", "Cobblestone")),]
 PT = pairwiseNominalIndependence(Anderson,
                                  fisher = TRUE,
                                  gtest  = FALSE,
-                                 chisq  = FALSE)
+                                 chisq  = FALSE,
+                                 cramer = TRUE)
 PT                                
 cldList(comparison = PT$Comparison,
         p.value    = PT$p.adj.Fisher,

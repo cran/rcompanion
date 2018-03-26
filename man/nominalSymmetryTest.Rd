@@ -2,7 +2,7 @@
 % Please edit documentation in R/nominalSymmetryTest.r
 \name{nominalSymmetryTest}
 \alias{nominalSymmetryTest}
-\title{Exact and Monte Carlo symmetry tests for paired contigency tables}
+\title{Exact and Monte Carlo symmetry tests for paired contingency tables}
 \usage{
 nominalSymmetryTest(x, method = "fdr", digits = 3, ...)
 }

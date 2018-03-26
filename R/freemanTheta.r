@@ -22,6 +22,10 @@
 #'           table with one ordinal and one nominal variable.
 #'           See Freeman (1965).
 #'           
+#'           Currently, the function makes no provisions for \code{NA}
+#'           values in the data.  It is recommended that \code{NA}s be removed
+#'           beforehand.
+#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references Freeman, L.C. 1965. Elementary Applied Statistics for Students
 #'             in Behavioral Science. Wiley.
@@ -74,7 +78,8 @@ freemanTheta = function (x, g=NULL, group="row",
         x=as.numeric(Long[,2])
      }
   }
-
+  g = factor(g)
+  g=droplevels(g)
   k     = length(levels(g))
   Delta = 0
   Tee   = 0

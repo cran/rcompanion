@@ -158,3 +158,18 @@
 "Breakfast"
 
 ###############################################################################
+
+#' @title Votes for the Democratic candidate in Pennsylvania 18 in 2016 and 2018
+#'
+#' @description A two-by-two matrix with the proportion of votes for the
+#'              Democratic candidate in two races, in 2016 and 2018.
+#'              2016 is the Presidential election with Hilary Clinton as the
+#'              Democratic candidate.  2018 is a House of Representatives
+#'              election with Conor Lamb.  These data are for
+#'              Pennsylvania's 18th Congressional District.
+#' 
+#' @source \url{http://rcompanion.org/handbook/H_10.html}
+"Pennsylvania18"
+
+###############################################################################
+

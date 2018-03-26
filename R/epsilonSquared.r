@@ -16,6 +16,10 @@
 #' @details  Epsilon-squared is used as a measure of association
 #'           for the Kruskal-Wallis test or for a two-way
 #'           table with one ordinal and one nominal variable.
+#'
+#'           Currently, the function makes no provisions for \code{NA}
+#'           values in the data.  It is recommended that \code{NA}s be removed
+#'           beforehand.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_11.html}
@@ -54,10 +58,13 @@ epsilonSquared = function (x, g=NULL, group="row", digits=3, ... ){
   }
 
   KW = kruskal.test(x, g, ...)
-
+  
+  g  = factor(g)
+  g  = droplevels(g)
   n  = length(g)
   e2 = KW$statistic / (n-1)
   E2 = signif(e2, digits=digits)
   names(E2) = "epsilon.squared"
+  
   return(E2)
 }

@@ -1,4 +1,4 @@
-#' @title Exact and Monte Carlo symmetry tests for paired contigency tables
+#' @title Exact and Monte Carlo symmetry tests for paired contingency tables
 #'
 #' @description Conducts an omnibus symmetry test for a paired 
 #'              contingency table and then post-hoc pairwise tests.  

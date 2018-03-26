@@ -32,6 +32,10 @@ Calculates epsilon-squared for a table with one ordinal
 Epsilon-squared is used as a measure of association
           for the Kruskal-Wallis test or for a two-way
           table with one ordinal and one nominal variable.
+
+          Currently, the function makes no provisions for \code{NA}
+          values in the data.  It is recommended that \code{NA}s be removed
+          beforehand.
 }
 \examples{
 data(Breakfast)

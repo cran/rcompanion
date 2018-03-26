@@ -39,6 +39,10 @@ Freeman's coefficent of differentiation (theta)
           for a two-way
           table with one ordinal and one nominal variable.
           See Freeman (1965).
+          
+          Currently, the function makes no provisions for \code{NA}
+          values in the data.  It is recommended that \code{NA}s be removed
+          beforehand.
 }
 \examples{
 data(Breakfast)

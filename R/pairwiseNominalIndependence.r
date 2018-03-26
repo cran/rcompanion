@@ -15,6 +15,8 @@
 #' @param method  The method to adjust multiple p-values. 
 #'                See \code{\link{p.adjust}}.
 #' @param correct The correction method to pass to \code{\link{GTest}}.
+#' @param cramer If \code{"TRUE"}, includes and effect size, Cramer's V in the
+#'               output.
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments, passed to \code{\link{fisher.test}}, 
 #'            \code{\link{GTest}}, or \code{\link{chisq.test}}.
@@ -36,7 +38,8 @@
 #' PT = pairwiseNominalIndependence(Anderson,
 #'                                  fisher = TRUE,
 #'                                  gtest  = FALSE,
-#'                                  chisq  = FALSE)
+#'                                  chisq  = FALSE,
+#'                                  cramer = TRUE)
 #' PT                                
 #' cldList(comparison = PT$Comparison,
 #'         p.value    = PT$p.adj.Fisher,
@@ -50,7 +53,7 @@
 pairwiseNominalIndependence = 
   function(x, compare="row",
            fisher=TRUE, gtest=TRUE, chisq=TRUE,
-           method="fdr", correct="none", digits=3, ...) 
+           method="fdr", correct="none", cramer=FALSE, digits=3, ...) 
   {
   if(compare=="row"){n = nrow(x)}
   if(compare=="column" | compare=="col"){n = ncol(x)}
@@ -60,6 +63,7 @@ pairwiseNominalIndependence =
   p.Fisher = rep(NA, N)
   p.Gtest = rep(NA, N)
   p.Chisq = rep(NA, N)
+  Cramer = rep(NA, N)
 
   k=0               
   for(i in 1:(n-1)){
@@ -81,9 +85,11 @@ pairwiseNominalIndependence =
  if(gtest==TRUE){
     p.Gtest[k] = signif(GTest(Dataz, correct=correct, ...)$p.value, digits=digits)}
  if(chisq==TRUE){
-    p.Chisq[k] = signif(chisq.test(Dataz, ...)$p.value, digits=digits)}       
-  }
- }
+    p.Chisq[k] = signif(chisq.test(Dataz, ...)$p.value, digits=digits)}
+  if(cramer==TRUE){
+    Cramer[k] = cramerV(Dataz, digits=digits)}
+  } # End j loop
+ } # End i loop
  if(fisher==TRUE){ 
     Z$p.Fisher = p.Fisher
     Z$p.adj.Fisher = signif(p.adjust(Z$p.Fisher, method = method), digits=digits)
@@ -95,6 +101,9 @@ pairwiseNominalIndependence =
  if(chisq==TRUE){ 
      Z$p.Chisq = p.Chisq
      Z$p.adj.Chisq = signif(p.adjust(Z$p.Chisq, method = method), digits=digits)
+ }
+ if(cramer==TRUE){
+     Z$Cramer.V = Cramer
   }
 return(Z)
 }
