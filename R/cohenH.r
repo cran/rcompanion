@@ -1,7 +1,7 @@
 #' @title Cohen's h to compare proportions for 2 x 2 contingency tables
 #'
 #' @description Calculates Cohen's h
-#'              for 2 x 2 paired contingency tables, such as those that 
+#'              for 2 x 2 contingency tables, such as those that 
 #'              might be analyzed with   
 #'              a chi-square test of association.
 #' 
@@ -51,6 +51,8 @@ cohenH =
        P1 = a/(a+b)
        P2 = c/(c+d)
        if(verbose){
+         if(is.null(rownames(x)[1]) | is.null(rownames(x)[2])){
+           rownames(x)=c("Row 1", "Row 2")}
          Z = data.frame(Group = c(rownames(x)[1], rownames(x)[2]),
                         Proportion = 
                           c(signif(P1,digits=digits), signif(P2,digits=digits)))
@@ -62,6 +64,8 @@ cohenH =
        P1 = a/(a+c)
        P2 = b/(b+d)
        if(verbose){
+         if(is.null(colnames(x)[1]) | is.null(colnames(x)[2])){
+           colnames(x)=c("Column 1", "Column 2")}
          Z = data.frame(Group = c(colnames(x)[1], colnames(x)[2]),
                         Proportion = 
                           c(signif(P1,digits=digits), signif(P2,digits=digits)))

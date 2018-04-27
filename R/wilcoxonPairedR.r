@@ -29,7 +29,7 @@
 #' @examples
 #' data(Pooh)
 #' wilcox.test(Likert ~ Time, data=Pooh, paired=TRUE, exact=FALSE)
-#' wilcoxonR(x = Pooh$Likert, g = Pooh$Time)
+#' wilcoxonPairedR(x = Pooh$Likert, g = Pooh$Time)
 #' 
 #' @importFrom coin wilcoxsign_test
 #' 

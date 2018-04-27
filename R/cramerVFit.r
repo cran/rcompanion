@@ -23,7 +23,7 @@
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_03.html}
 #' @concept correlation effect size cramer V
-#' @seealso \code{\link{CramerV}}
+#' @seealso \code{\link{cramerV}}
 #' @return A single statistic, Cramer's V.
 #'         
 #' @examples

@@ -23,7 +23,7 @@ A single statistic.
 }
 \description{
 Calculates Cohen's h
-             for 2 x 2 paired contingency tables, such as those that 
+             for 2 x 2 contingency tables, such as those that 
              might be analyzed with   
              a chi-square test of association.
 }

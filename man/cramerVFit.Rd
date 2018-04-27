@@ -62,7 +62,7 @@ cramerVFit(c(10, 10, 10, 10, 10))
 \url{http://rcompanion.org/handbook/H_03.html}
 }
 \seealso{
-\code{\link{CramerV}}
+\code{\link{cramerV}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

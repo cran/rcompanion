@@ -1,6 +1,6 @@
 Package: rcompanion
-Version: 1.13.0
-Date: 2018-03-25
+Version: 1.13.2
+Date: 2018-04-27
 Title: Functions to Support Extension Education Program Evaluation
 Authors@R: person("Salvatore","Mangiafico",email="mangiafico@njaes.rutgers.edu",role=c("aut","cre"))
 Description: Functions and datasets to support "Summary and Analysis of
@@ -23,6 +23,6 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2018-03-26 17:04:11 UTC; salma
+Packaged: 2018-04-27 17:55:24 UTC; salma
 Repository: CRAN
-Date/Publication: 2018-03-26 17:27:18 UTC
+Date/Publication: 2018-04-27 18:28:06 UTC
