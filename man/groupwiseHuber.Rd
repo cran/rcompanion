@@ -4,8 +4,8 @@
 \alias{groupwiseHuber}
 \title{Groupwise Huber M-estimators and confidence intervals}
 \usage{
-groupwiseHuber(formula = NULL, data = NULL, var = NULL, group = NULL,
-  conf.level = 0.95, ci.type = "wald", ...)
+groupwiseHuber(formula = NULL, data = NULL, var = NULL,
+  group = NULL, conf.level = 0.95, ci.type = "wald", ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -22,7 +22,7 @@ Multiple names are listed as a vector. (See example.)}
 
 \item{ci.type}{The type of confidence interval to use. Can be
 \code{"wald"} or \code{"boot"}.
-See \code{\link{HuberM}} for details.}
+See \code{HuberM} for details.}
 
 \item{...}{Other arguments passed to the \code{HuberM} function.}
 }
@@ -34,7 +34,7 @@ Calculates Huber M-estimator and confidence intervals for
              groups.
 }
 \details{
-A wrapper for the \code{\link{HuberM}} function
+A wrapper for the \code{DescTools::HuberM} function
          to allow easy output for multiple groups.
          
          The input should include either \code{formula} and \code{data};
@@ -74,6 +74,4 @@ groupwiseHuber(data      = Catbus,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-huber m-estimator confidence interval robust bootstrap
-}
+\concept{huber m-estimator confidence interval robust bootstrap}

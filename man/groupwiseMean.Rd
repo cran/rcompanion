@@ -4,10 +4,10 @@
 \alias{groupwiseMean}
 \title{Groupwise means and confidence intervals}
 \usage{
-groupwiseMean(formula = NULL, data = NULL, var = NULL, group = NULL,
-  conf = 0.95, R = 5000, boot = FALSE, traditional = TRUE,
-  normal = FALSE, basic = FALSE, percentile = FALSE, bca = FALSE,
-  digits = 3, ...)
+groupwiseMean(formula = NULL, data = NULL, var = NULL,
+  group = NULL, conf = 0.95, R = 5000, boot = FALSE,
+  traditional = TRUE, normal = FALSE, basic = FALSE,
+  percentile = FALSE, bca = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -102,6 +102,4 @@ groupwiseMean(data        = Catbus,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-mean confidence interval bootstrap
-}
+\concept{mean confidence interval bootstrap}

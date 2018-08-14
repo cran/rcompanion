@@ -14,10 +14,10 @@
 #' @param chisq   If \code{"TRUE"}, conducts Chi-square test of association.
 #' @param method  The method to adjust multiple p-values. 
 #'                See \code{\link{p.adjust}}.
-#' @param correct The correction method to pass to \code{\link{GTest}}.
+#' @param correct The correction method to pass to \code{DescTools::GTest}.
 #' @param digits The number of significant digits in the output.
-#' @param ... Additional arguments, passed to \code{\link{fisher.test}}, 
-#'            \code{\link{GTest}}, or \code{\link{chisq.test}}.
+#' @param ... Additional arguments, passed to \code{stats::fisher.test}, 
+#'            \code{DescTools::GTest}, or \code{stats::chisq.test}.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_04.html}

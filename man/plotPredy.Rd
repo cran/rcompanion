@@ -4,9 +4,10 @@
 \alias{plotPredy}
 \title{Plot a predicted line from a bivariate model}
 \usage{
-plotPredy(data, x, y, model, order = 1, x2 = NULL, x3 = NULL, x4 = NULL,
-  x5 = NULL, pch = 16, xlab = "X", ylab = "Y", length = 1000,
-  lty = 1, lwd = 2, col = "blue", type = NULL, ...)
+plotPredy(data, x, y, model, order = 1, x2 = NULL, x3 = NULL,
+  x4 = NULL, x5 = NULL, pch = 16, xlab = "X", ylab = "Y",
+  length = 1000, lty = 1, lwd = 2, col = "blue", type = NULL,
+  ...)
 }
 \arguments{
 \item{data}{The name of the data frame.}
@@ -122,6 +123,4 @@ plotPredy(data  = BullyHill,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-plot polynomial bivariate
-}
+\concept{plot polynomial bivariate}

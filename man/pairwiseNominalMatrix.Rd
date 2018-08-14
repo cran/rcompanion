@@ -4,8 +4,9 @@
 \alias{pairwiseNominalMatrix}
 \title{Pairwise tests of independence for nominal data with matrix output}
 \usage{
-pairwiseNominalMatrix(x, compare = "row", fisher = TRUE, gtest = FALSE,
-  chisq = FALSE, method = "fdr", correct = "none", digits = 3, ...)
+pairwiseNominalMatrix(x, compare = "row", fisher = TRUE,
+  gtest = FALSE, chisq = FALSE, method = "fdr", correct = "none",
+  digits = 3, ...)
 }
 \arguments{
 \item{x}{A two-way contingency table. At least one dimension should have
@@ -23,12 +24,12 @@ If \code{"column"}, treats the columns as the grouping variable.}
 \item{method}{The method to adjust multiple p-values. 
 See \code{\link{p.adjust}}.}
 
-\item{correct}{The correction method to pass to \code{\link{GTest}}.}
+\item{correct}{The correction method to pass to \code{DescTools::GTest}.}
 
 \item{digits}{The number of significant digits in the output.}
 
-\item{...}{Additional arguments, passed to \code{\link{fisher.test}}, 
-\code{\link{GTest}}, or \code{\link{chisq.test}}.}
+\item{...}{Additional arguments, passed to \code{stats::fisher.test}, 
+\code{DescTools::GTest}, or \code{stats::chisq.test}.}
 }
 \value{
 A list consisting of: the test used,
@@ -66,6 +67,4 @@ multcompLetters(PT)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Chi-square G-test Fisher contingency table nominal
-}
+\concept{Chi-square G-test Fisher contingency table nominal}

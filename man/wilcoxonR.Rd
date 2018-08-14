@@ -62,6 +62,4 @@ wilcoxonR(x = Data$Likert, g = Data$Speaker)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-correlation effect size ordinal nominal
-}
+\concept{correlation effect size ordinal nominal}

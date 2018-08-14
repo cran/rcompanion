@@ -48,9 +48,9 @@
 #' @examples
 #' ### Cochran Q post-hoc example
 #' data(HayleySmith)
-#' library(RVAideMemoire)
-#' cochran.qtest(Response ~ Practice | Student,
-#'               data = HayleySmith)
+#' library(DescTools)
+#' CochranQTest(Response ~ Practice | Student,
+#'              data = HayleySmith)
 #' HayleySmith$Practice = factor(HayleySmith$Practice,
 #'                           levels = c("MowHeight", "SoilTest",
 #'                                      "Clippings", "Irrigation"))
@@ -66,7 +66,7 @@
 #'         threshold  = 0.05)
 #'                                                              
 #' @importFrom stats xtabs mcnemar.test binom.test
-#' @importFrom RVAideMemoire cochran.qtest
+#' @importFrom DescTools CochranQTest
 #' @importFrom coin symmetry_test pvalue
 #' 
 #' @export

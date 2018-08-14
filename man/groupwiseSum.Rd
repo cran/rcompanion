@@ -5,7 +5,7 @@
 \title{Groupwise sums}
 \usage{
 groupwiseSum(formula = NULL, data = NULL, var = NULL, group = NULL,
-  digits = 3, ...)
+  digits = NULL, ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -18,7 +18,9 @@ the grouping variables. e.g. y ~ x1 + x2.}
 \item{group}{The grouping variable to use. The name is in double quotes.
 Multiple names are listed as a vector. (See example.)}
 
-\item{digits}{The number of significant figures to use in output.}
+\item{digits}{The number of significant figures to use in output.
+The default is \code{NULL}, which results in no
+rounding of values.}
 
 \item{...}{Other arguments passed to the \code{sum} function}
 }
@@ -36,6 +38,10 @@ The input should include either \code{formula} and \code{data};
 The parsing of the formula is simplistic. The first variable on the
          left side is used as the measurement variable.  The variables on the
          right side are used for the grouping variables.
+
+Beginning in version 2.0, there is no rounding of results by
+         default.  Rounding results can cause confusion if the
+         user is expecting exact sums.
 }
 \examples{
 ### Example with formula notation
@@ -58,6 +64,4 @@ groupwiseSum(data        = AndersonBias,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-sum
-}
+\concept{sum}

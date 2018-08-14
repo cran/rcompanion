@@ -2,83 +2,13 @@
 % Please edit documentation in R/pairwiseRobustTest.r
 \name{pairwiseRobustTest}
 \alias{pairwiseRobustTest}
-\title{Pairwise two-sample robust tests}
+\title{[Defunct!] Pairwise two-sample robust tests}
 \usage{
-pairwiseRobustTest(formula = NULL, data = NULL, x = NULL, g = NULL,
-  est = "mom", nboot = 599, method = "fdr", ...)
+pairwiseRobustTest(...)
 }
 \arguments{
-\item{formula}{A formula indicating the measurement variable and
-the grouping variable. e.g. y ~ group.}
-
-\item{data}{The data frame to use.}
-
-\item{x}{The response variable as a vector.}
-
-\item{g}{The grouping variable as a vector.}
-
-\item{est}{Estimate used for group comparisons.
-\code{"onestep"}, \code{"mom"}, \code{"median"}, 
-or \code{"mean"}.
-See \code{\link{pb2gen}} for details.}
-
-\item{nboot}{The number of bootstrap samples.}
-
-\item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
-
-\item{...}{Additional arguments passed to
-\code{\link{pb2gen}}.}
-}
-\value{
-A dataframe of the groups being compared, the p-values,
-        and the adjusted p-values.
+\item{...}{Anything.}
 }
 \description{
-Performs pairwise two-sample robust tests across groups.
-}
-\details{
-The input should include either \code{formula} and \code{data};
-         or \code{x}, and \code{g}.
-         
-         The \code{WRS2} package provides functions for robust estimation
-         and hypothesis testing.  This function invokes the
-         \code{pb2gen} to make pairwise comparisons among
-         groups.
-         
-         The \code{pairwiseRobustTest} function 
-         can be used as a post-hoc method following an omnibus 
-         one-way anova with robust estimation.
-}
-\note{
-The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.
-}
-\examples{
-data(PoohPiglet)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
-                     levels = c("Pooh", "Tigger", "Piglet"))
-PT = pairwiseRobustTest(Likert ~ Speaker,
-                        data   = PoohPiglet,
-                        method = "fdr")
-PT
-cldList(comparison = PT$Comparison,
-        p.value    = PT$p.adjust,
-        threshold  = 0.05)
-       
-}
-\references{
-\url{http://rcompanion.org/rcompanion/d_08a.html}
-}
-\seealso{
-\code{\link{pairwiseRobustMatrix}}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{
-robust Huber post-hoc one-way
+Defunct. Performs pairwise two-sample robust tests across groups.
 }

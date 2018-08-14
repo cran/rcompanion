@@ -28,7 +28,7 @@
 #'            \code{"<"}, \code{"<="}, \code{">"}, \code{">="}, or , \code{"=="}
 #' @param r The number of replicates in the permutation test.
 #' @param method The p-value adjustment method to use for multiple tests.
-#'               See \code{\link{p.adjust}}.
+#'               See \code{stats::p.adjust}.
 #' @param digits The number of significant digits in the output. 
 #' @param progress If \code{TRUE}, prints a dot for every 1 percent of the 
 #'                 progress while conducting the test.

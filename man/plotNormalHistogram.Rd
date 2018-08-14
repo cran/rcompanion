@@ -56,6 +56,4 @@ model = lm(Steps ~ Sex + Teacher,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-normal distribution histogram
-}
+\concept{normal distribution histogram}

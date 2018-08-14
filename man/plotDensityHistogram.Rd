@@ -59,6 +59,4 @@ plotDensityHistogram(residuals(model))
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-density distribution histogram
-}
+\concept{density distribution histogram}

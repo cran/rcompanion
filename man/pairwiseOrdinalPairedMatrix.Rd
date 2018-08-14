@@ -2,99 +2,16 @@
 % Please edit documentation in R/pairwiseOrdinalPairedMatrix.r
 \name{pairwiseOrdinalPairedMatrix}
 \alias{pairwiseOrdinalPairedMatrix}
-\title{Pairwise two-sample ordinal regression for blocked data with matrix
-       output}
+\title{[Defunct!] Pairwise two-sample ordinal regression for paired data
+       with matrix output}
 \usage{
-pairwiseOrdinalPairedMatrix(formula = NULL, data = NULL, x = NULL,
-  g = NULL, b = NULL, method = "fdr", ...)
+pairwiseOrdinalPairedMatrix(...)
 }
 \arguments{
-\item{formula}{A formula indicating the measurement variable and
-the grouping variable. e.g. y ~ group | block.}
-
-\item{data}{The data frame to use.}
-
-\item{x}{The response variable as a vector.}
-
-\item{g}{The grouping variable as a vector.}
-
-\item{b}{The blocking variable as a vector.}
-
-\item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
-
-\item{...}{Additional arguments passed to
-\code{\link{clmm}}.}
-}
-\value{
-A list consisting of:
-        A matrix of p-values;
-        The p-value adjustment method;
-        A matrix of adjusted p-values.
+\item{...}{Anything.}
 }
 \description{
-Performs pairwise two-sample ordinal regression across groups
-             for paired or blocked data.
-}
-\details{
-The input should include either \code{formula} and \code{data};
-         or \code{x}, \code{g}, and \code{b}.
-         
-         Ordinal regression 
-         is analogous to general linear regression or generalized linear
-         regression for cases where 
-         the dependent variable
-         is an ordinal variable.
-         The \code{ordinal} package provides a flexible and powerful
-         implementation of ordinal regression.
-         
-         The \code{pairwiseOrdinalPairedTest} function 
-         can be used as a post-hoc method following an omnibus 
-         ordinal regession whose form is analogous to
-         a one-way analysis of variance with random blocks.
-         The matrix output can be converted to a compact letter display.
-         
-         The blocking variable is treated as a random variable.
-         
-         The \code{x} variable must be an ordered factor.
-}
-\note{
-The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.
-         The second variable on the
-         right side is used for the blocking variable
-}
-\examples{
-data(BobBelcher)
-BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered = TRUE)
-BobBelcher$Instructor = factor( BobBelcher$Instructor, 
-                  levels = c("Linda Belcher", "Louise Belcher",
-                             "Tina Belcher", "Bob Belcher",
-                             "Gene Belcher")) 
-PT = pairwiseOrdinalPairedMatrix(Likert.f ~ Instructor | Rater,
-                                 data      = BobBelcher,
-                                 threshold ="equidistant",
-                                 method    = "fdr")$Adjusted
-PT
-library(multcompView)
-multcompLetters(PT,
-                compare="<",
-                threshold=0.05,
-                Letters=letters)
-                 
-}
-\references{
-\url{http://rcompanion.org/handbook/G_08.html}
-}
-\seealso{
-\code{\link{pairwiseOrdinalPairedTest}}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{
-ordinal regression post-hoc one-way paired blocks cld
+Defunct. Performs pairwise two-sample ordinal regression 
+             across groups for paired data
+             with matrix output.
 }

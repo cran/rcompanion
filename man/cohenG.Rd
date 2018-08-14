@@ -51,6 +51,4 @@ cohenG(AndersonRainGarden)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Effect size Cohen g McNemar Bowker contingency symmetry nominal
-}
+\concept{Effect size Cohen g McNemar Bowker contingency symmetry nominal}

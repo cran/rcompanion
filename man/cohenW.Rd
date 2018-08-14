@@ -66,6 +66,4 @@ cohenW(Species, Color)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-correlation phi cohen w omega
-}
+\concept{correlation phi cohen w omega}

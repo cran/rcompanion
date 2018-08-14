@@ -2,63 +2,15 @@
 % Please edit documentation in R/nagelkerkeHermite.r
 \name{nagelkerkeHermite}
 \alias{nagelkerkeHermite}
-\title{Pseudo r-squared measures for hermite models}
+\title{[Defunct!] Pseudo r-squared measures for hermite models}
 \usage{
-nagelkerkeHermite(fit, null)
+nagelkerkeHermite(...)
 }
 \arguments{
-\item{fit}{The fitted model object for which to determine pseudo r-squared.}
-
-\item{null}{The null model object against which to compare the fitted model 
-object. The null model must be nested in the fitted model to be 
-valid.}
-}
-\value{
-A list of six objects describing the models used, the pseudo 
-        r-squared values, the likelihood ratio test for the model, the AIC
-        for the fitted and null models,
-        the number of observations for the models,
-        and any warnings.
+\item{...}{Anything.}
 }
 \description{
-Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
+Defunct. Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
              R-squared measures, along with p-value for the model, 
              for hermite regression objects.
-}
-\details{
-Hermite regression is performed with the \code{hermite} package.
-          
-          For pseudo r-squared measures, Cox and Snell is also referred to 
-          as ML. Nagelkerke is also referred to as Cragg and Uhler.
-          
-          The fit model and the null model
-          should be properly nested.
-          That is, the terms of one need to be a subset of the the other,
-          and they should have the same set of observations.
-}
-\examples{
-data(Monarchs)
-library(hermite)
-model = glm.hermite(Monarchs ~ Garden,
-                    data = Monarchs,
-                    link = "log",
-                    m=3)
-null = glm.hermite(Monarchs ~ 1,
-                   data = Monarchs,
-                   link = "log",
-                   m=3)
-nagelkerkeHermite(model, null)
-
-}
-\references{
-\url{http://rcompanion.org/handbook/J_01.html}
-}
-\seealso{
-\code{\link{nagelkerke}}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{
-pseudo r-squared cox snell nagelkerke likelihood hermite
 }

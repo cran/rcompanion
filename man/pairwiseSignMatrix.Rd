@@ -18,10 +18,10 @@ the grouping variable. e.g. y ~ group.}
 \item{g}{The grouping variable as a vector.}
 
 \item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{...}{Additional arguments passed to
-\code{\link{SIGN.test}}.}
+\code{BSDA::SIGN.test}.}
 }
 \value{
 A list consisting of:
@@ -86,6 +86,4 @@ multcompLetters(PT,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-median nonparametric post-hoc paired Friedman unreplicated cld
-}
+\concept{median nonparametric post-hoc paired Friedman unreplicated cld}

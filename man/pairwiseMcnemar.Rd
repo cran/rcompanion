@@ -62,9 +62,9 @@ The parsing of the formula is simplistic.
 \examples{
 ### Cochran Q post-hoc example
 data(HayleySmith)
-library(RVAideMemoire)
-cochran.qtest(Response ~ Practice | Student,
-              data = HayleySmith)
+library(DescTools)
+CochranQTest(Response ~ Practice | Student,
+             data = HayleySmith)
 HayleySmith$Practice = factor(HayleySmith$Practice,
                           levels = c("MowHeight", "SoilTest",
                                      "Clippings", "Irrigation"))
@@ -91,6 +91,4 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-McNemar Cochran Q permutation exact
-}
+\concept{McNemar Cochran Q permutation exact}

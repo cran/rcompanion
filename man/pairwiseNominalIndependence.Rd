@@ -22,17 +22,17 @@ If \code{"column"}, treats the columns as the grouping variable.}
 \item{chisq}{If \code{"TRUE"}, conducts Chi-square test of association.}
 
 \item{method}{The method to adjust multiple p-values. 
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
-\item{correct}{The correction method to pass to \code{\link{GTest}}.}
+\item{correct}{The correction method to pass to \code{DescTools::GTest}.}
 
 \item{cramer}{If \code{"TRUE"}, includes and effect size, Cramer's V in the
 output.}
 
 \item{digits}{The number of significant digits in the output.}
 
-\item{...}{Additional arguments, passed to \code{\link{fisher.test}}, 
-\code{\link{GTest}}, or \code{\link{chisq.test}}.}
+\item{...}{Additional arguments, passed to \code{stats::fisher.test}, 
+\code{DescTools::GTest}, or \code{stats::chisq.test}.}
 }
 \value{
 A data frame of comparisons, p-values, and adjusted p-values.
@@ -70,6 +70,4 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Chi-square G-test Fisher contingency table nominal
-}
+\concept{Chi-square G-test Fisher contingency table nominal}

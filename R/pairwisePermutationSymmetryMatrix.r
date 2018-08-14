@@ -11,9 +11,9 @@
 #' @param g      The grouping variable as a vector.
 #' @param b      The blocking variable as a vector.
 #' @param method The p-value adjustment method to use for multiple tests.
-#'               See \code{\link{p.adjust}}.
+#'               See \code{stats::p.adjust}.
 #' @param ...    Additional arguments passed to
-#'               \code{\link{symmetry_test}}.               
+#'               \code{coin::symmetry_test}.              
 #'             
 #' @details The input should include either \code{formula} and \code{data};
 #'          or \code{x}, \code{g}, and \code{b}.

@@ -49,6 +49,4 @@ wilcoxonOneSampleR(x = Data$Likert, mu=3)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-effect size ordinal nominal
-}
+\concept{effect size ordinal nominal}

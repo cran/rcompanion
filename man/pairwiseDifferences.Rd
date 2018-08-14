@@ -2,88 +2,15 @@
 % Please edit documentation in R/pairwiseDifferences.r
 \name{pairwiseDifferences}
 \alias{pairwiseDifferences}
-\title{Pairwise differences for unreplicated CBD}
+\title{[Defunct!] Pairwise differences for unreplicated CBD}
 \usage{
-pairwiseDifferences(formula = NULL, data = NULL, x = NULL, g = NULL,
-  plotit = FALSE, factorize = FALSE)
+pairwiseDifferences(...)
 }
 \arguments{
-\item{formula}{A formula indicating the measurement variable and
-the grouping variable. e.g. y ~ group.}
-
-\item{data}{The data frame to use.}
-
-\item{x}{The vector of the response variable.}
-
-\item{g}{The vector of the grouping variable.}
-
-\item{plotit}{If \code{TRUE}, then produces bar plots of the differences.}
-
-\item{factorize}{If \code{TRUE}, then adds a column to the output 
-data frame consisting of the differences as
-a factor variable. This output is added automatically if
-\code{plotit = TRUE}.}
-}
-\value{
-A data frame of the paired groups, the differences in
-        their response variables,
-        and optionally the differences expressed as a factor variable.
-        If \code{plotit = TRUE}, then also produce one or more plots.
+\item{...}{Anything.}
 }
 \description{
-Calculates the differences in the response variable
+Defunct. Calculates the differences in the response variable
              for each pair of levels of a grouping variable 
              in an unreplicated complete block design.
-}
-\details{
-The main use of the function is to check the shape of the
-         distribution of differences in responses for paired t-test,
-         paired rank-sum test, Friedman test, or Quade test.
-
-          The function assumes that the data frame is already ordered by
-          the blocking variable, so that the first observation of Group 1
-          is paired with the first observation of Group 2, and so on.
-          
-          The function assumes that the data are in complete block design.
-          That is,
-          for any level of the grouping variable in Group 1 there exists
-          one paired value in Group 2, and so on.
-          
-          The input should include either \code{formula} and \code{data};
-          or \code{x}, and \code{g}.
-}
-\note{
-The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.
-}
-\examples{
-### Two-sample paired data example with bar plot
-data(Pooh)
-Pooh.diff = pairwiseDifferences(Likert ~ Time, 
-                                data=Pooh, 
-                                plotit = TRUE)
-
-### Unreplicated complete block design example with bar plots
-data(BobBelcher)
-Bob.diff = pairwiseDifferences(Likert ~ Instructor,
-                               data=BobBelcher, 
-                               factorize=TRUE)
-library(lattice)
-histogram(~ Difference.f | Comparison,
-         data=Bob.diff,
-         type = "count",
-         layout=c(2,5))
-
-}
-\references{
-\url{http://rcompanion.org/handbook/F_10.html}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{
-paired t-test rank-sum friedman quade histogram
 }

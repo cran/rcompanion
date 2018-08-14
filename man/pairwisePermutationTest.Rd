@@ -4,8 +4,8 @@
 \alias{pairwisePermutationTest}
 \title{Pairwise two-sample permutation tests}
 \usage{
-pairwisePermutationTest(formula = NULL, data = NULL, x = NULL, g = NULL,
-  method = "fdr", ...)
+pairwisePermutationTest(formula = NULL, data = NULL, x = NULL,
+  g = NULL, method = "fdr", ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -18,10 +18,10 @@ the grouping variable. e.g. y ~ group.}
 \item{g}{The grouping variable as a vector.}
 
 \item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{...}{Additional arguments passed to
-\code{\link{independence_test}}.}
+\code{coin::independence_test}.}
 }
 \value{
 A dataframe of the groups being compared, the p-values,
@@ -73,6 +73,4 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-permutation nonparametric post-hoc one-way
-}
+\concept{permutation nonparametric post-hoc one-way}

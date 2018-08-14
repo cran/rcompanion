@@ -9,9 +9,9 @@
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
 #' @param method The p-value adjustment method to use for multiple tests.
-#'               See \code{\link{p.adjust}}.
+#'               See \code{stats::p.adjust}.
 #' @param ...    Additional arguments passed to
-#'               \code{\link{SIGN.test}}.               
+#'               \code{BSDA::SIGN.test}.              
 #'             
 #' @details The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{g}.

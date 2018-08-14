@@ -7,14 +7,11 @@
 #' @param data   The data frame to use.
 #' @param x      The response variable as a vector.
 #' @param g      The grouping variable as a vector.
-#' @param exact  If \code{TRUE}, then asks the \code{mood.medtest} function
-#'               to conduct an exact test. If \code{NULL}, then uses an 
-#'               exact test if the number of values is less than 200.
-#'               See \code{\link{mood.medtest}}.
 #' @param method The p-value adjustment method to use for multiple tests.
-#'               See \code{\link{p.adjust}}.
+#'               See \code{stats::p.adjust}.
+#' @param digits The number of significant digits to round output.
 #' @param ...    Additional arguments passed to
-#'               code{\link{mood.medtest}}.               
+#'               code{coin::median_test}.               
 #'             
 #' @details The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{g}.
@@ -54,14 +51,14 @@
 #'         threshold  = 0.05)                         
 #' 
 #' @importFrom stats p.adjust
-#' @importFrom RVAideMemoire mood.medtest
+#' @importFrom coin median_test
 #' 
 #' @export
 
 pairwiseMedianTest = 
   function(formula=NULL, data=NULL, 
     x=NULL, g=NULL, 
-    exact = NULL, method = "fdr", ...)
+    digits = 4, method = "fdr", ...)
   {
   if(!is.null(formula)){
     x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
@@ -85,8 +82,9 @@ pairwiseMedianTest =
      Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
-     z = mood.medtest(x=Dataz$x, g=Dataz$g2, exact=exact, ...)
-     P = signif(z$p.value, digits=4)
+     print(Dataz)
+     z = median_test(x ~ g2, data=Dataz, ...)
+     P = signif(pvalue(z)[1], digits=digits)
      P.adjust = NA                       
      Z[k,] =c( paste0(Namea, " - ", Nameb, " = 0"), 
              P, P.adjust)

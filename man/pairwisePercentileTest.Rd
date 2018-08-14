@@ -4,8 +4,8 @@
 \alias{pairwisePercentileTest}
 \title{Pairwise permutation tests for percentiles}
 \usage{
-pairwisePercentileTest(formula = NULL, data = NULL, x = NULL, y = NULL,
-  test = "median", tau = 0.5, type = 7, threshold = NA,
+pairwisePercentileTest(formula = NULL, data = NULL, x = NULL,
+  y = NULL, test = "median", tau = 0.5, type = 7, threshold = NA,
   comparison = "<", r = 1000, digits = 4, progress = "TRUE",
   method = "fdr")
 }
@@ -49,7 +49,7 @@ different in the proportion of observations below $10,000,
 progress while conducting the test.}
 
 \item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 }
 \value{
 A dataframe of the groups being compared, the p-values,
@@ -108,6 +108,4 @@ cldList(p.adjust ~ Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-median percentile quantile permutation
-}
+\concept{median percentile quantile permutation}

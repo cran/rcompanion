@@ -5,7 +5,7 @@
 \title{Pairwise Mood's median tests}
 \usage{
 pairwiseMedianTest(formula = NULL, data = NULL, x = NULL, g = NULL,
-  exact = NULL, method = "fdr", ...)
+  digits = 4, method = "fdr", ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -17,16 +17,13 @@ the grouping variable. e.g. y ~ group.}
 
 \item{g}{The grouping variable as a vector.}
 
-\item{exact}{If \code{TRUE}, then asks the \code{mood.medtest} function
-to conduct an exact test. If \code{NULL}, then uses an 
-exact test if the number of values is less than 200.
-See \code{\link{mood.medtest}}.}
+\item{digits}{The number of significant digits to round output.}
 
 \item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{...}{Additional arguments passed to
-code{\link{mood.medtest}}.}
+code{coin::median_test}.}
 }
 \value{
 A dataframe of the groups being compared, the p-values,
@@ -77,6 +74,4 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-moods median nonparametric post-hoc one-way
-}
+\concept{moods median nonparametric post-hoc one-way}

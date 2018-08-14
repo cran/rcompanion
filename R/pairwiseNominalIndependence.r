@@ -13,13 +13,13 @@
 #' @param gtest   If \code{"TRUE"}, conducts G-test.
 #' @param chisq   If \code{"TRUE"}, conducts Chi-square test of association.
 #' @param method  The method to adjust multiple p-values. 
-#'                See \code{\link{p.adjust}}.
-#' @param correct The correction method to pass to \code{\link{GTest}}.
+#'                See \code{stats::p.adjust}.
+#' @param correct The correction method to pass to \code{DescTools::GTest}.
 #' @param cramer If \code{"TRUE"}, includes and effect size, Cramer's V in the
 #'               output.
 #' @param digits The number of significant digits in the output.
-#' @param ... Additional arguments, passed to \code{\link{fisher.test}}, 
-#'            \code{\link{GTest}}, or \code{\link{chisq.test}}.
+#' @param ... Additional arguments, passed to \code{stats::fisher.test}, 
+#'            \code{DescTools::GTest}, or \code{stats::chisq.test}.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_04.html}

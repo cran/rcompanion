@@ -19,11 +19,11 @@ variable.}
 variable.}
 
 \item{method}{The method to adjust multiple p-values. 
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{digits}{The number of significant digits in the output.}
 
-\item{...}{Additional arguments, passed to \code{\link{chisq_test}}.}
+\item{...}{Additional arguments, passed to \code{stats::chisq_test}.}
 }
 \value{
 A data frame of comparisons, p-values, and adjusted p-values.
@@ -69,6 +69,4 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Linear-by-linear Contingency table Ordinal Ordered Chi-square.
-}
+\concept{Linear-by-linear Contingency table Ordinal Ordered Chi-square.}

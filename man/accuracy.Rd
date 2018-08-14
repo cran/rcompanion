@@ -96,6 +96,4 @@ accuracy(list(perfect, poor), plotit=FALSE)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-accuracy mape r-squared
-}
+\concept{accuracy mape r-squared}

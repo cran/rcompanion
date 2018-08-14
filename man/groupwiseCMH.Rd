@@ -4,8 +4,8 @@
 \alias{groupwiseCMH}
 \title{Post-hoc tests for Cochran-Mantel-Haenszel test}
 \usage{
-groupwiseCMH(x, group = 3, fisher = TRUE, gtest = FALSE, chisq = FALSE,
-  method = "fdr", correct = "none", digits = 3, ...)
+groupwiseCMH(x, group = 3, fisher = TRUE, gtest = FALSE,
+  chisq = FALSE, method = "fdr", correct = "none", digits = 3, ...)
 }
 \arguments{
 \item{x}{A three-way contingency table.}
@@ -68,6 +68,4 @@ groupwiseCMH(Table,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Cochran Mantel Haenszel post-hoc fisher Chi square G
-}
+\concept{Cochran Mantel Haenszel post-hoc fisher Chi square G}

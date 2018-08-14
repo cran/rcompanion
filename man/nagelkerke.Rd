@@ -110,11 +110,9 @@ nagelkerke(model, null=null.model)
 \url{http://rcompanion.org/handbook/G_10.html}
 }
 \seealso{
-\code{\link{accuracy}} \code{\link{nagelkerkeHermite}}
+\code{\link{accuracy}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-pseudo r-squared cox snell nagelkerke likelihood
-}
+\concept{pseudo r-squared cox snell nagelkerke likelihood}

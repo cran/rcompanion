@@ -19,20 +19,20 @@
 #'               \code{wilcox.test}.
 #' @param normal If \code{TRUE}, includes the normal confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot::boot.ci}.
 #' @param basic If \code{TRUE}, includes the basic confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot::boot.ci}.
 #' @param percentile If \code{TRUE}, includes the percentile confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot::boot.ci}.
 #' @param bca If \code{TRUE}, includes the BCa confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot::boot.ci}.
 #' @param wilcox If \code{TRUE}, includes the wilcox confidence
-#'                    intervals from  \code{\link{wilcox.test}}.
+#'                    intervals from  \code{stats::wilcox.test}.
 #' @param exact If \code{TRUE}, includes the "exact" confidence
-#'                    intervals from  \code{\link{MedianCI}}.
+#'                    intervals from  \code{DescTools::MedianCI}.
 #' @param digits The number of significant figures to use in output.
 #' @param ... Other arguments passed to the \code{boot} function.
 #'                

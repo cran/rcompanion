@@ -47,6 +47,11 @@ data(PoohPiglet)
 kruskal.test(Likert ~ Speaker, data = PoohPiglet)
 epsilonSquared(x = PoohPiglet$Likert, g = PoohPiglet$Speaker)
 
+### Same data, as matrix of counts
+data(PoohPiglet)
+XT = xtabs( ~ Speaker + Likert , data = PoohPiglet)
+epsilonSquared(XT)
+
 }
 \references{
 \url{http://rcompanion.org/handbook/H_11.html}
@@ -57,6 +62,4 @@ epsilonSquared(x = PoohPiglet$Likert, g = PoohPiglet$Speaker)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-correlation epsilon ordinal nominal
-}
+\concept{correlation epsilon ordinal nominal}

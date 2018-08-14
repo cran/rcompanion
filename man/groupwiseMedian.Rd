@@ -4,10 +4,11 @@
 \alias{groupwiseMedian}
 \title{Groupwise medians and confidence intervals}
 \usage{
-groupwiseMedian(formula = NULL, data = NULL, var = NULL, group = NULL,
-  conf = 0.95, R = 5000, boot = FALSE, pseudo = FALSE, basic = FALSE,
-  normal = FALSE, percentile = FALSE, bca = TRUE, wilcox = FALSE,
-  exact = FALSE, digits = 3, ...)
+groupwiseMedian(formula = NULL, data = NULL, var = NULL,
+  group = NULL, conf = 0.95, R = 5000, boot = FALSE,
+  pseudo = FALSE, basic = FALSE, normal = FALSE,
+  percentile = FALSE, bca = TRUE, wilcox = FALSE, exact = FALSE,
+  digits = 3, ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -34,25 +35,25 @@ the group.}
 
 \item{basic}{If \code{TRUE}, includes the basic confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot::boot.ci}.}
 
 \item{normal}{If \code{TRUE}, includes the normal confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot::boot.ci}.}
 
 \item{percentile}{If \code{TRUE}, includes the percentile confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot::boot.ci}.}
 
 \item{bca}{If \code{TRUE}, includes the BCa confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot::boot.ci}.}
 
 \item{wilcox}{If \code{TRUE}, includes the wilcox confidence
-intervals from  \code{\link{wilcox.test}}.}
+intervals from  \code{stats::wilcox.test}.}
 
 \item{exact}{If \code{TRUE}, includes the "exact" confidence
-intervals from  \code{\link{MedianCI}}.}
+intervals from  \code{DescTools::MedianCI}.}
 
 \item{digits}{The number of significant figures to use in output.}
 
@@ -110,6 +111,4 @@ groupwiseMedian(data         = Catbus,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-median confidence interval bootstrap
-}
+\concept{median confidence interval bootstrap}

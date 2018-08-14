@@ -109,6 +109,4 @@ groupwisePercentile(data         = Catbus,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-percentile confidence interval bootstrap
-}
+\concept{percentile confidence interval bootstrap}

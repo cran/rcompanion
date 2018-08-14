@@ -50,6 +50,4 @@ cohenH(Pennsylvania18, observation="row")
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Effect size Cohen h contingency table nominal
-}
+\concept{Effect size Cohen h contingency table nominal}

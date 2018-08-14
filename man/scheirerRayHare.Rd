@@ -77,6 +77,4 @@ Sokal, R.R. and F.J. Rohlf. 1995. Biometry. 3rd ed. W.H. Freeman,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-nonparametric Scheirer Ray Hare two-way
-}
+\concept{nonparametric Scheirer Ray Hare two-way}

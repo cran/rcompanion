@@ -56,6 +56,4 @@ cramerV(Species, Color)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-correlation phi cramer V
-}
+\concept{correlation phi cramer V}

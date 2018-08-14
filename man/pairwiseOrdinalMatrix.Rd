@@ -2,85 +2,14 @@
 % Please edit documentation in R/pairwiseOrdinalMatrix.r
 \name{pairwiseOrdinalMatrix}
 \alias{pairwiseOrdinalMatrix}
-\title{Pairwise two-sample ordinal regression with matrix output}
+\title{[Defunct!] Pairwise two-sample ordinal regression with matrix output}
 \usage{
-pairwiseOrdinalMatrix(formula = NULL, data = NULL, x = NULL, g = NULL,
-  method = "fdr", ...)
+pairwiseOrdinalMatrix(...)
 }
 \arguments{
-\item{formula}{A formula indicating the measurement variable and
-the grouping variable. e.g. y ~ group.}
-
-\item{data}{The data frame to use.}
-
-\item{x}{The response variable as a vector.}
-
-\item{g}{The grouping variable as a vector.}
-
-\item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
-
-\item{...}{Additional arguments passed to
-\code{\link{clm}}.}
-}
-\value{
-A list consisting of:
-        A matrix of p-values;
-        the p-value adjustment method;
-        a matrix of adjusted p-values.
+\item{...}{Anything.}
 }
 \description{
-Performs pairwise two-sample ordinal regression across groups.
-}
-\details{
-Ordinal regression 
-         is analogous to general linear regression or generalized linear
-         regression for cases where 
-         the dependent variable
-         is an ordinal variable.
-         The \code{ordinal} package provides a flexible and powerful
-         implementation of ordinal regression.
-         
-         The \code{pairwiseOrdinalMatrix} function 
-         can be used as a post-hoc method following an omnibus 
-         ordinal regession whose form is analogous to
-         a one-way analysis of variance.
-         The matrix output can be converted to a compact letter display.
-         
-         The \code{x} variable must be an ordered factor.
-}
-\note{
-The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.
-}
-\examples{
-data(PoohPiglet)
-PoohPiglet$Likert.f = factor(PoohPiglet$Likert, ordered = TRUE)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
-                     levels = c("Pooh", "Tigger", "Piglet"))       
-PT = pairwiseOrdinalMatrix(Likert.f ~ Speaker,
-                           data   = PoohPiglet,
-                           method = "fdr")$Adjusted
-PT                          
-library(multcompView)
-multcompLetters(PT,
-                compare="<",
-                threshold=0.05,
-                Letters=letters)
-                 
-}
-\references{
-\url{http://rcompanion.org/handbook/G_07.html}
-}
-\seealso{
-\code{\link{pairwiseOrdinalTest}}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{
-ordinal regression post-hoc one-way cld
+Defunct. Performs pairwise two-sample ordinal regression 
+             across groups.
 }

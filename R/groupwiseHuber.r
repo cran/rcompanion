@@ -12,10 +12,10 @@
 #' @param conf.level The confidence interval to use.
 #' @param ci.type The type of confidence interval to use. Can be
 #'                  \code{"wald"} or \code{"boot"}.
-#'                  See \code{\link{HuberM}} for details.
+#'                  See \code{HuberM} for details.
 #' @param ... Other arguments passed to the \code{HuberM} function.
 #'                
-#' @details A wrapper for the \code{\link{HuberM}} function
+#' @details A wrapper for the \code{DescTools::HuberM} function
 #'          to allow easy output for multiple groups.
 #'          
 #'          The input should include either \code{formula} and \code{data};

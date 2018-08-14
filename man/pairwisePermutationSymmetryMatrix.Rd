@@ -5,8 +5,8 @@
 \title{Pairwise two-sample permutation symmetry 
        tests with matrix output}
 \usage{
-pairwisePermutationSymmetryMatrix(formula = NULL, data = NULL, x = NULL,
-  g = NULL, b = NULL, method = "fdr", ...)
+pairwisePermutationSymmetryMatrix(formula = NULL, data = NULL,
+  x = NULL, g = NULL, b = NULL, method = "fdr", ...)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
@@ -21,10 +21,10 @@ the grouping variable. e.g. y ~ group.}
 \item{b}{The blocking variable as a vector.}
 
 \item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{...}{Additional arguments passed to
-\code{\link{symmetry_test}}.}
+\code{coin::symmetry_test}.}
 }
 \value{
 A list consisting of:
@@ -87,6 +87,4 @@ multcompLetters(PT,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-permutation nonparametric post-hoc one-way cld symmetry
-}
+\concept{permutation nonparametric post-hoc one-way cld symmetry}

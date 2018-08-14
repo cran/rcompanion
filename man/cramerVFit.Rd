@@ -67,6 +67,4 @@ cramerVFit(c(10, 10, 10, 10, 10))
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-correlation effect size cramer V
-}
+\concept{correlation effect size cramer V}

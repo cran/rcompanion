@@ -2,88 +2,14 @@
 % Please edit documentation in R/pairwiseRobustMatrix.r
 \name{pairwiseRobustMatrix}
 \alias{pairwiseRobustMatrix}
-\title{Pairwise two-sample robust tests with matrix output}
+\title{[Defunct!] Pairwise two-sample robust tests with matrix output}
 \usage{
-pairwiseRobustMatrix(formula = NULL, data = NULL, x = NULL, g = NULL,
-  est = "mom", nboot = 599, method = "fdr", ...)
+pairwiseRobustMatrix(...)
 }
 \arguments{
-\item{formula}{A formula indicating the measurement variable and
-the grouping variable. e.g. y ~ group.}
-
-\item{data}{The data frame to use.}
-
-\item{x}{The response variable as a vector.}
-
-\item{g}{The grouping variable as a vector.}
-
-\item{est}{Estimate used for group comparisons.
-\code{"onestep"}, \code{"mom"}, \code{"median"}, 
-or \code{"mean"}.
-See \code{\link{pb2gen}} for details.}
-
-\item{nboot}{The number of bootstrap samples.}
-
-\item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
-
-\item{...}{Additional arguments passed to
-\code{\link{pb2gen}}.}
-}
-\value{
-A list consisting of:
-        A matrix of p-values;
-        the p-value adjustment method;
-        a matrix of adjusted p-values.
+\item{...}{Anything.}
 }
 \description{
-Performs pairwise two-sample robust tests across groups
+Defunct. Performs pairwise two-sample robust tests across groups
              with matrix output.
-}
-\details{
-The input should include either \code{formula} and \code{data};
-         or \code{x}, and \code{g}.
-         
-         The \code{WRS2} package provides functions for robust estimation
-         and hypothesis testing.  This function invokes the
-         \code{pb2gen} to make pairwise comparisons among
-         groups.
-         
-         The \code{pairwiseRobustMatrix} function 
-         can be used as a post-hoc method following an omnibus 
-         one-way anova with robust estimation.
-}
-\note{
-The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.
-}
-\examples{
-data(PoohPiglet)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
-                     levels = c("Pooh", "Tigger", "Piglet"))              
-PT = pairwiseRobustMatrix(Likert ~ Speaker,
-                          data   = PoohPiglet,
-                          method = "fdr")$Adjusted
-PT                           
-library(multcompView)
-multcompLetters(PT,
-                compare="<",
-                threshold=0.05,
-                Letters=letters)
-
-}
-\references{
-\url{http://rcompanion.org/rcompanion/d_08a.html}
-}
-\seealso{
-\code{\link{pairwiseRobustTest}}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{
-robust Huber post-hoc one-way
 }

@@ -12,11 +12,11 @@ It can have two or
 more levels for each dimension.}
 
 \item{method}{The method to adjust multiple p-values. 
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{digits}{The number of significant digits in the output.}
 
-\item{...}{Additional arguments, passed to \code{\link{multinomial.test}}.}
+\item{...}{Additional arguments, passed to \code{EMT::multinomial.test}.}
 }
 \value{
 A list containing: a data frame of results of the global test;
@@ -68,6 +68,4 @@ nominalSymmetryTest(Religion,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-McNemar Bowker contingency table symmetry nominal
-}
+\concept{McNemar Bowker contingency table symmetry nominal}

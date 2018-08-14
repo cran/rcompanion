@@ -48,6 +48,4 @@ wilcoxonPairedR(x = Pooh$Likert, g = Pooh$Time)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-effect size ordinal nominal
-}
+\concept{effect size ordinal nominal}

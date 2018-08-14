@@ -18,10 +18,10 @@ the grouping variable. e.g. y ~ group.}
 \item{g}{The grouping variable as a vector.}
 
 \item{method}{The p-value adjustment method to use for multiple tests.
-See \code{\link{p.adjust}}.}
+See \code{stats::p.adjust}.}
 
 \item{...}{Additional arguments passed to
-\code{\link{independence_test}}.}
+\code{coin::independence_test}.}
 }
 \value{
 A list consisting of:
@@ -79,6 +79,4 @@ multcompLetters(PT,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-permutation nonparametric post-hoc one-way cld
-}
+\concept{permutation nonparametric post-hoc one-way cld}

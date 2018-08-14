@@ -78,6 +78,4 @@ groupwiseGeometric(data   = Catbus,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-geometric mean confidence interval standard deviation error
-}
+\concept{geometric mean confidence interval standard deviation error}

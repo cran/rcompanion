@@ -4,8 +4,8 @@
 \alias{transformTukey}
 \title{Tukey's Ladder of Powers}
 \usage{
-transformTukey(x, start = -10, end = 10, int = 0.025, plotit = TRUE,
-  verbose = FALSE, statistic = 1)
+transformTukey(x, start = -10, end = 10, int = 0.025,
+  plotit = TRUE, verbose = FALSE, statistic = 1)
 }
 \arguments{
 \item{x}{A vector of values.}
@@ -58,6 +58,4 @@ Conc.trans = transformTukey(Conc)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Tukey ladder transform normal
-}
+\concept{Tukey ladder transform normal}

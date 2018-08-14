@@ -9,9 +9,9 @@
 #'          It can have two or
 #'          more levels for each dimension.
 #' @param method The method to adjust multiple p-values. 
-#'               See \code{\link{p.adjust}}.
+#'               See \code{stats::p.adjust}.
 #' @param digits The number of significant digits in the output.
-#' @param ... Additional arguments, passed to \code{\link{multinomial.test}}.
+#' @param ... Additional arguments, passed to \code{EMT::multinomial.test}.
 #' 
 #' @details If Monte Carlo is not used, the test of symmetry uses
 #'          an exact test by conducting either a binomial 

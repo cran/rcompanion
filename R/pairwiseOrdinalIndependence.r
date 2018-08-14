@@ -13,9 +13,9 @@
 #' @param scores  Optional vector to specify the spacing of the ordered
 #'                variable.
 #' @param method  The method to adjust multiple p-values. 
-#'                See \code{\link{p.adjust}}.
+#'                See \code{stats::p.adjust}.
 #' @param digits The number of significant digits in the output.
-#' @param ... Additional arguments, passed to \code{\link{chisq_test}}. 
+#' @param ... Additional arguments, passed to \code{stats::chisq_test}. 
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_09.html}

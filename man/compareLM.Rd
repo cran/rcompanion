@@ -66,6 +66,4 @@ compareLM(model.1, model.2, model.3, model.4)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-AIC BIC AICc p-value R-squared
-}
+\concept{AIC BIC AICc p-value R-squared}

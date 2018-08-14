@@ -37,6 +37,11 @@
 #' kruskal.test(Likert ~ Speaker, data = PoohPiglet)
 #' epsilonSquared(x = PoohPiglet$Likert, g = PoohPiglet$Speaker)
 #' 
+#' ### Same data, as matrix of counts
+#' data(PoohPiglet)
+#' XT = xtabs( ~ Speaker + Likert , data = PoohPiglet)
+#' epsilonSquared(XT)
+#' 
 #' @importFrom stats kruskal.test
 #' 
 #' @export
@@ -57,11 +62,12 @@ epsilonSquared = function (x, g=NULL, group="row", digits=3, ... ){
        x=as.numeric(Long[,1])}
   }
 
-  KW = kruskal.test(x, g, ...)
-  
   g  = factor(g)
   g  = droplevels(g)
   n  = length(g)
+  
+  KW = kruskal.test(x, g, ...)
+
   e2 = KW$statistic / (n-1)
   E2 = signif(e2, digits=digits)
   names(E2) = "epsilon.squared"

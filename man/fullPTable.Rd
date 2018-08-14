@@ -44,6 +44,4 @@ multcompLetters(PT1)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-pairwise multiple comparisons cld
-}
+\concept{pairwise multiple comparisons cld}

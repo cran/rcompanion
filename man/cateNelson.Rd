@@ -4,9 +4,10 @@
 \alias{cateNelson}
 \title{Cate-Nelson models for bivariate data}
 \usage{
-cateNelson(x, y, plotit = TRUE, hollow = TRUE, xlab = "X", ylab = "Y",
-  trend = "positive", clx = 1, cly = 1, xthreshold = 0.1,
-  ythreshold = 0.1, progress = TRUE, verbose = TRUE, listout = FALSE)
+cateNelson(x, y, plotit = TRUE, hollow = TRUE, xlab = "X",
+  ylab = "Y", trend = "positive", clx = 1, cly = 1,
+  xthreshold = 0.1, ythreshold = 0.1, progress = TRUE,
+  verbose = TRUE, listout = FALSE)
 }
 \arguments{
 \item{x}{A vector of values for the x variable.}
@@ -118,6 +119,4 @@ cateNelson(x          = Nurseries$Size,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{
-Cate Nelson bivariate soil agronomy
-}
+\concept{Cate Nelson bivariate soil agronomy}
