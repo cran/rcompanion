@@ -115,10 +115,12 @@ function(fit, null=NULL, restrictNobs=FALSE)
              | class(fit)[1]=="lmerMod"
              | class(fit)[1]=="glmerMod"
              | class(fit)[1]=="merModLmerTest"
+             | class(fit)[1]=="lmerModLmerTest"
              | class(fit)[1]=="clmm")
    SMOGGLE =   (class(fit)[1]=="lmerMod"
               | class(fit)[1]=="glmerMod"
               | class(fit)[1]=="merModLmerTest"
+              | class(fit)[1]=="lmerModLmerTest"
               | class(fit)[1]=="vglm")
    ZOGGLE  = (class(fit)[1]=="zeroinfl")
    ZOGGLE2 = (class(fit)[1]=="rq")
@@ -139,6 +141,7 @@ function(fit, null=NULL, restrictNobs=FALSE)
    SMOGGLE2 = (class(null)[1]=="lmerMod"
               | class(null)[1]=="glmerMod"
               | class(null)[1]=="merModLmerTest"
+              | class(null)[1]=="lmerModLmerTest"
               | class(null)[1]=="vglm")   
    
   Y = matrix(rep(NA,2),

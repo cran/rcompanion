@@ -40,7 +40,6 @@
 cohenG = 
   function(x, digits=3)
   {
-     cat("\n")
      n = nrow(x)
      m = ncol(x)
      if((n < 2) | (m != n)){

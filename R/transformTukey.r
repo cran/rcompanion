@@ -14,6 +14,9 @@
 #'               values, and a quantile-quantile plot of transformed values.
 #' @param verbose If \code{TRUE}, prints extra output for Shapiro-Wilks            
 #'                W or Anderson-Darling A vs. lambda.
+#' @param quiet If \code{TRUE}, doesn't print any output to the screen.
+#' @param returnLambda If \code{TRUE}, returns only the lambda value,
+#'                     not the vector of transformed values.
 #'                
 #' @details The function simply loops through lamdba values from \code{start}
 #'          to \code{end} at an interval of \code{int}.
@@ -44,7 +47,8 @@
 
 transformTukey = 
    function(x, start=-10, end=10, int=0.025,
-            plotit=TRUE, verbose=FALSE, statistic=1)
+            plotit=TRUE, verbose=FALSE, quiet=FALSE, statistic=1, 
+            returnLambda=FALSE)
    {
    n=(end-start)/int
    lambda=as.numeric(rep(0.00, n))
@@ -84,6 +88,7 @@ transformTukey =
       }
    if(statistic==1){df2 = df[with(df, order(-W)),]}
    if(statistic==2){df2 = df[with(df, order(A)),]}
+   if(quiet==FALSE){
    cat("\n")
    print(df2[1,])
    cat("\n")
@@ -91,6 +96,7 @@ transformTukey =
    cat("if (lambda == 0){TRANS = log(x)}","\n")
    cat("if (lambda <  0){TRANS = -1 * x ^ lambda}","\n")
    cat("\n")
+   }
    lambda = df2[1,"lambda"]
    if (lambda>0) {TRANS = x ^ lambda}
    if (lambda==0){TRANS = log(x)}
@@ -103,5 +109,9 @@ transformTukey =
    qqnorm(TRANS)
    qqline(TRANS, col="red")
    }
-   return(TRANS)   
+   if(returnLambda==FALSE){return(TRANS)}
+   if(returnLambda==TRUE){
+    names(lambda)="lambda"
+    return(lambda)
+   }
   }

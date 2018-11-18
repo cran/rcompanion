@@ -5,7 +5,8 @@
 \title{Tukey's Ladder of Powers}
 \usage{
 transformTukey(x, start = -10, end = 10, int = 0.025,
-  plotit = TRUE, verbose = FALSE, statistic = 1)
+  plotit = TRUE, verbose = FALSE, quiet = FALSE, statistic = 1,
+  returnLambda = FALSE)
 }
 \arguments{
 \item{x}{A vector of values.}
@@ -23,8 +24,13 @@ values, and a quantile-quantile plot of transformed values.}
 \item{verbose}{If \code{TRUE}, prints extra output for Shapiro-Wilks
 W or Anderson-Darling A vs. lambda.}
 
+\item{quiet}{If \code{TRUE}, doesn't print any output to the screen.}
+
 \item{statistic}{If \code{1}, uses Shapiro-Wilks test.
 If \code{2}, uses Anderson-Darling test.}
+
+\item{returnLambda}{If \code{TRUE}, returns only the lambda value,
+not the vector of transformed values.}
 }
 \value{
 The transformed vector of values. The chosen lambda value is printed

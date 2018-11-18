@@ -39,7 +39,7 @@
 #'          The first variable on the
 #'          right side is used for the grouping variable.
 #'          The second variable on the
-#'          right side is used for the blocking variable.  
+#'          right side is used for the blocking variable.
 #'  
 #' @seealso \code{\link{nominalSymmetryTest}}, \code{\link{groupwiseCMH}},
 #'          \code{\link{pairwiseNominalIndependence}}, 
@@ -87,10 +87,33 @@ pairwiseMcnemar =
   n = length(Name)
   N = n*(n-1)/2
   data = data.frame(x = x, g = g, block = block)
+  
+  if(test=="exact"){
   Z = data.frame(Comparison=rep("A", N),
+                 Successes=rep(NA, N),
+                 Trials=rep(NA, N),
                  p.value=rep(NA, N),
                  p.adjust=rep(NA, N),
                  stringsAsFactors=FALSE)
+  }
+  
+  if(test=="mcnemar"){
+  Z = data.frame(Comparison=rep("A", N),
+                 chi.sq=rep(NA, N),
+                 df=rep(NA, N),
+                 p.value=rep(NA, N),
+                 p.adjust=rep(NA, N),
+                 stringsAsFactors=FALSE)
+  }
+  
+  if(test=="permutation"){
+  Z = data.frame(Comparison=rep("A", N),
+                 Z=rep(NA, N),
+                 p.value=rep(NA, N),
+                 p.adjust=rep(NA, N),
+                 stringsAsFactors=FALSE)
+  }
+  
   k=0
   for(i in 1:(n-1)){
      for(j in (i+1):n){
@@ -111,14 +134,34 @@ pairwiseMcnemar =
      d = sum(X[1,]==0 & X[2,]==0)
      Y= matrix(c(a,b,c,d),ncol=2,byrow=TRUE)
      
-     z=NA
-     if(test=="permutation"){z=pvalue(symmetry_test(as.table(Y)))}
-     if(test=="exact"){z=binom.test(b, (b+c), 0.5)$p.value}
-     if(test=="mcnemar"){z=mcnemar.test(Y, correct=correct)$p.value}
-     P = signif(z, digits=digits)
-     P.adjust = NA                       
-     Z[k,] =c( paste0(Namea, " - ", Nameb, " = 0"), 
-             P, P.adjust)
+     if(test=="exact"){
+       Test=binom.test(b, (b+c), 0.5)
+       P = signif(Test$p.value, digits=digits)
+       Successes = Test$statistic
+       Trials   = Test$parameter
+       P.adjust = NA                       
+       Z[k,] =c(paste0(Namea, " - ", Nameb, " = 0"), 
+                Successes, Trials, P, P.adjust)
+     }
+     
+     if(test=="mcnemar"){
+       Test=mcnemar.test(Y, correct=correct)
+       P = signif(Test$p.value, digits=digits)
+       Chi = signif(Test$statistic, digits=digits)
+       Df = Test$parameter
+       P.adjust = NA                       
+       Z[k,] =c(paste0(Namea, " - ", Nameb, " = 0"), 
+                Chi, Df, P, P.adjust)
+       }
+     
+if(test=="permutation"){
+       Test=symmetry_test(as.table(Y))
+       P = signif(pvalue(Test), digits=digits)
+       z = as.numeric(signif(statistic(Test), digits=digits))
+       P.adjust = NA          
+       Z[k,] =c(paste0(Namea, " - ", Nameb, " = 0"), 
+                z, P, P.adjust)
+       }
      }
     } 
   Z$p.adjust = signif(p.adjust(Z$p.value, method = method), digits=digits) 

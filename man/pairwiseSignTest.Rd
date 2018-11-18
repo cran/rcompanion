@@ -2,84 +2,13 @@
 % Please edit documentation in R/pairwiseSignTest.r
 \name{pairwiseSignTest}
 \alias{pairwiseSignTest}
-\title{Pairwise sign tests for paired data}
+\title{[Defunct!] Pairwise sign tests}
 \usage{
-pairwiseSignTest(formula = NULL, data = NULL, x = NULL, g = NULL,
-  method = "fdr", ...)
+pairwiseSignTest(...)
 }
 \arguments{
-\item{formula}{A formula indicating the measurement variable and
-the grouping variable. e.g. y ~ group.}
-
-\item{data}{The data frame to use.}
-
-\item{x}{The response variable as a vector.}
-
-\item{g}{The grouping variable as a vector.}
-
-\item{method}{The p-value adjustment method to use for multiple tests.
-See \code{stats::p.adjust}.}
-
-\item{...}{Additional arguments passed to
-\code{BSDA::SIGN.test}.}
-}
-\value{
-A dataframe of the groups being compared, the p-values,
-        and the adjusted p-values.
+\item{...}{Anything.}
 }
 \description{
-Conducts pairwise sign tests across groups
-             for paired data.
+Defunct. Performs pairwise sign tests.
 }
-\details{
-The input should include either \code{formula} and \code{data};
-         or \code{x}, and \code{g}.
-         
-         The two sample paired sign test compares medians 
-         among two groups with paired data.
-         See \url{http://rcompanion.org/handbook/F_07.html} for
-         futher discussion of this test.
-
-         The \code{pairwiseSignTest} function
-         can be used as a post-hoc method following an omnibus
-         Friedman test.
-         
-         The function assumes that the data frame is already ordered by
-         the blocking variable, so that the first observation of Group 1
-         is paired with the first observation of Group 2, and so on.
-}
-\note{
-The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.
-}
-\examples{
-data(BobBelcher)
-BobBelcher = BobBelcher[order(BobBelcher$Instructor, BobBelcher$Rater),]
-friedman.test(Likert ~ Instructor | Rater,
-              data = BobBelcher)
-BobBelcher$Instructor = factor( BobBelcher$Instructor, 
-                  levels = c("Linda Belcher", "Louise Belcher",
-                             "Tina Belcher", "Bob Belcher",
-                             "Gene Belcher"))
-PT = pairwiseSignTest(Likert ~ Instructor,
-                      data   = BobBelcher,
-                      method = "fdr")
-PT
-cldList(comparison = PT$Comparison,
-        p.value    = PT$p.adjust,
-        threshold  = 0.05)
-        
-}
-\references{
-\url{http://rcompanion.org/handbook/F_10.html}
-}
-\seealso{
-\code{\link{pairwiseSignMatrix}}
-}
-\author{
-Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-}
-\concept{median nonparametric post-hoc paired Friedman unreplicated}

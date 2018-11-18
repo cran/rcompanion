@@ -93,7 +93,7 @@ cldList = function(formula       = NULL,
     p.value     = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
     comparison  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
     }
-Comparison = p.value < threshold
+Comparison = p.value <= threshold
 
 if (sum(Comparison) == 0){stop("No significant differences.", call.=FALSE)}
 
