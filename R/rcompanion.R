@@ -55,5 +55,5 @@
 #' 
 #' Removed packages are indicated with 'Defunct' in their titles.
 #'
-#'@keyword internal
+#'@keywords internal
 "_PACKAGE"

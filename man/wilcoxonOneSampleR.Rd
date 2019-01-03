@@ -4,23 +4,41 @@
 \alias{wilcoxonOneSampleR}
 \title{r effect size for Wilcoxon one-sample signed-rank test}
 \usage{
-wilcoxonOneSampleR(x, mu = NULL, digits = 3, ...)
+wilcoxonOneSampleR(x, mu = NULL, ci = FALSE, conf = 0.95,
+  type = "perc", R = 1000, histogram = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{x}{A vector of observations of an ordinal variable.}
 
 \item{mu}{The value to compare \code{x} to, as in \code{wilcox.test}}
 
+\item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
+May be slow.}
+
+\item{conf}{The level for the confidence interval.}
+
+\item{type}{The type of confidence interval to use.
+Can be any of "\code{norm}", "\code{basic}", 
+              "\code{perc}", or "\code{bca}".
+Passed to \code{boot.ci}.}
+
+\item{R}{The number of replications to use for bootstrap.}
+
+\item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
+
 \item{digits}{The number of significant digits in the output.}
 
 \item{...}{Additional arguments passed to the \code{wilcoxsign_test} function.}
 }
 \value{
-A single statistic, r
+A single statistic, r.
+        Or a small data frame consisting of r,
+        and the lower and upper confidence limits.
 }
 \description{
 Calculates r effect size
-             for a Wilcoxon one-sample signed-rank test.
+             for a Wilcoxon one-sample signed-rank test; confidence intervals
+             by bootstap.
 }
 \details{
 A Z value is extracted from the \code{wilcoxsign_test} function in the
@@ -35,6 +53,12 @@ A Z value is extracted from the \code{wilcoxsign_test} function in the
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
+          
+          When r is close to 0 or very large,
+          or with small counts in some cells,
+          the confidence intervals 
+          determined by this
+          method may not be reliable, or the procedure may fail.
 }
 \examples{
 data(Pooh)

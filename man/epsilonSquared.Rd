@@ -4,7 +4,8 @@
 \alias{epsilonSquared}
 \title{Epsilon-squared}
 \usage{
-epsilonSquared(x, g = NULL, group = "row", digits = 3, ...)
+epsilonSquared(x, g = NULL, group = "row", ci = FALSE, conf = 0.95,
+  type = "perc", R = 1000, histogram = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{x}{Either a two-way table or a two-way matrix.
@@ -17,16 +18,33 @@ the grouping, nominal variable.}
 the \code{"row"} or the \code{"column"} variable is
 the nominal, grouping variable.}
 
+\item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
+May be slow.}
+
+\item{conf}{The level for the confidence interval.}
+
+\item{type}{The type of confidence interval to use.
+Can be any of "\code{norm}", "\code{basic}", 
+              "\code{perc}", or "\code{bca}".
+Passed to \code{boot.ci}.}
+
+\item{R}{The number of replications to use for bootstrap.}
+
+\item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
+
 \item{digits}{The number of significant digits in the output.}
 
 \item{...}{Additional arguments passed to the \code{kruskal.test} function.}
 }
 \value{
-A single statistic, epsilon-squared
+A single statistic, epsilon-squared.
+        Or a small data frame consisting of epsilon-squared,
+        and the lower and upper confidence limits.
 }
 \description{
 Calculates epsilon-squared for a table with one ordinal
-             variable and one nominal variable.
+             variable and one nominal variable; confidence intervals
+             by bootstap.
 }
 \details{
 Epsilon-squared is used as a measure of association
@@ -36,6 +54,12 @@ Epsilon-squared is used as a measure of association
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
+          
+          When epsilon-squared is close to 0 or very large,
+          or with small counts in some cells,
+          the confidence intervals 
+          determined by this
+          method may not be reliable, or the procedure may fail.
 }
 \examples{
 data(Breakfast)

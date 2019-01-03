@@ -1,5 +1,6 @@
 #' @title Minimum maximum accuracy, mean absolute percent error, 
-#'        root mean square error, and Efron's pseudo r-squared
+#'        root mean square error, coefficient of variation,
+#'        and Efron's pseudo r-squared
 #'
 #' @description Produces a table of fit statistics for multiple models.
 #' 
@@ -44,6 +45,9 @@
 #'           to r-squared.  For other models, it should not be interpreted
 #'           as r-squared, but can still be useful as a relative measure.
 #'           
+#'           CV.prcnt is the coefficient of variation for the model.  Here
+#'           it is expressed as a percent.
+#'           
 #'           Model objects currently supported: lm, glm, nls, betareg, gls,
 #'           lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
 #'           
@@ -51,7 +55,7 @@
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/G_14.html}
 #' @seealso \code{\link{compareLM}}, \code{\link{compareGLM}}, \code{\link{nagelkerke}}
-#' @concept accuracy mape r-squared
+#' @concept accuracy mape r-squared cv
 #' @return A list of two objects: The series of model calls, and a data 
 #'         frame of statistics for each model.
 #'         
@@ -102,6 +106,7 @@ function (fits, plotit=TRUE, digits=3, ...)
                 NRMSE.mean.accuracy=rep(NA,n),
                 NRMSE.median.accuracy=rep(NA,n),
                 Efron.r.squared=rep(NA,n),
+                CV.prcnt=rep(NA,n),
                 stringsAsFactors=FALSE) 
    for(i in 1:n)
     {
@@ -198,14 +203,16 @@ function (fits, plotit=TRUE, digits=3, ...)
      mse  = mean((actual - predy)^2)
      rmse = sqrt(mse)
      nrmse_mean = rmse/mean(actual)
+     cv_prcnt      = nrmse_mean*100 
      nrmse_median = rmse/median(actual)
      acc_nrmse_mean = 1 - nrmse_mean
      acc_nrmse_median = 1 - nrmse_median
      Var = sum((actual - mean(actual))^2)
      RSS = sum((actual - predy)^2)
      var_r_squared = 1 - RSS / Var
-    
-     Z[i,]=rep(NA,10)
+     cv_prcnt      = nrmse_mean*100
+
+     Z[i,]=rep(NA,11)
      if(TOGGLE==TRUE){
      Z[i,]=c(signif(mma,                digits=digits),
              signif(mae,                digits=digits),
@@ -216,7 +223,8 @@ function (fits, plotit=TRUE, digits=3, ...)
              signif(nrmse_median,       digits=digits),
              signif(acc_nrmse_mean,     digits=digits),
              signif(acc_nrmse_median,   digits=digits),
-             signif(var_r_squared,      digits=digits))
+             signif(var_r_squared,      digits=digits),
+             signif(cv_prcnt,           digits=digits))
      if(plotit){plot(data$actual, data$predy, 
                       main=paste0("Model ", i),
                       xlab="Actual", ylab="Predicted",

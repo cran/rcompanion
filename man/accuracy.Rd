@@ -3,7 +3,8 @@
 \name{accuracy}
 \alias{accuracy}
 \title{Minimum maximum accuracy, mean absolute percent error, 
-       root mean square error, and Efron's pseudo r-squared}
+       root mean square error, coefficient of variation,
+       and Efron's pseudo r-squared}
 \usage{
 accuracy(fits, plotit = TRUE, digits = 3, ...)
 }
@@ -60,6 +61,9 @@ Produces a table of fit statistics for multiple models:
           to r-squared.  For other models, it should not be interpreted
           as r-squared, but can still be useful as a relative measure.
           
+          CV.prcnt is the coefficient of variation for the model.  Here
+          it is expressed as a percent.
+          
           Model objects currently supported: lm, glm, nls, betareg, gls,
           lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
 }
@@ -96,4 +100,4 @@ accuracy(list(perfect, poor), plotit=FALSE)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{accuracy mape r-squared}
+\concept{accuracy mape r-squared cv}

@@ -4,7 +4,9 @@
 \alias{cramerV}
 \title{Cramer's V (phi)}
 \usage{
-cramerV(x, y = NULL, digits = 4, bias.correct = FALSE, ...)
+cramerV(x, y = NULL, ci = FALSE, conf = 0.95, type = "perc",
+  R = 1000, histogram = FALSE, digits = 4, bias.correct = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{Either a two-way table or a two-way matrix.
@@ -14,6 +16,20 @@ of a two-way table.}
 \item{y}{If \code{x} is a vector, \code{y} is the vector of observations for
 the second dimension of a two-way table.}
 
+\item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
+May be slow.}
+
+\item{conf}{The level for the confidence interval.}
+
+\item{type}{The type of confidence interval to use.
+Can be any of "\code{norm}", "\code{basic}", 
+              "\code{perc}", or "\code{bca}".
+Passed to \code{boot.ci}.}
+
+\item{R}{The number of replications to use for bootstrap.}
+
+\item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
+
 \item{digits}{The number of significant digits in the output.}
 
 \item{bias.correct}{If \code{TRUE}, a bias correction is applied.}
@@ -21,7 +37,9 @@ the second dimension of a two-way table.}
 \item{...}{Additional arguments passed to \code{chisq.test}.}
 }
 \value{
-A single statistic, Cramer's V.
+A single statistic, Cramer's V.  
+        Or a small data frame consisting of Cramer's V,
+        and the lower and upper confidence limits.
 }
 \description{
 Calculates Cramer's V for a table of nominal variables.
@@ -32,6 +50,12 @@ Cramer's V is used as a measure of association
           for a chi-square test of association.  For a 2 x 2 table,
           the absolute value of the phi statistic is the same as
           Cramer's V.
+          
+          When V is close to 0 or very large,
+          or with small counts, 
+          the confidence intervals 
+          determined by this
+          method may not be reliable, or the procedure may fail.
 }
 \examples{
 ### Example with table

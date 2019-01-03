@@ -4,19 +4,37 @@
 \alias{cramerVFit}
 \title{Cramer's V for chi-square goodness-of-fit tests}
 \usage{
-cramerVFit(x, p = rep(1/length(x), length(x)), digits = 4, ...)
+cramerVFit(x, p = rep(1/length(x), length(x)), ci = FALSE,
+  conf = 0.95, type = "perc", R = 1000, histogram = FALSE,
+  digits = 4, ...)
 }
 \arguments{
 \item{x}{A vector of observed counts.}
 
 \item{p}{A vector of expected or default probabilities.}
 
+\item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
+May be slow.}
+
+\item{conf}{The level for the confidence interval.}
+
+\item{type}{The type of confidence interval to use.
+Can be any of "\code{norm}", "\code{basic}", 
+              "\code{perc}", or "\code{bca}".
+Passed to \code{boot.ci}.}
+
+\item{R}{The number of replications to use for bootstrap.}
+
+\item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
+
 \item{digits}{The number of significant digits in the output.}
 
 \item{...}{Additional arguments passed to \code{chisq.test}.}
 }
 \value{
-A single statistic, Cramer's V.
+A single statistic, Cramer's V.  
+        Or a small data frame consisting of Cramer's V,
+        and the lower and upper confidence limits.
 }
 \description{
 Calculates Cramer's V for a vector of counts and expected counts.
@@ -34,6 +52,12 @@ In the case of single vector of counts and expected probabilities,
           Cramer's V will be equal to 1 when all counts are in one category,
           and it will be equal to 0 when the counts are equally distributed
           across categories.
+          
+          When V is close to 0 or 1,
+          or with small counts, 
+          the confidence intervals 
+          determined by this
+          method may not be reliable, or the procedure may fail.
 }
 \examples{
 ### Equal probabilities example
