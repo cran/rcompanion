@@ -29,8 +29,8 @@ Produces a table of fit statistics for multiple models.
 Produces a table of fit statistics for multiple models: 
           minimum maximum accuracy, mean absolute percentage error,
           root mean square error, normalized root mean square error,
-          accuracy based on normalized root mean square error, and Efron's
-          pseudo r-squared.
+          accuracy based on normalized root mean square error, Efron's
+          pseudo r-squared, and coefficient of variation.
           
           For minimum maximum accuracy, larger indicates
           a better fit, 
@@ -40,6 +40,12 @@ Produces a table of fit statistics for multiple models:
           indicates a better fit,
           and a perfect fit is equal to 0.
           It has the same units as the dependent variable.
+          Note that here, MAE is simply the mean of the absolute
+          values of the differences of predicted values and the
+          observed values 
+          (\code{MAE = mean(abs(predy - actual))}).
+          There are other definitions of MAE and similar-sounding
+          terms.
           
           For mean absolute percent error (MAPE), smaller
           indicates a better fit,

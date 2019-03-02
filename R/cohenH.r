@@ -19,7 +19,6 @@
 #'          If observations are in rows, P1 = a/(a+b) and P2 = c/(c+d).
 #'          If observations are in columns, P1 = a/(a+c) and P2 = b/(b+d).          
 #'          Phi = 2 * asin(sqrt(P))
-#.
 #'        
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_05.html}

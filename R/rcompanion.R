@@ -1,26 +1,37 @@
+#' @title Functions to Support Extension Education Program Evaluation
+#' 
+#' @description Functions and datasets to support Summary and Analysis of
+#' Extension Program Evaluation in R and An R
+#' Companion for the Handbook of Biological Statistics.
+#'
 #' @section  Useful functions:
-#' The function \code{\link{nagelkerke}}
-#' provides pseudo R-squared values for a variety of model types, as well as
-#' a likelihood ratio test for the model as a whole.
 #'
 #' There are several functions that provide summary statistics for
 #' grouped data. These function titles tend to start with \code{"groupwise"}.
 #' They provide means, medians, geometric means, and Huber M-estimators
 #' for groups, along with confidence intervals by traditional
 #' methods and bootstrap.
-#'
-#' Function titles starting with \code{"pairwise"} conduct pairwise
-#' tests among groups as a post-hoc analysis for omnibus tests.
-#' These tests are Mood's median test, sign test (for omnibus Friedman test),
-#' and permutation test.
-#' The output can be parsed into a compact letter display.
+#' 
+#' Functions to produce effect size statistics, 
+#' some with bootstrapped confidence intervals, 
+#' include those for Cramer's V, Cohen's h, 
+#' Cohen's w, r for Wilcoxon and Mann-Whitney tests, 
+#' epsilon-squared, and Freeman's theta. 
 #'
 #' There are also functions that are useful for comparing models.
 #' \code{\link{compareLM}},  \code{\link{compareGLM}}, and 
 #' \code{\link{pairwiseModelAnova}}.
 #' These use goodness-of-fit measures like AIC, BIC, and BICc, or likelihood
-#' ratio tests.
+#' ratio tests. The \code{\link{accuracy}} function reports statistics for
+#' models including minimum maximum accuracy, MAPE, RMSE, 
+#' Efron's pseudo r-squared, and coefficient of variation.
 #'
+#' Functions for nominal data include post-hoc tests for 
+#' Cochran-Mantel-Haenszel test (\code{\link{groupwiseCMH}}),
+#' for McNemar-Bowker test (\code{\link{pairwiseMcnemar}}),
+#' and for tests of association like Chi-square, Fisher exact, and G-test
+#' (\code{\link{pairwiseNominalIndependence}}).
+#' 
 #' There are a few useful plotting functions, including 
 #' \code{\link{plotNormalHistogram}} that plots a histogram of values and 
 #' overlays
@@ -28,11 +39,9 @@
 #' values for a bivariate model.  Other plotting functions include producing
 #' density plots.
 #'
-#' Functions for nominal data include post-hoc tests for 
-#' Cochran-Mantel-Haenszel test (\code{\link{groupwiseCMH}}),
-#' for McNemar-Bowker test (\code{\link{pairwiseMcnemar}}),
-#' and for tests of association like Chi-square, Fisher exact, and G-test
-#' (\code{\link{pairwiseNominalIndependence}}).
+#' The function \code{\link{nagelkerke}}
+#' provides pseudo R-squared values for a variety of model types, as well as
+#' a likelihood ratio test for the model as a whole.
 #'
 #' A function close to my heart is (\code{\link{cateNelson}}), which performs
 #' Cate-Nelson analysis for bivariate data.
@@ -55,5 +64,8 @@
 #' 
 #' Removed packages are indicated with 'Defunct' in their titles.
 #'
-#'@keywords internal
-"_PACKAGE"
+#' @docType package
+#' 
+#' @name rcompanion
+#' 
+NULL
