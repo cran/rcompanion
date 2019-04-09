@@ -37,8 +37,8 @@ A single statistic, r.
 }
 \description{
 Calculates r effect size
-             for a Wilcoxon one-sample signed-rank test; confidence intervals
-             by bootstap.
+             for a Wilcoxon one-sample signed-rank test; 
+             confidence intervals by bootstrap.
 }
 \details{
 A Z value is extracted from the \code{wilcoxsign_test} function in the

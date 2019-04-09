@@ -2,7 +2,7 @@
 #' 
 #' @description Calculates r effect size
 #'              for a Wilcoxon two-sample paired signed-rank test; 
-#'              confidence intervals by bootstap.
+#'              confidence intervals by bootstrap.
 #' 
 #' @param x A vector of observations of an ordinal variable.
 #' @param g The vector of observations for

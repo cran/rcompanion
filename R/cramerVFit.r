@@ -1,6 +1,7 @@
 #' @title Cramer's V for chi-square goodness-of-fit tests
 #'
-#' @description Calculates Cramer's V for a vector of counts and expected counts.
+#' @description Calculates Cramer's V for a vector of counts and expected 
+#'              counts; confidence intervals by bootstrap.
 #' 
 #' @param x A vector of observed counts.
 #' @param p A vector of expected or default probabilities.
@@ -16,18 +17,18 @@
 #' @param digits The number of significant digits in the output.              
 #' @param ...    Additional arguments passed to \code{chisq.test}. 
 #' 
-#' @details  In the case of single vector of counts and expected probabilities,
-#'           a modification of Cramer's V can be used to indicate 
-#'           the degree of deviation
-#'           from the expected probabilities.
-#'           
-#'           It is not affected by sample size and can be used as an effect
-#'           size.
+#' @details This modification of Cramer's V
+#'          could be used to indicate an effect size
+#'          in cases where a chi-square goodness-of-fit test might be used.
+#'          It indicates the degree of deviation of observed counts
+#'          from the expected probabilities.
 #'           
 #'           In the case of equally-distributed expected frequencies,
 #'           Cramer's V will be equal to 1 when all counts are in one category,
 #'           and it will be equal to 0 when the counts are equally distributed
 #'           across categories.
+#'           This does not hold if the expected frequencies are not
+#'           equally-distributed. 
 #'           
 #'           When V is close to 0 or 1,
 #'           or with small counts, 
@@ -111,7 +112,8 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray",
+                      main="", xlab="V")}
   
 }
  if(ci==FALSE){names(CV)="Cramer V"; return(CV)}

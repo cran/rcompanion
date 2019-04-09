@@ -44,7 +44,7 @@ A single statistic, epsilon-squared.
 \description{
 Calculates epsilon-squared for a table with one ordinal
              variable and one nominal variable; confidence intervals
-             by bootstap.
+             by bootstrap.
 }
 \details{
 Epsilon-squared is used as a measure of association

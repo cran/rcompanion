@@ -42,7 +42,8 @@ A single statistic, Cramer's V.
         and the lower and upper confidence limits.
 }
 \description{
-Calculates Cramer's V for a table of nominal variables.
+Calculates Cramer's V for a table of nominal variables;
+             confidence intervals by bootstrap.
 }
 \details{
 Cramer's V is used as a measure of association

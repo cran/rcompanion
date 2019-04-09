@@ -46,7 +46,8 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @seealso \code{\link{vda}}
+#' @references \url{http://rcompanion.org/handbook/F_04.html}
+#' @seealso \code{\link{vda}}, \code{\link{multiVDA}}
 #' @concept effect size
 #' @return A single statistic, Cliff's delta.
 #'         Or a small data frame consisting of Cliff's delta,
@@ -114,7 +115,8 @@ cliffDelta =
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray",
+                          main="", xlab="delta")}
 }
   
   if(ci==FALSE){names(CD)="Cliff.delta"; return(CD)}
@@ -122,5 +124,3 @@ cliffDelta =
              return(data.frame(Cliff.delta=CD, lower.ci=CI1, upper.ci=CI2))}
 
  }
-   
-

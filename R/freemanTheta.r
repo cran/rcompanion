@@ -2,7 +2,7 @@
 #'
 #' @description Calculates Freeman's theta for a table with one ordinal
 #'              variable and one nominal variable; confidence intervals
-#'              by bootstap.
+#'              by bootstrap.
 #' 
 #' @param x Either a two-way table or a two-way matrix.
 #'          Can also be a vector of observations of an ordinal variable.

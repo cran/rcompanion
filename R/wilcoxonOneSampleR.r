@@ -1,8 +1,8 @@
 #' @title r effect size for Wilcoxon one-sample signed-rank test
 #' 
 #' @description Calculates r effect size
-#'              for a Wilcoxon one-sample signed-rank test; confidence intervals
-#'              by bootstap.
+#'              for a Wilcoxon one-sample signed-rank test; 
+#'              confidence intervals by bootstrap.
 #' 
 #' @param x A vector of observations of an ordinal variable.
 #' @param mu The value to compare \code{x} to, as in \code{wilcox.test}

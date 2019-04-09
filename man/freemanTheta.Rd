@@ -49,7 +49,7 @@ A single statistic, Freeman's theta.
 \description{
 Calculates Freeman's theta for a table with one ordinal
              variable and one nominal variable; confidence intervals
-             by bootstap.
+             by bootstrap.
 }
 \details{
 Freeman's coefficent of differentiation (theta)

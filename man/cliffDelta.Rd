@@ -83,8 +83,11 @@ data(Catbus)
 cliffDelta(Steps ~ Sex, data=Catbus)
 
 }
+\references{
+\url{http://rcompanion.org/handbook/F_04.html}
+}
 \seealso{
-\code{\link{vda}}
+\code{\link{vda}}, \code{\link{multiVDA}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

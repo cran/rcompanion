@@ -1,6 +1,7 @@
 #' @title Cramer's V (phi)
 #'
-#' @description Calculates Cramer's V for a table of nominal variables.
+#' @description Calculates Cramer's V for a table of nominal variables;
+#'              confidence intervals by bootstrap.
 #' 
 #' @param x Either a two-way table or a two-way matrix.
 #'          Can also be a vector of observations for one dimension
@@ -128,7 +129,7 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="V", main="")}
 
 }
  if(ci==FALSE){names(CV)="Cramer V"; return(CV)}

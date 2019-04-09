@@ -4,12 +4,27 @@
 \alias{cohenG}
 \title{Cohen's g and odds ratio for paired contingency tables}
 \usage{
-cohenG(x, digits = 3)
+cohenG(x, ci = FALSE, conf = 0.95, type = "perc", R = 1000,
+  histogram = FALSE, digits = 3)
 }
 \arguments{
 \item{x}{A two-way contingency table. It must be square. 
 It can have two or
 more levels for each dimension.}
+
+\item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
+May be slow.}
+
+\item{conf}{The level for the confidence interval.}
+
+\item{type}{The type of confidence interval to use.
+Can be any of "\code{norm}", "\code{basic}", 
+              "\code{perc}", or "\code{bca}".
+Passed to \code{boot.ci}.}
+
+\item{R}{The number of replications to use for bootstrap.}
+
+\item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
 
 \item{digits}{The number of significant digits in the output.}
 }
@@ -31,6 +46,12 @@ For a 2 x 2 table, where a and d are the concordant cells
          and Cohen's g is P - 0.5.
          These statistics are extended to tables larger
          than 2 x 2.
+         
+          When the reported statistics are close to their extremes,
+          or with small counts, 
+          the confidence intervals 
+          determined by this
+          method may not be reliable, or the procedure may fail.
 }
 \examples{
 ### 2 x 2 repeated matrix example

@@ -47,7 +47,7 @@ Calculates r effect size
              for Mann-Whitney, two-sample rank-sum test,
              or a table with an ordinal variable and a
              nominal variable with two levels; confidence intervals
-             by bootstap.
+             by bootstrap.
 }
 \details{
 A Z value is extracted from the \code{wilcox_test} function in the
@@ -71,10 +71,9 @@ library(coin)
 chisq_test(Table, scores = list("Breakfast" = c(-2, -1, 0, 1, 2)))
 wilcoxonR(Table)
 
-data(PoohPiglet)
-Data = PoohPiglet[PoohPiglet$Speaker \%in\% c("Pooh", "Piglet"),]
-wilcox.test(Likert ~ Speaker, data = Data)
-wilcoxonR(x = Data$Likert, g = Data$Speaker)
+data(Catbus)
+wilcox.test(Steps ~ Sex, data = Catbus)
+wilcoxonR(x = Catbus$Steps, g = Catbus$Sex)
 
 }
 \references{

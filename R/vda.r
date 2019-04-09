@@ -44,7 +44,8 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @seealso \code{\link{cliffDelta}}
+#' @references \url{http://rcompanion.org/handbook/F_04.html}
+#' @seealso \code{\link{cliffDelta}}, \code{\link{multiVDA}}
 #' @concept effect size
 #' @return A single statistic, VDA.
 #'         Or a small data frame consisting of VDA,
@@ -110,7 +111,8 @@ vda =
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray",
+                      main="", xlab="VDA")}
 }
   
   if(ci==FALSE){names(VDA)="VDA"; return(VDA)}
