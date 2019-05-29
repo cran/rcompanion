@@ -58,7 +58,14 @@ A Z value is extracted from the \code{wilcox_test} function in the
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
           
-          When r is close to 0 or very large,
+          When the data in the first group are greater than
+          in the second group, r is positive.
+          When the data in the second group are greater than
+          in the first group, r is negative.
+          Be cautious with this interpretation, as R will alphabetize
+          groups if \code{g} is not already a factor.
+          
+          When r is close to extremes,
           or with small counts in some cells,
           the confidence intervals 
           determined by this

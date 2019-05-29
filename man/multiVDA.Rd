@@ -72,6 +72,16 @@ VDA and CD are effect size statistic appropriate
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
+          
+          When the data in the first group are greater than
+          in the second group, 
+          VDA is > 0.5, CD is positive, and r is positive.
+          When the data in the second group are greater than
+          in the first group, 
+          VDA is < 0.5, CD is negative, and r is negative.
+          Be cautious with this interpretation, as R will alphabetize
+          groups in the formula interface if the grouping variable
+          is not already a factor.
 }
 \note{
 The parsing of the formula is simplistic. 

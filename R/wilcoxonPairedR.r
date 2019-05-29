@@ -32,7 +32,14 @@
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
 #'
-#'           When r is close to 0 or very large,
+#'           When the data in the first group are greater than
+#'           in the second group, r is positive.
+#'           When the data in the second group are greater than
+#'           in the first group, r is negative.
+#'           Be cautious with this interpretation, as R will alphabetize
+#'           groups if \code{g} is not already a factor.
+#'           
+#'           When r is close to extremes,
 #'           or with small counts in some cells,
 #'           the confidence intervals 
 #'           determined by this
@@ -58,7 +65,7 @@
 wilcoxonPairedR = function (x, g=NULL, ci=FALSE, conf=0.95, type="perc",
                             R=1000, histogram=FALSE, digits=3, ... ){
 
-  g = factor(g)
+  if(is.factor(g)==F){g=factor(g)}
   x = x[as.numeric(g)<3]
   g = g[as.numeric(g)<3]
   g = droplevels(g)
@@ -66,7 +73,7 @@ wilcoxonPairedR = function (x, g=NULL, ci=FALSE, conf=0.95, type="perc",
   WT = suppressWarnings(wilcoxsign_test(x[as.numeric(g)==1] ~ x[as.numeric(g)==2], ...))
   Z  = as.numeric(statistic(WT, type="standardized"))
   n  = length(x[as.numeric(g)==1])
-  r  = abs(Z)/sqrt(n)
+  r  = Z/sqrt(n)
   RR = signif(r, digits=digits)
   
 if(ci==TRUE){
@@ -77,7 +84,7 @@ if(ci==TRUE){
                           data=Input, ...))
                     Z  = as.numeric(statistic(WT, type="standardized"))
                     n = length(Input$x1)
-                    r = abs(Z)/sqrt(n)
+                    r = Z/sqrt(n)
                     return(r)}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
@@ -89,7 +96,8 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], , col = "darkgray", xlab="r",
+                                       main="")}
 
 }
   

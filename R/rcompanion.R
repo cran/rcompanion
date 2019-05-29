@@ -14,8 +14,10 @@
 #' 
 #' Functions to produce effect size statistics, 
 #' some with bootstrapped confidence intervals, 
-#' include those for Cramer's V, Cohen's h, 
-#' Cohen's w, r for Wilcoxon and Mann-Whitney tests, 
+#' include those for Cramer's V, 
+#' Cohen's g and odds ratio for paired tables, Cohen's h, 
+#' Cohen's w, Vargha and Delaney's A, Cliff's delta,
+#' r for one-sample, two-sample, and paired Wilcoxon and Mann-Whitney tests, 
 #' epsilon-squared, and Freeman's theta. 
 #'
 #' There are also functions that are useful for comparing models.

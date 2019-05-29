@@ -19,6 +19,7 @@
 #'           the absolute value of the phi statistic is the same as
 #'           Cohen's w.  
 #'           The value of Cohen's w is not bound by 1 on the upper end.
+#'           Here, the value is always positive.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_10.html}

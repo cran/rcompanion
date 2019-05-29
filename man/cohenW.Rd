@@ -35,6 +35,7 @@ Cohen's w is used as a measure of association
           the absolute value of the phi statistic is the same as
           Cohen's w.  
           The value of Cohen's w is not bound by 1 on the upper end.
+          Here, the value is always positive.
 }
 \examples{
 ### Example with table

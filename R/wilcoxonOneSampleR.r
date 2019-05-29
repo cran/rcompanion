@@ -32,7 +32,10 @@
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
 #'           
-#'           When r is close to 0 or very large,
+#'           When the data are greater than \code{mu}, r is positive.
+#'           When the data are less than \code{mu}, r is negative.
+#'           
+#'           When r is close to extremes,
 #'           or with small counts in some cells,
 #'           the confidence intervals 
 #'           determined by this
@@ -59,11 +62,12 @@
 wilcoxonOneSampleR = function (x, mu=NULL, ci=FALSE, conf=0.95, type="perc",
                       R=1000, histogram=FALSE, digits=3, ... ){
 
-  n  =length(x)
+  n  = length(x)
   MU = rep(mu, n)
   WT = suppressWarnings(wilcoxsign_test(x ~ MU, ...))
   Z  = as.numeric(statistic(WT, type="standardized"))
-  r  = abs(Z)/sqrt(n)
+  Y  = as.numeric(statistic(WT))
+  r  = Z/sqrt(n)
   RR = signif(r, digits=digits)
   
 if(ci==TRUE){
@@ -74,7 +78,7 @@ if(ci==TRUE){
                     WT = suppressWarnings(wilcoxsign_test(x ~ MU, 
                          data=Input, ...))
                     Z  = as.numeric(statistic(WT, type="standardized"))
-                    r  = abs(Z)/sqrt(n)
+                    r  = Z/sqrt(n)
                     return(r)}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
@@ -86,7 +90,8 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="r",
+                                       main="")}
   
 }
   

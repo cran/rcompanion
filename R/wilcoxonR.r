@@ -34,7 +34,14 @@
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
 #'           
-#'           When r is close to 0 or very large,
+#'           When the data in the first group are greater than
+#'           in the second group, r is positive.
+#'           When the data in the second group are greater than
+#'           in the first group, r is negative.
+#'           Be cautious with this interpretation, as R will alphabetize
+#'           groups if \code{g} is not already a factor.
+#'           
+#'           When r is close to extremes,
 #'           or with small counts in some cells,
 #'           the confidence intervals 
 #'           determined by this
@@ -81,7 +88,7 @@ wilcoxonR = function (x, g=NULL, group="row", ci=FALSE, conf=0.95, type="perc",
        x=as.numeric(Long[,1])}
   }
 
-  g = factor(g)
+  if(is.factor(g)==F){g=factor(g)}
   x = x[as.numeric(g)<3]
   g = g[as.numeric(g)<3]
   g = droplevels(g)
@@ -89,7 +96,7 @@ wilcoxonR = function (x, g=NULL, group="row", ci=FALSE, conf=0.95, type="perc",
   WT = suppressWarnings(wilcox_test(x ~ g, ...))
   Z  = as.numeric(statistic(WT, type="standardized"))
   N  = length(g)
-  r  = abs(Z)/sqrt(N)
+  r  = Z/sqrt(N)
   RR = signif(r, digits=digits)
 
 if(ci==TRUE){
@@ -99,7 +106,7 @@ if(ci==TRUE){
                     WT = suppressWarnings(wilcox_test(x ~ g, data=Input, ...))
                     Z  = as.numeric(statistic(WT, type="standardized"))
                     N  = length(Input$g)
-                    r  = abs(Z)/sqrt(N)
+                    r  = Z/sqrt(N)
                     return(r)}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
@@ -111,7 +118,8 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="r",
+                                       main="")}
 
 }
   

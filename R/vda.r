@@ -36,6 +36,14 @@
 #'           Currently, the function makes no provisions for \code{NA}
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
+#'           
+#'           When the data in the first group are greater than
+#'           in the second group, vda is greater than 0.5.
+#'           When the data in the second group are greater than
+#'           in the first group, vda is less than 0.5.
+#'           Be cautious with this interpretation, as R will alphabetize
+#'           groups in the formula interface if the grouping variable
+#'           is not already a factor.
 #'
 #'           When VDA is close to 0 or close to 1,
 #'           or with small sample size,

@@ -54,7 +54,10 @@ A Z value is extracted from the \code{wilcoxsign_test} function in the
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
           
-          When r is close to 0 or very large,
+          When the data are greater than \code{mu}, r is positive.
+          When the data are less than \code{mu}, r is negative.
+          
+          When r is close to extremes,
           or with small counts in some cells,
           the confidence intervals 
           determined by this

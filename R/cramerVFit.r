@@ -28,7 +28,11 @@
 #'           and it will be equal to 0 when the counts are equally distributed
 #'           across categories.
 #'           This does not hold if the expected frequencies are not
-#'           equally-distributed. 
+#'           equally-distributed.
+#'           
+#'           Because V is always positive, the confidence interval will
+#'           never cross zero. The confidence interval range should not
+#'           be used for statistical inference. 
 #'           
 #'           When V is close to 0 or 1,
 #'           or with small counts, 
@@ -43,6 +47,8 @@
 #' @return A single statistic, Cramer's V.  
 #'         Or a small data frame consisting of Cramer's V,
 #'         and the lower and upper confidence limits.
+#'         In the data frame, \code{r} 
+#'         is just a duplicate of the Cramer's V value.
 #'         
 #' @examples
 #' ### Equal probabilities example
@@ -117,5 +123,5 @@ if(ci==TRUE){
   
 }
  if(ci==FALSE){names(CV)="Cramer V"; return(CV)}
- if(ci==TRUE){return(data.frame(r=CV, lower.ci=CI1, upper.ci=CI2))}  
+ if(ci==TRUE){return(data.frame(Cramer.V=CV, lower.ci=CI1, upper.ci=CI2, r=CV))}  
 }

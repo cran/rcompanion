@@ -61,6 +61,10 @@ Freeman's coefficent of differentiation (theta)
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
+          
+          Because theta is always positive, the confidence interval will
+          never cross zero. The confidence interval range should not
+          be used for statistical inference. 
 
           When theta is close to 0 or very large,
           or with small counts in some cells,

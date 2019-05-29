@@ -31,6 +31,10 @@
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
 #'           
+#'           Because epsilon-squared is always positive, the confidence interval will
+#'           never cross zero. The confidence interval range should not
+#'           be used for statistical inference. 
+#'           
 #'           When epsilon-squared is close to 0 or very large,
 #'           or with small counts in some cells,
 #'           the confidence intervals 
@@ -111,7 +115,8 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="epsilon-squared",
+                                       main="")}
   
 }
   

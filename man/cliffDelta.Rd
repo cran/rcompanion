@@ -64,8 +64,16 @@ Cliff's delta is an effect size statistic appropriate
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
+          
+          When the data in the first group are greater than
+          in the second group, Cliff's delta is positive.
+          When the data in the second group are greater than
+          in the first group, Cliff's delta is negative.
+          Be cautious with this interpretation, as R will alphabetize
+          groups in the formula interface if the grouping variable
+          is not already a factor.
 
-          When Cliff's delta is close to 0 or close to 1,
+          When Cliff's delta is close to 1 or close to -1,
           or with small sample size,
           the confidence intervals 
           determined by this

@@ -51,6 +51,16 @@
 #'           Currently, the function makes no provisions for \code{NA}
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
+#'           
+#'           When the data in the first group are greater than
+#'           in the second group, 
+#'           VDA is > 0.5, CD is positive, and r is positive.
+#'           When the data in the second group are greater than
+#'           in the first group, 
+#'           VDA is < 0.5, CD is negative, and r is negative.
+#'           Be cautious with this interpretation, as R will alphabetize
+#'           groups in the formula interface if the grouping variable
+#'           is not already a factor.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_08.html}
@@ -123,7 +133,7 @@ multiVDA = function(formula=NULL, data=NULL,
      VDA.m = max(c(VDA, 1-VDA))
      CD.m = abs(CD)
      
-     W[k,1] = paste0(Namea, " - ", Nameb, " = 0")
+     W[k,1] = paste0(Namea, " - ", Nameb)
      
      W[k,2:7] = c(VDA, CD, R, VDA.m, CD.m, R.m)
      

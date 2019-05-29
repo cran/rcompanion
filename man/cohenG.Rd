@@ -41,11 +41,30 @@ Calculates Cohen's g and odds ratio
 \details{
 For a 2 x 2 table, where a and d are the concordant cells
          and b and c are discordant cells:
-         Odds ratio is the greater of b/c or c/b;
-         P is the greater of b/(b+c) or c/(b+c);
+         Odds ratio is b/c;
+         P is b/(b+c);
          and Cohen's g is P - 0.5.
-         These statistics are extended to tables larger
-         than 2 x 2.
+         
+         In the 2 x 2 case, the statistics are directional.
+         That is, when cell [1, 2] in the table is greater than
+         cell [2, 1], OR is greater than 1, P is greater than 0.5,
+         and g is positive.  
+         
+         In the opposite case, OR is less than 1,
+         P is less than 0.5, and g is negative.
+         
+         In the 2 x 2 case, when the effect is small, the
+         confidence interval for OR can pass through 1,
+         for g can pass through 0, and for P can pass through 0.5.
+         
+         For tables larger than 2 x 2, the statistics are not directional.
+         That is, OR is always >= 1, P is always >= 0.5, and
+         g is always positive.  
+         Because of this, the confidence interval will
+         never cross the values for no effect 
+         (OR = 1, P = 0.5, or g = 0).
+         Because of this, the confidence interval range should not
+         be used for statistical inference for tables larger than 2 x 2. 
          
           When the reported statistics are close to their extremes,
           or with small counts, 

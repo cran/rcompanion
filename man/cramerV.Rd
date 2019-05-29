@@ -40,6 +40,8 @@ Passed to \code{boot.ci}.}
 A single statistic, Cramer's V.  
         Or a small data frame consisting of Cramer's V,
         and the lower and upper confidence limits.
+        In the data frame, \code{r} 
+        is just a duplicate of the Cramer's V value.
 }
 \description{
 Calculates Cramer's V for a table of nominal variables;
@@ -51,6 +53,10 @@ Cramer's V is used as a measure of association
           for a chi-square test of association.  For a 2 x 2 table,
           the absolute value of the phi statistic is the same as
           Cramer's V.
+          
+          Because V is always positive, the confidence interval will
+          never cross zero. The confidence interval range should not
+          be used for statistical inference. 
           
           When V is close to 0 or very large,
           or with small counts, 

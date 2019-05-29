@@ -35,6 +35,8 @@ Passed to \code{boot.ci}.}
 A single statistic, Cramer's V.  
         Or a small data frame consisting of Cramer's V,
         and the lower and upper confidence limits.
+        In the data frame, \code{r} 
+        is just a duplicate of the Cramer's V value.
 }
 \description{
 Calculates Cramer's V for a vector of counts and expected 
@@ -52,7 +54,11 @@ This modification of Cramer's V
           and it will be equal to 0 when the counts are equally distributed
           across categories.
           This does not hold if the expected frequencies are not
-          equally-distributed. 
+          equally-distributed.
+          
+          Because V is always positive, the confidence interval will
+          never cross zero. The confidence interval range should not
+          be used for statistical inference. 
           
           When V is close to 0 or 1,
           or with small counts, 
