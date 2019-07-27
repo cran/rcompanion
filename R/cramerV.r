@@ -115,13 +115,12 @@ if(ci==TRUE){
   Phi    =  Chi.sq / N
   Row      = length(unique(Input[,1]))
   C      = length(unique(Input[,2]))
-  CV     =  sqrt(Phi / min(R-1, C-1))
+  CV     =  sqrt(Phi / min(Row-1, C-1))
   
   if(bias.correct==TRUE){Phi = max(0, Phi-((Row-1)*(C-1)/(N-1)))
                         CC  = C-((C-1)^2/(N-1))
                         RR  = Row-((Row-1)^2/(N-1))
                         CV  = sqrt(Phi / min(RR-1, CC-1))}
-  
   return(CV)
   }
 
@@ -139,5 +138,5 @@ if(ci==TRUE){
 
 }
  if(ci==FALSE){names(CV)="Cramer V"; return(CV)}
- if(ci==TRUE){return(data.frame(Cramer.V=CV, lower.ci=CI1, upper.ci=CI2, r=CV))}  
+ if(ci==TRUE){return(data.frame(Cramer.V=CV, lower.ci=CI1, upper.ci=CI2))}  
 }

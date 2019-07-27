@@ -102,9 +102,9 @@ multiVDA = function(formula=NULL, data=NULL,
                  VDA               = rep(NA, N),
                  CD                = rep(NA, N),
                  r                 = rep(NA, N),
-                 VDA.m              = rep(NA, N),
-                 CD.m               = rep(NA, N),
-                 r.m                = rep(NA, N),
+                 VDA.m             = rep(NA, N),
+                 CD.m              = rep(NA, N),
+                 r.m               = rep(NA, N),
                  stringsAsFactors=FALSE)
   
   k=0
@@ -122,8 +122,8 @@ multiVDA = function(formula=NULL, data=NULL,
    
      a = Dataz$x[Dataz$g2==levels(g)[i]]
      b = Dataz$x[Dataz$g2==levels(g)[j]]
-     m = length(a)
-     n = length(b)
+     m = as.numeric(length(a))
+     n = as.numeric(length(b))
      WT = suppressWarnings(wilcox.test(a, b), ...)$statistic
      VDA = signif(WT/(m*n), digits=digits)
 

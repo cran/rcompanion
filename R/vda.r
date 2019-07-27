@@ -93,8 +93,8 @@ vda =
    g = c(rep("A", length(A)), rep("B", length(B)))
   }
    
-  n1  = length(A)
-  n2  = length(B)
+  n1  = as.numeric(length(A))
+  n2  = as.numeric(length(B))
   U   = suppressWarnings(wilcox.test(x=A, y=B, ...))$statistic
   VDA = signif(U / (n1 * n2), digits=digits)
   
