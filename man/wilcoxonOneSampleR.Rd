@@ -4,13 +4,22 @@
 \alias{wilcoxonOneSampleR}
 \title{r effect size for Wilcoxon one-sample signed-rank test}
 \usage{
-wilcoxonOneSampleR(x, mu = NULL, ci = FALSE, conf = 0.95,
-  type = "perc", R = 1000, histogram = FALSE, digits = 3, ...)
+wilcoxonOneSampleR(x, mu = NULL, coin = FALSE, ci = FALSE,
+  conf = 0.95, type = "perc", R = 1000, histogram = FALSE,
+  digits = 3, ...)
 }
 \arguments{
-\item{x}{A vector of observations of an ordinal variable.}
+\item{x}{A vector of observations.}
 
 \item{mu}{The value to compare \code{x} to, as in \code{wilcox.test}}
+
+\item{coin}{If \code{FALSE}, the default, the Z value
+is extracted from a function similar to the
+\code{wilcox.test} function in the stats package.
+If \code{TRUE}, the Z value
+is extracted from the \code{wilcox_test} function in the
+coin package.  This method may be much slower, especially
+if a confidence interval is produced.}
 
 \item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
 May be slow.}
@@ -41,8 +50,7 @@ Calculates r effect size
              confidence intervals by bootstrap.
 }
 \details{
-A Z value is extracted from the \code{wilcoxsign_test} function in the
-          coin package.  r  is calculated as Z divided by 
+r  is calculated as Z divided by 
           square root of the number of observations.
           
           The calculated statistic is equivalent to the statistic returned

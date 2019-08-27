@@ -58,9 +58,12 @@ See the \code{KendallW} function in the \code{DescTools} package
           determined by this
           method may not be reliable, or the procedure may fail.
           
-          Because W is always positive, the confidence interval will
-          never cross zero. The confidence interval range should not
-          be used for statistical inference. 
+          Because W is always positive, if \code{type="perc"},
+          the confidence interval will
+          never cross zero, and should not
+          be used for statistical inference.
+          However, if \code{type="norm"}, the confidence interval
+          may cross zero. 
           
           When producing confidence intervals by bootstrap, 
           this function treats each rater or block as an observation.

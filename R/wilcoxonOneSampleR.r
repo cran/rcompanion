@@ -4,8 +4,15 @@
 #'              for a Wilcoxon one-sample signed-rank test; 
 #'              confidence intervals by bootstrap.
 #' 
-#' @param x A vector of observations of an ordinal variable.
+#' @param x A vector of observations.
 #' @param mu The value to compare \code{x} to, as in \code{wilcox.test}
+#' @param coin If \code{FALSE}, the default, the Z value
+#'                is extracted from a function similar to the
+#'                \code{wilcox.test} function in the stats package.
+#'                If \code{TRUE}, the Z value
+#'                is extracted from the \code{wilcox_test} function in the
+#'                coin package.  This method may be much slower, especially
+#'                if a confidence interval is produced. 
 #' @param ci If \code{TRUE}, returns confidence intervals by bootstrap.
 #'           May be slow.
 #' @param conf The level for the confidence interval.
@@ -19,8 +26,7 @@
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments passed to the \code{wilcoxsign_test} function.             
 #' 
-#' @details  A Z value is extracted from the \code{wilcoxsign_test} function in the
-#'           coin package.  r  is calculated as Z divided by 
+#' @details  r  is calculated as Z divided by 
 #'           square root of the number of observations.
 #'           
 #'           The calculated statistic is equivalent to the statistic returned
@@ -59,14 +65,19 @@
 #' 
 #' @export
  
-wilcoxonOneSampleR = function (x, mu=NULL, ci=FALSE, conf=0.95, type="perc",
-                      R=1000, histogram=FALSE, digits=3, ... ){
+wilcoxonOneSampleR = function(x, mu=NULL, coin=FALSE,
+                              ci=FALSE, conf=0.95, type="perc",
+                              R=1000, histogram=FALSE, digits=3, ... ){
 
   n  = length(x)
   MU = rep(mu, n)
-  WT = suppressWarnings(wilcoxsign_test(x ~ MU, ...))
-  Z  = as.numeric(statistic(WT, type="standardized"))
-  Y  = as.numeric(statistic(WT))
+   if(coin){
+       WT = suppressWarnings(wilcoxsign_test(x ~ MU, ...))
+       Z  = as.numeric(statistic(WT, type="standardized"))
+   }
+   if(coin==FALSE){
+       Z = wilcoxonZ(x=x, mu=mu)
+   }
   r  = Z/sqrt(n)
   RR = signif(r, digits=digits)
   
@@ -75,9 +86,14 @@ if(ci==TRUE){
   Function = function(input, index){
                     Input = input[index,]
                     n  = length(Input$x)
-                    WT = suppressWarnings(wilcoxsign_test(x ~ MU, 
-                         data=Input, ...))
-                    Z  = as.numeric(statistic(WT, type="standardized"))
+                    if(coin){
+                       WT = suppressWarnings(wilcoxsign_test(x ~ MU, 
+                            data=Input, ...))
+                       Z  = as.numeric(statistic(WT, type="standardized"))
+                    }
+                    if(coin==FALSE){
+                       Z = wilcoxonZ(x=Input$x, mu=mu)
+                    }
                     r  = Z/sqrt(n)
                     return(r)}
   Boot = boot(Data, Function, R=R)
@@ -85,18 +101,16 @@ if(ci==TRUE){
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
   if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
   if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
-  if(type=="bca") {CI1=BCI$bca[4];      CI2=BCI$bca[5];}  
+  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5];}  
   
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="r",
-                                       main="")}
-  
+  if(histogram==TRUE){hist(Boot$t[,1], col="darkgray", xlab="r", main="")}
 }
-  
 if(ci==FALSE){names(RR)="r"; return(RR)}
-if(ci==TRUE){return(data.frame(r=RR, lower.ci=CI1, upper.ci=CI2))}  
-  
-}  
-
+if(ci==TRUE){DF=data.frame(r=RR, lower.ci=CI1, upper.ci=CI2)
+             rownames(DF) = 1:nrow(DF)
+             return(DF)
+             }
+}

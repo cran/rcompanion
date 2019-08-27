@@ -30,10 +30,14 @@
 #'           This does not hold if the expected frequencies are not
 #'           equally-distributed.
 #'           
-#'           Because V is always positive, the confidence interval will
-#'           never cross zero. The confidence interval range should not
+#'           Because V is always positive,
+#'           if \code{type="perc"},
+#'           the confidence interval will
+#'           never cross zero, and should not
 #'           be used for statistical inference. 
-#'           
+#'           However, if \code{type="norm"}, the confidence interval
+#'           may cross zero.
+#'                      
 #'           When V is close to 0 or 1,
 #'           or with small counts, 
 #'           the confidence intervals 

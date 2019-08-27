@@ -5,7 +5,7 @@
 \title{Cohen's g and odds ratio for paired contingency tables}
 \usage{
 cohenG(x, ci = FALSE, conf = 0.95, type = "perc", R = 1000,
-  histogram = FALSE, digits = 3)
+  histogram = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{x}{A two-way contingency table. It must be square. 
@@ -27,6 +27,8 @@ Passed to \code{boot.ci}.}
 \item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
 
 \item{digits}{The number of significant digits in the output.}
+
+\item{...}{Additional arguments (ignored).}
 }
 \value{
 A list containing: a data frame of results of the global statistics;
@@ -60,11 +62,14 @@ For a 2 x 2 table, where a and d are the concordant cells
          For tables larger than 2 x 2, the statistics are not directional.
          That is, OR is always >= 1, P is always >= 0.5, and
          g is always positive.  
-         Because of this, the confidence interval will
+         Because of this, if \code{type="perc"}, the confidence interval will
          never cross the values for no effect 
          (OR = 1, P = 0.5, or g = 0).
-         Because of this, the confidence interval range should not
-         be used for statistical inference for tables larger than 2 x 2. 
+         Because of this, the confidence interval range
+         in this case should not
+         be used for statistical inference.
+         However, if \code{type="norm"}, the confidence interval
+         may cross the values for no effect.
          
           When the reported statistics are close to their extremes,
           or with small counts, 

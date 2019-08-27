@@ -93,20 +93,22 @@ cldList = function(formula       = NULL,
     p.value     = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
     comparison  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
     }
-Comparison = p.value <= threshold
+Comparison = (as.numeric(p.value) <= threshold)
 
 if (sum(Comparison) == 0){stop("No significant differences.", call.=FALSE)}
 
-if(remove.space == TRUE) {comparison = gsub(" ", "", comparison)}
-if(remove.equal == TRUE) {comparison = gsub("=", "", comparison)}
-if(remove.zero  == TRUE) {comparison = gsub("0", "", comparison)}
-if(swap.colon   == TRUE) {comparison = gsub(":", "-", comparison)}
+if(remove.space == TRUE) {comparison = gsub(" ",  "",  comparison)}
+if(remove.equal == TRUE) {comparison = gsub("=",  "",  comparison)}
+if(remove.zero  == TRUE) {comparison = gsub("0",  "",  comparison)}
+if(swap.colon   == TRUE) {comparison = gsub(":",  "-", comparison)}
 if(swap.vs      == TRUE) {comparison = gsub("vs", "-", comparison)}
 
 names(Comparison) = comparison
 
 if(print.comp == TRUE) 
-  {Y = data.frame(Comparisons = names(Comparison))
+  {Y = data.frame(Comparisons = names(Comparison), 
+                  p.value = p.value, Value=Comparison,
+                  Threshold=threshold)
    cat("\n", "\n")
    print(Y)
    cat("\n", "\n")}

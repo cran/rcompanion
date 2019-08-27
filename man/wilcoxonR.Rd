@@ -4,12 +4,13 @@
 \alias{wilcoxonR}
 \title{r effect size for Wilcoxon two-sample rank-sum test}
 \usage{
-wilcoxonR(x, g = NULL, group = "row", ci = FALSE, conf = 0.95,
-  type = "perc", R = 1000, histogram = FALSE, digits = 3, ...)
+wilcoxonR(x, g = NULL, group = "row", coin = FALSE, ci = FALSE,
+  conf = 0.95, type = "perc", R = 1000, histogram = FALSE,
+  digits = 3, ...)
 }
 \arguments{
 \item{x}{Either a two-way table or a two-way matrix.
-Can also be a vector of observations of an ordinal variable.}
+Can also be a vector of observations.}
 
 \item{g}{If \code{x} is a vector, \code{g} is the vector of observations for
 the grouping, nominal variable.
@@ -18,6 +19,14 @@ Only the first two levels of the nominal variable are used.}
 \item{group}{If \code{x} is a table or matrix, \code{group} indicates whether
 the \code{"row"} or the \code{"column"} variable is
 the nominal, grouping variable.}
+
+\item{coin}{If \code{FALSE}, the default, the Z value
+is extracted from a function similar to the
+\code{wilcox.test} function in the stats package.
+If \code{TRUE}, the Z value
+is extracted from the \code{wilcox_test} function in the
+coin package.  This method may be much slower, especially
+if a confidence interval is produced.}
 
 \item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
 May be slow.}
@@ -50,8 +59,7 @@ Calculates r effect size
              by bootstrap.
 }
 \details{
-A Z value is extracted from the \code{wilcox_test} function in the
-          coin package.  r  is calculated as Z divided by 
+r  is calculated as Z divided by 
           square root of the total observations.
  
           Currently, the function makes no provisions for \code{NA}

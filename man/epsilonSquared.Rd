@@ -55,9 +55,12 @@ Epsilon-squared is used as a measure of association
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
           
-          Because epsilon-squared is always positive, the confidence interval will
-          never cross zero. The confidence interval range should not
-          be used for statistical inference. 
+          Because epsilon-squared is always positive, 
+          if \code{type="perc"}, the confidence interval will
+          never cross zero, and should not
+          be used for statistical inference.
+          However, if \code{type="norm"}, the confidence interval
+          may cross zero. 
           
           When epsilon-squared is close to 0 or very large,
           or with small counts in some cells,

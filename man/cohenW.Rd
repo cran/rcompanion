@@ -4,7 +4,8 @@
 \alias{cohenW}
 \title{Cohen's w (omega)}
 \usage{
-cohenW(x, y = NULL, p = NULL, digits = 4, ...)
+cohenW(x, y = NULL, p = NULL, ci = FALSE, conf = 0.95,
+  type = "perc", R = 1000, histogram = FALSE, digits = 4, ...)
 }
 \arguments{
 \item{x}{Either a two-way table or a two-way matrix.
@@ -15,8 +16,22 @@ of a two-way table.}
 the second dimension of a two-way table.}
 
 \item{p}{If \code{x} is a vector of observed counts, \code{p} can be given as
-a vector of expected probabilties,
+a vector of theoretical probabilties,
 as in a chi-square goodness of fit test.}
+
+\item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
+May be slow.}
+
+\item{conf}{The level for the confidence interval.}
+
+\item{type}{The type of confidence interval to use.
+Can be any of "\code{norm}", "\code{basic}", 
+              "\code{perc}", or "\code{bca}".
+Passed to \code{boot.ci}.}
+
+\item{R}{The number of replications to use for bootstrap.}
+
+\item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
 
 \item{digits}{The number of significant digits in the output.}
 
@@ -35,7 +50,22 @@ Cohen's w is used as a measure of association
           the absolute value of the phi statistic is the same as
           Cohen's w.  
           The value of Cohen's w is not bound by 1 on the upper end.
-          Here, the value is always positive.
+
+          Cohen's w is "naturally nondirectional". That is,
+          the value will always be zero or positive.
+          Because of this, if \code{type="perc"},
+          the confidence interval will
+          never cross zero. In this case, 
+          the confidence interval range should not
+          be used for statistical inference.
+          However, if \code{type="norm"}, the confidence interval
+          may cross zero.  
+          
+          When w is close to 0 or very large,
+          or with small counts, 
+          the confidence intervals 
+          determined by this
+          method may not be reliable, or the procedure may fail.
 }
 \examples{
 ### Example with table

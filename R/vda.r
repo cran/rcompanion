@@ -81,7 +81,7 @@ vda =
 
   if(!is.null(formula)){
     x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
-    g  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
+    g  = factor(eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1]))))
     A  = x[g==levels(g)[1]]
     B  = x[g==levels(g)[2]]
   }
@@ -90,7 +90,7 @@ vda =
    A = x
    B = y
    x = c(A, B)
-   g = c(rep("A", length(A)), rep("B", length(B)))
+   g = factor(c(rep("A", length(A)), rep("B", length(B))))
   }
    
   n1  = as.numeric(length(A))
@@ -103,12 +103,14 @@ vda =
   Data = data.frame(x,g)
   Function = function(input, index){
                     Input = input[index,]
+            if(length(levels(droplevels(Input$g)))<2){return(NA)}        
+            if(length(levels(droplevels(Input$g)))>1){
                     U = suppressWarnings(wilcox.test(x ~ g, 
                                          data=Input, ...))$statistic
                     n1  = length(Input$x[Input$g==levels(Input$g)[1]])
                     n2  = length(Input$x[Input$g==levels(Input$g)[2]])
                     p   = U / (n1 * n2)
-                    return(p)}
+                    return(p)}}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}

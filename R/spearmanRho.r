@@ -33,7 +33,7 @@
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
 #'
-#'           When the returned statistic is close to 0 or close to 1,
+#'           When the returned statistic is close to -1 or close to 1,
 #'           or with small sample size,
 #'           the confidence intervals 
 #'           determined by this

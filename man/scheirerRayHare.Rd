@@ -43,6 +43,8 @@ The Scheirer Ray Hare test is a nonparametric test used for a
          It is sometimes recommended that the design should be balanced,
          and that there should be at least five observations for each
          cell in the interaction.
+         One might consider using aligned ranks trnasformation anova
+         instead of the Scheirer Ray Hare test.
          
          The input should include either \code{formula} and \code{data};
          or \code{y}, \code{x1}, and \code{x2}.

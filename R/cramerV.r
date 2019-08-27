@@ -27,9 +27,13 @@
 #'           the absolute value of the phi statistic is the same as
 #'           Cramer's V.
 #'           
-#'           Because V is always positive, the confidence interval will
-#'           never cross zero. The confidence interval range should not
-#'           be used for statistical inference. 
+#'           Because V is always positive, if \code{type="perc"},
+#'           the confidence interval will
+#'           never cross zero. In this case, 
+#'           the confidence interval range should not
+#'           be used for statistical inference.
+#'           However, if \code{type="norm"}, the confidence interval
+#'           may cross zero.  
 #'           
 #'           When V is close to 0 or very large,
 #'           or with small counts, 
@@ -44,8 +48,6 @@
 #' @return A single statistic, Cramer's V.  
 #'         Or a small data frame consisting of Cramer's V,
 #'         and the lower and upper confidence limits.
-#'         In the data frame, \code{r} 
-#'         is just a duplicate of the Cramer's V value.
 #'         
 #' @examples
 #' ### Example with table

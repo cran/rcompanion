@@ -7,13 +7,20 @@
 #'              by bootstrap.
 #' 
 #' @param x Either a two-way table or a two-way matrix.
-#'          Can also be a vector of observations of an ordinal variable.
+#'          Can also be a vector of observations.
 #' @param g If \code{x} is a vector, \code{g} is the vector of observations for
 #'          the grouping, nominal variable.
 #'          Only the first two levels of the nominal variable are used.
 #' @param group If \code{x} is a table or matrix, \code{group} indicates whether
 #'              the \code{"row"} or the \code{"column"} variable is
 #'              the nominal, grouping variable.
+#' @param coin If \code{FALSE}, the default, the Z value
+#'                is extracted from a function similar to the
+#'                \code{wilcox.test} function in the stats package.
+#'                If \code{TRUE}, the Z value
+#'                is extracted from the \code{wilcox_test} function in the
+#'                coin package.  This method may be much slower, especially
+#'                if a confidence interval is produced.
 #' @param ci If \code{TRUE}, returns confidence intervals by bootstrap.
 #'           May be slow.
 #' @param conf The level for the confidence interval.
@@ -26,8 +33,7 @@
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments passed to the \code{wilcox_test} function.             
 #' 
-#' @details  A Z value is extracted from the \code{wilcox_test} function in the
-#'           coin package.  r  is calculated as Z divided by 
+#' @details  r  is calculated as Z divided by 
 #'           square root of the total observations.
 #'  
 #'           Currently, the function makes no provisions for \code{NA}
@@ -71,7 +77,8 @@
 #' 
 #' @export
  
-wilcoxonR = function (x, g=NULL, group="row", ci=FALSE, conf=0.95, type="perc",
+wilcoxonR = function (x, g=NULL, group="row", coin=FALSE, 
+                      ci=FALSE, conf=0.95, type="perc",
                       R=1000, histogram=FALSE, digits=3, ... ){
   
   if(is.matrix(x)){x=as.table(x)}
@@ -93,8 +100,13 @@ wilcoxonR = function (x, g=NULL, group="row", ci=FALSE, conf=0.95, type="perc",
   g = g[as.numeric(g)<3]
   g = droplevels(g)
   
-  WT = suppressWarnings(wilcox_test(x ~ g, ...))
-  Z  = as.numeric(statistic(WT, type="standardized"))
+  if(coin){
+    WT = suppressWarnings(wilcox_test(x ~ g, ...))
+    Z  = as.numeric(statistic(WT, type="standardized"))
+  }
+  if(coin==FALSE){
+     Z = wilcoxonZ(x = x[as.numeric(g)==1], y = x[as.numeric(g)==2])
+  }
   N  = length(g)
   r  = Z/sqrt(N)
   RR = signif(r, digits=digits)
@@ -103,11 +115,19 @@ if(ci==TRUE){
   Data = data.frame(x,g)
   Function = function(input, index){
                     Input = input[index,]
+            if(length(levels(droplevels(Input$g)))<2){return(NA)}        
+            if(length(levels(droplevels(Input$g)))>1){
+            if(coin){
                     WT = suppressWarnings(wilcox_test(x ~ g, data=Input, ...))
                     Z  = as.numeric(statistic(WT, type="standardized"))
+                    }
+             if(coin==FALSE){
+                    Z = wilcoxonZ(x = Input$x[as.numeric(Input$g)==1], 
+                                  y = Input$x[as.numeric(Input$g)==2])
+                    }
                     N  = length(Input$g)
                     r  = Z/sqrt(N)
-                    return(r)}
+                    return(r)}}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
@@ -124,8 +144,10 @@ if(ci==TRUE){
 }
   
 if(ci==FALSE){names(RR)="r"; return(RR)}
-if(ci==TRUE){return(data.frame(r=RR, lower.ci=CI1, upper.ci=CI2))}  
-  
-}  
+if(ci==TRUE){DF=data.frame(r=RR, lower.ci=CI1, upper.ci=CI2)
+             rownames(DF) = 1:nrow(DF)
+             return(DF)
+             }  
+}
   
   
