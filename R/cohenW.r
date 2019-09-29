@@ -81,7 +81,7 @@ cohenW = function(x, y=NULL, p=NULL,
                   digits=4, ...) {
   CW=NULL
   if(is.factor(x)){x=as.vector(x)}
-  if(is.factor(y)){x=as.vector(y)}
+  if(is.factor(y)){y=as.vector(y)}
   if(is.vector(x) & is.vector(y)){
   Chi.sq = suppressWarnings(chisq.test(x, y, correct=FALSE, ...))
   }

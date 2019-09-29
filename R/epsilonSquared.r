@@ -105,7 +105,7 @@ if(ci==TRUE){
   Function = function(input, index){
                       Input = input[index,]
                       n  = length(Input$g)
-                      KW = kruskal.test(Input$x, Input$g)
+                      KW = kruskal.test(Input$x, Input$g, ...)
                       e2 = KW$statistic / (n-1)
                     return(e2)}
   Boot = boot(Data, Function, R=R)

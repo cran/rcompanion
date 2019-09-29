@@ -74,7 +74,7 @@ cramerV = function(x, y=NULL,
   CV=NULL
   
   if(is.factor(x)){x=as.vector(x)}
-  if(is.factor(y)){x=as.vector(y)}
+  if(is.factor(y)){y=as.vector(y)}
   if(is.vector(x) & is.vector(y)){
   N      = length(x)
   Chi.sq = suppressWarnings(chisq.test(x, y, correct=FALSE, ...)$statistic)

@@ -21,7 +21,7 @@
 #'          It is sometimes recommended that the design should be balanced,
 #'          and that there should be at least five observations for each
 #'          cell in the interaction.
-#'          One might consider using aligned ranks trnasformation anova
+#'          One might consider using aligned ranks transformation anova
 #'          instead of the Scheirer Ray Hare test.
 #'          
 #'          The input should include either \code{formula} and \code{data};
