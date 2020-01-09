@@ -4,9 +4,20 @@
 \alias{plotNormalDensity}
 \title{Density plot with a normal curve}
 \usage{
-plotNormalDensity(x, col1 = "white", col2 = "gray", col3 = "blue",
-  border = NA, main = "", lwd = 2, length = 1000, adjust = 1,
-  bw = "nrd0", kernel = "gaussian", ...)
+plotNormalDensity(
+  x,
+  col1 = "white",
+  col2 = "gray",
+  col3 = "blue",
+  border = NA,
+  main = "",
+  lwd = 2,
+  length = 1000,
+  adjust = 1,
+  bw = "nrd0",
+  kernel = "gaussian",
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of values.}

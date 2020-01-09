@@ -4,8 +4,14 @@
 \alias{pairwiseOrdinalIndependence}
 \title{Pairwise tests of independence for tables with one ordered nominal variable}
 \usage{
-pairwiseOrdinalIndependence(x, compare = "row", scores = NULL,
-  method = "fdr", digits = 3, ...)
+pairwiseOrdinalIndependence(
+  x,
+  compare = "row",
+  scores = NULL,
+  method = "fdr",
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A two-way contingency table. One dimension is ordered and one

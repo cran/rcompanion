@@ -1,11 +1,12 @@
 #' @title Normal scores transformation
 #'
 #' @description Normal scores transformation
-#'              (Inverse normal transformations)
+#'              (Inverse normal transformation)
 #'              by Elfving, Blom, van der Waerden, Tukey, 
 #'              and rankit methods,
 #'              as well as z score transformation
-#'              and scaling to a range.
+#'              (standardization)
+#'              and scaling to a range (normalization).
 #' 
 #' @param x A vector of numeric values.
 #' @param method Any one \code{"general"} (the default), 
@@ -25,19 +26,20 @@
 #'          If alpha=0, the \code{"general"} method reduces to the 
 #'          \code{"vdw"} method.
 #' @param complete  If \code{TRUE}, \code{NA} values are removed
-#'                  before transformation.
+#'                  before transformation. The default is \code{FALSE}.
 #' @param na.last Passed to \code{rank} in the normal scores methods. 
 #'                See the documentation for the
 #'                \code{rank} function.
+#'                The default is \code{"keep"}.
 #' @param na.rm  Used in the \code{"zscore"} and \code{"scale"} methods.
 #'               Passed to \code{mean}, \code{min}, and \code{max}
 #'               functions in those methods.
-#' @param adjustN  If \code{TRUE}, the default, for the normal scores methods, 
-#'                 uses only non-\code{NA} values to determine the sample size,
+#'               The default is \code{TRUE}.
+#' @param adjustN  If \code{TRUE}, the default, the normal scores methods 
+#'                 use only non-\code{NA} values to determine the sample size,
 #'                 \code{N}.  This seems to work well under default conditions
 #'                 where \code{NA} values are retained, even if there are
 #'                 a high percentage of \code{NA} values.
-#'             transformed values.
 #' @param min  For the \code{"scale"} method, the minimum value of the
 #'             transformed values.
 #' @param max  For the \code{"scale"} method, the maximum value of the
@@ -49,6 +51,8 @@
 #'          This behavior can be changed with the \code{na.rm} argument
 #'          for \code{"zscore"} and \code{"scale"} methods, or
 #'          with \code{na.last} for the normal scores methods.
+#'          Or \code{NA} values can be removed from the input with
+#'          \code{complete=TRUE}.
 #'          
 #'          For normal scores methods, if there are \code{NA} values
 #'          or tied values,
@@ -65,12 +69,17 @@
 #'          
 #'          The \code{"scale"} method coverts values to the range specified
 #'          in \code{max} and \code{min} without transforming the distribution
-#'          of values.
+#'          of values. By default, the \code{"scale"} method converts values
+#'          to a 1 to 10 range.
+#'          Using the \code{"scale"} method with
+#'          \code{min = 0} and \code{max = 1} is
+#'          sometimes called "normalization".
 #'          
 #'          The \code{"zscore"} method converts values by the usual method
 #'          for z scores: \code{(x - mean(x)) / sd(x)}. The transformed
 #'          values with have a mean of 0 and a standard deviation of
 #'          1 but won't be coerced into a normal distribution.
+#'          Sometimes this method is called "standardization".
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 

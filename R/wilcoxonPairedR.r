@@ -39,6 +39,11 @@
 #'           square root of the number of observations in one group. This 
 #'           results in a statistic that ranges from -1 to 1.
 #'           This range doesn't hold if \code{cases=FALSE}.
+#'           
+#'           This statistic reports a smaller effect size than does
+#'           the matched-pairs rank biserial correlation coefficient 
+#'           (\code{wilcoxonPairedRC}), and won't reach a value
+#'           of -1 or 1 unless there are ties in paired differences.
 #'
 #'           Currently, the function makes no provisions for \code{NA}
 #'           values in the data.  It is recommended that \code{NA}s be removed
@@ -59,6 +64,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_06.html}
+#' @seealso \code{\link{wilcoxonPairedRC}}
 #' @concept effect size ordinal nominal
 #' @return A single statistic, r.
 #'         Or a small data frame consisting of r,
@@ -82,8 +88,8 @@ wilcoxonPairedR = function (x, g=NULL, coin=FALSE,
                             digits=3, ... ){
 
   if(is.factor(g)==F){g=factor(g)}
-  x = x[as.numeric(g)<3]
-  g = g[as.numeric(g)<3]
+  x = x[(as.numeric(g))<3]
+  g = g[(as.numeric(g))<3]
   g = droplevels(g)
   
   if(coin){

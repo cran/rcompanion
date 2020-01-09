@@ -4,8 +4,15 @@
 \alias{groupwiseHuber}
 \title{Groupwise Huber M-estimators and confidence intervals}
 \usage{
-groupwiseHuber(formula = NULL, data = NULL, var = NULL,
-  group = NULL, conf.level = 0.95, ci.type = "wald", ...)
+groupwiseHuber(
+  formula = NULL,
+  data = NULL,
+  var = NULL,
+  group = NULL,
+  conf.level = 0.95,
+  ci.type = "wald",
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

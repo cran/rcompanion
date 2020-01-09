@@ -37,6 +37,9 @@ Produces a table of fit statistics for multiple lm models:
           have the same data, without transformations, use the same 
           dependent variable, and be fit with the same method.
           They do not need to be nested.
+          
+          The function will fail if a model formula is
+          longer than 500 characters.
 }
 \examples{
 ### Compare among polynomial models

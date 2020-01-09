@@ -1,7 +1,8 @@
 #' @title Pairwise Vargha and Delaney's A and Cliff's delta
 #'
 #' @description Calculates Vargha and Delaney's A (VDA),
-#'              Cliff's delta (CD), and r
+#'              Cliff's delta (CD), 
+#'              and the Glass rank biserial coefficient, rg,
 #'              for several groups in a pairwise manner.
 #' 
 #' @param formula A formula indicating the response variable and
@@ -9,7 +10,7 @@
 #' @param data   The data frame to use. 
 #' @param x If no formula is given, the response variable.
 #' @param g If no formula is given, the grouping variable.
-#' @param statistic One of \code{"VDA"}, \code{"CD"}, or \code{"r"}.
+#' @param statistic One of \code{"VDA"}, \code{"CD"}, or \code{"rg"}.
 #'                  This determines which statistic will be
 #'                  evaluated to determine the comparison with the
 #'                  most divergent groups.
@@ -25,25 +26,29 @@
 #'          and 1 indicating that the first group dominates the second.
 #'          CD ranges from -1 to 1, with 0 indicating stochastic equality,
 #'          and 1 indicating that the first group dominates the second.
-#'          r ranges from approximately, -0.86 to 0.86, 
+#'          rg ranges from -1 to 1, 
 #'          depending on sample size,
 #'          with 0 indicating no effect,
 #'          and a positive result indicating
 #'          that values in the first group are greater than in the second.
 #'          
+#'           Be cautious with this interpretation, as R will alphabetize
+#'           groups in the formula interface if the grouping variable
+#'           is not already a factor.
+#'                    
 #'          In the function output,
 #'          \code{VDA.m} is the greater of VDA or 1-VDA.
 #'          \code{CD.m} is the absolute value of CD.
-#'          \code{r.m} is the absolute value of r.
+#'          \code{rg.m} is the absolute value of rg.
 #'          
 #'          The function calculates VDA and Cliff's delta from the "W" 
 #'          U statistic from the
 #'          \code{wilcox.test} function.
 #'          Specifically, \code{VDA = U/(n1*n2); CD = (VDA-0.5)*2}.
-#'          For r, the Z value is extracted 
-#'          from the \code{wilcox_test} function in the
-#'           coin package.  r  is calculated as Z divided by 
-#'           square root of the total observations.
+#'          
+#'          rg  is calculated as 2 times the difference of mean of ranks
+#'           for each group divided by the total sample size.
+#'           It appears that rg is equivalent to Cliff's delta.
 #'            
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{var}, and \code{group}.
@@ -51,20 +56,10 @@
 #'           Currently, the function makes no provisions for \code{NA}
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
-#'           
-#'           When the data in the first group are greater than
-#'           in the second group, 
-#'           VDA is > 0.5, CD is positive, and r is positive.
-#'           When the data in the second group are greater than
-#'           in the first group, 
-#'           VDA is < 0.5, CD is negative, and r is negative.
-#'           Be cautious with this interpretation, as R will alphabetize
-#'           groups in the formula interface if the grouping variable
-#'           is not already a factor.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_08.html}
-#' @seealso \code{\link{cliffDelta}}, \code{\link{cliffDelta}}
+#' @seealso \code{\link{vda}}, \code{\link{cliffDelta}}
 #' @concept effect size
 #' @return A list containing a data frame of pairwise statistics,
 #'         and the comparison with the most extreme value
@@ -101,10 +96,10 @@ multiVDA = function(formula=NULL, data=NULL,
   W = data.frame(Comparison        = rep("A", N),
                  VDA               = rep(NA, N),
                  CD                = rep(NA, N),
-                 r                 = rep(NA, N),
+                 rg                = rep(NA, N),
                  VDA.m             = rep(NA, N),
                  CD.m              = rep(NA, N),
-                 r.m               = rep(NA, N),
+                 rg.m              = rep(NA, N),
                  stringsAsFactors=FALSE)
   
   k=0
@@ -116,9 +111,7 @@ multiVDA = function(formula=NULL, data=NULL,
      Dataz = rbind(subset(d, g==levels(g)[i]), subset(d, g==levels(g)[j]))
      Dataz$g2 = factor(Dataz$g)
      
-     Test = suppressWarnings(wilcox_test(x ~ g2, data=Dataz))
-     Z = as.numeric(statistic(Test, type="standardized"))
-     R = signif(Z/sqrt(length(Dataz$g2)), digits=digits)
+     RG = wilcoxonRG(x=Dataz$x, g=Dataz$g2)
    
      a = Dataz$x[Dataz$g2==levels(g)[i]]
      b = Dataz$x[Dataz$g2==levels(g)[j]]
@@ -129,13 +122,13 @@ multiVDA = function(formula=NULL, data=NULL,
 
      CD = signif((VDA * 2) - 1, digits=digits)
                    
-     R.m = abs(R)
+     RG.m = abs(RG)
      VDA.m = max(c(VDA, 1-VDA))
      CD.m = abs(CD)
      
      W[k,1] = paste0(Namea, " - ", Nameb)
      
-     W[k,2:7] = c(VDA, CD, R, VDA.m, CD.m, R.m)
+     W[k,2:7] = c(VDA, CD, RG, VDA.m, CD.m, RG.m)
      
      }
   }
@@ -158,12 +151,12 @@ multiVDA = function(formula=NULL, data=NULL,
     names(COMP)   = "Comparison"
   }
   
-  if(statistic == "r"){
-    STAT   = W$r[which(W$r.m==max(W$r.m))]
-    STAT.m = max(W$r.m)
-    COMP   = W$Comparison[which(W$r.m==max(W$r.m))]
-    names(STAT)   = "r"
-    names(STAT.m) = "r.m"
+  if(statistic == "rg"){
+    STAT   = W$rg[which(W$rg.m==max(W$rg.m))]
+    STAT.m = max(W$rg.m)
+    COMP   = W$Comparison[which(W$rg.m==max(W$rg.m))]
+    names(STAT)   = "rg"
+    names(STAT.m) = "rg.m"
     names(COMP)   = "Comparison"
   }
   

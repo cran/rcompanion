@@ -4,8 +4,19 @@
 \alias{phi}
 \title{phi}
 \usage{
-phi(x, y = NULL, ci = FALSE, conf = 0.95, type = "perc",
-  R = 1000, histogram = FALSE, verbose = FALSE, digits = 3, ...)
+phi(
+  x,
+  y = NULL,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  verbose = FALSE,
+  digits = 3,
+  reportIncomplete = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{Either a 2 x 2 table or a 2 x 2 matrix.
@@ -32,6 +43,11 @@ Passed to \code{boot.ci}.}
 \item{verbose}{If \code{TRUE}, prints the table of counts.}
 
 \item{digits}{The number of significant digits in the output.}
+
+\item{reportIncomplete}{If \code{FALSE} (the default),
+\code{NA} will be reported in cases where there
+are instances of the calculation of the statistic
+failing during the bootstrap procedure.}
 
 \item{...}{Additional arguments. (Ignored.)}
 }

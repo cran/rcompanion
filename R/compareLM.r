@@ -24,6 +24,9 @@
 #'           dependent variable, and be fit with the same method.
 #'           They do not need to be nested.
 #'           
+#'           The function will fail if a model formula is
+#'           longer than 500 characters.
+#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/I_10.html}
 #'             \url{http://rcompanion.org/rcompanion/e_05.html}
@@ -65,7 +68,7 @@ function (fits, ...)
 
   for(i in 1:n)
     {
-     Y[i,]= deparse(formula(fits[[i]]))
+     Y[i,]= deparse(formula(fits[[i]]), width.cutoff = 500L)
      }
    
  Z = data.frame(Rank=rep(NA,n),

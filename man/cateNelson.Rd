@@ -4,10 +4,22 @@
 \alias{cateNelson}
 \title{Cate-Nelson models for bivariate data}
 \usage{
-cateNelson(x, y, plotit = TRUE, hollow = TRUE, xlab = "X",
-  ylab = "Y", trend = "positive", clx = 1, cly = 1,
-  xthreshold = 0.1, ythreshold = 0.1, progress = TRUE,
-  verbose = TRUE, listout = FALSE)
+cateNelson(
+  x,
+  y,
+  plotit = TRUE,
+  hollow = TRUE,
+  xlab = "X",
+  ylab = "Y",
+  trend = "positive",
+  clx = 1,
+  cly = 1,
+  xthreshold = 0.1,
+  ythreshold = 0.1,
+  progress = TRUE,
+  verbose = TRUE,
+  listout = FALSE
+)
 }
 \arguments{
 \item{x}{A vector of values for the x variable.}

@@ -5,8 +5,15 @@
 \title{Pairwise two-sample permutation symmetry 
        tests with matrix output}
 \usage{
-pairwisePermutationSymmetryMatrix(formula = NULL, data = NULL,
-  x = NULL, g = NULL, b = NULL, method = "fdr", ...)
+pairwisePermutationSymmetryMatrix(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  b = NULL,
+  method = "fdr",
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

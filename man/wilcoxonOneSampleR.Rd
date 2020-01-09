@@ -4,9 +4,18 @@
 \alias{wilcoxonOneSampleR}
 \title{r effect size for Wilcoxon one-sample signed-rank test}
 \usage{
-wilcoxonOneSampleR(x, mu = NULL, coin = FALSE, ci = FALSE,
-  conf = 0.95, type = "perc", R = 1000, histogram = FALSE,
-  digits = 3, ...)
+wilcoxonOneSampleR(
+  x,
+  mu = NULL,
+  coin = FALSE,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of observations.}

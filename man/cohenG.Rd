@@ -4,8 +4,17 @@
 \alias{cohenG}
 \title{Cohen's g and odds ratio for paired contingency tables}
 \usage{
-cohenG(x, ci = FALSE, conf = 0.95, type = "perc", R = 1000,
-  histogram = FALSE, digits = 3, ...)
+cohenG(
+  x,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 3,
+  reportIncomplete = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{A two-way contingency table. It must be square. 
@@ -27,6 +36,11 @@ Passed to \code{boot.ci}.}
 \item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
 
 \item{digits}{The number of significant digits in the output.}
+
+\item{reportIncomplete}{If \code{FALSE} (the default),
+\code{NA} will be reported in cases where there
+are instances of the calculation of the statistic
+failing during the bootstrap procedure.}
 
 \item{...}{Additional arguments (ignored).}
 }

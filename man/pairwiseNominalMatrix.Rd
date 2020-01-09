@@ -4,9 +4,17 @@
 \alias{pairwiseNominalMatrix}
 \title{Pairwise tests of independence for nominal data with matrix output}
 \usage{
-pairwiseNominalMatrix(x, compare = "row", fisher = TRUE,
-  gtest = FALSE, chisq = FALSE, method = "fdr", correct = "none",
-  digits = 3, ...)
+pairwiseNominalMatrix(
+  x,
+  compare = "row",
+  fisher = TRUE,
+  gtest = FALSE,
+  chisq = FALSE,
+  method = "fdr",
+  correct = "none",
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A two-way contingency table. At least one dimension should have

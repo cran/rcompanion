@@ -4,10 +4,20 @@
 \alias{cldList}
 \title{Compact letter display for lists of comparisons}
 \usage{
-cldList(formula = NULL, data = NULL, comparison = NULL,
-  p.value = NULL, threshold = 0.05, print.comp = FALSE,
-  remove.space = TRUE, remove.equal = TRUE, remove.zero = TRUE,
-  swap.colon = TRUE, swap.vs = FALSE, ...)
+cldList(
+  formula = NULL,
+  data = NULL,
+  comparison = NULL,
+  p.value = NULL,
+  threshold = 0.05,
+  print.comp = FALSE,
+  remove.space = TRUE,
+  remove.equal = TRUE,
+  remove.zero = TRUE,
+  swap.colon = TRUE,
+  swap.vs = FALSE,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the variable holding p-values and

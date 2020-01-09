@@ -4,9 +4,19 @@
 \alias{cramerVFit}
 \title{Cramer's V for chi-square goodness-of-fit tests}
 \usage{
-cramerVFit(x, p = rep(1/length(x), length(x)), ci = FALSE,
-  conf = 0.95, type = "perc", R = 1000, histogram = FALSE,
-  digits = 4, ...)
+cramerVFit(
+  x,
+  p = rep(1/length(x), length(x)),
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 4,
+  reportIncomplete = FALSE,
+  verbose = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of observed counts.}
@@ -29,14 +39,19 @@ Passed to \code{boot.ci}.}
 
 \item{digits}{The number of significant digits in the output.}
 
+\item{reportIncomplete}{If \code{FALSE} (the default),
+\code{NA} will be reported in cases where there
+are instances of the calculation of the statistic
+failing during the bootstrap procedure.}
+
+\item{verbose}{If \code{TRUE}, prints additional statistics.}
+
 \item{...}{Additional arguments passed to \code{chisq.test}.}
 }
 \value{
 A single statistic, Cramer's V.  
         Or a small data frame consisting of Cramer's V,
         and the lower and upper confidence limits.
-        In the data frame, \code{r} 
-        is just a duplicate of the Cramer's V value.
 }
 \description{
 Calculates Cramer's V for a vector of counts and expected 
@@ -69,6 +84,9 @@ This modification of Cramer's V
           the confidence intervals 
           determined by this
           method may not be reliable, or the procedure may fail.
+          
+          In addition, the function will not return a confidence
+          interval if there are zeros in any cell.
 }
 \examples{
 ### Equal probabilities example

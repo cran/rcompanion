@@ -4,9 +4,18 @@
 \alias{blom}
 \title{Normal scores transformation}
 \usage{
-blom(x, method = "general", alpha = pi/8, complete = FALSE,
-  na.last = "keep", na.rm = TRUE, adjustN = TRUE, min = 1,
-  max = 10, ...)
+blom(
+  x,
+  method = "general",
+  alpha = pi/8,
+  complete = FALSE,
+  na.last = "keep",
+  na.rm = TRUE,
+  adjustN = TRUE,
+  min = 1,
+  max = 10,
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of numeric values.}
@@ -30,22 +39,23 @@ If alpha=0, the \code{"general"} method reduces to the
 \code{"vdw"} method.}
 
 \item{complete}{If \code{TRUE}, \code{NA} values are removed
-before transformation.}
+before transformation. The default is \code{FALSE}.}
 
 \item{na.last}{Passed to \code{rank} in the normal scores methods. 
 See the documentation for the
-\code{rank} function.}
+\code{rank} function.
+The default is \code{"keep"}.}
 
 \item{na.rm}{Used in the \code{"zscore"} and \code{"scale"} methods.
 Passed to \code{mean}, \code{min}, and \code{max}
-functions in those methods.}
+functions in those methods.
+The default is \code{TRUE}.}
 
-\item{adjustN}{If \code{TRUE}, the default, for the normal scores methods, 
-    uses only non-\code{NA} values to determine the sample size,
-    \code{N}.  This seems to work well under default conditions
-    where \code{NA} values are retained, even if there are
-    a high percentage of \code{NA} values.
-transformed values.}
+\item{adjustN}{If \code{TRUE}, the default, the normal scores methods 
+use only non-\code{NA} values to determine the sample size,
+\code{N}.  This seems to work well under default conditions
+where \code{NA} values are retained, even if there are
+a high percentage of \code{NA} values.}
 
 \item{min}{For the \code{"scale"} method, the minimum value of the
 transformed values.}
@@ -60,17 +70,20 @@ A vector of numeric values.
 }
 \description{
 Normal scores transformation
-             (Inverse normal transformations)
+             (Inverse normal transformation)
              by Elfving, Blom, van der Waerden, Tukey, 
              and rankit methods,
              as well as z score transformation
-             and scaling to a range.
+             (standardization)
+             and scaling to a range (normalization).
 }
 \details{
 By default, \code{NA} values are retained in the output.
          This behavior can be changed with the \code{na.rm} argument
          for \code{"zscore"} and \code{"scale"} methods, or
          with \code{na.last} for the normal scores methods.
+         Or \code{NA} values can be removed from the input with
+         \code{complete=TRUE}.
          
          For normal scores methods, if there are \code{NA} values
          or tied values,
@@ -87,12 +100,17 @@ By default, \code{NA} values are retained in the output.
          
          The \code{"scale"} method coverts values to the range specified
          in \code{max} and \code{min} without transforming the distribution
-         of values.
+         of values. By default, the \code{"scale"} method converts values
+         to a 1 to 10 range.
+         Using the \code{"scale"} method with
+         \code{min = 0} and \code{max = 1} is
+         sometimes called "normalization".
          
          The \code{"zscore"} method converts values by the usual method
          for z scores: \code{(x - mean(x)) / sd(x)}. The transformed
          values with have a mean of 0 and a standard deviation of
          1 but won't be coerced into a normal distribution.
+         Sometimes this method is called "standardization".
 }
 \examples{
 set.seed(12345)

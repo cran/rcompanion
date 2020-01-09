@@ -4,8 +4,15 @@
 \alias{pairwiseMedianTest}
 \title{Pairwise Mood's median tests}
 \usage{
-pairwiseMedianTest(formula = NULL, data = NULL, x = NULL, g = NULL,
-  digits = 4, method = "fdr", ...)
+pairwiseMedianTest(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  digits = 4,
+  method = "fdr",
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

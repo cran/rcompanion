@@ -4,8 +4,14 @@
 \alias{groupwiseSum}
 \title{Groupwise sums}
 \usage{
-groupwiseSum(formula = NULL, data = NULL, var = NULL, group = NULL,
-  digits = NULL, ...)
+groupwiseSum(
+  formula = NULL,
+  data = NULL,
+  var = NULL,
+  group = NULL,
+  digits = NULL,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

@@ -1,11 +1,11 @@
-#' @title Epsilon-squared
+#' @title Eta-squared for ordinal variables
 #'
-#' @description Calculates epsilon-squared 
+#' @description Calculates eta-squared 
 #'              as an effect size statistic,
 #'              following a Kruskal-Wallis test, 
 #'              or for a table with one ordinal
 #'              variable and one nominal variable; 
-#'              confidence intervals by bootstrap
+#'              confidence intervals by bootstrap.
 #' 
 #' @param x Either a two-way table or a two-way matrix.
 #'          Can also be a vector of observations of an ordinal variable.
@@ -30,7 +30,7 @@
 #'                         failing during the bootstrap procedure.
 #' @param ... Additional arguments passed to the \code{kruskal.test} function.             
 #' 
-#' @details  Epsilon-squared is used as a measure of association
+#' @details  Eta-squared is used as a measure of association
 #'           for the Kruskal-Wallis test or for a two-way
 #'           table with one ordinal and one nominal variable.
 #'
@@ -38,14 +38,14 @@
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
 #'           
-#'           Because epsilon-squared is always positive, 
+#'           Because eta-squared is always positive, 
 #'           if \code{type="perc"}, the confidence interval will
 #'           never cross zero, and should not
 #'           be used for statistical inference.
 #'           However, if \code{type="norm"}, the confidence interval
 #'           may cross zero. 
 #'           
-#'           When epsilon-squared is close to 0 or very large,
+#'           When eta-squared is close to 0 or very large,
 #'           or with small counts in some cells,
 #'           the confidence intervals 
 #'           determined by this
@@ -53,33 +53,33 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_11.html}
-#' @seealso \code{\link{freemanTheta}}
-#' @concept correlation epsilon ordinal nominal
-#' @return A single statistic, epsilon-squared.
-#'         Or a small data frame consisting of epsilon-squared,
+#' @seealso \code{\link{freemanTheta}}, \code{\link{epsilonSquared}}
+#' @concept correlation eta ordinal nominal
+#' @return A single statistic, eta-squared.
+#'         Or a small data frame consisting of eta-squared,
 #'         and the lower and upper confidence limits.  
 #'         
 #' @examples
 #' data(Breakfast)
 #' library(coin)
 #' chisq_test(Breakfast, scores = list("Breakfast" = c(-2, -1, 0, 1, 2)))
-#' epsilonSquared(Breakfast)
+#' ordinalEtaSquared(Breakfast)
 #' 
 #' data(PoohPiglet)
 #' kruskal.test(Likert ~ Speaker, data = PoohPiglet)
-#' epsilonSquared(x = PoohPiglet$Likert, g = PoohPiglet$Speaker)
+#' ordinalEtaSquared(x = PoohPiglet$Likert, g = PoohPiglet$Speaker)
 #' 
 #' ### Same data, as matrix of counts
 #' data(PoohPiglet)
 #' XT = xtabs( ~ Speaker + Likert , data = PoohPiglet)
-#' epsilonSquared(XT)
+#' ordinalEtaSquared(XT)
 #' 
 #' @importFrom stats kruskal.test
 #' @importFrom boot boot boot.ci
 #' 
 #' @export
  
-epsilonSquared = function (x, g=NULL, group="row", ci=FALSE, conf=0.95, 
+ordinalEtaSquared = function (x, g=NULL, group="row", ci=FALSE, conf=0.95, 
                            type="perc",
                            R=1000, histogram=FALSE, digits=3, 
                            reportIncomplete=FALSE,
@@ -102,25 +102,25 @@ epsilonSquared = function (x, g=NULL, group="row", ci=FALSE, conf=0.95,
   g  = factor(g)
   g  = droplevels(g)
   n  = length(g)
-  
+  k  = length(unique(levels(g)))
+
   KW = kruskal.test(x, g, ...)
 
-  e2 = KW$statistic / (n-1)
-  E2 = signif(e2, digits=digits)
+  eta2 = (KW$statistic - k + 1) / (n-k)
+  ETA2 = signif(eta2, digits=digits)
   
 if(ci==TRUE){
   Data = data.frame(x,g)
   Function = function(input, index){
                       Input = input[index,]
                       n  = length(Input$g)
-                      if(length(unique(droplevels(Input$g)))==1){
-                         FLAG=1
-                         return(c(NA,FLAG))}  
-                      if(length(unique(droplevels(Input$g)))>1){
+                      k  = length(unique(droplevels(Input$g)))
+                      if(k==1){FLAG=1; return(c(NA,FLAG))}  
+                      if(k>1){
                          KW = kruskal.test(Input$x, Input$g, ...)
-                         e2 = KW$statistic / (n-1)
+                         eta2 = (KW$statistic - k + 1) / (n - k)
                          FLAG=0
-                         return(c(e2, FLAG))
+                         return(c(eta2, FLAG))
                     }}
   Boot = boot(Data, Function, R=R)
   
@@ -135,11 +135,11 @@ if(ci==TRUE){
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="epsilon-squared",
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="eta-squared",
                                        main="")}
 }
   
-if(ci==FALSE){names(E2) = "epsilon.squared"; return(E2)}
-if(ci==TRUE){names(E2) = ""
-             return(data.frame(epsilon.squared=E2, lower.ci=CI1, upper.ci=CI2))}  
+if(ci==FALSE){names(ETA2) = "eta.squared"; return(ETA2)}
+if(ci==TRUE){names(ETA2) = ""
+             return(data.frame(eta.squared=ETA2, lower.ci=CI1, upper.ci=CI2))}  
 }

@@ -4,8 +4,15 @@
 \alias{wilcoxonZ}
 \title{Wilcoxon z statistic}
 \usage{
-wilcoxonZ(x, y = NULL, mu = 0, paired = FALSE, exact = FALSE,
-  correct = FALSE, digits = 3)
+wilcoxonZ(
+  x,
+  y = NULL,
+  mu = 0,
+  paired = FALSE,
+  exact = FALSE,
+  correct = FALSE,
+  digits = 3
+)
 }
 \arguments{
 \item{x}{A vector of observations.}

@@ -25,6 +25,10 @@
 #' @param R The number of replications to use for bootstrap.
 #' @param histogram If \code{TRUE}, produces a histogram of bootstrapped values.
 #' @param digits The number of significant digits in the output.
+#' @param reportIncomplete If \code{FALSE} (the default),
+#'                         \code{NA} will be reported in cases where there
+#'                         are instances of the calculation of the statistic
+#'                         failing during the bootstrap procedure.
 #' 
 #' @details  Freeman's coefficent of differentiation (theta)
 #'           is used as a measure of association
@@ -93,7 +97,8 @@ freemanTheta = function (x, g=NULL, group="row",
                          verbose=FALSE, progress=FALSE,
                          ci=FALSE, conf=0.95, 
                          type="perc",
-                         R=1000, histogram=FALSE, digits=3){
+                         R=1000, histogram=FALSE, digits=3,
+                         reportIncomplete=FALSE){
   
   if(is.matrix(x)){x=as.table(x)}
   
@@ -155,37 +160,48 @@ freemanTheta = function (x, g=NULL, group="row",
   Theta = signif(theta, digits=digits)
   
 if(ci==TRUE){
+  
+    L1     = length(unique(droplevels(factor(g))))
+  
   Function = function(input, index){
                       Input = input[index,]
   Input$g = factor(Input$g)
   Input$g = droplevels(Input$g)
-  k     = length(levels(Input$g))
-  Delta = 0
-  Tee   = 0
-  Count = 0
-  Di    = rep(NA, ((k-1)*(k-2)))
-  Ti    = rep(NA, ((k-1)*(k-2)))
-  for(i in 1:(k-1)){
-     for(j in (i+1):k){
-       Count = Count + 1
-       Y1 = Input$x[Input$g==levels(Input$g)[i]]
-       Y2 = Input$x[Input$g==levels(Input$g)[j]]
-       n1 = length(Y1)
-       n2 = length(Y2)
-       tee   = 0
-       delta = 0
-       for(l in 1:n1){
-         for(m in 1:n2){
-           delta = delta + sum(Y1[l] > Y2[m]) - sum(Y1[l] < Y2[m])
-         }}
-       Di[Count] = abs(delta)
-       Ti[Count] = n1 * n2
-       Delta = Delta + Di[Count]
-       Tee = Tee + Ti[Count]
-       
-     }
-  }
-    return(Delta / Tee)
+  k       = length(levels(Input$g))
+  
+    NOTEQUAL=0
+    if(k != L1){NOTEQUAL=1}
+             
+    if(NOTEQUAL==1){FLAG=1; return(c(NA,FLAG))}
+             
+    if(NOTEQUAL==0){
+  
+       Delta = 0
+       Tee   = 0
+       Count = 0
+       Di    = rep(NA, ((k-1)*(k-2)))
+       Ti    = rep(NA, ((k-1)*(k-2)))
+        for(i in 1:(k-1)){
+          for(j in (i+1):k){
+            Count = Count + 1
+            Y1 = Input$x[Input$g==levels(Input$g)[i]]
+            Y2 = Input$x[Input$g==levels(Input$g)[j]]
+            n1 = length(Y1)
+            n2 = length(Y2)
+            tee   = 0
+            delta = 0
+              for(l in 1:n1){
+                for(m in 1:n2){
+                  delta = delta + sum(Y1[l] > Y2[m]) - sum(Y1[l] < Y2[m])
+               }}
+            Di[Count] = abs(delta)
+            Ti[Count] = n1 * n2
+            Delta = Delta + Di[Count]
+            Tee = Tee + Ti[Count]
+         }
+        }
+    FLAG = 0   
+    return(c((Delta / Tee),FLAG))}
   }
   Data = data.frame(x,g)
   Boot = boot(Data, Function, R=R)
@@ -194,6 +210,8 @@ if(ci==TRUE){
   if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
   if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
   if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5];}  
+  
+  if(sum(Boot$t[,2])>0 & reportIncomplete==FALSE) {CI1=NA; CI2=NA}
   
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)

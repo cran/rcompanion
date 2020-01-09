@@ -4,9 +4,20 @@
 \alias{percentileTest}
 \title{Test of percentiles by permutation test}
 \usage{
-percentileTest(formula = NULL, data = NULL, x = NULL, y = NULL,
-  test = "median", tau = 0.5, type = 7, threshold = NA,
-  comparison = "<", r = 1000, digits = 4, progress = "TRUE")
+percentileTest(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  y = NULL,
+  test = "median",
+  tau = 0.5,
+  type = 7,
+  threshold = NA,
+  comparison = "<",
+  r = 1000,
+  digits = 4,
+  progress = "TRUE"
+)
 }
 \arguments{
 \item{formula}{A formula indicating the response variable and

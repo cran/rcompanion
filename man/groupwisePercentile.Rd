@@ -4,10 +4,23 @@
 \alias{groupwisePercentile}
 \title{Groupwise percentiles and confidence intervals}
 \usage{
-groupwisePercentile(formula = NULL, data = NULL, var = NULL,
-  group = NULL, conf = 0.95, tau = 0.5, type = 7, R = 5000,
-  boot = FALSE, basic = FALSE, normal = FALSE, percentile = FALSE,
-  bca = TRUE, digits = 3, ...)
+groupwisePercentile(
+  formula = NULL,
+  data = NULL,
+  var = NULL,
+  group = NULL,
+  conf = 0.95,
+  tau = 0.5,
+  type = 7,
+  R = 5000,
+  boot = FALSE,
+  basic = FALSE,
+  normal = FALSE,
+  percentile = FALSE,
+  bca = TRUE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

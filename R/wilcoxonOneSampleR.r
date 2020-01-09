@@ -98,10 +98,10 @@ if(ci==TRUE){
                     return(r)}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
-  if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
-  if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
-  if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
-  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5];}  
+  if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3]}
+  if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5]}
+  if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5]}
+  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5]}  
   
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)

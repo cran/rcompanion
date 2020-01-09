@@ -4,9 +4,18 @@
 \alias{pairwiseNominalIndependence}
 \title{Pairwise tests of independence for nominal data}
 \usage{
-pairwiseNominalIndependence(x, compare = "row", fisher = TRUE,
-  gtest = TRUE, chisq = TRUE, method = "fdr", correct = "none",
-  cramer = FALSE, digits = 3, ...)
+pairwiseNominalIndependence(
+  x,
+  compare = "row",
+  fisher = TRUE,
+  gtest = TRUE,
+  chisq = TRUE,
+  method = "fdr",
+  correct = "none",
+  cramer = FALSE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A two-way contingency table. At least one dimension should have

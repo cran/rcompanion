@@ -4,9 +4,19 @@
 \alias{wilcoxonPairedR}
 \title{r effect size for Wilcoxon two-sample paired signed-rank test}
 \usage{
-wilcoxonPairedR(x, g = NULL, coin = FALSE, ci = FALSE, conf = 0.95,
-  type = "perc", R = 1000, histogram = FALSE, cases = TRUE,
-  digits = 3, ...)
+wilcoxonPairedR(
+  x,
+  g = NULL,
+  coin = FALSE,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  cases = TRUE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of observations.}
@@ -65,6 +75,11 @@ r  is calculated as Z divided by
           square root of the number of observations in one group. This 
           results in a statistic that ranges from -1 to 1.
           This range doesn't hold if \code{cases=FALSE}.
+          
+          This statistic reports a smaller effect size than does
+          the matched-pairs rank biserial correlation coefficient 
+          (\code{wilcoxonPairedRC}), and won't reach a value
+          of -1 or 1 unless there are ties in paired differences.
 
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
@@ -91,6 +106,9 @@ wilcoxonPairedR(x = Pooh$Likert, g = Pooh$Time)
 }
 \references{
 \url{http://rcompanion.org/handbook/F_06.html}
+}
+\seealso{
+\code{\link{wilcoxonPairedRC}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

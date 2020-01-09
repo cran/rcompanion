@@ -4,9 +4,17 @@
 \alias{pairwiseMcnemar}
 \title{Pairwise McNemar and related tests for Cochran Q test post-hoc}
 \usage{
-pairwiseMcnemar(formula = NULL, data = NULL, x = NULL, g = NULL,
-  block = NULL, test = "exact", method = "fdr", digits = 3,
-  correct = FALSE)
+pairwiseMcnemar(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  block = NULL,
+  test = "exact",
+  method = "fdr",
+  digits = 3,
+  correct = FALSE
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

@@ -6,8 +6,8 @@
 #'                two independent variables. e.g. y ~ x1 + x2.
 #' @param data   The data frame to use. 
 #' @param y If no formula is given, the response variable.
-#' @param x1 The first independent variable.
-#' @param x2 The second independent variable.
+#' @param x1 If no formula is given, the first independent variable.
+#' @param x2 If no formula is given, the second independent variable.
 #' @param tie.correct If \code{"TRUE"}, applies a correction for ties in the 
 #'                                      response variable.
 #' @param ss If \code{"TRUE"}, includes the sums of squares in the output.
@@ -16,8 +16,7 @@
 #'
 #' @details The Scheirer Ray Hare test is a nonparametric test used for a 
 #'          two-way factorial experiment.  It is described by Sokal and
-#'          Rohlf (1995).  At the time of writing,
-#'          it does not appear to be a common or well-regarded test.
+#'          Rohlf (1995).
 #'          It is sometimes recommended that the design should be balanced,
 #'          and that there should be at least five observations for each
 #'          cell in the interaction.

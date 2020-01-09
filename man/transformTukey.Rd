@@ -4,9 +4,17 @@
 \alias{transformTukey}
 \title{Tukey's Ladder of Powers}
 \usage{
-transformTukey(x, start = -10, end = 10, int = 0.025,
-  plotit = TRUE, verbose = FALSE, quiet = FALSE, statistic = 1,
-  returnLambda = FALSE)
+transformTukey(
+  x,
+  start = -10,
+  end = 10,
+  int = 0.025,
+  plotit = TRUE,
+  verbose = FALSE,
+  quiet = FALSE,
+  statistic = 1,
+  returnLambda = FALSE
+)
 }
 \arguments{
 \item{x}{A vector of values.}

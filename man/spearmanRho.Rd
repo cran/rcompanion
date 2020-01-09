@@ -4,9 +4,21 @@
 \alias{spearmanRho}
 \title{Spearman's rho, Kendall's tau, Pearson's r}
 \usage{
-spearmanRho(formula = NULL, data = NULL, x = NULL, y = NULL,
-  method = "spearman", ci = FALSE, conf = 0.95, type = "perc",
-  R = 1000, histogram = FALSE, digits = 3, ...)
+spearmanRho(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  y = NULL,
+  method = "spearman",
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 3,
+  reportIncomplete = FALSE,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the two paired variables,
@@ -37,6 +49,11 @@ Passed to \code{boot.ci}.}
 \item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
 
 \item{digits}{The number of significant digits in the output.}
+
+\item{reportIncomplete}{If \code{FALSE} (the default),
+\code{NA} will be reported in cases where there
+are instances of the calculation of the statistic
+failing during the bootstrap procedure.}
 
 \item{...}{Additional arguments passed to the \code{cor} function.}
 }

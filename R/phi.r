@@ -18,7 +18,11 @@
 #' @param R The number of replications to use for bootstrap.
 #' @param histogram If \code{TRUE}, produces a histogram of bootstrapped values.
 #' @param verbose If \code{TRUE}, prints the table of counts.
-#' @param digits The number of significant digits in the output.              
+#' @param digits The number of significant digits in the output.
+#' @param reportIncomplete If \code{FALSE} (the default),
+#'                         \code{NA} will be reported in cases where there
+#'                         are instances of the calculation of the statistic
+#'                         failing during the bootstrap procedure.             
 #' @param ...    Additional arguments. (Ignored.) 
 #' 
 #' @details  phi is used as a measure of association
@@ -61,7 +65,8 @@
 phi = function(x, y=NULL, 
                    ci=FALSE, conf=0.95, type="perc",
                    R=1000, histogram=FALSE, verbose=FALSE, 
-                   digits=3, ...) {
+                   digits=3,
+                   reportIncomplete=FALSE, ...) {
   
   PHI=NULL
   
@@ -83,31 +88,48 @@ phi = function(x, y=NULL,
   PHI = (a- (a+b)*(a+c))/sqrt((a+b)*(c+d)*(a+c)*(b+d) )
   Phi= signif(as.numeric(PHI), digits=digits)
   
+  if(is.nan(Phi) & ci==TRUE){
+    return(data.frame(phi=Phi, lower.ci=NA, upper.ci=NA))} 
+  
 if(ci==TRUE){
     Counts = as.data.frame(Tab)
     Long = Counts[rep(row.names(Counts), Counts$Freq), c(1, 2)]
     rownames(Long) = seq(1:nrow(Long))
     
+    L1     = length(unique(droplevels(Long[,1])))
+    L2     = length(unique(droplevels(Long[,2])))
+    
   Function = function(input, index){
              Input = input[index,]
-             Tab = xtabs(~ Input[,1] + Input[,2])
-             Tab2 = Tab / sum(Tab)
-             a=Tab2[1,1]; b=Tab2[1,2]; c=Tab2[2,1]; d=Tab2[2,2]
-             PHI = (a- (a+b)*(a+c))/sqrt((a+b)*(c+d)*(a+c)*(b+d) )
-             return(PHI)
-  }
+             
+             NOTEQUAL=0
+             if(length(unique(droplevels(Input[,1]))) != L1 |
+                length(unique(droplevels(Input[,2]))) != L2){NOTEQUAL=1}
+             
+             if(NOTEQUAL==1){FLAG=1; return(c(NA,FLAG))}
+             
+             if(NOTEQUAL==0){
+                Tab = xtabs(~ Input[,1] + Input[,2])
+                Tab2 = Tab / sum(Tab)
+                a=Tab2[1,1]; b=Tab2[1,2]; c=Tab2[2,1]; d=Tab2[2,2]
+                PHI = (a- (a+b)*(a+c))/sqrt((a+b)*(c+d)*(a+c)*(b+d))
+                FLAG = 0
+                return(c(PHI,FLAG))}
+             }
 
   Boot = boot(Long, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
-  if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
-  if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
-  if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
-  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5];}  
+  if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3]}
+  if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5]}
+  if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5]}
+  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5]}  
+  
+  if(sum(Boot$t[,2])>0 & reportIncomplete==FALSE) {CI1=NA; CI2=NA}
   
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="V", main="")}
+  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray", xlab="phi", main="")}
 
 }
  if(ci==FALSE){names(Phi)="phi"; return(Phi)}

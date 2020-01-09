@@ -4,8 +4,16 @@
 \alias{groupwiseGeometric}
 \title{Groupwise geometric means and confidence intervals}
 \usage{
-groupwiseGeometric(formula = NULL, data = NULL, var = NULL,
-  group = NULL, conf = 0.95, na.rm = TRUE, digits = 3, ...)
+groupwiseGeometric(
+  formula = NULL,
+  data = NULL,
+  var = NULL,
+  group = NULL,
+  conf = 0.95,
+  na.rm = TRUE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

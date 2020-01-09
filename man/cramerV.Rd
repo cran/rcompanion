@@ -4,9 +4,20 @@
 \alias{cramerV}
 \title{Cramer's V (phi)}
 \usage{
-cramerV(x, y = NULL, ci = FALSE, conf = 0.95, type = "perc",
-  R = 1000, histogram = FALSE, digits = 4, bias.correct = FALSE,
-  ...)
+cramerV(
+  x,
+  y = NULL,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 4,
+  bias.correct = FALSE,
+  reportIncomplete = FALSE,
+  verbose = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{Either a two-way table or a two-way matrix.
@@ -33,6 +44,13 @@ Passed to \code{boot.ci}.}
 \item{digits}{The number of significant digits in the output.}
 
 \item{bias.correct}{If \code{TRUE}, a bias correction is applied.}
+
+\item{reportIncomplete}{If \code{FALSE} (the default),
+\code{NA} will be reported in cases where there
+are instances of the calculation of the statistic
+failing during the bootstrap procedure.}
+
+\item{verbose}{If \code{TRUE}, prints additional statistics.}
 
 \item{...}{Additional arguments passed to \code{chisq.test}.}
 }

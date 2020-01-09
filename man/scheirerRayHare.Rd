@@ -4,8 +4,16 @@
 \alias{scheirerRayHare}
 \title{Scheirer Ray Hare test}
 \usage{
-scheirerRayHare(formula = NULL, data = NULL, y = NULL, x1 = NULL,
-  x2 = NULL, tie.correct = TRUE, ss = TRUE, verbose = TRUE)
+scheirerRayHare(
+  formula = NULL,
+  data = NULL,
+  y = NULL,
+  x1 = NULL,
+  x2 = NULL,
+  tie.correct = TRUE,
+  ss = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{formula}{A formula indicating the response variable and
@@ -15,9 +23,9 @@ two independent variables. e.g. y ~ x1 + x2.}
 
 \item{y}{If no formula is given, the response variable.}
 
-\item{x1}{The first independent variable.}
+\item{x1}{If no formula is given, the first independent variable.}
 
-\item{x2}{The second independent variable.}
+\item{x2}{If no formula is given, the second independent variable.}
 
 \item{tie.correct}{If \code{"TRUE"}, applies a correction for ties in the 
 response variable.}
@@ -38,8 +46,7 @@ Conducts Scheirer Ray Hare test.
 \details{
 The Scheirer Ray Hare test is a nonparametric test used for a 
          two-way factorial experiment.  It is described by Sokal and
-         Rohlf (1995).  At the time of writing,
-         it does not appear to be a common or well-regarded test.
+         Rohlf (1995).
          It is sometimes recommended that the design should be balanced,
          and that there should be at least five observations for each
          cell in the interaction.

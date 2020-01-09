@@ -21,6 +21,10 @@
 #' @param R The number of replications to use for bootstrap.
 #' @param histogram If \code{TRUE}, produces a histogram of bootstrapped values.
 #' @param digits The number of significant digits in the output.
+#' @param reportIncomplete If \code{FALSE} (the default),
+#'                         \code{NA} will be reported in cases where there
+#'                         are instances of the calculation of the statistic
+#'                         failing during the bootstrap procedure.
 #' @param ... Additional arguments passed to the \code{cor} function. 
 #'             
 #' @details This function is a wrapper for \code{stats::cor}
@@ -59,7 +63,7 @@ spearmanRho =
  function(formula=NULL, data=NULL, x=NULL, y=NULL,
           method="spearman",
           ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, digits=3,
-          ...){
+          reportIncomplete=FALSE, ...){
    
   if(!is.null(formula)){
     x  = eval(parse(text=paste0("data","$",all.vars(formula)[1])))
@@ -77,14 +81,25 @@ spearmanRho =
   Data = data.frame(x,y)
   Function = function(input, index){
                     Input = input[index,]
-                    RHO = cor(Input$x, Input$y, method=method)
-                    return(RHO)}
+                    if(sd(Input$x)==0 | sd(Input$y)==0){
+                       FLAG=1
+                       return(c(NA,FLAG))
+                       }
+                    if(sd(Input$x)>0 & sd(Input$y)>0){
+                      RHO = cor(Input$x, Input$y, method=method)
+                      FLAG=0
+                      return(c(RHO, FLAG))
+                    }}
+                    
   Boot = boot(Data, Function, R=R)
+  
   BCI  = boot.ci(Boot, conf=conf, type=type)
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
   if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
   if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
-  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5];}  
+  if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5];}
+  
+  if(sum(Boot$t[,2])>0 & reportIncomplete==FALSE) {CI1=NA; CI2=NA} 
   
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)

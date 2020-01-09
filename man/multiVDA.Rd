@@ -4,8 +4,15 @@
 \alias{multiVDA}
 \title{Pairwise Vargha and Delaney's A and Cliff's delta}
 \usage{
-multiVDA(formula = NULL, data = NULL, x = NULL, g = NULL,
-  statistic = "VDA", digits = 3, ...)
+multiVDA(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  statistic = "VDA",
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the response variable and
@@ -17,7 +24,7 @@ the independent variable. e.g. y ~ group.}
 
 \item{g}{If no formula is given, the grouping variable.}
 
-\item{statistic}{One of \code{"VDA"}, \code{"CD"}, or \code{"r"}.
+\item{statistic}{One of \code{"VDA"}, \code{"CD"}, or \code{"rg"}.
 This determines which statistic will be
 evaluated to determine the comparison with the
 most divergent groups.}
@@ -33,7 +40,8 @@ A list containing a data frame of pairwise statistics,
 }
 \description{
 Calculates Vargha and Delaney's A (VDA),
-             Cliff's delta (CD), and r
+             Cliff's delta (CD), 
+             and the Glass rank biserial coefficient, rg,
              for several groups in a pairwise manner.
 }
 \details{
@@ -46,25 +54,29 @@ VDA and CD are effect size statistic appropriate
          and 1 indicating that the first group dominates the second.
          CD ranges from -1 to 1, with 0 indicating stochastic equality,
          and 1 indicating that the first group dominates the second.
-         r ranges from approximately, -0.86 to 0.86, 
+         rg ranges from -1 to 1, 
          depending on sample size,
          with 0 indicating no effect,
          and a positive result indicating
          that values in the first group are greater than in the second.
          
+          Be cautious with this interpretation, as R will alphabetize
+          groups in the formula interface if the grouping variable
+          is not already a factor.
+                   
          In the function output,
          \code{VDA.m} is the greater of VDA or 1-VDA.
          \code{CD.m} is the absolute value of CD.
-         \code{r.m} is the absolute value of r.
+         \code{rg.m} is the absolute value of rg.
          
          The function calculates VDA and Cliff's delta from the "W" 
          U statistic from the
          \code{wilcox.test} function.
          Specifically, \code{VDA = U/(n1*n2); CD = (VDA-0.5)*2}.
-         For r, the Z value is extracted 
-         from the \code{wilcox_test} function in the
-          coin package.  r  is calculated as Z divided by 
-          square root of the total observations.
+         
+         rg  is calculated as 2 times the difference of mean of ranks
+          for each group divided by the total sample size.
+          It appears that rg is equivalent to Cliff's delta.
            
          The input should include either \code{formula} and \code{data};
          or \code{var}, and \code{group}.
@@ -72,16 +84,6 @@ VDA and CD are effect size statistic appropriate
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
-          
-          When the data in the first group are greater than
-          in the second group, 
-          VDA is > 0.5, CD is positive, and r is positive.
-          When the data in the second group are greater than
-          in the first group, 
-          VDA is < 0.5, CD is negative, and r is negative.
-          Be cautious with this interpretation, as R will alphabetize
-          groups in the formula interface if the grouping variable
-          is not already a factor.
 }
 \note{
 The parsing of the formula is simplistic. 
@@ -99,7 +101,7 @@ multiVDA(Likert ~ Speaker, data=PoohPiglet)
 \url{http://rcompanion.org/handbook/F_08.html}
 }
 \seealso{
-\code{\link{cliffDelta}}, \code{\link{cliffDelta}}
+\code{\link{vda}}, \code{\link{cliffDelta}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

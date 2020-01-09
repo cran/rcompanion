@@ -4,8 +4,16 @@
 \alias{plotNormalHistogram}
 \title{Histogram with a normal curve}
 \usage{
-plotNormalHistogram(x, prob = FALSE, col = "gray", main = "",
-  linecol = "blue", lwd = 2, length = 1000, ...)
+plotNormalHistogram(
+  x,
+  prob = FALSE,
+  col = "gray",
+  main = "",
+  linecol = "blue",
+  lwd = 2,
+  length = 1000,
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of values.}

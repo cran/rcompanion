@@ -4,10 +4,21 @@
 \alias{pairwisePercentileTest}
 \title{Pairwise permutation tests for percentiles}
 \usage{
-pairwisePercentileTest(formula = NULL, data = NULL, x = NULL,
-  y = NULL, test = "median", tau = 0.5, type = 7, threshold = NA,
-  comparison = "<", r = 1000, digits = 4, progress = "TRUE",
-  method = "fdr")
+pairwisePercentileTest(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  y = NULL,
+  test = "median",
+  tau = 0.5,
+  type = 7,
+  threshold = NA,
+  comparison = "<",
+  r = 1000,
+  digits = 4,
+  progress = "TRUE",
+  method = "fdr"
+)
 }
 \arguments{
 \item{formula}{A formula indicating the response variable and

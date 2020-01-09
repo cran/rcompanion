@@ -4,9 +4,20 @@
 \alias{vda}
 \title{Vargha and Delaney's A}
 \usage{
-vda(formula = NULL, data = NULL, x = NULL, y = NULL, ci = FALSE,
-  conf = 0.95, type = "perc", R = 1000, histogram = FALSE,
-  digits = 3, ...)
+vda(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  y = NULL,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 3,
+  reportIncomplete = FALSE,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the response variable and
@@ -33,6 +44,11 @@ Passed to \code{boot.ci}.}
 \item{histogram}{If \code{TRUE}, produces a histogram of bootstrapped values.}
 
 \item{digits}{The number of significant digits in the output.}
+
+\item{reportIncomplete}{If \code{FALSE} (the default),
+\code{NA} will be reported in cases where there
+are instances of the calculation of the statistic
+failing during the bootstrap procedure.}
 
 \item{...}{Additional arguments passed to the \code{wilcox.test} function.}
 }

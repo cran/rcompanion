@@ -3,7 +3,6 @@
 \docType{package}
 \name{rcompanion}
 \alias{rcompanion}
-\alias{rcompanion-package}
 \title{Functions to Support Extension Education Program Evaluation}
 \description{
 Functions and datasets to support Summary and Analysis of

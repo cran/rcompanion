@@ -18,6 +18,10 @@
 #' @param R The number of replications to use for bootstrap.
 #' @param histogram If \code{TRUE}, produces a histogram of bootstrapped values.
 #' @param digits The number of significant digits in the output.
+#' @param reportIncomplete If \code{FALSE} (the default),
+#'                         \code{NA} will be reported in cases where there
+#'                         are instances of the calculation of the statistic
+#'                         failing during the bootstrap procedure.
 #' @param ... Additional arguments passed to the \code{wilcox.test} function. 
 #'             
 #' @details VDA is an effect size statistic appropriate
@@ -77,6 +81,7 @@
 vda = 
  function(formula=NULL, data=NULL, x=NULL, y=NULL, 
           ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, digits=3,
+          reportIncomplete=FALSE,
           ...){
 
   if(!is.null(formula)){
@@ -98,25 +103,29 @@ vda =
   U   = suppressWarnings(wilcox.test(x=A, y=B, ...))$statistic
   VDA = signif(U / (n1 * n2), digits=digits)
   
-  
   if(ci==TRUE){
   Data = data.frame(x,g)
   Function = function(input, index){
                     Input = input[index,]
-            if(length(levels(droplevels(Input$g)))<2){return(NA)}        
-            if(length(levels(droplevels(Input$g)))>1){
-                    U = suppressWarnings(wilcox.test(x ~ g, 
+                    if(length(unique(droplevels(Input$g)))==1){
+                       FLAG=1
+                       return(c(NA,FLAG))}  
+                    if(length(unique(droplevels(Input$g)))>1){
+                        U = suppressWarnings(wilcox.test(x ~ g, 
                                          data=Input, ...))$statistic
-                    n1  = length(Input$x[Input$g==levels(Input$g)[1]])
-                    n2  = length(Input$x[Input$g==levels(Input$g)[2]])
-                    p   = U / (n1 * n2)
-                    return(p)}}
+                      n1  = length(Input$x[Input$g==levels(Input$g)[1]])
+                      n2  = length(Input$x[Input$g==levels(Input$g)[2]])
+                      p   = U / (n1 * n2)
+                      FLAG=0
+                      return(c(p, FLAG))}}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
   if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
   if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
   if(type=="bca") {CI1=BCI$bca[4];      CI2=BCI$bca[5];}  
+  
+  if(sum(Boot$t[,2])>0 & reportIncomplete==FALSE) {CI1=NA; CI2=NA} 
   
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)

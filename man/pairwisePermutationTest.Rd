@@ -4,8 +4,14 @@
 \alias{pairwisePermutationTest}
 \title{Pairwise two-sample permutation tests}
 \usage{
-pairwisePermutationTest(formula = NULL, data = NULL, x = NULL,
-  g = NULL, method = "fdr", ...)
+pairwisePermutationTest(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  method = "fdr",
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

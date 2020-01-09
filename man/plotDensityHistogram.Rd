@@ -4,9 +4,18 @@
 \alias{plotDensityHistogram}
 \title{Histogram with a density curve}
 \usage{
-plotDensityHistogram(x, prob = FALSE, col = "gray", main = "",
-  linecol = "black", lwd = 2, adjust = 1, bw = "nrd0",
-  kernel = "gaussian", ...)
+plotDensityHistogram(
+  x,
+  prob = FALSE,
+  col = "gray",
+  main = "",
+  linecol = "black",
+  lwd = 2,
+  adjust = 1,
+  bw = "nrd0",
+  kernel = "gaussian",
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of values.}

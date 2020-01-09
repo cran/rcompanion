@@ -4,11 +4,24 @@
 \alias{groupwiseMedian}
 \title{Groupwise medians and confidence intervals}
 \usage{
-groupwiseMedian(formula = NULL, data = NULL, var = NULL,
-  group = NULL, conf = 0.95, R = 5000, boot = FALSE,
-  pseudo = FALSE, basic = FALSE, normal = FALSE,
-  percentile = FALSE, bca = TRUE, wilcox = FALSE, exact = FALSE,
-  digits = 3, ...)
+groupwiseMedian(
+  formula = NULL,
+  data = NULL,
+  var = NULL,
+  group = NULL,
+  conf = 0.95,
+  R = 5000,
+  boot = FALSE,
+  pseudo = FALSE,
+  basic = FALSE,
+  normal = FALSE,
+  percentile = FALSE,
+  bca = TRUE,
+  wilcox = FALSE,
+  exact = FALSE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

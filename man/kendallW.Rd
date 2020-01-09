@@ -4,8 +4,18 @@
 \alias{kendallW}
 \title{Kendall's W with bootstrapped confidence interval}
 \usage{
-kendallW(x, correct = TRUE, na.rm = FALSE, ci = FALSE, conf = 0.95,
-  type = "perc", R = 1000, histogram = FALSE, digits = 3, ...)
+kendallW(
+  x,
+  correct = TRUE,
+  na.rm = FALSE,
+  ci = FALSE,
+  conf = 0.95,
+  type = "perc",
+  R = 1000,
+  histogram = FALSE,
+  digits = 3,
+  ...
+)
 }
 \arguments{
 \item{x}{A k x m matrix or table, with k treatments in rows 

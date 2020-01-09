@@ -4,8 +4,15 @@
 \alias{pairwisePermutationSymmetry}
 \title{Pairwise two-sample permutation symmetry tests}
 \usage{
-pairwisePermutationSymmetry(formula = NULL, data = NULL, x = NULL,
-  g = NULL, b = NULL, method = "fdr", ...)
+pairwisePermutationSymmetry(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  b = NULL,
+  method = "fdr",
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and

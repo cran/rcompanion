@@ -4,8 +4,14 @@
 \alias{pairwisePermutationMatrix}
 \title{Pairwise two-sample permutation tests with matrix output}
 \usage{
-pairwisePermutationMatrix(formula = NULL, data = NULL, x = NULL,
-  g = NULL, method = "fdr", ...)
+pairwisePermutationMatrix(
+  formula = NULL,
+  data = NULL,
+  x = NULL,
+  g = NULL,
+  method = "fdr",
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the measurement variable and
