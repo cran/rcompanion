@@ -1,5 +1,5 @@
-716aa2a50e30936435c9792567154a87 *DESCRIPTION
-bf26ca9bccaf0b62b6e6bace063f3630 *NAMESPACE
+bbbeb2be7a207f4ea020bad227dee843 *DESCRIPTION
+e84b393f5e553e0ed1aa9e9af9a4ef7e *NAMESPACE
 aa1e5b971fc101d88e47b8b9e17b8dd8 *R/Data.R
 b381d4c17b21b3d7458a1f8e2ba8fd6f *R/PMCMRTable.r
 0366685bc89178881596d1872026886f *R/accuracy.r
@@ -22,7 +22,7 @@ e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
 a07a93a36f5b8045306b44587c86177e *R/groupwiseHuber.r
 e15560b1d51e7d98a813b6b9b698ad62 *R/groupwiseMean.r
 161b1b0dcf0543e96438bfbd7c34a179 *R/groupwiseMedian.r
-85b2ff6a029a7138b848636b1dfbc5e6 *R/groupwisePercentile.r
+10dee3e67853b6bfa7dddc24bdf032b8 *R/groupwisePercentile.r
 b3c8e7e1bcb1ac147a89686f547b9ec4 *R/groupwiseSum.r
 fc05e93ecef126d5d138c862cae3d5ad *R/kendallW.r
 c2fd53fdaf3220c06b12f6c378b44b21 *R/multiVDA.r
@@ -57,6 +57,7 @@ bf9260ae48692ab3caca389cda83f5ed *R/plotDensityHistogram.r
 520b763aece496d28ec6667a3a1e63ee *R/plotNormalDensity.r
 0bfe221e88b867080aa85a95a0ab64c3 *R/plotNormalHistogram.r
 e3ddb0383758a9309b7308213ad42f12 *R/plotPredy.r
+f38f3c5276814ce92d647e89da67e9f2 *R/quantileCI.r
 65c9cfa619b8f256f25c7966509f1de4 *R/rcompanion.R
 4e5c11b817f1db075f1df83e7c0e4b50 *R/scheirerRayHare.r
 e443ac03fbc7a58d67177c17c241f5b9 *R/spearmanRho.r
@@ -122,7 +123,7 @@ ea3d34b5e7b7ef51172064f3cdd3196c *man/cramerVFit.Rd
 92e48cef3cf7767bbec3c7785cea9ebe *man/groupwiseHuber.Rd
 623323b07e9c3bc98217f28eb4393f46 *man/groupwiseMean.Rd
 d19a596b458fb426ec9280e4cfbb2efa *man/groupwiseMedian.Rd
-040ff43de3f7f7179a3bb711a98fa1db *man/groupwisePercentile.Rd
+67208e8b4c2259e9390a00194815f715 *man/groupwisePercentile.Rd
 9ff75daec9ff11f69c515f09069a8b12 *man/groupwiseSum.Rd
 fd71f8a2d495d30d9e42f78d3b13b9ce *man/kendallW.Rd
 0c5470cf76c0e69ce1e5a53c2ba90e00 *man/multiVDA.Rd
@@ -157,6 +158,7 @@ fbbd63cbee26f6cd9f244a7909363786 *man/plotDensityHistogram.Rd
 cf9231ee075edc0c418e8c52a8f134c9 *man/plotNormalDensity.Rd
 e6f19175f2428992794a95545d2ef66e *man/plotNormalHistogram.Rd
 624d6f57403a829f11c76849cf5e56b8 *man/plotPredy.Rd
+a3bd017914db1665112046d76c4bd70c *man/quantileCI.Rd
 46b28466bec8d963e5025358c7b3c5e5 *man/rcompanion.Rd
 ee99b645d11e846fda350fe37606bba7 *man/scheirerRayHare.Rd
 9093fa574c39229e8e553594b6646fd9 *man/spearmanRho.Rd

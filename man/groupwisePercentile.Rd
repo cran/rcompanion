@@ -39,7 +39,7 @@ Multiple names are listed as a vector. (See example.)}
 \item{tau}{The percentile to use, expressed as a quantile,
 e.g. 0.5 for median, 0.25 for 25th percentile.}
 
-\item{type}{The \code{type} value passed to the \code{quantile} function}
+\item{type}{The \code{type} value passed to the \code{quantile} function.}
 
 \item{R}{The number of bootstrap replicates to use for bootstrapped
 statistics.}

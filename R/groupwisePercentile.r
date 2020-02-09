@@ -12,7 +12,7 @@
 #'              Multiple names are listed as a vector. (See example.)
 #' @param tau  The percentile to use, expressed as a quantile,
 #'             e.g. 0.5 for median, 0.25 for 25th percentile.
-#' @param type The \code{type} value passed to the \code{quantile} function
+#' @param type The \code{type} value passed to the \code{quantile} function.
 #' @param conf The confidence interval to use.
 #' @param R The number of bootstrap replicates to use for bootstrapped
 #'          statistics.
