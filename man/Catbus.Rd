@@ -4,7 +4,9 @@
 \name{Catbus}
 \alias{Catbus}
 \title{Hypothetical data for Catbus and company}
-\format{An object of class \code{data.frame} with 26 rows and 5 columns.}
+\format{
+An object of class \code{data.frame} with 26 rows and 5 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/C_03.html}
 }

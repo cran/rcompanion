@@ -4,7 +4,9 @@
 \name{HayleySmith}
 \alias{HayleySmith}
 \title{Hypothetical data for responses about adopting lawn care practices}
-\format{An object of class \code{data.frame} with 56 rows and 3 columns.}
+\format{
+An object of class \code{data.frame} with 56 rows and 3 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_05.html}
 }

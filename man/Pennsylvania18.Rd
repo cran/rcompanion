@@ -4,7 +4,9 @@
 \name{Pennsylvania18}
 \alias{Pennsylvania18}
 \title{Votes for the Democratic candidate in Pennsylvania 18 in 2016 and 2018}
-\format{An object of class \code{matrix} with 2 rows and 2 columns.}
+\format{
+An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_10.html}
 }

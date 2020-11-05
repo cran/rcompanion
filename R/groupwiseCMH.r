@@ -62,14 +62,13 @@ groupwiseCMH =
                     adj.p   = rep(NA,N),
                     stringsAsFactors = FALSE)
      for(i in 1:N){
-        X = x[,,i]
         if(group==1){X = x[i,,]}
         if(group==2){X = x[,i,]}
         if(group==3){X = x[,,i]}
      if(fisher==TRUE){
         Y[i,1] = G[i]
         Y[i,2] = "Fisher"
-        Y[i,3] = signif(fisher.test(X)$p.value, digits=digits)
+        Y[i,3] = signif(fisher.test(X, ...)$p.value, digits=digits)
         }
      if(gtest==TRUE){
         Y[i,1] = G[i]

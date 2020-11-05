@@ -4,7 +4,9 @@
 \name{Monarchs}
 \alias{Monarchs}
 \title{Hypothetical data for monarch butterflies in gardens}
-\format{An object of class \code{data.frame} with 24 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 24 rows and 2 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/J_01.html}
 }

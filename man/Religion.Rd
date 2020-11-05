@@ -4,7 +4,9 @@
 \name{Religion}
 \alias{Religion}
 \title{Hypothetical data for change in religion after a caucusing event}
-\format{An object of class \code{matrix} with 4 rows and 4 columns.}
+\format{
+An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_05.html}
 }

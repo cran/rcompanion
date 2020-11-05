@@ -4,7 +4,9 @@
 \name{Pooh}
 \alias{Pooh}
 \title{Hypothetical data for paired ratings of Pooh Bear}
-\format{An object of class \code{data.frame} with 20 rows and 4 columns.}
+\format{
+An object of class \code{data.frame} with 20 rows and 4 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/F_06.html}
 }

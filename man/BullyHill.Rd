@@ -4,7 +4,9 @@
 \name{BullyHill}
 \alias{BullyHill}
 \title{Hypothetical data for proportion of students passing a certification}
-\format{An object of class \code{data.frame} with 12 rows and 5 columns.}
+\format{
+An object of class \code{data.frame} with 12 rows and 5 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/J_02.html}
 }

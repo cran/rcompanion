@@ -4,7 +4,9 @@
 \name{AndersonRainGarden}
 \alias{AndersonRainGarden}
 \title{Hypothetical data for Alexander Anderson on rain garden installation}
-\format{An object of class \code{matrix} with 3 rows and 3 columns.}
+\format{
+An object of class \code{matrix} (inherits from \code{array}) with 3 rows and 3 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_05.html}
 }

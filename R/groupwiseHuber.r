@@ -41,14 +41,14 @@
 #' data(Catbus)
 #' groupwiseHuber(Steps ~ Teacher + Sex,
 #'                data      = Catbus,
-#'                ci.type = "wald")
+#'                ci.type   = "wald")
 #'                
 #' ### Example with variable notation
 #' data(Catbus)
 #' groupwiseHuber(data      = Catbus,
 #'                var       = "Steps",
 #'                group     = c("Teacher", "Sex"),
-#'                ci.type = "wald")
+#'                ci.type   = "wald")
 #'                                       
 #' @importFrom DescTools HuberM
 #' @importFrom plyr ddply rename

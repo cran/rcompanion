@@ -4,7 +4,9 @@
 \name{Breakfast}
 \alias{Breakfast}
 \title{Hypothetical data for students' breakfast habits and travel to school}
-\format{An object of class \code{table} with 3 rows and 5 columns.}
+\format{
+An object of class \code{table} with 3 rows and 5 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_09.html}
 }

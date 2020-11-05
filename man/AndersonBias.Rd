@@ -4,7 +4,9 @@
 \name{AndersonBias}
 \alias{AndersonBias}
 \title{Hypothetical data for Alexander Anderson with sex bias}
-\format{An object of class \code{data.frame} with 16 rows and 4 columns.}
+\format{
+An object of class \code{data.frame} with 16 rows and 4 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_06.html}
 }

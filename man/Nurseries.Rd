@@ -4,7 +4,9 @@
 \name{Nurseries}
 \alias{Nurseries}
 \title{Data for proportion of good practices followed by plant nuseries}
-\format{An object of class \code{data.frame} with 38 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 38 rows and 2 columns.
+}
 \source{
 Mangiafico, S.S., Newman, J.P., Mochizuki, M.J.,
         and Zurawski, D. (2008). Adoption of sustainable practices

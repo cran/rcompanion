@@ -4,7 +4,9 @@
 \name{BrendonSmall}
 \alias{BrendonSmall}
 \title{Hypothetical data for Brendon Small and company}
-\format{An object of class \code{data.frame} with 45 rows and 6 columns.}
+\format{
+An object of class \code{data.frame} with 45 rows and 6 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/I_10.html}
 }

@@ -4,7 +4,9 @@
 \name{Anderson}
 \alias{Anderson}
 \title{Hypothetical data for Alexander Anderson}
-\format{An object of class \code{matrix} with 4 rows and 2 columns.}
+\format{
+An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 2 columns.
+}
 \source{
 \url{http://rcompanion.org/handbook/H_04.html}
 }
