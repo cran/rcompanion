@@ -71,13 +71,13 @@
 #' freemanTheta(Breakfast)
 #' 
 #' ### Example from Freeman (1965), Table 10.6
-#'Counts = c(1,2,5,2,0,10,5,5,0,0,0,0,2,2,1,0,0,0,2,3)
-#'Matrix = matrix(Counts, byrow=TRUE, ncol=5,
-#'                dimnames = list(Marital.status=c("Single","Married","Widowed",
-#'                                                 "Divorced"),
-#'                                Social.adjustment = c("5","4","3","2","1")))
-#'Matrix
-#'freemanTheta(Matrix)
+#' Counts = c(1, 2, 5, 2, 0, 10, 5, 5, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 2, 3)
+#' Matrix = matrix(Counts, byrow=TRUE, ncol=5,
+#'                 dimnames = list(Marital.status = c("Single", "Married",
+#'                                                    "Widowed", "Divorced"),
+#'                                 Social.adjustment = c("5","4","3","2","1")))
+#' Matrix
+#' freemanTheta(Matrix)
 #' 
 #' ### Example after Kruskal Wallis test
 #' data(PoohPiglet)
@@ -88,6 +88,17 @@
 #' data(PoohPiglet)
 #' XT = xtabs( ~ Speaker + Likert , data = PoohPiglet)
 #' freemanTheta(XT)
+#' 
+#' ### Example from Freeman (1965), Table 10.7
+#' Counts = c(52, 28, 40, 34, 7, 9, 16, 10, 8, 4, 10, 9, 12,6, 7, 5)
+#' Matrix = matrix(Counts, byrow=TRUE, ncol=4,
+#'                 dimnames = list(Preferred.trait = c("Companionability",
+#'                                                     "PhysicalAppearance",
+#'                                                     "SocialGrace",
+#'                                                     "Intelligence"),
+#'                                 Family.income = c("4", "3", "2", "1")))
+#' Matrix
+#' freemanTheta(Matrix, verbose=TRUE)
 #' 
 #' @importFrom boot boot boot.ci
 #' 
@@ -111,8 +122,8 @@ freemanTheta = function (x, g=NULL, group="row",
         x=as.numeric(Long[,2])
         }
      if(group=="column"){
-        g=factor(Long[,1])
-        x=as.numeric(Long[,2])
+        g=factor(Long[,2])
+        x=as.numeric(Long[,1])
      }
   }
   g = factor(g)

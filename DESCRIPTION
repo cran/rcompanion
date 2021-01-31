@@ -1,6 +1,6 @@
 Package: rcompanion
-Version: 2.3.26
-Date: 2020-11-04
+Version: 2.3.27
+Date: 2021-01-31
 Title: Functions to Support Extension Education Program Evaluation
 Authors@R: 
     c(person(given = "Salvatore",
@@ -25,8 +25,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-11-04 16:13:20 UTC; salma
+Packaged: 2021-01-31 12:15:24 UTC; salma
 Author: Salvatore Mangiafico [aut, cre]
     (<https://orcid.org/0000-0003-4668-6821>)
 Repository: CRAN
-Date/Publication: 2020-11-05 06:20:02 UTC
+Date/Publication: 2021-01-31 14:50:02 UTC

@@ -1,4 +1,4 @@
-47fbd8770188323926d0d6cff6fb1849 *DESCRIPTION
+b6fec8781272700666606c0f3fa68f8b *DESCRIPTION
 abfd2ba1fc546014400219a539ebb68f *NAMESPACE
 aa1e5b971fc101d88e47b8b9e17b8dd8 *R/Data.R
 b381d4c17b21b3d7458a1f8e2ba8fd6f *R/PMCMRTable.r
@@ -15,7 +15,7 @@ da4614dfd8e2efd3be5e63012e15cd44 *R/compareLM.r
 7d00b4005a7770ccda47177d2470bf1d *R/cramerV.r
 f3cc1371bb223965f7369ddc45c77fe8 *R/cramerVFit.r
 dd5874bfe3b548d1d8367e52065c4fc7 *R/epsilonSquared.r
-9a8fc434ec284420be432374ac111171 *R/freemanTheta.r
+cf90c6f2d6894f180fc75d03748030df *R/freemanTheta.r
 e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
 4c5e282e05d5a28fdca63470a18a2414 *R/groupwiseCMH.r
 09da3589bf17682c48e99e2dd7a14b82 *R/groupwiseGeometric.r
@@ -116,7 +116,7 @@ aeda35bce5cf2272d89b9a086a3eb220 *man/compareGLM.Rd
 693e94c57e6729bd6d53d77675e692ff *man/cramerV.Rd
 ea3d34b5e7b7ef51172064f3cdd3196c *man/cramerVFit.Rd
 5cb44f9ea3f1f3376d68ce2296be1421 *man/epsilonSquared.Rd
-8074db62b584191a54bc410c88a79c78 *man/freemanTheta.Rd
+64c370d1dd03040aeb63fd0bde77e929 *man/freemanTheta.Rd
 7142d033198380c7fd6f24f8442dcc84 *man/fullPTable.Rd
 3786c6407bbc9f0c45c0bf64d4199dc0 *man/groupwiseCMH.Rd
 804a7b75ba0697d99b4e64e448c7bb52 *man/groupwiseGeometric.Rd
