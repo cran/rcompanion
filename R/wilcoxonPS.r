@@ -1,6 +1,6 @@
-#' @title Vargha and Delaney's A
+#' @title Grissom and Kim's Probability of Superiority (PS)
 #'
-#' @description Calculates Vargha and Delaney's A (VDA)
+#' @description Calculates Grissom and Kim's Probability of Superiority (PS)
 #'              with confidence intervals by bootstrap
 #' 
 #' @param formula A formula indicating the response variable and
@@ -17,57 +17,58 @@
 #'             Passed to \code{boot.ci}.
 #' @param R The number of replications to use for bootstrap.
 #' @param histogram If \code{TRUE}, produces a histogram of bootstrapped values.
+#' @param digits The number of significant digits in the output.
 #' @param reportIncomplete If \code{FALSE} (the default),
 #'                         \code{NA} will be reported in cases where there
 #'                         are instances of the calculation of the statistic
 #'                         failing during the bootstrap procedure.
-#' @param brute If \code{FALSE}, the default, the statistic is based on the
-#'              U statistic from the \code{wilcox.test} function.
-#'              If \code{TRUE}, the function will compare values
-#'              in the two samples directly.
 #' @param verbose If \code{TRUE}, reports the proportion of ties and
-#'                the proportions of (Ya > Yb) and (Ya < Yb).
-#' @param digits The number of significant digits in the output.      
-#' @param ... Additional arguments passed to the \code{wilcox.test} function. 
+#'                the proportions of (Ya > Yb) and (Ya < Yb).                         
+#' @param ... Additional arguments, not used. 
 #'             
-#' @details VDA is an effect size statistic appropriate
+#' @details PS is an effect size statistic appropriate
 #'          in cases where a Wilcoxon-Mann-Whitney test might be used.
 #'          It ranges from 0 to 1, with 0.5 indicating stochastic equality,
 #'          and 1 indicating that the first group dominates the second.
 #'          
-#'          By default, the function calculates VDA from the "W" U statistic
-#'          from the \code{wilcox.test} function.
-#'          Specifically, \code{VDA = U/(n1*n2)}.
+#'          PS is defined as P(Ya > Yb), with no provision made for tied values
+#'          across groups.
+#'          
+#'          If there are no tied values, PS will be equal to VDA. 
 #'            
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{y}. If there are more than two groups,
 #'          only the first two groups are used.
 #'          
-#'          Currently, the function makes no provisions for \code{NA}
-#'          values in the data.  It is recommended that \code{NA}s be removed
-#'          beforehand.
+#'           Currently, the function makes no provisions for \code{NA}
+#'           values in the data.  It is recommended that \code{NA}s be removed
+#'           beforehand.
 #'           
-#'          When the data in the first group are greater than
-#'          in the second group, VDA is greater than 0.5.
-#'          When the data in the second group are greater than
-#'          in the first group, VDA is less than 0.5.
-#'          
-#'          Be cautious with this interpretation, as R will alphabetize
-#'          groups in the formula interface if the grouping variable
-#'          is not already a factor.
+#'           When the data in the first group are greater than
+#'           in the second group, PS is greater than 0.5.
+#'           When the data in the second group are greater than
+#'           in the first group, PS is less than 0.5.
+#'           
+#'           Be cautious with this interpretation, as R will alphabetize
+#'           groups in the formula interface if the grouping variable
+#'           is not already a factor.
 #'
-#'          When VDA is close to 0 or close to 1,
-#'          or with small sample size,
-#'          the confidence intervals 
-#'          determined by this
-#'          method may not be reliable, or the procedure may fail.
+#'           When PS is close to 0 or close to 1,
+#'           or with small sample size,
+#'           the confidence intervals 
+#'           determined by this
+#'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_04.html}
-#' @seealso \code{\link{cliffDelta}}, \code{\link{multiVDA}}
+#' @references Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research. 2nd ed. 
+#'             Routledge, New York.
+#'             
+#'             \url{http://rcompanion.org/handbook/F_04.html}
+#'             
+#' @seealso \code{\link{cliffDelta}}, \code{\link{vda}}
 #' @concept effect size
-#' @return A single statistic, VDA.
-#'         Or a small data frame consisting of VDA,
+#' @return A single statistic, PS.
+#'         Or a small data frame consisting of PS,
 #'         and the lower and upper confidence limits.
 #'         
 #' @note    The parsing of the formula is simplistic. 
@@ -78,17 +79,16 @@
 #'          
 #' @examples
 #' data(Catbus)
-#' vda(Steps ~ Sex, data=Catbus)
+#' wilcoxonPS(Steps ~ Sex, data=Catbus, verbose=TRUE)
 #' 
-#' @importFrom stats wilcox.test
 #' @importFrom boot boot boot.ci
 #' 
 #' @export
 
-vda = 
+wilcoxonPS = 
  function(formula=NULL, data=NULL, x=NULL, y=NULL, 
-          ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, 
-          reportIncomplete=FALSE, brute=FALSE, verbose=FALSE, digits=3,
+          ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, digits=3,
+          reportIncomplete=FALSE, verbose=FALSE,
           ...){
 
   if(!is.null(formula)){
@@ -105,36 +105,26 @@ vda =
    g = factor(c(rep("A", length(A)), rep("B", length(B))))
   }
 
-  if(brute==FALSE){
-  n1  = as.numeric(length(A))
-  n2  = as.numeric(length(B))
-  U   = suppressWarnings(wilcox.test(x=A, y=B, ...))$statistic
-  VDA = signif(U / (n1 * n2), digits=digits)
-  }
-
-  if(brute==TRUE){
     Matrix = outer(A,B,FUN="-")
-    Diff   = ifelse(Matrix==0, 0.5, Matrix>0)
-    VDA    = signif(mean(Diff), digits=digits)
-  }
+    Diff   = Matrix>0
+    PS    = signif(mean(Diff), digits=digits)
+    
+    if(verbose){
+      Out = data.frame(
+            Statistic = c("Proportion Ya > Yb","Proportion Ya < Yb",
+                          "Proportion ties"),
+            Value     = c(signif(mean(Matrix>0), digits=3),
+                          signif(mean(Matrix<0), digits=3),
+                          signif(mean(Matrix==0), digits=3))
+            )
+      cat("\n")
+      print(Out)
+      cat("\n")
+    }
   
-   if(verbose){
-     Matrix = outer(A,B,FUN="-")
-     Out = data.frame(
-       Statistic = c("Proportion Ya > Yb","Proportion Ya < Yb",
-                     "Proportion ties"),
-       Value     = c(signif(mean(Matrix>0), digits=3),
-                     signif(mean(Matrix<0), digits=3),
-                     signif(mean(Matrix==0), digits=3))
-     )
-     cat("\n")
-     print(Out)
-     cat("\n")
-   } 
-  
-  if(ci==TRUE){
-  Data = data.frame(x,g)
-  Function = function(input, index){
+if(ci==TRUE){
+Data = data.frame(x,g)
+Function = function(input, index){
                     Input = input[index,]
                     if(length(unique(droplevels(Input$g)))==1){
                        FLAG=1
@@ -142,23 +132,13 @@ vda =
                     
                     if(length(unique(droplevels(Input$g)))>1){
                       
-                      if(brute==FALSE){
-                      U = suppressWarnings(wilcox.test(x ~ g, 
-                                         data=Input, ...))$statistic
-                      n1  = length(Input$x[Input$g==levels(Input$g)[1]])
-                      n2  = length(Input$x[Input$g==levels(Input$g)[2]])
-                      p   = U / (n1 * n2)
-                      FLAG=0}
-                      
-                      if(brute==TRUE){
                       Matrix = outer(Input$x[Input$g==levels(Input$g)[1]],
                                      Input$x[Input$g==levels(Input$g)[2]],
                                      FUN="-")
-                         Diff   = ifelse(Matrix==0, 0.5, Matrix>0)
+                         Diff   = Matrix>0
                          p      = mean(Diff)
-                         FLAG=0}
-                      
-                      return(c(p, FLAG))}}
+                         FLAG=0
+                         return(c(p, FLAG))}}
   
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
@@ -172,11 +152,11 @@ vda =
   CI1=signif(CI1, digits=digits)
   CI2=signif(CI2, digits=digits)
   
-  if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray",
-                      main="", xlab="VDA")}
+   if(histogram==TRUE){hist(Boot$t[,1], col = "darkgray",
+                      main="", xlab="PS")}
 }
   
-  if(ci==FALSE){names(VDA)="VDA"; return(VDA)}
-  if(ci==TRUE){names(VDA) = ""
-             return(data.frame(VDA=VDA, lower.ci=CI1, upper.ci=CI2))}
+  if(ci==FALSE){names(PS)="PS"; return(PS)}
+  if(ci==TRUE){names(PS) = ""
+             return(data.frame(PS=PS, lower.ci=CI1, upper.ci=CI2))}
  }

@@ -48,6 +48,7 @@
 #'           in the second group, rg is positive.
 #'           When the data in the second group are greater than
 #'           in the first group, rg is negative.
+#'           
 #'           Be cautious with this interpretation, as R will alphabetize
 #'           groups if \code{g} is not already a factor.
 #'           
@@ -60,6 +61,9 @@
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references King, B.M., P.J. Rosopa, and E.W. Minium. 2011. 
 #'             Statistical Reasoning in the Behavioral Sciences, 6th ed.
+#'             
+#'             \url{http://rcompanion.org/handbook/F_04.html}
+#'             
 #' @seealso \code{\link{wilcoxonR}}
 #' @concept correlation effect size ordinal nominal
 #' @return A single statistic, rg.  

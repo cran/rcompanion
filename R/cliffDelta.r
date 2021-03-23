@@ -17,11 +17,17 @@
 #'             Passed to \code{boot.ci}.
 #' @param R The number of replications to use for bootstrap.
 #' @param histogram If \code{TRUE}, produces a histogram of bootstrapped values.
-#' @param digits The number of significant digits in the output.
 #' @param reportIncomplete If \code{FALSE} (the default),
 #'                         \code{NA} will be reported in cases where there
 #'                         are instances of the calculation of the statistic
 #'                         failing during the bootstrap procedure.
+#' @param brute If \code{FALSE}, the default, the statistic is based on the
+#'              U statistic from the \code{wilcox.test} function.
+#'              If \code{TRUE}, the function will compare values
+#'              in the two samples directly.
+#' @param verbose If \code{TRUE}, reports the proportion of ties and
+#'                the proportions of (Ya > Yb) and (Ya < Yb).
+#' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments passed to the \code{wilcox.test} function. 
 #'             
 #' @details Cliff's delta is an effect size statistic appropriate
@@ -30,7 +36,7 @@
 #'          and 1 indicating that the first group dominates the second.
 #'          It is linearly related to Vargha and Delaney's A.
 #'           
-#'          The function calculates Cliff's delta from the "W" 
+#'          By default, the function calculates Cliff's delta from the "W" 
 #'          U statistic from the
 #'          \code{wilcox.test} function.
 #'          Specifically, \code{VDA = U/(n1*n2); CD = (VDA-0.5)*2}.
@@ -47,6 +53,7 @@
 #'           in the second group, Cliff's delta is positive.
 #'           When the data in the second group are greater than
 #'           in the first group, Cliff's delta is negative.
+#'           
 #'           Be cautious with this interpretation, as R will alphabetize
 #'           groups in the formula interface if the grouping variable
 #'           is not already a factor.
@@ -82,8 +89,8 @@
 
 cliffDelta = 
  function(formula=NULL, data=NULL, x=NULL, y=NULL, 
-          ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, digits=3,
-          reportIncomplete=FALSE,
+          ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, 
+          reportIncomplete=FALSE, brute=FALSE, verbose=FALSE, digits=3,
           ...){
 
   if(!is.null(formula)){
@@ -100,12 +107,34 @@ cliffDelta =
    g = factor(c(rep("A", length(A)), rep("B", length(B))))
   }
    
+  if(brute==FALSE){
   n1  = length(A)
   n2  = length(B)
   U   = suppressWarnings(wilcox.test(x=A, y=B, ...))$statistic
   VDA = U / (n1 * n2) 
   CD = signif((VDA-0.5)*2, digits=digits)
-  
+  }
+   
+  if(brute==TRUE){
+  Matrix = outer(A,B,FUN="-")
+  Diff   = ifelse(Matrix==0, 0.5, Matrix>0)
+  VDA    = mean(Diff)
+  CD = signif((VDA-0.5)*2, digits=digits)
+  }
+   
+  if(verbose){
+    Matrix = outer(A,B,FUN="-")
+     Out = data.frame(
+       Statistic = c("Proportion Ya > Yb","Proportion Ya < Yb",
+                     "Proportion ties"),
+       Value     = c(signif(mean(Matrix>0), digits=3),
+                     signif(mean(Matrix<0), digits=3),
+                     signif(mean(Matrix==0), digits=3))
+     )
+     cat("\n")
+     print(Out)
+     cat("\n")
+   }
   
   if(ci==TRUE){
   Data = data.frame(x,g)
@@ -113,8 +142,12 @@ cliffDelta =
                     Input = input[index,]
                     if(length(unique(droplevels(Input$g)))==1){
                        FLAG=1
-                       return(c(NA,FLAG))}  
+                       return(c(NA,FLAG))
+                    }  
+                    
                     if(length(unique(droplevels(Input$g)))>1){
+                      
+                      if(brute==FALSE){
                        U = suppressWarnings(wilcox.test(x ~ g, 
                                             data=Input, ...))$statistic
                        n1  = length(Input$x[Input$g==levels(Input$g)[1]])
@@ -122,6 +155,18 @@ cliffDelta =
                        p   = U / (n1 * n2)
                        cd  = (p-0.5)*2
                        FLAG=0
+                       }
+                      
+                      if(brute==TRUE){
+                        Matrix = outer(Input$x[Input$g==levels(Input$g)[1]],
+                                       Input$x[Input$g==levels(Input$g)[2]],
+                                       FUN="-")
+                        Diff   = ifelse(Matrix==0, 0.5, Matrix>0)
+                        p      = mean(Diff)
+                        cd  = (p-0.5)*2
+                        FLAG=0
+                        }
+                      
                        return(c(cd, FLAG))}}
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)

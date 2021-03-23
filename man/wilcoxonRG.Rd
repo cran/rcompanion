@@ -88,6 +88,7 @@ rg  is calculated as 2 times the difference of mean of ranks
           in the second group, rg is positive.
           When the data in the second group are greater than
           in the first group, rg is negative.
+          
           Be cautious with this interpretation, as R will alphabetize
           groups if \code{g} is not already a factor.
           
@@ -120,6 +121,8 @@ wilcoxonRG(x = Y, g = Group, verbose=TRUE)
 \references{
 King, B.M., P.J. Rosopa, and E.W. Minium. 2011. 
             Statistical Reasoning in the Behavioral Sciences, 6th ed.
+            
+            \url{http://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
 \code{\link{wilcoxonR}}

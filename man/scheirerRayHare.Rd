@@ -53,6 +53,9 @@ The Scheirer Ray Hare test is a nonparametric test used for a
          One might consider using aligned ranks transformation anova
          instead of the Scheirer Ray Hare test.
          
+         Note that for unbalanced designs, a type-I sum-of-squares
+         approach is used, as in a call to \code{anova(lm())}.
+         
          The input should include either \code{formula} and \code{data};
          or \code{y}, \code{x1}, and \code{x2}.
          

@@ -73,6 +73,7 @@ It is recommended that \code{NA}s be removed
           in the second group, rc is positive.
           When the data in the second group are greater than
           in the first group, rc is negative.
+          
           Be cautious with this interpretation, as R will alphabetize
           groups if \code{g} is not already a factor.
           
@@ -110,6 +111,8 @@ wilcoxonPairedRC(x = Y, g = Group, verbose=TRUE, zero.method="none")
 \references{
 King, B.M., P.J. Rosopa, and E.W. Minium. 2011. 
             Statistical Reasoning in the Behavioral Sciences, 6th ed.
+            
+            \url{https://rcompanion.org/handbook/F_06.html}
 }
 \seealso{
 \code{\link{wilcoxonPairedR}}
