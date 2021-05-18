@@ -1,4 +1,4 @@
-#' @title Exact and Monte Carlo symmetry tests for paired contingency tables
+#' @title Exact and McNemar symmetry tests for paired contingency tables
 #'
 #' @description Conducts an omnibus symmetry test for a paired 
 #'              contingency table and then post-hoc pairwise tests.  
@@ -10,17 +10,17 @@
 #'          more levels for each dimension.
 #' @param method The method to adjust multiple p-values. 
 #'               See \code{stats::p.adjust}.
+#' @param exact If \code{TRUE}, uses the \code{binom.test} function.
+#'              If \code{FALSE}, uses the \code{mcnemar.test} function.               
 #' @param digits The number of significant digits in the output.
-#' @param ... Additional arguments, passed to \code{EMT::multinomial.test}.
+#' @param ... Additional arguments
 #' 
-#' @details If Monte Carlo is not used, the test of symmetry uses
-#'          an exact test by conducting either a binomial 
-#'          or multinomial goodness-of-fit test.
+#' @details The omnibus McNemar test
+#'          may fail when there are zeros in critical
+#'          cells.
 #'          
-#'          These are equivalent to uncorrected 
-#'          McNemar and McNemar-Bowker tests,
-#'          but will not fail when there are zeros in critical
-#'          cells, as will the \code{mcnemar.test} function.
+#'          Currently, the \code{exact=TRUE} with a table greater
+#'          than 2 x 2 will not produce an omnibus test result. 
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_05.html}
@@ -38,25 +38,17 @@
 #' data(AndersonRainBarrel)
 #' nominalSymmetryTest(AndersonRainBarrel)
 #'                     
-#' ### 3 x 3 repeated matrix example with Monte Carlo
+#' ### 3 x 3 repeated matrix example
 #' data(AndersonRainGarden)
 #' nominalSymmetryTest(AndersonRainGarden,
-#'                     MonteCarlo = TRUE,
-#'                     ntrial     = 10000)
-#'                     
-#'### 4 x 4 repeated matrix example that fails with mcnemar.test
-#' data(Religion)
-#' nominalSymmetryTest(Religion,
-#'                     MonteCarlo = TRUE,
-#'                     ntrial     = 10000)
+#'                     exact = FALSE)
 #'                                                               
 #' @importFrom stats binom.test p.adjust
-#' @importFrom EMT multinomial.test
 #' 
 #' @export
 
 nominalSymmetryTest = 
-  function(x, method="fdr", digits=3, ...)
+  function(x, method="fdr", digits=3, exact=FALSE, ...)
   {
      n = nrow(x)
      m = ncol(x)
@@ -75,17 +67,31 @@ nominalSymmetryTest =
          }
      }
   if(n>2){
-     p.value=signif(multinomial.test(X,Y,...)$p.value, digits=digits)
+    if(exact){
+      p.value=NA
+      }
+    if(!exact){
+      p.value=signif(mcnemar.test(x)$p.value, digits=digits)
+      }
      cat("\n")
      }
   if(n==2){
-     p.value=signif(binom.test(X[1], sum(X), 0.5)$p.value, digits=digits)
+     if(exact){
+       p.value=signif(binom.test(X[1], sum(X), 0.5)$p.value, digits=digits)
+       }
+    if(!exact){
+      p.value=signif(mcnemar.test(x)$p.value, digits=digits)
+      }
      cat("\n")}
   Dimensions = paste(n, "x", n)
   if(n==2){
      V = data.frame(Dimensions, p.value)
-     W = list(V)
-     names(W) = c("Global.test.for.symmetry")
+     if(exact){Method="binomial test"}
+     if(!exact){Method="McNemar test"}
+     S = data.frame(Method)
+     W = list(V, S)
+     names(W) = c("Global.test.for.symmetry",
+                  "Statistical.method")
      return(W)
    }   
   if(n>2){
@@ -103,10 +109,19 @@ nominalSymmetryTest =
            Namec = as.character(rownames(x)[j])
            Named = as.character(colnames(x)[j])
            a = x[i,j]
-           b = x[i,j]+x[j,i]
-           if(b>0){P = signif(binom.test(a, b, 0.5)$p.value, digits=digits)}
-           if(b==0){P = NA}
-           if(b<0){P = NA}
+           b = x[j,i]
+           d = x[i,j]+x[j,i]
+           if(d>0){
+             if(exact){
+               P = signif(binom.test(a, d, 0.5)$p.value, digits=digits)
+               }
+             if(!exact){
+               M=matrix(c(0, a, b, 0), nrow=2)
+               P = signif(mcnemar.test(M)$p.value, digits=digits)
+               }
+             }
+           if(d==0){P = NA}
+           if(d<0){P = NA}
            P.adjust = NA
            Z[k,] =c( paste0(Namea, "/", Nameb, " : ", Namec, "/", Named), 
                      P, P.adjust)
@@ -115,10 +130,14 @@ nominalSymmetryTest =
      Z$p.adjust = signif(p.adjust(Z$p.value, method = method), digits=digits) 
      V = data.frame(Dimensions, p.value)
      U = data.frame(Method=method)
-     W = list(V, Z, U)
+     if(exact){Method="binomial test"}
+     if(!exact){Method="McNemar test"}
+     S = data.frame(Method)
+     W = list(V, Z, U, S)
      names(W) = c("Global.test.for.symmetry",
                   "Pairwise.symmetry.tests",
-                  "p.adjustment")
+                  "p.adjustment",
+                  "statistical.method")
      return(W)
   }
   }

@@ -9,6 +9,8 @@ groupwiseMean(
   data = NULL,
   var = NULL,
   group = NULL,
+  trim = 0,
+  na.rm = FALSE,
   conf = 0.95,
   R = 5000,
   boot = FALSE,
@@ -32,6 +34,12 @@ the grouping variables. e.g. y ~ x1 + x2.}
 \item{group}{The grouping variable to use. The name is in double quotes.
 Multiple names are listed as a vector. (See example.)}
 
+\item{trim}{The proportion of observations trimmed from each end of the
+values before the mean is calculated. (As in \code{mean()})}
+
+\item{na.rm}{If \code{TRUE}, \code{NA} values are removed during 
+calculations. (As in \code{mean()})}
+
 \item{conf}{The confidence interval to use.}
 
 \item{R}{The number of bootstrap replicates to use for bootstrapped
@@ -42,7 +50,13 @@ This can be used as an estimate of the mean for
 the group.}
 
 \item{traditional}{If \code{TRUE}, includes the traditional confidence
-intervals for the group means, using the t-distribution.}
+intervals for the group means, using the t-distribution.
+If \code{trim} is not 0, 
+the traditional confidence interval
+will produce \code{NA}.
+Likewise, if there are \code{NA} values that are not
+removed, the traditional confidence interval
+will produce \code{NA}.}
 
 \item{normal}{If \code{TRUE}, includes the normal confidence
 intervals for the group means by bootstrap.
@@ -75,17 +89,26 @@ Calculates means and confidence intervals for
 The input should include either \code{formula} and \code{data};
              or \code{data}, \code{var}, and \code{group}. (See examples).
          
-         With some options, the function may not handle missing values well.
-         This seems to happen particularly with \code{bca = TRUE}.
+         Results for ungrouped (one-sample) data can be obtained by either
+         setting the right side of the formula to 1, e.g.  y ~ 1, or by
+         setting \code{group=NULL} when using \code{var}.
 }
 \note{
 The parsing of the formula is simplistic. The first variable on the
          left side is used as the measurement variable.  The variables on the
          right side are used for the grouping variables.
+       
+         In general, it is advisable to handle \code{NA} values before
+         using this function.
+         With some options, the function may not handle missing values well,
+         or in the manner desired by the user.
+         In particular, if \code{bca=TRUE} and there are \code{NA} values,
+         the function may fail.
          
-       Results for ungrouped (one-sample) data can be obtained by either
-         setting the right side of the formula to 1, e.g.  y ~ 1, or by
-         setting \code{group=NULL}.
+         For a traditional method to calculate confidence intervals 
+         on trimmed means,
+         see Rand Wilcox, Introduction to Robust Estimation and
+         Hypothesis Testing.
 }
 \examples{
 ### Example with formula notation

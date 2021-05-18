@@ -46,15 +46,23 @@ A wrapper for the \code{DescTools::HuberM} function
          
          The input should include either \code{formula} and \code{data};
              or \code{data}, \code{var}, and \code{group}. (See examples).
+             
+         Results for ungrouped (one-sample) data can be obtained by either
+         setting the right side of the formula to 1, e.g.  y ~ 1, or by
+         setting \code{group=NULL}.
 }
 \note{
 The parsing of the formula is simplistic. The first variable on the
          left side is used as the measurement variable.  The variables on the
          right side are used for the grouping variables.          
          
-       Results for ungrouped (one-sample) data can be obtained by either
-         setting the right side of the formula to 1, e.g.  y ~ 1, or by
-         setting \code{group=NULL}.
+         It is recommended to remove \code{NA} values before using this
+         function.  At the time of writing, \code{NA} values will cause the
+         function to fail.
+         
+         At the time of writing, the \code{ci.type="boot"} option
+         produces \code{NA} results. This is a result from the
+         \code{DescTools::HuberM} function.
 }
 \examples{
 ### Example with formula notation

@@ -9,6 +9,10 @@
 #' @param var The measurement variable to use. The name is in double quotes.
 #' @param group The grouping variable to use. The name is in double quotes.
 #'              Multiple names are listed as a vector. (See example.)
+#' @param trim The proportion of observations trimmed from each end of the
+#'             values before the mean is calculated. (As in \code{mean()})
+#' @param na.rm If \code{TRUE}, \code{NA} values are removed during 
+#'              calculations. (As in \code{mean()})
 #' @param conf The confidence interval to use.
 #' @param R The number of bootstrap replicates to use for bootstrapped
 #'          statistics.
@@ -17,6 +21,12 @@
 #'             the group.
 #' @param traditional If \code{TRUE}, includes the traditional confidence
 #'                    intervals for the group means, using the t-distribution.
+#'                    If \code{trim} is not 0, 
+#'                    the traditional confidence interval
+#'                    will produce \code{NA}.
+#'                    Likewise, if there are \code{NA} values that are not
+#'                    removed, the traditional confidence interval
+#'                    will produce \code{NA}. 
 #' @param normal If \code{TRUE}, includes the normal confidence
 #'                    intervals for the group means by bootstrap.
 #'                    See \code{\link{boot.ci}}.
@@ -35,16 +45,25 @@
 #' @details The input should include either \code{formula} and \code{data};
 #'              or \code{data}, \code{var}, and \code{group}. (See examples).
 #'          
-#'          With some options, the function may not handle missing values well.
-#'          This seems to happen particularly with \code{bca = TRUE}.
+#'          Results for ungrouped (one-sample) data can be obtained by either
+#'          setting the right side of the formula to 1, e.g.  y ~ 1, or by
+#'          setting \code{group=NULL} when using \code{var}.
 #'          
-#' @note   The parsing of the formula is simplistic. The first variable on the
+#' @note    The parsing of the formula is simplistic. The first variable on the
 #'          left side is used as the measurement variable.  The variables on the
 #'          right side are used for the grouping variables.
+#'        
+#'          In general, it is advisable to handle \code{NA} values before
+#'          using this function.
+#'          With some options, the function may not handle missing values well,
+#'          or in the manner desired by the user.
+#'          In particular, if \code{bca=TRUE} and there are \code{NA} values,
+#'          the function may fail.
 #'          
-#'        Results for ungrouped (one-sample) data can be obtained by either
-#'          setting the right side of the formula to 1, e.g.  y ~ 1, or by
-#'          setting \code{group=NULL}.                
+#'          For a traditional method to calculate confidence intervals 
+#'          on trimmed means,
+#'          see Rand Wilcox, Introduction to Robust Estimation and
+#'          Hypothesis Testing.                
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/C_03.html}
@@ -76,6 +95,7 @@
 
 groupwiseMean = 
   function(formula=NULL, data=NULL, var=NULL, group=NULL, 
+           trim=0, na.rm=FALSE, 
            conf=0.95, R=5000,
            boot=FALSE, traditional=TRUE,
            normal=FALSE, basic=FALSE,
@@ -87,13 +107,22 @@ groupwiseMean =
     group = all.vars(formula[[3]])
     }
   ####################
-  DF=
-    ddply(.data=data,
+
+    ### Define DF
+    
+    if(na.rm){DF=
+      ddply(.data=data,
           .variables=group, var,
           .fun=function(x, idx){
-               sum(!is.na(x[,idx]))})
+               sum(!is.na(x[,idx]))})}
+    
+    if(!na.rm){DF=
+      ddply(.data=data,
+            .variables=group, var,
+            .fun=function(x, idx){
+              length(x[,idx])})}
   ####################
-  fun1 = function(x, idx){as.numeric(mean(x[,idx], na.rm=TRUE))}
+  fun1 = function(x, idx){as.numeric(mean(x[,idx], trim=trim, na.rm=na.rm))}
   D1=
      ddply(.data=data,
            .variables=group, var,
@@ -101,7 +130,7 @@ groupwiseMean =
   ####################
   if(boot==TRUE){
   fun2 = function(x, idx){mean(boot(x[,idx],
-                            function(y,j) mean(y[j]),
+                            function(y,j) mean(y[j], trim=trim, na.rm=na.rm),
                             R=R, ...)$t[,1])}
   D2=ddply(.data=data,
            .variables=group, var,
@@ -110,11 +139,11 @@ groupwiseMean =
   ####################
   if(basic==TRUE){
   fun4 = function(x, idx){boot.ci(boot(x[,idx],
-                            function(y,j) mean(y[j]),
+                            function(y,j) mean(y[j], trim=trim, na.rm=na.rm),
                             R=R, ...), conf=conf, 
                                     type="basic", ...)$basic[4]}
   fun5 = function(x, idx){boot.ci(boot(x[,idx],
-                            function(y,j) mean(y[j]),
+                            function(y,j) mean(y[j], trim=trim),
                             R=R, ...), conf=conf, 
                                     type="basic", ...)$basic[5]}
   D4=ddply(.data=data,
@@ -127,11 +156,13 @@ groupwiseMean =
   ####################
   if(normal==TRUE){
      fun6 = function(x, idx){boot.ci(boot(x[,idx],
-                                          function(y,j) mean(y[j]),
+                                          function(y,j) mean(y[j], 
+                                                        trim=trim, na.rm=na.rm),
                                           R=R, ...), conf=conf, 
                                      type="norm", ...)$normal[2]}
      fun7 = function(x, idx){boot.ci(boot(x[,idx],
-                                          function(y,j) mean(y[j]),
+                                          function(y,j) mean(y[j], 
+                                                        trim=trim, na.rm=na.rm),
                                           R=R, ...), conf=conf, 
                                      type="norm", ...)$normal[3]}
      D6=ddply(.data=data,
@@ -144,11 +175,13 @@ groupwiseMean =
   ####################
   if(percentile==TRUE){
      fun8 = function(x, idx){boot.ci(boot(x[,idx],
-                                          function(y,j) mean(y[j]),
+                                          function(y,j) mean(y[j],
+                                                        trim=trim, na.rm=na.rm),
                                           R=R, ...), conf=conf, 
                                      type="perc", ...)$percent[4]}
      fun9 = function(x, idx){boot.ci(boot(x[,idx],
-                                          function(y,j) mean(y[j]),
+                                          function(y,j) mean(y[j], 
+                                                        trim=trim, na.rm=na.rm),
                                           R=R, ...), conf=conf, 
                                      type="perc", ...)$percent[5]}
      D8=ddply(.data=data,
@@ -161,11 +194,13 @@ groupwiseMean =
   ####################
   if(bca==TRUE){
      fun10 = function(x, idx){boot.ci(boot(x[,idx],
-                                          function(y,j) mean(y[j]),
+                                          function(y,j) mean(y[j], 
+                                                        trim=trim, na.rm=na.rm),
                                           R=R, ...), conf=conf, 
                                      type="bca", ...)$bca[4]}
      fun11 = function(x, idx){boot.ci(boot(x[,idx],
-                                          function(y,j) mean(y[j]),
+                                          function(y,j) mean(y[j], 
+                                                        trim=trim, na.rm=na.rm),
                                           R=R, ...), conf=conf, 
                                      type="bca", ...)$bca[5]}
      D10=ddply(.data=data,
@@ -178,14 +213,16 @@ groupwiseMean =
   ####################
   if(traditional==TRUE){
      Confy = function (x, ...){
-        S = sd(x)
-        N = length(x)
+        S = sd(x, na.rm=na.rm)
+        if(na.rm){N = length(x[!is.na(x)])}
+        if(!na.rm){N = length(x)}
         Dist = conf + (1 - conf)/2
         Inty = qt(Dist, df = (N - 1)) * S/sqrt(N)
-        return(Inty)
+        if(trim==0){return(Inty)}
+        if(trim != 0){return(NA)}
      }
-     fun12 = function(x, idx){mean(x[,idx])-Confy(x[,idx])}
-     fun13 = function(x, idx){mean(x[,idx])+Confy(x[,idx])}
+     fun12 = function(x, idx){mean(x[,idx], na.rm=na.rm)-Confy(x[,idx])}
+     fun13 = function(x, idx){mean(x[,idx], na.rm=na.rm)+Confy(x[,idx])}
      D12=ddply(.data=data,
                .variables=group, var,
                .fun=fun12)                    

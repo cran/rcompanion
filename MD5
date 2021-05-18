@@ -1,5 +1,5 @@
-022cb8debf43ebfb7cb8ffec0051d7ef *DESCRIPTION
-c6cc7d46eb1b271d344c7dece160a64e *NAMESPACE
+8abee25996a4c03735ee1ac8d2ae5838 *DESCRIPTION
+d9348d7aa74e9b70f4428f1b5ef5d397 *NAMESPACE
 aa1e5b971fc101d88e47b8b9e17b8dd8 *R/Data.R
 b381d4c17b21b3d7458a1f8e2ba8fd6f *R/PMCMRTable.r
 0366685bc89178881596d1872026886f *R/accuracy.r
@@ -19,8 +19,8 @@ cf90c6f2d6894f180fc75d03748030df *R/freemanTheta.r
 e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
 4c5e282e05d5a28fdca63470a18a2414 *R/groupwiseCMH.r
 09da3589bf17682c48e99e2dd7a14b82 *R/groupwiseGeometric.r
-0fee65494eebfa8fcf53678a298459d9 *R/groupwiseHuber.r
-e15560b1d51e7d98a813b6b9b698ad62 *R/groupwiseMean.r
+a9df9fcdc5f96af4634bb382dfdb61a6 *R/groupwiseHuber.r
+029d49a64be9861cf9fc9ce1526ac584 *R/groupwiseMean.r
 161b1b0dcf0543e96438bfbd7c34a179 *R/groupwiseMedian.r
 10dee3e67853b6bfa7dddc24bdf032b8 *R/groupwisePercentile.r
 b3c8e7e1bcb1ac147a89686f547b9ec4 *R/groupwiseSum.r
@@ -28,7 +28,7 @@ fc05e93ecef126d5d138c862cae3d5ad *R/kendallW.r
 c2fd53fdaf3220c06b12f6c378b44b21 *R/multiVDA.r
 def8b9d56aff77f8d845988b32bc81ed *R/nagelkerke.r
 a8bd77dde3ced805beb23e7841aab88a *R/nagelkerkeHermite.r
-d702dce35863601ee20587d22b58652b *R/nominalSymmetryTest.r
+1cae4acba7c10a3405ae53d2fa450d65 *R/nominalSymmetryTest.r
 38484ba48a4285645d3c31e85efa0daa *R/ordinalEtaSquared.r
 ac60fe5466507859e5436784da873d69 *R/pairwiseDifferences.r
 e127e30f6b6f916241e1d806771491d9 *R/pairwiseMcnemar.r
@@ -122,8 +122,8 @@ ea3d34b5e7b7ef51172064f3cdd3196c *man/cramerVFit.Rd
 7142d033198380c7fd6f24f8442dcc84 *man/fullPTable.Rd
 3786c6407bbc9f0c45c0bf64d4199dc0 *man/groupwiseCMH.Rd
 804a7b75ba0697d99b4e64e448c7bb52 *man/groupwiseGeometric.Rd
-b61a06d97ebd3541ea2b94a6bd1e2dd1 *man/groupwiseHuber.Rd
-623323b07e9c3bc98217f28eb4393f46 *man/groupwiseMean.Rd
+26fe2dd09e411602f54dc635fff33d43 *man/groupwiseHuber.Rd
+73d7d30fe95b94768812e643fd54b82c *man/groupwiseMean.Rd
 d19a596b458fb426ec9280e4cfbb2efa *man/groupwiseMedian.Rd
 67208e8b4c2259e9390a00194815f715 *man/groupwisePercentile.Rd
 9ff75daec9ff11f69c515f09069a8b12 *man/groupwiseSum.Rd
@@ -131,7 +131,7 @@ fd71f8a2d495d30d9e42f78d3b13b9ce *man/kendallW.Rd
 0c5470cf76c0e69ce1e5a53c2ba90e00 *man/multiVDA.Rd
 3fd68226febaaf1e2c9138d7f5cb2449 *man/nagelkerke.Rd
 3d7bb10761dc930624b81c761e5b499e *man/nagelkerkeHermite.Rd
-b2da740c5deda70ff61cf6a7a086c15e *man/nominalSymmetryTest.Rd
+be543641da6c2859fa58fd56aa19da74 *man/nominalSymmetryTest.Rd
 82b286d73f7aa197460728e556fa18f9 *man/ordinalEtaSquared.Rd
 b2d230c1d0c4820348318794c83d7ac2 *man/pairwiseDifferences.Rd
 2ac8315fec367f509a23088abf4f343c *man/pairwiseMcnemar.Rd

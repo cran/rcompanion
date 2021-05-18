@@ -2,9 +2,9 @@
 % Please edit documentation in R/nominalSymmetryTest.r
 \name{nominalSymmetryTest}
 \alias{nominalSymmetryTest}
-\title{Exact and Monte Carlo symmetry tests for paired contingency tables}
+\title{Exact and McNemar symmetry tests for paired contingency tables}
 \usage{
-nominalSymmetryTest(x, method = "fdr", digits = 3, ...)
+nominalSymmetryTest(x, method = "fdr", digits = 3, exact = FALSE, ...)
 }
 \arguments{
 \item{x}{A two-way contingency table. It must be square. 
@@ -16,7 +16,10 @@ See \code{stats::p.adjust}.}
 
 \item{digits}{The number of significant digits in the output.}
 
-\item{...}{Additional arguments, passed to \code{EMT::multinomial.test}.}
+\item{exact}{If \code{TRUE}, uses the \code{binom.test} function.
+If \code{FALSE}, uses the \code{mcnemar.test} function.}
+
+\item{...}{Additional arguments}
 }
 \value{
 A list containing: a data frame of results of the global test;
@@ -30,31 +33,22 @@ Conducts an omnibus symmetry test for a paired
              McNemar and McNemar-Bowker tests in use.
 }
 \details{
-If Monte Carlo is not used, the test of symmetry uses
-         an exact test by conducting either a binomial 
-         or multinomial goodness-of-fit test.
+The omnibus McNemar test
+         may fail when there are zeros in critical
+         cells.
          
-         These are equivalent to uncorrected 
-         McNemar and McNemar-Bowker tests,
-         but will not fail when there are zeros in critical
-         cells, as will the \code{mcnemar.test} function.
+         Currently, the \code{exact=TRUE} with a table greater
+         than 2 x 2 will not produce an omnibus test result.
 }
 \examples{
 ### 2 x 2 repeated matrix example
 data(AndersonRainBarrel)
 nominalSymmetryTest(AndersonRainBarrel)
                     
-### 3 x 3 repeated matrix example with Monte Carlo
+### 3 x 3 repeated matrix example
 data(AndersonRainGarden)
 nominalSymmetryTest(AndersonRainGarden,
-                    MonteCarlo = TRUE,
-                    ntrial     = 10000)
-                    
-### 4 x 4 repeated matrix example that fails with mcnemar.test
-data(Religion)
-nominalSymmetryTest(Religion,
-                    MonteCarlo = TRUE,
-                    ntrial     = 10000)
+                    exact = FALSE)
                                                               
 }
 \references{
