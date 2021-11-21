@@ -74,7 +74,7 @@ The input should include either \code{formula} and \code{data};
           function in the \code{multcompView} package. The text for the
           comparisons
           passed to \code{multcompLetters} should be in the form
-          "Treat.A-Treat.B".  Currently \code{cldList} removes
+          "Treat.A-Treat.B".  Currently by default \code{cldList} removes
           spaces, equal signs, and zeros, by default, 
           and so can use 
           text in the form e.g.
@@ -88,21 +88,32 @@ The parsing of the formula is simplistic.
          The first variable on the
          left side is used as the measurement variable.  
          The first variable on the
-         right side is used for the grouping variable.
+         right side is used for the grouping variable.  
+     
+      It is often helpful to reorder the factor levels in the data
+      set so that the group with the largest e.g.
+      mean or median is first, and so on.
 }
 \examples{
-data(PoohPiglet)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
-                            levels=c("Pooh", "Tigger", "Piglet"))
-library(FSA)
-DT = dunnTest(Likert ~ Speaker,
-              data=PoohPiglet,
-              method="bh")
-DT = DT$res
-DT
-cldList(P.adj ~ Comparison,
-        data      = DT,
-        threshold = 0.05)
+data(BrendonSmall)
+
+model = aov(Calories ~ Instructor, data=BrendonSmall)
+
+TUK = TukeyHSD(model, "Instructor", ordered = TRUE)
+
+### Convert the TukeyHSD output to a standard data frame
+
+TUK = as.data.frame(TUK$Instructor)
+names(TUK) = gsub(" ", ".", names(TUK))
+
+HSD = data.frame(Comparison=row.names(TUK), 
+                 diff=TUK$diff, lwr=TUK$lwr, lwr=TUK$lwr, p.adj=TUK$p.adj)
+
+HSD
+
+cldList(p.adj ~ Comparison, data = HSD,
+        threshold = 0.05,
+        remove.space=FALSE)
 
 }
 \references{

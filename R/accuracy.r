@@ -94,7 +94,7 @@
 #' @export
 
 accuracy = 
-function (fits, plotit=TRUE, digits=3, ...) 
+function (fits, plotit=FALSE, digits=3, ...) 
 {
  n = length(fits)
  Y = matrix(rep(NA,n),
@@ -216,7 +216,6 @@ function (fits, plotit=TRUE, digits=3, ...)
      Var = sum((actual - mean(actual))^2)
      RSS = sum((actual - predy)^2)
      var_r_squared = 1 - RSS / Var
-     cv_prcnt      = nrmse_mean*100
 
      Z[i,]=rep(NA,11)
      if(TOGGLE==TRUE){

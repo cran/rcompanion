@@ -6,7 +6,7 @@
        root mean square error, coefficient of variation,
        and Efron's pseudo r-squared}
 \usage{
-accuracy(fits, plotit = TRUE, digits = 3, ...)
+accuracy(fits, plotit = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{fits}{A series of model object names. Must be a list.}

@@ -1,7 +1,7 @@
 #' @title Pseudo r-squared measures for various models
 #'
 #' @description Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
-#'              R-squared measures, along with p-values, for models.
+#'              r-squared measures, along with p-values, for models.
 #' 
 #' @param fit The fitted model object for which to determine pseudo r-squared.
 #' @param null The null model object against which to compare the fitted model 
@@ -60,10 +60,10 @@
 #' @concept pseudo r-squared cox snell nagelkerke likelihood
 #' @return A list of six objects describing the models used, the pseudo 
 #'         r-squared values, the likelihood ratio test for the model,
-#'         the number of obervaton for the models,
+#'         the number of observations for the models,
 #'         messages, and any warnings.
 #'
-#' @section Acknowledgements:
+#' @section Acknowledgments:
 #'          My thanks to
 #'          Jan-Herman Kuiper of Keele University for suggesting
 #'          the \code{restrictNobs} fix.

@@ -22,12 +22,12 @@ Works with only some model object types.}
 \value{
 A list of six objects describing the models used, the pseudo 
         r-squared values, the likelihood ratio test for the model,
-        the number of obervaton for the models,
+        the number of observations for the models,
         messages, and any warnings.
 }
 \description{
 Produces McFadden, Cox and Snell, and Nagelkerke pseudo 
-             R-squared measures, along with p-values, for models.
+             r-squared measures, along with p-values, for models.
 }
 \details{
 Pseudo R-squared values are not directly comparable to the  
@@ -72,7 +72,7 @@ Pseudo R-squared values are not directly comparable to the
           Calculations are based on log likelihood values for models.
           Results may be different than those based on deviance.
 }
-\section{Acknowledgements}{
+\section{Acknowledgments}{
 
          My thanks to
          Jan-Herman Kuiper of Keele University for suggesting
