@@ -78,8 +78,8 @@
 #' wilcoxonRG(Table)
 #' 
 #' data(Catbus)
-#' wilcox.test(Steps ~ Sex, data = Catbus)
-#' wilcoxonRG(x = Catbus$Steps, g = Catbus$Sex)
+#' wilcox.test(Steps ~ Gender, data = Catbus)
+#' wilcoxonRG(x = Catbus$Steps, g = Catbus$Gender)
 #' 
 #' ### Example from King, Rosopa, and Minium
 #' Criticism = c(-3, -2, 0, 0, 2, 5, 7, 9)

@@ -104,10 +104,9 @@ epsilonSquared(XT)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/H_11.html}
-}
-\seealso{
-\code{\link{freemanTheta}}
+King, B.M., P.J. Rosopa, and E.W. Minium. 2018. 
+            Statistical Reasoning in the Behavioral Sciences, 7th ed. Wiley.;
+            \url{http://rcompanion.org/handbook/F_08.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

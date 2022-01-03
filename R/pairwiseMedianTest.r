@@ -11,18 +11,22 @@
 #'               See \code{stats::p.adjust}.
 #' @param digits The number of significant digits to round output.
 #' @param ...    Additional arguments passed to
-#'               code{coin::median_test}.               
+#'               \code{coin::median_test}.               
 #'             
 #' @details The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{g}.
 #'          
 #'          Mood's median test compares medians among two or more groups.
 #'          See \url{http://rcompanion.org/handbook/F_09.html} for
-#'          futher discussion of this test.
+#'          further discussion of this test.
 #' 
 #'          The \code{pairwiseMedianTest} function
 #'          can be used as a post-hoc method following an omnibus Mood's
-#'          median test.
+#'          median test.  It passes the data for pairwise groups to
+#'          \code{coin::median_test}.
+#'          
+#'          The output can be converted to a compact letter display,
+#'          as in the example.  
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_09.html}
@@ -82,7 +86,6 @@ pairwiseMedianTest =
      Datay = subset(d, g==levels(g)[j])
      Dataz = rbind(Datax, Datay)
      Dataz$g2 = factor(Dataz$g)
-     print(Dataz)
      z = median_test(x ~ g2, data=Dataz, ...)
      P = signif(pvalue(z)[1], digits=digits)
      P.adjust = NA                       

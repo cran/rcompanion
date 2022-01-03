@@ -113,7 +113,7 @@ The parsing of the formula is simplistic.
 }
 \examples{
 data(Catbus)
-vda(Steps ~ Sex, data=Catbus)
+vda(Steps ~ Gender, data=Catbus)
 
 }
 \references{

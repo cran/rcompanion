@@ -75,7 +75,7 @@
 #'          
 #' @examples
 #' data(Catbus)
-#' wilcoxonOR(Steps ~ Sex, data=Catbus, verbose=TRUE)
+#' wilcoxonOR(Steps ~ Gender, data=Catbus, verbose=TRUE)
 #' 
 #' @importFrom boot boot boot.ci
 #' 

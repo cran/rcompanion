@@ -78,7 +78,7 @@
 #'          
 #' @examples
 #' data(Catbus)
-#' vda(Steps ~ Sex, data=Catbus)
+#' vda(Steps ~ Gender, data=Catbus)
 #' 
 #' @importFrom stats wilcox.test
 #' @importFrom boot boot boot.ci

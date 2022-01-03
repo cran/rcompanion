@@ -67,7 +67,7 @@ The parsing of the formula is simplistic. The first variable on the
 \examples{
 ### Example with formula notation
 data(Catbus)
-groupwiseHuber(Steps ~ Teacher + Sex,
+groupwiseHuber(Steps ~ Teacher + Gender,
                data      = Catbus,
                ci.type   = "wald")
                
@@ -75,7 +75,7 @@ groupwiseHuber(Steps ~ Teacher + Sex,
 data(Catbus)
 groupwiseHuber(data      = Catbus,
                var       = "Steps",
-               group     = c("Teacher", "Sex"),
+               group     = c("Teacher", "Gender"),
                ci.type   = "wald")
                                       
 }

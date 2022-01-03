@@ -115,7 +115,7 @@ The parsing of the formula is simplistic.
 }
 \examples{
 data(Catbus)
-cliffDelta(Steps ~ Sex, data=Catbus)
+cliffDelta(Steps ~ Gender, data=Catbus)
 
 }
 \references{

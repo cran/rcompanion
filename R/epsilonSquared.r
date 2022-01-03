@@ -52,8 +52,9 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/H_11.html}
-#' @seealso \code{\link{freemanTheta}}
+#' @references King, B.M., P.J. Rosopa, and E.W. Minium. 2018. 
+#'             Statistical Reasoning in the Behavioral Sciences, 7th ed. Wiley.;
+#'             \url{http://rcompanion.org/handbook/F_08.html}
 #' @concept correlation epsilon ordinal nominal
 #' @return A single statistic, epsilon-squared.
 #'         Or a small data frame consisting of epsilon-squared,

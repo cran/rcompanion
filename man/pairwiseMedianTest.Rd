@@ -30,7 +30,7 @@ the grouping variable. e.g. y ~ group.}
 See \code{stats::p.adjust}.}
 
 \item{...}{Additional arguments passed to
-code{coin::median_test}.}
+\code{coin::median_test}.}
 }
 \value{
 A dataframe of the groups being compared, the p-values,
@@ -45,11 +45,15 @@ The input should include either \code{formula} and \code{data};
          
          Mood's median test compares medians among two or more groups.
          See \url{http://rcompanion.org/handbook/F_09.html} for
-         futher discussion of this test.
+         further discussion of this test.
 
          The \code{pairwiseMedianTest} function
          can be used as a post-hoc method following an omnibus Mood's
-         median test.
+         median test.  It passes the data for pairwise groups to
+         \code{coin::median_test}.
+         
+         The output can be converted to a compact letter display,
+         as in the example.
 }
 \note{
 The parsing of the formula is simplistic. 

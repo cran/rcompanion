@@ -51,8 +51,11 @@ The input should include either \code{formula} and \code{data};
 
          The \code{pairwiseMedianMatrix} function
          can be used as a post-hoc method following an omnibus Mood's
-         median test.
-         The matrix output can be converted to a compact letter display.
+         median test. It passes the data for pairwise groups to
+         \code{coin::median_test}.
+         
+         The matrix output can be converted to a compact letter display,
+         as in the example.
 }
 \note{
 The parsing of the formula is simplistic. 

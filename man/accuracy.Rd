@@ -2,7 +2,8 @@
 % Please edit documentation in R/accuracy.r
 \name{accuracy}
 \alias{accuracy}
-\title{Minimum maximum accuracy, mean absolute percent error, 
+\title{Minimum maximum accuracy, mean absolute percent error,
+       median absolute error, 
        root mean square error, coefficient of variation,
        and Efron's pseudo r-squared}
 \usage{
@@ -28,9 +29,9 @@ Produces a table of fit statistics for multiple models.
 \details{
 Produces a table of fit statistics for multiple models: 
           minimum maximum accuracy, mean absolute percentage error,
-          root mean square error, normalized root mean square error,
-          accuracy based on normalized root mean square error, Efron's
-          pseudo r-squared, and coefficient of variation.
+          median absolute error,
+          root mean square error, normalized root mean square error, 
+          Efron's pseudo r-squared, and coefficient of variation.
           
           For minimum maximum accuracy, larger indicates
           a better fit, 
@@ -47,19 +48,19 @@ Produces a table of fit statistics for multiple models:
           There are other definitions of MAE and similar-sounding
           terms.
           
+          Median absolute error (MedAE) is similar, except employing
+          the median rather than the mean.
+          
           For mean absolute percent error (MAPE), smaller
           indicates a better fit,
-          and a perfect fit is equal to 0.
+          and a perfect fit is equal to 0. The result is reported
+          as a fraction.  That is, a result of 0.1 is equal to 10%.
           
           Root mean square error (RMSE) has the same units as the predicted
           values.
           
           Normalized root mean square error (NRMSE) is RMSE divided by
-          the mean or the median of the values of the dependent variable. 
-          
-          NRMSE accuracy values are calculated as 1 minus
-          NRMSE. Larger indicates a
-          better fit, and a perfect fit is equal to 1.
+          the mean or the median of the values of the dependent variable.
           
           Efron's pseudo r-squared is calculated as 1 minus the residual sum 
           of squares divided by the total sum of squares.  For linear models
@@ -67,8 +68,8 @@ Produces a table of fit statistics for multiple models:
           to r-squared.  For other models, it should not be interpreted
           as r-squared, but can still be useful as a relative measure.
           
-          CV.prcnt is the coefficient of variation for the model.  Here
-          it is expressed as a percent.
+          \code{CV.prcnt} is the coefficient of variation for the model.
+          Here it is expressed as a percent.  That is, a result of 10 = 10%.
           
           Model objects currently supported: lm, glm, nls, betareg, gls,
           lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.

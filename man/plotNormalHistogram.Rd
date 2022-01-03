@@ -50,7 +50,7 @@ The function relies on the \code{hist} function. The normal curve
 \examples{
 ### Plot of residuals from a model fit with lm
 data(Catbus)
-model = lm(Steps ~ Sex + Teacher,
+model = lm(Steps ~ Gender + Teacher,
            data = Catbus)
  plotNormalHistogram(residuals(model))          
 

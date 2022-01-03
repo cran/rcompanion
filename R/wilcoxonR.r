@@ -79,8 +79,8 @@
 #' wilcoxonR(Table)
 #' 
 #' data(Catbus)
-#' wilcox.test(Steps ~ Sex, data = Catbus)
-#' wilcoxonR(x = Catbus$Steps, g = Catbus$Sex)
+#' wilcox.test(Steps ~ Gender, data = Catbus)
+#' wilcoxonR(x = Catbus$Steps, g = Catbus$Gender)
 #' 
 #' @importFrom coin wilcox_test
 #' @importFrom boot boot boot.ci

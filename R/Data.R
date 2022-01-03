@@ -92,10 +92,10 @@
 
 ###############################################################################
 
-#' @title Hypothetical data for Alexander Anderson with sex bias
+#' @title Hypothetical data for Alexander Anderson with gender bias
 #'
 #' @description A data frame of counts for students passing or failing a  
-#' pesticicde training course across four counties, with sex of students. 
+#' pesticicde training course across four counties, with gender of students. 
 #' Hypothetical data.
 #' 
 #' @source \url{http://rcompanion.org/handbook/H_06.html}

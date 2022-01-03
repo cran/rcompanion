@@ -82,7 +82,7 @@ Pseudo R-squared values are not directly comparable to the
 \examples{
 ### Logistic regression example
 data(AndersonBias)
-model = glm(Result ~ County + Sex + County:Sex,
+model = glm(Result ~ County + Gender + County:Gender,
            weight = Count,
            data = AndersonBias,
            family = binomial(link="logit"))

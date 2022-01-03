@@ -109,8 +109,8 @@ chisq_test(Table, scores = list("Breakfast" = c(-2, -1, 0, 1, 2)))
 wilcoxonR(Table)
 
 data(Catbus)
-wilcox.test(Steps ~ Sex, data = Catbus)
-wilcoxonR(x = Catbus$Steps, g = Catbus$Sex)
+wilcox.test(Steps ~ Gender, data = Catbus)
+wilcoxonR(x = Catbus$Steps, g = Catbus$Gender)
 
 }
 \references{

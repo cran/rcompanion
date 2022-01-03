@@ -31,7 +31,7 @@
 #' @examples
 #' ### Post-hoc for Cochran-Mantel-Haenszel test
 #' data(AndersonBias)
-#' Table = xtabs(Count ~ Sex + Result + County,
+#' Table = xtabs(Count ~ Gender + Result + County,
 #'               data=AndersonBias)
 #' ftable(Table)
 #' mantelhaen.test(Table)

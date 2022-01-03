@@ -52,14 +52,14 @@ Beginning in version 2.0, there is no rounding of results by
 \examples{
 ### Example with formula notation
 data(AndersonBias)
-groupwiseSum(Count ~ Result + Sex,
+groupwiseSum(Count ~ Result + Gender,
              data        = AndersonBias)
                 
 ### Example with variable notation
 data(AndersonBias)
 groupwiseSum(data        = AndersonBias,
              var         = "Count",
-             group       = c("Result", "Sex"))
+             group       = c("Result", "Gender"))
                       
 }
 \seealso{

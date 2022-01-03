@@ -66,14 +66,14 @@ The parsing of the formula is simplistic. The first variable on the
 \examples{
 ### Example with formula notation 
 data(Catbus)
-groupwiseGeometric(Steps ~ Sex + Teacher,
+groupwiseGeometric(Steps ~ Gender + Teacher,
                    data   = Catbus)
 
 ### Example with variable notation                                              
 data(Catbus)
 groupwiseGeometric(data   = Catbus,
                    var    = "Steps",
-                   group  = c("Sex", "Teacher"))
+                   group  = c("Gender", "Teacher"))
                       
 }
 \references{

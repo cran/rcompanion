@@ -22,8 +22,11 @@
 #' 
 #'          The \code{pairwiseMedianMatrix} function
 #'          can be used as a post-hoc method following an omnibus Mood's
-#'          median test.
-#'          The matrix output can be converted to a compact letter display.                                                                                    
+#'          median test. It passes the data for pairwise groups to
+#'          \code{coin::median_test}.
+#'          
+#'          The matrix output can be converted to a compact letter display,
+#'          as in the example.                                                                                    
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/F_09.html}

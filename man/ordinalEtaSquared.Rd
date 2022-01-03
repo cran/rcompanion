@@ -104,7 +104,8 @@ ordinalEtaSquared(XT)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/H_11.html}
+Cohen, B.H. 2013. Explaining Psychological Statistics, 4th ed. 
+            Wiley.; \url{http://rcompanion.org/handbook/F_08.html}
 }
 \seealso{
 \code{\link{freemanTheta}}, \code{\link{epsilonSquared}}

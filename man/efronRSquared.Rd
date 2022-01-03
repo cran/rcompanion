@@ -60,6 +60,10 @@ Efron's pseudo r-squared is calculated as 1 minus the residual sum
           object, this function allows for the manual entry
           of values.
           
+          It is recommended that the user consults the `accuracy` function
+          for further details on these statistics, such as if the reported
+          value is presented as a percentage or fraction.
+          
           Two of the following need to passed to the function:
           \code{actual}, \code{predicted}, \code{residual}.
 

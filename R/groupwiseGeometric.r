@@ -44,14 +44,14 @@
 #' @examples
 #' ### Example with formula notation 
 #' data(Catbus)
-#' groupwiseGeometric(Steps ~ Sex + Teacher,
+#' groupwiseGeometric(Steps ~ Gender + Teacher,
 #'                    data   = Catbus)
 #'
 #' ### Example with variable notation                                              
 #' data(Catbus)
 #' groupwiseGeometric(data   = Catbus,
 #'                    var    = "Steps",
-#'                    group  = c("Sex", "Teacher"))
+#'                    group  = c("Gender", "Teacher"))
 #'                       
 #' @importFrom stats sd qt na.omit
 #' @importFrom plyr ddply rename

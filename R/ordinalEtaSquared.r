@@ -52,7 +52,9 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/H_11.html}
+#' @references Cohen, B.H. 2013. Explaining Psychological Statistics, 4th ed. 
+#'             Wiley.; \url{http://rcompanion.org/handbook/F_08.html}
+#'             
 #' @seealso \code{\link{freemanTheta}}, \code{\link{epsilonSquared}}
 #' @concept correlation eta ordinal nominal
 #' @return A single statistic, eta-squared.

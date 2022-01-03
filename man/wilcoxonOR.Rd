@@ -104,7 +104,7 @@ The parsing of the formula is simplistic.
 }
 \examples{
 data(Catbus)
-wilcoxonOR(Steps ~ Sex, data=Catbus, verbose=TRUE)
+wilcoxonOR(Steps ~ Gender, data=Catbus, verbose=TRUE)
 
 }
 \references{

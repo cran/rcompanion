@@ -103,10 +103,13 @@ cldList = function(formula       = NULL,
   if(!is.null(formula)){
     p.value     = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
     comparison  = eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1])))
-    }
+  }
+  
+FLAG = 0
+  
 Comparison = (as.numeric(p.value) <= threshold)
 
-if (sum(Comparison) == 0){stop("No significant differences.", call.=FALSE)}
+if (sum(Comparison) == 0){FLAG =1}
 
 if(remove.space == TRUE) {comparison = gsub(" ",  "",  comparison)}
 if(remove.equal == TRUE) {comparison = gsub("=",  "",  comparison)}
@@ -128,7 +131,8 @@ MCL = multcompLetters(Comparison, ...)
 
 Group      = names(MCL$Letters)
 Letter     = as.character(MCL$Letters)
-MonoLetter = as.character(MCL$monospacedLetters)
+if(FLAG==0){MonoLetter = as.character(MCL$monospacedLetters)}
+if(FLAG==1){MonoLetter = Letter}
 
 Z = data.frame(Group, Letter, MonoLetter)
 

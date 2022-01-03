@@ -98,7 +98,7 @@ The parsing of the formula is simplistic. The first variable on the
 \examples{
 ### Example with formula notation
 data(Catbus)
-groupwiseMedian(Steps ~ Teacher + Sex,
+groupwiseMedian(Steps ~ Teacher + Gender,
                 data        = Catbus,
                 bca         = FALSE,
                 percentile  = TRUE,
@@ -108,7 +108,7 @@ groupwiseMedian(Steps ~ Teacher + Sex,
 data(Catbus)
 groupwiseMedian(data         = Catbus,
                 var         = "Steps",
-                group       = c("Teacher", "Sex"),
+                group       = c("Teacher", "Gender"),
                 bca         = FALSE,
                 percentile  = TRUE,
                 R           = 1000)

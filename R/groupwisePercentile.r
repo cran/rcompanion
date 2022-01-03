@@ -58,7 +58,7 @@
 #' @examples
 #' ### Example with formula notation
 #' data(Catbus)
-#' groupwisePercentile(Steps ~ Teacher + Sex,
+#' groupwisePercentile(Steps ~ Teacher + Gender,
 #'                     data        = Catbus,
 #'                     tau         = 0.25,
 #'                     bca         = FALSE,
@@ -69,7 +69,7 @@
 #' data(Catbus)
 #' groupwisePercentile(data         = Catbus,
 #'                     var         = "Steps",
-#'                     group       = c("Teacher", "Sex"),
+#'                     group       = c("Teacher", "Gender"),
 #'                     tau         = 0.25,
 #'                     bca         = FALSE,
 #'                     percentile  = TRUE,

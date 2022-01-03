@@ -113,7 +113,7 @@ The parsing of the formula is simplistic. The first variable on the
 \examples{
 ### Example with formula notation
 data(Catbus)
-groupwiseMean(Steps ~ Teacher + Sex,
+groupwiseMean(Steps ~ Teacher + Gender,
               data        = Catbus,
               traditional = FALSE,
               percentile  = TRUE)
@@ -122,7 +122,7 @@ groupwiseMean(Steps ~ Teacher + Sex,
 data(Catbus)
 groupwiseMean(data        = Catbus,
               var         = "Steps",
-              group       = c("Teacher", "Sex"),
+              group       = c("Teacher", "Gender"),
               traditional = FALSE,
               percentile  = TRUE)
                                      

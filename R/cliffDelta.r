@@ -80,7 +80,7 @@
 #'          
 #' @examples
 #' data(Catbus)
-#' cliffDelta(Steps ~ Sex, data=Catbus)
+#' cliffDelta(Steps ~ Gender, data=Catbus)
 #' 
 #' @importFrom stats wilcox.test
 #' @importFrom boot boot boot.ci

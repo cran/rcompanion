@@ -38,9 +38,9 @@
 #'              family = binomial(link="logit"))
 #' model.1 = glm(Result ~ County, weight = Count, data = AndersonBias,
 #'              family = binomial(link="logit"))
-#' model.2 = glm(Result ~ County + Sex, weight = Count, data = AndersonBias,
+#' model.2 = glm(Result ~ County + Gender, weight = Count, data = AndersonBias,
 #'              family = binomial(link="logit"))
-#' model.3 = glm(Result ~ County + Sex + County:Sex, weight = Count, 
+#' model.3 = glm(Result ~ County + Gender + County:Gender, weight = Count, 
 #'              data = AndersonBias, family = binomial(link="logit"))
 #' compareGLM(model.0, model.1, model.2, model.3)              
 #' 

@@ -32,7 +32,7 @@
 #' @examples
 #' ### Plot of residuals from a model fit with lm
 #' data(Catbus)
-#' model = lm(Steps ~ Sex + Teacher,
+#' model = lm(Steps ~ Gender + Teacher,
 #'            data = Catbus)
 #'  plotNormalDensity(residuals(model))          
 #' 

@@ -79,7 +79,7 @@
 #'          
 #' @examples
 #' data(Catbus)
-#' wilcoxonPS(Steps ~ Sex, data=Catbus, verbose=TRUE)
+#' wilcoxonPS(Steps ~ Gender, data=Catbus, verbose=TRUE)
 #' 
 #' @importFrom boot boot boot.ci
 #' 

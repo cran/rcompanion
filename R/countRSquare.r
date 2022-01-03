@@ -26,7 +26,7 @@
 #'           the determination of the model.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-what-are-pseudo-r-squareds/},
+#' @references \url{https://stats.oarc.ucla.edu/other/mult-pkg/faq/general/faq-what-are-pseudo-r-squareds/},
 #'             \url{https://rcompanion.org/handbook/H_08.html},
 #'             \url{https://rcompanion.org/rcompanion/e_06.html}
 #' @seealso \code{\link{nagelkerke}}, \code{\link{accuracy}}
@@ -37,7 +37,7 @@
 #'          
 #' @examples
 #' data(AndersonBias)
-#' model = glm(Result ~ County + Sex + County:Sex,
+#' model = glm(Result ~ County + Gender + County:Gender,
 #'            weight = Count,
 #'            data = AndersonBias,
 #'            family = binomial(link="logit"))

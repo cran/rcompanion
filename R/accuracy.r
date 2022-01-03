@@ -1,4 +1,5 @@
-#' @title Minimum maximum accuracy, mean absolute percent error, 
+#' @title Minimum maximum accuracy, mean absolute percent error,
+#'        median absolute error, 
 #'        root mean square error, coefficient of variation,
 #'        and Efron's pseudo r-squared
 #'
@@ -12,9 +13,9 @@
 #' 
 #' @details  Produces a table of fit statistics for multiple models: 
 #'           minimum maximum accuracy, mean absolute percentage error,
-#'           root mean square error, normalized root mean square error,
-#'           accuracy based on normalized root mean square error, Efron's
-#'           pseudo r-squared, and coefficient of variation.
+#'           median absolute error,
+#'           root mean square error, normalized root mean square error, 
+#'           Efron's pseudo r-squared, and coefficient of variation.
 #'           
 #'           For minimum maximum accuracy, larger indicates
 #'           a better fit, 
@@ -31,19 +32,19 @@
 #'           There are other definitions of MAE and similar-sounding
 #'           terms.
 #'           
+#'           Median absolute error (MedAE) is similar, except employing
+#'           the median rather than the mean.
+#'           
 #'           For mean absolute percent error (MAPE), smaller
 #'           indicates a better fit,
-#'           and a perfect fit is equal to 0.
+#'           and a perfect fit is equal to 0. The result is reported
+#'           as a fraction.  That is, a result of 0.1 is equal to 10%.
 #'           
 #'           Root mean square error (RMSE) has the same units as the predicted
 #'           values.
 #'           
 #'           Normalized root mean square error (NRMSE) is RMSE divided by
-#'           the mean or the median of the values of the dependent variable. 
-#'           
-#'           NRMSE accuracy values are calculated as 1 minus
-#'           NRMSE. Larger indicates a
-#'           better fit, and a perfect fit is equal to 1.
+#'           the mean or the median of the values of the dependent variable.
 #'           
 #'           Efron's pseudo r-squared is calculated as 1 minus the residual sum 
 #'           of squares divided by the total sum of squares.  For linear models
@@ -51,8 +52,8 @@
 #'           to r-squared.  For other models, it should not be interpreted
 #'           as r-squared, but can still be useful as a relative measure.
 #'           
-#'           CV.prcnt is the coefficient of variation for the model.  Here
-#'           it is expressed as a percent.
+#'           \code{CV.prcnt} is the coefficient of variation for the model.
+#'           Here it is expressed as a percent.  That is, a result of 10 = 10%.
 #'           
 #'           Model objects currently supported: lm, glm, nls, betareg, gls,
 #'           lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
@@ -104,13 +105,12 @@ function (fits, plotit=FALSE, digits=3, ...)
 
  Z = data.frame(Min.max.accuracy=rep(NA,n),
                 MAE=rep(NA,n),
+                MedAE=rep(NA,n),
                 MAPE=rep(NA,n),
                 MSE=rep(NA,n),
                 RMSE=rep(NA,n),
                 NRMSE.mean=rep(NA,n),
                 NRMSE.median=rep(NA,n),
-                NRMSE.mean.accuracy=rep(NA,n),
-                NRMSE.median.accuracy=rep(NA,n),
                 Efron.r.squared=rep(NA,n),
                 CV.prcnt=rep(NA,n),
                 stringsAsFactors=FALSE) 
@@ -158,7 +158,7 @@ function (fits, plotit=FALSE, digits=3, ...)
                                            residuals(fits[[i]])
                                   call   = fits[[i]]@call
                                   TOGGLE = TRUE}
-   if(class(fits[[i]])[1]=="merModLmerTest"){
+   if(class(fits[[i]])[1]=="lmerModLmerTest"){
                                   predy  = predict(fits[[i]])
                                   actual = predict(fits[[i]]) +
                                            residuals(fits[[i]])
@@ -205,29 +205,27 @@ function (fits, plotit=FALSE, digits=3, ...)
      data = data.frame(cbind(actual=actual, predy=predy))
      mma  = mean(apply(data, 1, min) / apply(data, 1, max))
      mae = mean(abs(predy - actual))
-     mape = mean(abs(predy - actual)/actual)
+     medae = median(abs(predy - actual))
+     mape = mean(abs((predy - actual)/actual))
      mse  = mean((actual - predy)^2)
      rmse = sqrt(mse)
      nrmse_mean = rmse/mean(actual)
      cv_prcnt      = nrmse_mean*100 
      nrmse_median = rmse/median(actual)
-     acc_nrmse_mean = 1 - nrmse_mean
-     acc_nrmse_median = 1 - nrmse_median
      Var = sum((actual - mean(actual))^2)
      RSS = sum((actual - predy)^2)
      var_r_squared = 1 - RSS / Var
 
-     Z[i,]=rep(NA,11)
+     Z[i,]=rep(NA,10)
      if(TOGGLE==TRUE){
      Z[i,]=c(signif(mma,                digits=digits),
              signif(mae,                digits=digits),
+             signif(medae,              digits=digits),
              signif(mape,               digits=digits),
              signif(mse,                digits=digits),
              signif(rmse,               digits=digits),
              signif(nrmse_mean,         digits=digits),
              signif(nrmse_median,       digits=digits),
-             signif(acc_nrmse_mean,     digits=digits),
-             signif(acc_nrmse_median,   digits=digits),
              signif(var_r_squared,      digits=digits),
              signif(cv_prcnt,           digits=digits))
      if(plotit){plot(data$actual, data$predy, 

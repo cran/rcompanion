@@ -54,7 +54,7 @@ The function relies on the \code{hist} function. The density curve
 \examples{
 ### Plot of residuals from a model fit with lm
 data(Catbus)
-model = lm(Steps ~ Sex + Teacher,
+model = lm(Steps ~ Gender + Teacher,
            data = Catbus)
 plotDensityHistogram(residuals(model))          
 

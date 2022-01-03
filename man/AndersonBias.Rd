@@ -3,7 +3,7 @@
 \docType{data}
 \name{AndersonBias}
 \alias{AndersonBias}
-\title{Hypothetical data for Alexander Anderson with sex bias}
+\title{Hypothetical data for Alexander Anderson with gender bias}
 \format{
 An object of class \code{data.frame} with 16 rows and 4 columns.
 }
@@ -15,7 +15,7 @@ AndersonBias
 }
 \description{
 A data frame of counts for students passing or failing a  
-pesticicde training course across four counties, with sex of students. 
+pesticicde training course across four counties, with gender of students. 
 Hypothetical data.
 }
 \keyword{datasets}
