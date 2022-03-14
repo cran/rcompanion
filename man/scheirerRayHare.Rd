@@ -10,6 +10,7 @@ scheirerRayHare(
   y = NULL,
   x1 = NULL,
   x2 = NULL,
+  type = 2,
   tie.correct = TRUE,
   ss = TRUE,
   verbose = TRUE
@@ -26,6 +27,10 @@ two independent variables. e.g. y ~ x1 + x2.}
 \item{x1}{If no formula is given, the first independent variable.}
 
 \item{x2}{If no formula is given, the second independent variable.}
+
+\item{type}{The type of sum of squares to be used.
+Acceptable options are \code{1}, \code{2},
+\code{"I"}, or \code{"II"}.}
 
 \item{tie.correct}{If \code{"TRUE"}, applies a correction for ties in the 
 response variable.}
@@ -47,14 +52,17 @@ Conducts Scheirer Ray Hare test.
 The Scheirer Ray Hare test is a nonparametric test used for a 
          two-way factorial experiment.  It is described by Sokal and
          Rohlf (1995).
+         
          It is sometimes recommended that the design should be balanced,
          and that there should be at least five observations for each
          cell in the interaction.
+         
          One might consider using aligned ranks transformation anova
          instead of the Scheirer Ray Hare test.
          
-         Note that for unbalanced designs, a type-I sum-of-squares
-         approach is used, as in a call to \code{anova(lm())}.
+         Note that for unbalanced designs, 
+         by default, a type-II sum-of-squares
+         approach is used.
          
          The input should include either \code{formula} and \code{data};
          or \code{y}, \code{x1}, and \code{x2}.

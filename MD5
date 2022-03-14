@@ -1,4 +1,4 @@
-e325bda08e9e9b7ca2c46524be8e4639 *DESCRIPTION
+62b9b4c47529061e96fddbcfb6fc03bd *DESCRIPTION
 bad1971f05769d92ba777dd46921329c *NAMESPACE
 213ce1d9d4adab7e9a8d9aff4cced7b3 *R/Data.R
 b381d4c17b21b3d7458a1f8e2ba8fd6f *R/PMCMRTable.r
@@ -7,7 +7,7 @@ ee2d127f51ac98db9e1af9ddf011da9b *R/blom.r
 348042e4d078bfd781da5355e02cd967 *R/cateNelson.r
 c2c53b4e4c2f499cf58db6f950980f13 *R/cateNelsonFixedY.r
 e02701a6a7dc683d6b606d06d20c77a8 *R/cldList.r
-ba7b32de5b7e82b7913c725e72705e0c *R/cliffDelta.r
+f5839d00759cb27960d79b616629b8b2 *R/cliffDelta.r
 3e80066982eb9d0bd731869b281085d0 *R/cohenG.r
 93fa5acba52d6d9246144eeeca41b8d6 *R/cohenH.r
 c2dec62393ee3fd10d91cbd5808b1f4a *R/cohenW.r
@@ -64,7 +64,7 @@ f15111b92914d9fddde1836dcebf91c8 *R/phi.r
 e3ddb0383758a9309b7308213ad42f12 *R/plotPredy.r
 f38f3c5276814ce92d647e89da67e9f2 *R/quantileCI.r
 65c9cfa619b8f256f25c7966509f1de4 *R/rcompanion.R
-a9542491378ce769aedec728a23fa472 *R/scheirerRayHare.r
+0ead2a25023f69dde3ecc2c57b4d5be1 *R/scheirerRayHare.r
 e443ac03fbc7a58d67177c17c241f5b9 *R/spearmanRho.r
 ece97ea84d16cc220f8e348cb1d85521 *R/transformTukey.r
 3c80125deebf2ad1df6e5dec82818464 *R/vda.r
@@ -172,7 +172,7 @@ d2fe768516e69dfcf92800a4863d5138 *man/phi.Rd
 624d6f57403a829f11c76849cf5e56b8 *man/plotPredy.Rd
 a3bd017914db1665112046d76c4bd70c *man/quantileCI.Rd
 46b28466bec8d963e5025358c7b3c5e5 *man/rcompanion.Rd
-0b2d38234db026af9569e1a51f41b48e *man/scheirerRayHare.Rd
+2f0c0b583739b1a59603b2b94fafdcef *man/scheirerRayHare.Rd
 9093fa574c39229e8e553594b6646fd9 *man/spearmanRho.Rd
 8723cc2ea649fae21442340b09196ef1 *man/transformTukey.Rd
 ac1375e532c56655327b0f7464db0b4c *man/vda.Rd

@@ -108,8 +108,8 @@ cliffDelta =
   }
    
   if(brute==FALSE){
-  n1  = length(A)
-  n2  = length(B)
+  n1  = as.numeric(length(A))
+  n2  = as.numeric(length(B))
   U   = suppressWarnings(wilcox.test(x=A, y=B, ...))$statistic
   VDA = U / (n1 * n2) 
   CD = signif((VDA-0.5)*2, digits=digits)

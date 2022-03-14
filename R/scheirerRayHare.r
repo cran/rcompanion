@@ -10,6 +10,10 @@
 #' @param x2 If no formula is given, the second independent variable.
 #' @param tie.correct If \code{"TRUE"}, applies a correction for ties in the 
 #'                                      response variable.
+#' @param type The type of sum of squares to be used.  
+#'             Acceptable options are \code{1}, \code{2},
+#'             \code{"I"}, or \code{"II"}.
+#
 #' @param ss If \code{"TRUE"}, includes the sums of squares in the output.
 #' @param verbose If \code{"TRUE"}, outputs statistics used in the analysis 
 #'                                  by direct print.
@@ -17,14 +21,17 @@
 #' @details The Scheirer Ray Hare test is a nonparametric test used for a 
 #'          two-way factorial experiment.  It is described by Sokal and
 #'          Rohlf (1995).
+#'          
 #'          It is sometimes recommended that the design should be balanced,
 #'          and that there should be at least five observations for each
 #'          cell in the interaction.
+#'          
 #'          One might consider using aligned ranks transformation anova
 #'          instead of the Scheirer Ray Hare test.
 #'          
-#'          Note that for unbalanced designs, a type-I sum-of-squares
-#'          approach is used, as in a call to \code{anova(lm())}.
+#'          Note that for unbalanced designs, 
+#'          by default, a type-II sum-of-squares
+#'          approach is used.
 #'          
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{y}, \code{x1}, and \code{x2}.
@@ -50,7 +57,6 @@
 #'          The second variable on the
 #'          right side is used for the second independent variable.  
 #'  
-#'         
 #' @examples
 #' ### Example from Sokal and Rohlf, 1995.
 #' Value = c(709,679,699,657,594,677,592,538,476,508,505,539)
@@ -67,7 +73,8 @@
 
 scheirerRayHare = 
   function(formula=NULL, data=NULL,
-           y=NULL, x1=NULL, x2=NULL, 
+           y=NULL, x1=NULL, x2=NULL,
+           type=2,
            tie.correct=TRUE, ss=TRUE, verbose=TRUE)
   {
   if(is.null(formula)){
@@ -96,6 +103,12 @@ scheirerRayHare =
   Model = lm(Ranks ~ x1 + x2 + x1:x2)
   Anva  = anova(Model)
   MS    = Anva[1:4,1:3]
+  if(type==2 | type=="II"){
+    Model2 = lm(Ranks ~ x2 + x1 + x2:x1)
+    Anva2  = anova(Model2)
+    MS2    = Anva2[1:4,1:3]
+    MS[1,] = MS2[2,]
+    }
   n     = length(Ranks)
   D     = 1
   if(tie.correct){D = (1 - sum(Ties^3 - Ties)/(n^3 - n))}
