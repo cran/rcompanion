@@ -1,4 +1,4 @@
-62b9b4c47529061e96fddbcfb6fc03bd *DESCRIPTION
+8075df69d61f0d26a95aeee48efcf7fa *DESCRIPTION
 bad1971f05769d92ba777dd46921329c *NAMESPACE
 213ce1d9d4adab7e9a8d9aff4cced7b3 *R/Data.R
 b381d4c17b21b3d7458a1f8e2ba8fd6f *R/PMCMRTable.r
@@ -16,7 +16,7 @@ da4614dfd8e2efd3be5e63012e15cd44 *R/compareLM.r
 8fc02fca852ea170530f15dd0e04d476 *R/countRSquare.r
 7d00b4005a7770ccda47177d2470bf1d *R/cramerV.r
 f3cc1371bb223965f7369ddc45c77fe8 *R/cramerVFit.r
-cba8193b8149ee6af34c2b7dc61a0d9c *R/efronRSquared.r
+fd2fec7f0c7031ea8b0d817ac822dbe1 *R/efronRSquared.r
 4062ba344396347985c9010e35b63bcb *R/epsilonSquared.r
 cf90c6f2d6894f180fc75d03748030df *R/freemanTheta.r
 e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
@@ -40,7 +40,7 @@ e127e30f6b6f916241e1d806771491d9 *R/pairwiseMcnemar.r
 38b12cad609d0bfbd33a18b1556f2de8 *R/pairwiseMedianMatrix.r
 6acf66183715120370b706a3e66a9b0d *R/pairwiseMedianTest.r
 f757b2f8d92d3e3ef8af4f2423cd29da *R/pairwiseModelAnova.r
-a7535dd2ad6fe2a8c138585fa87c5685 *R/pairwiseNominalIndependence.r
+b784adfa7e94606305eccec27e276bcd *R/pairwiseNominalIndependence.r
 921215e156d90758356b2ea337a015a7 *R/pairwiseNominalMatrix.r
 935f6f39ea32f6cb5cad55d19c9a4f25 *R/pairwiseOrdinalIndependence.r
 483227c875b6d36aa33623a492010bad *R/pairwiseOrdinalMatrix.r
@@ -64,7 +64,7 @@ f15111b92914d9fddde1836dcebf91c8 *R/phi.r
 e3ddb0383758a9309b7308213ad42f12 *R/plotPredy.r
 f38f3c5276814ce92d647e89da67e9f2 *R/quantileCI.r
 65c9cfa619b8f256f25c7966509f1de4 *R/rcompanion.R
-0ead2a25023f69dde3ecc2c57b4d5be1 *R/scheirerRayHare.r
+eb4781ce60c370b782a7774c6b6dfd79 *R/scheirerRayHare.r
 e443ac03fbc7a58d67177c17c241f5b9 *R/spearmanRho.r
 ece97ea84d16cc220f8e348cb1d85521 *R/transformTukey.r
 3c80125deebf2ad1df6e5dec82818464 *R/vda.r
@@ -124,7 +124,7 @@ f741e1514f1e88d72cf2eff5b2c8dd5a *man/cateNelson.Rd
 a9e45e112d95e2496d4e5e29ec1adde3 *man/countRSquare.Rd
 693e94c57e6729bd6d53d77675e692ff *man/cramerV.Rd
 ea3d34b5e7b7ef51172064f3cdd3196c *man/cramerVFit.Rd
-338f6c212f52dbcf8a153a454d79e1c5 *man/efronRSquared.Rd
+10beaf473f6f2fdf1dbd47632d08f799 *man/efronRSquared.Rd
 13bde9c0c928128d79fdd5fb23db5d88 *man/epsilonSquared.Rd
 64c370d1dd03040aeb63fd0bde77e929 *man/freemanTheta.Rd
 7142d033198380c7fd6f24f8442dcc84 *man/fullPTable.Rd
@@ -148,7 +148,7 @@ b2d230c1d0c4820348318794c83d7ac2 *man/pairwiseDifferences.Rd
 30ae5deb5908326f2635adf145d3bec5 *man/pairwiseMedianMatrix.Rd
 07236dd18d3716aeb672ab6df4382df2 *man/pairwiseMedianTest.Rd
 e9fce4c1712445e83c666066947b5b85 *man/pairwiseModelAnova.Rd
-c5cecc34fd48f51751d41cdcff54c12d *man/pairwiseNominalIndependence.Rd
+d3ec6f4fdb99cdc536c636b0f9bd99ae *man/pairwiseNominalIndependence.Rd
 e6203ea8d2b84b8f48e9c1d6ce42c740 *man/pairwiseNominalMatrix.Rd
 ec1e75b60539911953d8cf5581c9226f *man/pairwiseOrdinalIndependence.Rd
 4ae08ef8be3af403c68abac8f8891a62 *man/pairwiseOrdinalMatrix.Rd
@@ -172,7 +172,7 @@ d2fe768516e69dfcf92800a4863d5138 *man/phi.Rd
 624d6f57403a829f11c76849cf5e56b8 *man/plotPredy.Rd
 a3bd017914db1665112046d76c4bd70c *man/quantileCI.Rd
 46b28466bec8d963e5025358c7b3c5e5 *man/rcompanion.Rd
-2f0c0b583739b1a59603b2b94fafdcef *man/scheirerRayHare.Rd
+1a6dababf3b4bad90c870f110ba94bb5 *man/scheirerRayHare.Rd
 9093fa574c39229e8e553594b6646fd9 *man/spearmanRho.Rd
 8723cc2ea649fae21442340b09196ef1 *man/transformTukey.Rd
 ac1375e532c56655327b0f7464db0b4c *man/vda.Rd

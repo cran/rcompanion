@@ -10,7 +10,7 @@
 #' @param residual A vector of residuals
 #' @param predicted A vector of predicted values
 #' @param statistic The statistic to produce
-#'                  One of \code{"EphronRSquared"},
+#'                  One of \code{"EfronRSquared"},
 #'                         \code{"MinMaxAccuracy"},
 #'                         \code{"MAE"},
 #'                         \code{"MAPE"},
@@ -34,7 +34,8 @@
 #'           object, this function allows for the manual entry
 #'           of values.
 #'           
-#'           It is recommended that the user consults the `accuracy` function
+#'           It is recommended that the user consults the \code{accuracy}
+#'           function
 #'           for further details on these statistics, such as if the reported
 #'           value is presented as a percentage or fraction.
 #'           

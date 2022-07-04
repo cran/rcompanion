@@ -15,7 +15,9 @@
 #' @param method  The method to adjust multiple p-values. 
 #'                See \code{stats::p.adjust}.
 #' @param correct The correction method to pass to \code{DescTools::GTest}.
-#' @param cramer If \code{"TRUE"}, includes and effect size, Cramer's V in the
+#' @param stats If \code{"TRUE"}, includes the Chi-square value and degrees of 
+#'              freedom for Chi-square tests, and the G value.
+#' @param cramer If \code{"TRUE"}, includes an effect size, Cramer's V in the
 #'               output.
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments, passed to \code{stats::fisher.test}, 
@@ -29,6 +31,12 @@
 #' @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
 #'           \code{\link{nominalSymmetryTest}}, 
 #'           \code{\link{pairwiseNominalMatrix}}
+#'           
+#' @section Acknowledgments:
+#'          My thanks to
+#'          Carole Elliott of Kings Park & Botanic Gardens
+#'          for suggesting the inclusion on the chi-square statistic
+#'          and degrees of freedom in the output.
 #'         
 #' @examples
 #' ### Independence test for a 4 x 2 matrix
@@ -53,7 +61,8 @@
 pairwiseNominalIndependence = 
   function(x, compare="row",
            fisher=TRUE, gtest=TRUE, chisq=TRUE,
-           method="fdr", correct="none", cramer=FALSE, digits=3, ...) 
+           method="fdr", correct="none", stats=FALSE, cramer=FALSE, 
+           digits=3, ...) 
   {
   if(compare=="row"){n = nrow(x)}
   if(compare=="column" | compare=="col"){n = ncol(x)}
@@ -61,9 +70,12 @@ pairwiseNominalIndependence =
   Z = data.frame(Comparison=rep("A", N),
                  stringsAsFactors=FALSE)
   p.Fisher = rep(NA, N)
-  p.Gtest = rep(NA, N)
-  p.Chisq = rep(NA, N)
-  Cramer = rep(NA, N)
+  p.Gtest  = rep(NA, N)
+  p.Chisq  = rep(NA, N)
+  Cramer   = rep(NA, N)
+  Chisq    = rep(NA, N)
+  df       = rep(NA, N)
+  G        = rep(NA, N)
 
   k=0               
   for(i in 1:(n-1)){
@@ -88,8 +100,17 @@ pairwiseNominalIndependence =
     p.Chisq[k] = signif(chisq.test(Dataz, ...)$p.value, digits=digits)}
   if(cramer==TRUE){
     Cramer[k] = cramerV(Dataz, digits=digits)}
+ if(stats==TRUE){
+   Chisq[k] = signif(suppressWarnings(chisq.test(Dataz, ...))$statistic, digits=digits)
+   df[k] = signif(suppressWarnings(chisq.test(Dataz, ...))$parameter, digits=digits)
+   G[k] = signif(GTest(Dataz, ...)$statistic, digits=digits)}
   } # End j loop
  } # End i loop
+  if(stats==TRUE){ 
+    Z$Chisq = Chisq
+    Z$df     = df
+    Z$G      = G
+  }  
  if(fisher==TRUE){ 
     Z$p.Fisher = p.Fisher
     Z$p.adj.Fisher = signif(p.adjust(Z$p.Fisher, method = method), digits=digits)

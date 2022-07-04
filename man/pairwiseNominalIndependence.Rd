@@ -12,6 +12,7 @@ pairwiseNominalIndependence(
   chisq = TRUE,
   method = "fdr",
   correct = "none",
+  stats = FALSE,
   cramer = FALSE,
   digits = 3,
   ...
@@ -35,7 +36,10 @@ See \code{stats::p.adjust}.}
 
 \item{correct}{The correction method to pass to \code{DescTools::GTest}.}
 
-\item{cramer}{If \code{"TRUE"}, includes and effect size, Cramer's V in the
+\item{stats}{If \code{"TRUE"}, includes the Chi-square value and degrees of 
+freedom for Chi-square tests, and the G value.}
+
+\item{cramer}{If \code{"TRUE"}, includes an effect size, Cramer's V in the
 output.}
 
 \item{digits}{The number of significant digits in the output.}
@@ -52,6 +56,14 @@ Conducts pairwise tests for a 2-dimensional matrix,
              levels, as a post-hoc test. Conducts Fisher exact, Chi-square,
              or G-test.
 }
+\section{Acknowledgments}{
+
+         My thanks to
+         Carole Elliott of Kings Park & Botanic Gardens
+         for suggesting the inclusion on the chi-square statistic
+         and degrees of freedom in the output.
+}
+
 \examples{
 ### Independence test for a 4 x 2 matrix
 data(Anderson)

@@ -55,7 +55,10 @@
 #'          The first variable on the
 #'          right side is used for the first independent variable.
 #'          The second variable on the
-#'          right side is used for the second independent variable.  
+#'          right side is used for the second independent variable.
+#'          
+#'          Thanks to Guillaume Loignon for the suggestion to
+#'          include type-II sum-of-squares. 
 #'  
 #' @examples
 #' ### Example from Sokal and Rohlf, 1995.
