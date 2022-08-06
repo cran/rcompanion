@@ -1,5 +1,5 @@
-8075df69d61f0d26a95aeee48efcf7fa *DESCRIPTION
-bad1971f05769d92ba777dd46921329c *NAMESPACE
+fc3cddfec6a7f88ad8d4e4094a9cdf0b *DESCRIPTION
+300c86e63fe46fb5731b02b7d1b73211 *NAMESPACE
 213ce1d9d4adab7e9a8d9aff4cced7b3 *R/Data.R
 b381d4c17b21b3d7458a1f8e2ba8fd6f *R/PMCMRTable.r
 ea35eeaeb6e769f9aff47989625bc1dd *R/accuracy.r
@@ -28,6 +28,8 @@ e0dec2041bbe32d2c270383c5dc92219 *R/fullPTable.r
 0f81cd2bf1c5bfaf4b1a5bdee3e14306 *R/groupwisePercentile.r
 3822db7a8177a7072d9b15887ae1c648 *R/groupwiseSum.r
 fc05e93ecef126d5d138c862cae3d5ad *R/kendallW.r
+4f340ec843796c453e4fc7e721c76fe5 *R/mangiaficoD.r
+369931a74bd328e78322683a44460e4a *R/multiMangiaficoD.r
 c2fd53fdaf3220c06b12f6c378b44b21 *R/multiVDA.r
 ed4e649cad0bfb088e937860f7264ace *R/nagelkerke.r
 a8bd77dde3ced805beb23e7841aab88a *R/nagelkerkeHermite.r
@@ -69,10 +71,10 @@ e443ac03fbc7a58d67177c17c241f5b9 *R/spearmanRho.r
 ece97ea84d16cc220f8e348cb1d85521 *R/transformTukey.r
 3c80125deebf2ad1df6e5dec82818464 *R/vda.r
 1b9ce32849c47f4a4a13295cf759db4c *R/wilcoxonOR.r
-66eb7c4a63d25a4bfaaca3a67964757b *R/wilcoxonOneSampleR.r
+aa5834310df40ed73532a1edae2cf802 *R/wilcoxonOneSampleR.r
 88d3f7a0b2491cb25e762c6e0cddff93 *R/wilcoxonOneSampleRC.r
 9849b6e747cb1e140902c35dc176df76 *R/wilcoxonPS.r
-76aa2245c30b40fd64399081ee249b12 *R/wilcoxonPairedR.r
+d2aa1c606a2cde5dde65cee259a91233 *R/wilcoxonPairedR.r
 eaffb827626d9da1e8ca01071f04c0c6 *R/wilcoxonPairedRC.r
 eeb0300f09d44a297df54b2113d854cc *R/wilcoxonR.r
 e25d86f03bad54faf9eb5a38aca42329 *R/wilcoxonRG.r
@@ -136,6 +138,8 @@ c998707bb568c7e850b46f8036a5b05f *man/groupwiseHuber.Rd
 971046cae910af848abfe8ba0ff4bfb0 *man/groupwisePercentile.Rd
 ac143749d24bc3c2496f69d7b4ea3030 *man/groupwiseSum.Rd
 fd71f8a2d495d30d9e42f78d3b13b9ce *man/kendallW.Rd
+6ea95e6fd320aec409e8208b9d91f465 *man/mangiaficoD.Rd
+d0584b0d8eb43a3818d0a5268092fd79 *man/multiMangiaficoD.Rd
 0c5470cf76c0e69ce1e5a53c2ba90e00 *man/multiVDA.Rd
 d0449367c025ba70b65b78b4c7fe624c *man/nagelkerke.Rd
 3d7bb10761dc930624b81c761e5b499e *man/nagelkerkeHermite.Rd
@@ -177,10 +181,10 @@ a3bd017914db1665112046d76c4bd70c *man/quantileCI.Rd
 8723cc2ea649fae21442340b09196ef1 *man/transformTukey.Rd
 ac1375e532c56655327b0f7464db0b4c *man/vda.Rd
 1ca3b5e81695bee1979098241af62eee *man/wilcoxonOR.Rd
-350228044e36e653333ec4849b717891 *man/wilcoxonOneSampleR.Rd
+cd3a5351b69e496ee2d54efc245cc0a0 *man/wilcoxonOneSampleR.Rd
 3b07d2f705e6fe304d12da57379620e1 *man/wilcoxonOneSampleRC.Rd
 7e7793f598a36542fcc5692807163af6 *man/wilcoxonPS.Rd
-2551a5a310deac2d4fdb2efe0c2c9a0c *man/wilcoxonPairedR.Rd
+2decae4cdc89551ad9db43619d781210 *man/wilcoxonPairedR.Rd
 ad7f080fcca9b23e00dfc68f5792fb82 *man/wilcoxonPairedRC.Rd
 4b07a333a96a0d2497e66688f355e6eb *man/wilcoxonR.Rd
 4b07e54dadb8f982ae73d1f0e8b30a90 *man/wilcoxonRG.Rd

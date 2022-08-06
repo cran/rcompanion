@@ -7,6 +7,7 @@
 wilcoxonOneSampleR(
   x,
   mu = NULL,
+  adjustn = TRUE,
   coin = FALSE,
   ci = FALSE,
   conf = 0.95,
@@ -21,6 +22,10 @@ wilcoxonOneSampleR(
 \item{x}{A vector of observations.}
 
 \item{mu}{The value to compare \code{x} to, as in \code{wilcox.test}}
+
+\item{adjustn}{If \code{TRUE}, reduces the sample size in the calculation
+of \code{r} by the number of observations equal to
+\code{mu}.}
 
 \item{coin}{If \code{FALSE}, the default, the Z value
 is extracted from a function similar to the
@@ -67,6 +72,12 @@ r  is calculated as Z divided by
           to a vector of \code{mu}.
           The author knows of no reference for this technique.
           
+          This statistic typically reports a smaller effect size
+          (in absolute value) than does
+          the matched-pairs rank biserial correlation coefficient 
+          (\code{wilcoxonOneSampleRC}), and may not reach a value
+          of -1 or 1 if there are values tied with \code{mu}.
+          
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
@@ -80,11 +91,17 @@ r  is calculated as Z divided by
           determined by this
           method may not be reliable, or the procedure may fail.
 }
+\section{Acknowledgments}{
+
+         My thanks to
+         Peter Stikker for the suggestion to adjust the sample size
+         for ties with \code{mu}.
+}
+
 \examples{
-data(Pooh)
-Data = Pooh[Pooh$Time==2,]
-wilcox.test(Data$Likert, mu=3, exact=FALSE)
-wilcoxonOneSampleR(x = Data$Likert, mu=3)
+X = c(1,2,3,3,3,3,4,4,4,4,4,5,5,5,5,5)
+wilcox.test(X, mu=3, exact=FALSE)
+wilcoxonOneSampleR(X, mu=3)
 
 }
 \references{

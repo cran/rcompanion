@@ -11,6 +11,8 @@
 #'          The data must be ordered so that the first observation of the
 #'          of the first group is paired with the first observation of the
 #'          second group.
+#' @param adjustn If \code{TRUE}, reduces the sample size in the calculation
+#'                of \code{r} by the number of tied pairs.
 #' @param coin If \code{FALSE}, the default, the Z value
 #'                is extracted from a function similar to the
 #'                \code{wilcox.test} function in the stats package.
@@ -40,10 +42,11 @@
 #'           results in a statistic that ranges from -1 to 1.
 #'           This range doesn't hold if \code{cases=FALSE}.
 #'           
-#'           This statistic reports a smaller effect size than does
+#'           This statistic typically reports a smaller effect size
+#'           (in absolute value) than does
 #'           the matched-pairs rank biserial correlation coefficient 
-#'           (\code{wilcoxonPairedRC}), and won't reach a value
-#'           of -1 or 1 unless there are ties in paired differences.
+#'           (\code{wilcoxonPairedRC}), and may not reach a value
+#'           of -1 or 1 if there are ties in the paired differences.
 #'
 #'           Currently, the function makes no provisions for \code{NA}
 #'           values in the data.  It is recommended that \code{NA}s be removed
@@ -69,6 +72,10 @@
 #' @return A single statistic, r.
 #'         Or a small data frame consisting of r,
 #'         and the lower and upper confidence limits.  
+#'
+#' @section Acknowledgments:
+#'          My thanks to
+#'          Peter Stikker for the suggestion to adjust the sample size for ties.
 #'         
 #' @examples
 #' data(Pooh)
@@ -80,7 +87,7 @@
 #' 
 #' @export
  
-wilcoxonPairedR = function (x, g=NULL, coin=FALSE,
+wilcoxonPairedR = function (x, g=NULL, adjustn=TRUE, coin=FALSE,
                             ci=FALSE, conf=0.95, type="perc",
                             R=1000, 
                             histogram=FALSE,
@@ -98,8 +105,11 @@ wilcoxonPairedR = function (x, g=NULL, coin=FALSE,
     }
   if(coin==FALSE){
     Z = wilcoxonZ(x = x[as.numeric(g)==1], y = x[as.numeric(g)==2], paired=TRUE)
-    }
+  }
+  
   n  = length(x[as.numeric(g)==1])
+  if(adjustn){n = n - sum(x[as.numeric(g)==1] == x[as.numeric(g)==2])}
+  
   if(cases==TRUE){r  = Z/sqrt(n)}
   if(cases==FALSE){r  = Z/sqrt(n*2)}
   RR = signif(r, digits=digits)
@@ -117,6 +127,7 @@ if(ci==TRUE){
         Z = wilcoxonZ(x = Input$x1, y = Input$x2, paired=TRUE)
       }
     n = length(Input$x1)
+    if(adjustn){n = n-sum(Input$x1==Input$x2)}
     if(cases==TRUE){r  = Z/sqrt(n)}
     if(cases==FALSE){r  = Z/sqrt(n*2)}
     RR = signif(r, digits=digits)

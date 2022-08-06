@@ -7,6 +7,7 @@
 wilcoxonPairedR(
   x,
   g = NULL,
+  adjustn = TRUE,
   coin = FALSE,
   ci = FALSE,
   conf = 0.95,
@@ -27,6 +28,9 @@ Only the first two levels of the nominal variable are used.
 The data must be ordered so that the first observation of the
 of the first group is paired with the first observation of the
 second group.}
+
+\item{adjustn}{If \code{TRUE}, reduces the sample size in the calculation
+of \code{r} by the number of tied pairs.}
 
 \item{coin}{If \code{FALSE}, the default, the Z value
 is extracted from a function similar to the
@@ -76,10 +80,11 @@ r  is calculated as Z divided by
           results in a statistic that ranges from -1 to 1.
           This range doesn't hold if \code{cases=FALSE}.
           
-          This statistic reports a smaller effect size than does
+          This statistic typically reports a smaller effect size
+          (in absolute value) than does
           the matched-pairs rank biserial correlation coefficient 
-          (\code{wilcoxonPairedRC}), and won't reach a value
-          of -1 or 1 unless there are ties in paired differences.
+          (\code{wilcoxonPairedRC}), and may not reach a value
+          of -1 or 1 if there are ties in the paired differences.
 
           Currently, the function makes no provisions for \code{NA}
           values in the data.  It is recommended that \code{NA}s be removed
@@ -98,6 +103,12 @@ r  is calculated as Z divided by
           determined by this
           method may not be reliable, or the procedure may fail.
 }
+\section{Acknowledgments}{
+
+         My thanks to
+         Peter Stikker for the suggestion to adjust the sample size for ties.
+}
+
 \examples{
 data(Pooh)
 wilcox.test(Likert ~ Time, data=Pooh, paired=TRUE, exact=FALSE)
