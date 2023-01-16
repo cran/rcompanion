@@ -72,7 +72,11 @@ The function will test for a difference in medians, percentiles,
          interquartile ranges, proportion of observations above or below
          some threshold value, 
          means, or variances between two groups
-         by permutation test. 
+         by permutation test.
+         
+         The permutation test simply permutes the observed values over the
+         two groups and counts how often the calculated statistic is
+         at least as extreme as the original observed statistic.
          
          The input should include either \code{formula} and \code{data};
          or \code{x} and \code{y}.

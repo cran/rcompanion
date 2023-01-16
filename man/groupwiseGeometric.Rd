@@ -32,7 +32,7 @@ Multiple names are listed as a vector. (See example.)}
 
 \item{digits}{The number of significant figures to use in output.}
 
-\item{...}{Other arguments.  Not currently useful.}
+\item{...}{Other arguments.  Not currently used.}
 }
 \value{
 A data frame of geometric means, standard deviations, standard 
@@ -49,7 +49,9 @@ The input should include either \code{formula} and \code{data};
          The function computes means, standard deviations, standard errors, 
          and confidence intervals on log-transformed values. Confidence
          intervals are calculated in the traditional
-         manner with the t-distribution.  These statistics assume that
+         manner with the t-distribution on the transformed values,
+         and then back-transforms the confidence interval limits.  
+         These statistics assume that
          the data are log-normally distributed. For data not meeting this
          assumption, medians and confidence intervals by bootstrap may be more 
          appropriate.

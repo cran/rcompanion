@@ -63,7 +63,7 @@
 #' efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals)
 #' efronRSquared(residual=model.1$residuals, predicted=model.1$fitted.values)
 #' efronRSquared(actual=BrendonSmall$Sodium, predicted=model.1$fitted.values)
-#' model.1$r.squared
+#' summary(model.1)$r.squared
 #' 
 #' efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals, 
 #'               statistic="MAPE")

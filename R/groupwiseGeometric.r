@@ -12,7 +12,7 @@
 #' @param conf The confidence interval to use.
 #' @param na.rm If \code{TRUE}, removes NA values in the measurement variable.
 #' @param digits The number of significant figures to use in output.
-#' @param ... Other arguments.  Not currently useful.
+#' @param ... Other arguments.  Not currently used.
 #'                
 #' @details The input should include either \code{formula} and \code{data};
 #'              or \code{data}, \code{var}, and \code{group}. (See examples).
@@ -20,7 +20,9 @@
 #'          The function computes means, standard deviations, standard errors, 
 #'          and confidence intervals on log-transformed values. Confidence
 #'          intervals are calculated in the traditional
-#'          manner with the t-distribution.  These statistics assume that
+#'          manner with the t-distribution on the transformed values,
+#'          and then back-transforms the confidence interval limits.  
+#'          These statistics assume that
 #'          the data are log-normally distributed. For data not meeting this
 #'          assumption, medians and confidence intervals by bootstrap may be more 
 #'          appropriate.

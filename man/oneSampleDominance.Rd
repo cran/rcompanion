@@ -6,7 +6,7 @@
 \usage{
 oneSampleDominance(
   x,
-  mu,
+  mu = 0,
   ci = FALSE,
   conf = 0.95,
   type = "perc",

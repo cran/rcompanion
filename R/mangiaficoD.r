@@ -73,7 +73,11 @@
 #'          
 #' @examples
 #' data(Catbus)
-#' mangiaficoD(Steps ~ Gender, data=Catbus)
+#' mangiaficoD(Steps ~ Gender, data=Catbus, verbose=TRUE)
+#' 
+#' Nadja = c(5,5,6,6,6,7,7,11,11,11)
+#' Nandor = c(0,1,2,3,4,5,6,7,8,9,10,11)
+#' mangiaficoD(x = Nadja, y = Nandor, verbose=TRUE)
 #' 
 #' @importFrom stats median mad
 #' @importFrom boot boot boot.ci
@@ -97,7 +101,7 @@ mangiaficoD =
    A = x
    B = y
    x = c(A, B)
-   g = factor(c(rep("A", length(A)), rep("B", length(B))))
+   g = factor(c(rep("x", length(A)), rep("y", length(B))))
   }
   
    MedianA = median(A)

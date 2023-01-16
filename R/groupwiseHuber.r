@@ -13,6 +13,7 @@
 #' @param ci.type The type of confidence interval to use. Can be
 #'                  \code{"wald"} or \code{"boot"}.
 #'                  See \code{HuberM} for details.
+#' @param digits The number of significant figures to use in output.
 #' @param ... Other arguments passed to the \code{HuberM} function.
 #'                
 #' @details A wrapper for the \code{DescTools::HuberM} function
@@ -65,7 +66,7 @@
 
 groupwiseHuber = 
   function(formula=NULL, data=NULL,  var=NULL, group=NULL,
-           conf.level=0.95, ci.type="wald", ...)
+           conf.level=0.95, ci.type="wald", digits=3, ...)
   {
  if(!is.null(formula)){
     var   = all.vars(formula[[2]])[1]
@@ -85,8 +86,8 @@ groupwiseHuber =
           .fun=funny) 
                 
 D1 = rename(D1,c('V1'='n'))
-D1$M.Huber = D2$hm
-D1$lower.ci = D2$lwr.ci
-D1$upper.ci = D2$upr.ci
+D1$M.Huber = signif(D2$hm, digits=digits)
+D1$lower.ci = signif(D2$lwr.ci, digits=digits)
+D1$upper.ci = signif(D2$upr.ci, digits=digits)
 return(D1)
 }

@@ -11,6 +11,7 @@ groupwiseHuber(
   group = NULL,
   conf.level = 0.95,
   ci.type = "wald",
+  digits = 3,
   ...
 )
 }
@@ -30,6 +31,8 @@ Multiple names are listed as a vector. (See example.)}
 \item{ci.type}{The type of confidence interval to use. Can be
 \code{"wald"} or \code{"boot"}.
 See \code{HuberM} for details.}
+
+\item{digits}{The number of significant figures to use in output.}
 
 \item{...}{Other arguments passed to the \code{HuberM} function.}
 }

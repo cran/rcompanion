@@ -69,7 +69,7 @@
 #' @export
 
 oneSampleDominance =
-  function(x, mu,
+  function(x, mu=0,
            ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE,
            digits=3, na.rm=TRUE, ...)
   {
