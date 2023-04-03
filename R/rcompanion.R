@@ -19,14 +19,21 @@
 #' Cohen's w, Vargha and Delaney's A, Cliff's delta,
 #' r for one-sample, two-sample, and paired Wilcoxon and Mann-Whitney tests, 
 #' epsilon-squared, and Freeman's theta. 
+#' 
+#' The \code{\link{accuracy}} function
+#' reports statistics for
+#' models including minimum maximum accuracy, MAPE, RMSE, 
+#' Efron's pseudo r-squared, and coefficient of variation.
+#' 
+#' The functions \code{\link{nagelkerke}} and \code{\link{efronRSquared}}
+#' provides pseudo R-squared values for a variety of model types, as well as
+#' a likelihood ratio test for the model as a whole.
 #'
 #' There are also functions that are useful for comparing models.
 #' \code{\link{compareLM}},  \code{\link{compareGLM}}, and 
 #' \code{\link{pairwiseModelAnova}}.
 #' These use goodness-of-fit measures like AIC, BIC, and BICc, or likelihood
-#' ratio tests. The \code{\link{accuracy}} function reports statistics for
-#' models including minimum maximum accuracy, MAPE, RMSE, 
-#' Efron's pseudo r-squared, and coefficient of variation.
+#' ratio tests. 
 #'
 #' Functions for nominal data include post-hoc tests for 
 #' Cochran-Mantel-Haenszel test (\code{\link{groupwiseCMH}}),
@@ -40,10 +47,6 @@
 #' a normal curve, and \code{\link{plotPredy}} which plots of line for predicted
 #' values for a bivariate model.  Other plotting functions include producing
 #' density plots.
-#'
-#' The function \code{\link{nagelkerke}}
-#' provides pseudo R-squared values for a variety of model types, as well as
-#' a likelihood ratio test for the model as a whole.
 #'
 #' A function close to my heart is (\code{\link{cateNelson}}), which performs
 #' Cate-Nelson analysis for bivariate data.
@@ -68,6 +71,6 @@
 #'
 #' @docType package
 #' 
-#' @name rcompanion
+#' @name rcompanion-package
 #' 
 NULL

@@ -61,7 +61,7 @@ The parsing of the formula is simplistic. The first variable on the
          
          It is recommended to remove \code{NA} values before using this
          function.  At the time of writing, \code{NA} values will cause the
-         function to fail.
+         function to fail if confidence intervals are requested.
          
          At the time of writing, the \code{ci.type="boot"} option
          produces \code{NA} results. This is a result from the
@@ -80,6 +80,14 @@ groupwiseHuber(data      = Catbus,
                var       = "Steps",
                group     = c("Teacher", "Gender"),
                ci.type   = "wald")
+
+### Example with NA value and without confidence intervals
+data(Catbus)
+Catbus1 = Catbus
+Catbus1[1, 'Steps'] = NA
+groupwiseHuber(Steps ~ Teacher + Gender,
+               data      = Catbus1,
+               conf.level   = NA)
                                       
 }
 \references{

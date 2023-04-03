@@ -41,7 +41,7 @@ Pseudo R-squared values are not directly comparable to the
           referred to as Cragg and Uhler.
           
           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
-          clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, and rq.            
+          clm, clmm, vglm, glmer, glmmTMB, negbin, zeroinfl, betareg, and rq.            
                                       
           Model objects that require the null model to 
           be defined are nls, lmer, glmer, and clmm. 
@@ -110,7 +110,7 @@ nagelkerke(model, null=null.model)
 \url{http://rcompanion.org/handbook/G_10.html}
 }
 \seealso{
-\code{\link{accuracy}}
+\code{\link{efronRSquared}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

@@ -23,7 +23,7 @@
 #'           referred to as Cragg and Uhler.
 #'           
 #'           Model objects accepted are lm, glm, gls, lme, lmer, lmerTest, nls,
-#'           clm, clmm, vglm, glmer, negbin, zeroinfl, betareg, and rq.            
+#'           clm, clmm, vglm, glmer, glmmTMB, negbin, zeroinfl, betareg, and rq.            
 #'                                       
 #'           Model objects that require the null model to 
 #'           be defined are nls, lmer, glmer, and clmm. 
@@ -56,7 +56,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/G_10.html}
-#' @seealso \code{\link{accuracy}}
+#' @seealso \code{\link{efronRSquared}}
 #' @concept pseudo r-squared cox snell nagelkerke likelihood
 #' @return A list of six objects describing the models used, the pseudo 
 #'         r-squared values, the likelihood ratio test for the model,
@@ -110,7 +110,8 @@ function(fit, null=NULL, restrictNobs=FALSE)
              | class(fit)[1]=="clm"
              | class(fit)[1]=="vglm"
              | class(fit)[1]=="betareg"
-             | class(fit)[1]=="rq")
+             | class(fit)[1]=="rq"
+             | class(fit)[1]=="glmmTMB")
    BOGGLE =   (class(fit)[1]=="nls"
              | class(fit)[1]=="lmerMod"
              | class(fit)[1]=="glmerMod"

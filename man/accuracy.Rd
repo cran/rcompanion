@@ -10,7 +10,8 @@
 accuracy(fits, plotit = FALSE, digits = 3, ...)
 }
 \arguments{
-\item{fits}{A series of model object names. Must be a list.}
+\item{fits}{A series of model object names. 
+Must be a list of model objects or a single model object.}
 
 \item{plotit}{If \code{TRUE}, produces plots of the predicted values
 vs. the actual values for each model.}
@@ -72,13 +73,17 @@ Produces a table of fit statistics for multiple models:
           Here it is expressed as a percent.  That is, a result of 10 = 10%.
           
           Model objects currently supported: lm, glm, nls, betareg, gls,
-          lme, lmer, lmerTest, rq, loess, gam, glm.nb, glmRob.
+          lme, lmer, lmerTest, glmmTMB, 
+          rq, loess, gam, glm.nb, glmRob, rlm.
 }
 \examples{
 data(BrendonSmall)
 BrendonSmall$Calories = as.numeric(BrendonSmall$Calories)
 BrendonSmall$Calories2 = BrendonSmall$Calories ^ 2
 model.1 = lm(Sodium ~ Calories, data = BrendonSmall)
+
+accuracy(model.1, plotit=FALSE)
+
 model.2 = lm(Sodium ~ Calories + Calories2, data = BrendonSmall)
 model.3 = glm(Sodium ~ Calories, data = BrendonSmall, family="Gamma")
 quadplat = function(x, a, b, clx) {
@@ -87,6 +92,7 @@ quadplat = function(x, a, b, clx) {
 model.4 = nls(Sodium ~ quadplat(Calories, a, b, clx),
               data = BrendonSmall,
               start = list(a=519, b=0.359, clx = 2300))
+              
 accuracy(list(model.1, model.2, model.3, model.4), plotit=FALSE)
 
 ### Perfect and poor model fits

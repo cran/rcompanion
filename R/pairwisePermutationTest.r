@@ -18,13 +18,12 @@
 #'          Permutation tests are non-parametric tests 
 #'          that do not assume normally-distributed errors.
 #'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
-#'          futher discussion of this test.
+#'          further discussion of this test.
 #' 
 #'          The \code{pairwisePermutationTest} function
 #'          can be used as a post-hoc method following an omnibus 
 #'          permutation test
 #'          analogous to a one-way analysis of variance.
-#'                                                                                              
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/K_02.html}

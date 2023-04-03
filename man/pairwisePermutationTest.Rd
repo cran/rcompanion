@@ -43,7 +43,7 @@ The input should include either \code{formula} and \code{data};
          Permutation tests are non-parametric tests 
          that do not assume normally-distributed errors.
          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
-         futher discussion of this test.
+         further discussion of this test.
 
          The \code{pairwisePermutationTest} function
          can be used as a post-hoc method following an omnibus 

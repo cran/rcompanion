@@ -32,7 +32,7 @@
 #'          
 #'          It is recommended to remove \code{NA} values before using this
 #'          function.  At the time of writing, \code{NA} values will cause the
-#'          function to fail.
+#'          function to fail if confidence intervals are requested.
 #'          
 #'          At the time of writing, the \code{ci.type="boot"} option
 #'          produces \code{NA} results. This is a result from the
@@ -58,6 +58,14 @@
 #'                var       = "Steps",
 #'                group     = c("Teacher", "Gender"),
 #'                ci.type   = "wald")
+#'
+#' ### Example with NA value and without confidence intervals
+#' data(Catbus)
+#' Catbus1 = Catbus
+#' Catbus1[1, 'Steps'] = NA
+#' groupwiseHuber(Steps ~ Teacher + Gender,
+#'                data      = Catbus1,
+#'                conf.level   = NA)
 #'                                       
 #' @importFrom DescTools HuberM
 #' @importFrom plyr ddply rename
@@ -71,7 +79,8 @@ groupwiseHuber =
  if(!is.null(formula)){
     var   = all.vars(formula[[2]])[1]
     group = all.vars(formula[[3]])
-    }
+ }
+    
   D1=
     ddply(.data=data,
           .variables=group, var,
@@ -80,14 +89,23 @@ groupwiseHuber =
   
   funny = function(x, idx){HuberM(x[,idx], 
                            conf.level=conf.level, ci.type=ci.type, ...)}
+  
   D2=
     ddply(.data=data,
           .variables=group, var,
-          .fun=funny) 
-                
+          .fun=funny)
+
 D1 = rename(D1,c('V1'='n'))
+
+if(is.na(conf.level)){
+D1$M.Huber = signif(D2$V1, digits=digits)
+}
+
+if(!is.na(conf.level)){
 D1$M.Huber = signif(D2$hm, digits=digits)
 D1$lower.ci = signif(D2$lwr.ci, digits=digits)
 D1$upper.ci = signif(D2$upr.ci, digits=digits)
+}
+
 return(D1)
 }

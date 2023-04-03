@@ -54,6 +54,11 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/H_10.html}
+#' 
+#' Cohen J. 1992. "A Power Primer". Psychological Bulletin 12(1): 155-159.
+#' 
+#' Cohen, J. 1988. Statistical Power Analysis for the Behavioral Sciences, 2nd Ed. Routledge.
+#'             
 #' @seealso \code{\link{cramerV}} \code{\link{cramerVFit}}
 #' @concept correlation phi cohen w omega
 #' @return A single statistic, Cohen's w.

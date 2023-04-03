@@ -5,6 +5,7 @@
 \title{Efron's pseudo r-squared}
 \usage{
 efronRSquared(
+  model = NULL,
   actual = NULL,
   predicted = NULL,
   residual = NULL,
@@ -15,13 +16,17 @@ efronRSquared(
 )
 }
 \arguments{
+\item{model}{A model of the class lm, glm, nls, betareg, gls,
+lme, lmerMod, lmerModLmerTest, glmmTMB,
+rq, loess, gam, negbin, glmRob, or rlm.}
+
 \item{actual}{A vector of actual y values}
 
 \item{predicted}{A vector of predicted values}
 
 \item{residual}{A vector of residuals}
 
-\item{statistic}{The statistic to produce
+\item{statistic}{The statistic to produce.
 One of \code{"EfronRSquared"},
        \code{"MinMaxAccuracy"},
        \code{"MAE"},
@@ -42,7 +47,8 @@ vs. the actual values.}
 A single statistic
 }
 \description{
-Produces Efron's pseudo r-squared from vectors of
+Produces Efron's pseudo r-squared from certain models,
+             or vectors of
              residuals, predicted values, and actual values.
              Alternately produces minimum maximum accuracy, 
              mean absolute percent error, 
@@ -58,14 +64,15 @@ Efron's pseudo r-squared is calculated as 1 minus the residual sum
           \code{accuracy} function.
           While the \code{accuracy} function extracts values from a model
           object, this function allows for the manual entry
-          of values.
+          of residual, predicted, or actual values.
           
           It is recommended that the user consults the \code{accuracy}
           function
           for further details on these statistics, such as if the reported
           value is presented as a percentage or fraction.
           
-          Two of the following need to passed to the function:
+          If \code{model}is not supplied,
+          two of the following need to passed to the function:
           \code{actual}, \code{predicted}, \code{residual}.
 
           Note that, for some model objects, to extract residuals
@@ -80,13 +87,15 @@ BrendonSmall$Calories = as.numeric(BrendonSmall$Calories)
 BrendonSmall$Calories2 = BrendonSmall$Calories ^ 2
 model.1 = lm(Sodium ~ Calories + Calories2, data = BrendonSmall)
 
+efronRSquared(model.1)
+
+efronRSquared(model.1, statistic="MAPE")
+
 efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals)
 efronRSquared(residual=model.1$residuals, predicted=model.1$fitted.values)
 efronRSquared(actual=BrendonSmall$Sodium, predicted=model.1$fitted.values)
-summary(model.1)$r.squared
 
-efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals, 
-              statistic="MAPE")
+summary(model.1)$r.squared
 
 }
 \references{

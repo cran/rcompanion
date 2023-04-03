@@ -1,15 +1,20 @@
 #' @title Efron's pseudo r-squared
 #'
-#' @description Produces Efron's pseudo r-squared from vectors of
+#' @description Produces Efron's pseudo r-squared from certain models,
+#'              or vectors of
 #'              residuals, predicted values, and actual values.
 #'              Alternately produces minimum maximum accuracy, 
 #'              mean absolute percent error, 
 #'              root mean square error, or coefficient of variation.
 #' 
+#' @param model A model of the class lm, glm, nls, betareg, gls,
+#'                                   lme, lmerMod, lmerModLmerTest, glmmTMB,
+#'                                   rq, loess, gam, negbin, glmRob, or rlm.
+#'              
 #' @param actual A vector of actual y values
 #' @param residual A vector of residuals
 #' @param predicted A vector of predicted values
-#' @param statistic The statistic to produce
+#' @param statistic The statistic to produce.
 #'                  One of \code{"EfronRSquared"},
 #'                         \code{"MinMaxAccuracy"},
 #'                         \code{"MAE"},
@@ -32,14 +37,15 @@
 #'           \code{accuracy} function.
 #'           While the \code{accuracy} function extracts values from a model
 #'           object, this function allows for the manual entry
-#'           of values.
+#'           of residual, predicted, or actual values.
 #'           
 #'           It is recommended that the user consults the \code{accuracy}
 #'           function
 #'           for further details on these statistics, such as if the reported
 #'           value is presented as a percentage or fraction.
 #'           
-#'           Two of the following need to passed to the function:
+#'           If \code{model}is not supplied,
+#'           two of the following need to passed to the function:
 #'           \code{actual}, \code{predicted}, \code{residual}.
 #'
 #'           Note that, for some model objects, to extract residuals
@@ -60,41 +66,93 @@
 #' BrendonSmall$Calories2 = BrendonSmall$Calories ^ 2
 #' model.1 = lm(Sodium ~ Calories + Calories2, data = BrendonSmall)
 #' 
+#' efronRSquared(model.1)
+#' 
+#' efronRSquared(model.1, statistic="MAPE")
+#' 
 #' efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals)
 #' efronRSquared(residual=model.1$residuals, predicted=model.1$fitted.values)
 #' efronRSquared(actual=BrendonSmall$Sodium, predicted=model.1$fitted.values)
-#' summary(model.1)$r.squared
 #' 
-#' efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals, 
-#'               statistic="MAPE")
+#' summary(model.1)$r.squared
 #' 
 #' @importFrom graphics plot
 #' 
 #' @export
 
 efronRSquared = 
-function (actual=NULL, predicted=NULL, residual=NULL, 
+function (model=NULL, actual=NULL, predicted=NULL, residual=NULL, 
           statistic="EfronRSquared",
           plotit=FALSE, digits=3, ...) 
 {
-  if(is.null(actual)){actual = predicted + residual}
-  if(is.null(residual)){residual = actual - predicted}
-  if(is.null(predicted)){predicted = actual - residual}
-      
-  actual = unname(actual)
-  residual  = unname(residual)
+ if(!is.null(model)){
+   predicted  = as.numeric(NA)
+   residual   = as.numeric(NA)
+    if(class(model)[1]=="lm"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="glm"){
+                              predicted  = predict(model, type="response")
+                              residual = residuals(model, type="response")}
+   if(class(model)[1]=="nls"){
+                              predicted  = predict(model)
+                              residual = residuals(model)} 
+   if(class(model)[1]=="betareg"){
+                              predicted  = predict(model, type="response")
+                              residual = residuals(model, type="response")}
+   if(class(model)[1]=="gls"){predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="lme"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="lmerMod"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="lmerModLmerTest"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="rq"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="loess"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="gam"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="negbin"){
+                              predicted  = predict(model, type="response")
+                              residual = residuals(model, type="response")}
+   if(class(model)[1]=="glmRob"){
+                              predicted  = predict(model, type="response")
+                              residual = residuals(model, type="response")}
+   if(class(model)[1]=="rlm"){
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+   if(class(model)[1]=="glmmTMB"){
+                               predicted  = predict(model, type="response")
+                               residual = residuals(model, type="response")}
+      }
+
+  if(is.null(actual)){    actual    = predicted + residual}
+  if(is.null(residual)){  residual  = actual    - predicted}
+  if(is.null(predicted)){ predicted = actual    - residual}
+  
+  actual     = unname(actual)
+  residual   = unname(residual)
   predicted  = unname(predicted)
     
   data = data.frame(cbind(actual=actual, predicted=predicted))
-  mma  = mean(apply(data, 1, min) / apply(data, 1, max))
-  mae = mean(abs(predicted - actual))
-  mape = mean(abs(predicted - actual)/actual)
-  mse  = mean((actual - predicted)^2)
-  rmse = sqrt(mse)
-  nrmse_mean = rmse/mean(actual)
+  
+  mma           = mean(apply(data, 1, min) / apply(data, 1, max))
+  mae           = mean(abs(predicted - actual))
+  mape          = mean(abs(predicted - actual)/actual)
+  mse           = mean((actual - predicted)^2)
+  rmse          = sqrt(mse)
+  nrmse_mean    = rmse/mean(actual)
   cv_prcnt      = nrmse_mean*100 
-  Var = sum((actual - mean(actual))^2)
-  RSS = sum((actual - predicted)^2)
+  Var           = sum((actual - mean(actual))^2)
+  RSS           = sum((actual - predicted)^2)
   var_r_squared = 1 - RSS / Var
   cv_prcnt      = nrmse_mean*100
      
