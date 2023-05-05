@@ -120,4 +120,7 @@ cramerVFit(c(10, 10, 10, 10, 10))
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation effect size cramer V}
+\concept{Cramer's V}
+\concept{chi square test}
+\concept{confidence interval}
+\concept{effect size}

@@ -33,8 +33,14 @@
 #'           to linear, curvilinear, or plateau models.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/rcompanion/h_02.html}
-#' @concept Cate Nelson bivariate soil agronomy
+#' 
+#' @seealso \code{\link{cateNelson}}
+#' 
+#' @concept Cate-Nelson
+#' @concept agronomy
+#' 
 #' @return A data frame of statistics from the analysis:
 #'         critical level for x, critical value for y, the
 #'         number of observations in each of the quadrants (I, II, III, IV),

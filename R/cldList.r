@@ -46,21 +46,29 @@
 #'           text in the form e.g.
 #'           "Treat.A : Treat.B".
 #'           
+#' @note  The parsing of the formula is simplistic. 
+#'        The first variable on the
+#'        left side is used as the measurement variable.  
+#'        The first variable on the
+#'        right side is used for the grouping variable.  
+#'      
+#'        It is often helpful to reorder the factor levels in the data
+#'        set so that the group with the largest e.g.
+#'        mean or median is first, and so on.
+#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_08.html}
-#' @concept compact letter display cld post-hoc
+#' 
+#' @references \url{https://rcompanion.org/handbook/G_06.html}
+#' 
+#' @seealso \code{\link{fullPTable}}
+#' 
+#' @concept compact letter display
+#' @concept cld
+#' @concept post-hoc
+#' @concept multiple comparisons
+#'  
 #' @return A data frame of group names, group separation letters,
 #'         and monospaced separtions letters
-#'
-#' @note  The parsing of the formula is simplistic. 
-#'          The first variable on the
-#'          left side is used as the measurement variable.  
-#'          The first variable on the
-#'          right side is used for the grouping variable.  
-#'      
-#'       It is often helpful to reorder the factor levels in the data
-#'       set so that the group with the largest e.g.
-#'       mean or median is first, and so on.
 #'      
 #' @examples
 #' data(BrendonSmall)

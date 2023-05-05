@@ -39,19 +39,28 @@
 #'          
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{y}.
-#'           
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_15.html}
-#' @seealso \code{\link{percentileTest}}, \code{\link{groupwisePercentile}}
-#' @concept median percentile quantile permutation
-#' @return A dataframe of the groups being compared, the p-values,
-#'         and the adjusted p-values.
-#'         
+#'          
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
 #'          The first variable on the
-#'          right side is used for the grouping variable.   
+#'          right side is used for the grouping variable.
+#'                     
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/F_15.html}
+#' 
+#' @seealso \code{\link{percentileTest}}, 
+#'          \code{\link{groupwisePercentile}}
+#' 
+#' @concept post-hoc
+#' @concept percentile
+#' @concept median
+#' @concept quantile
+#' @concept permutation test
+#' 
+#' @return A dataframe of the groups being compared, the p-values,
+#'         and the adjusted p-values.
 #'          
 #' @examples
 #' \dontrun{

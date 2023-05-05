@@ -115,4 +115,9 @@ nagelkerke(model, null=null.model)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{pseudo r-squared cox snell nagelkerke likelihood}
+\concept{Cox and Snell}
+\concept{McFadden}
+\concept{Nagelkerke}
+\concept{likelihood ratio test}
+\concept{pseudo r squared}
+\concept{r squared}

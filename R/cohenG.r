@@ -54,20 +54,27 @@
 #'          However, if \code{type="norm"}, the confidence interval
 #'          may cross the values for no effect.
 #'          
-#'           When the reported statistics are close to their extremes,
-#'           or with small counts, 
-#'           the confidence intervals 
-#'           determined by this
-#'           method may not be reliable, or the procedure may fail.
+#'          When the reported statistics are close to their extremes,
+#'          or with small counts, 
+#'          the confidence intervals 
+#'          determined by this
+#'          method may not be reliable, or the procedure may fail.
 #'        
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/H_05.html}
-#' @concept Effect size Cohen g McNemar Bowker contingency symmetry nominal
+#' 
+#' @seealso \code{\link{nominalSymmetryTest}}, 
+#'          \code{\link{cohenH}}
+#' 
+#' @concept effect size
+#' @concept Cohen's g
+#' @concept McNemar's test
+#' @concept confidence interval
+#'   
 #' @return A list containing: a data frame of results of the global statistics;
 #'         and a data frame of results of the pairwise statistics.
-#'         
-#' @seealso \code{\link{nominalSymmetryTest}}
-#'         
+#'
 #' @examples
 #' ### 2 x 2 repeated matrix example
 #' data(AndersonRainBarrel)
@@ -76,6 +83,8 @@
 #' ### 3 x 3 repeated matrix
 #' data(AndersonRainGarden)
 #' cohenG(AndersonRainGarden)
+#' 
+#' @importFrom boot boot boot.ci
 #' 
 #' @export
 

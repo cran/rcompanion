@@ -50,20 +50,24 @@
 #'          
 #'          The p-value returned is a two-sided test.
 #'           
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_15.html}
-#'             
-#' @concept median percentile quantile permutation
-#' 
-#' @return A list of three data frames with
-#'         the data used, a summary for each group,
-#'         and the p-value from the test.
-#'         
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
 #'          The first variable on the
 #'          right side is used for the independent variable.
+#'           
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/F_15.html}
+#'             
+#' @concept percentile
+#' @concept median
+#' @concept quantile
+#' @concept permutation test
+#' 
+#' @return A list of three data frames with
+#'         the data used, a summary for each group,
+#'         and the p-value from the test.
 #'  
 #' @examples
 #' data(BrendonSmall)

@@ -23,18 +23,30 @@
 #'          When the data in the second group are greater than
 #'          in the first group, d is negative.
 #'          
-#'           Be cautious with this interpretation, as R will alphabetize
-#'           groups in the formula interface if the grouping variable
-#'           is not already a factor.
+#'          Be cautious with this interpretation, as R will alphabetize
+#'          groups in the formula interface if the grouping variable
+#'          is not already a factor.
 #'          
-#'           Currently, the function makes no provisions for \code{NA}
-#'           values in the data.  It is recommended that \code{NA}s be removed
-#'           beforehand.
+#'          Currently, the function makes no provisions for \code{NA}
+#'          values in the data.  It is recommended that \code{NA}s be removed
+#'          beforehand.
+#'          
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable.   
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_09.html}
+#' 
 #' @seealso \code{\link{mangiaficoD}}
+#' 
 #' @concept effect size
+#' @concept Mangiafico's d
+#' @concept confidence interval
+#'
 #' @return A list containing a data frame of pairwise statistics,
 #'         and the comparison with the most extreme value
 #'         of the statistic.

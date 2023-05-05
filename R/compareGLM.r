@@ -15,7 +15,7 @@
 #'           data without having too many terms.
 #'           
 #'           BIC tends to choose models with fewer parameters relative to AIC.
-
+#'
 #'           For comparisons with AIC, etc., to be valid, both models must
 #'           have the same data, without transformations, use the same 
 #'           dependent variable, and be fit with the same method.
@@ -25,9 +25,19 @@
 #'           longer than 500 characters.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/rcompanion/e_07.html}
-#' @seealso \code{\link{compareLM}}, \code{\link{pairwiseModelAnova}}, \code{\link{accuracy}}
-#' @concept AIC BIC AICc p-value pseudo R-squared glm
+#' 
+#' @seealso \code{\link{compareLM}}, 
+#'          \code{\link{pairwiseModelAnova}}, 
+#'          \code{\link{accuracy}}
+#' 
+#' @concept AIC
+#' @concept BIC
+#' @concept AICc
+#' @concept pseudo r squared
+#' @concept glm
+#' 
 #' @return A list of two objects: The series of model calls, and a data 
 #'         frame of statistics for each model.
 #'         

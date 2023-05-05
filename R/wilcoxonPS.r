@@ -60,13 +60,20 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research. 2nd ed. 
-#'             Routledge, New York.
+#' 
+#' @references Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research. 
+#'             2nd ed. Routledge, New York.
 #'             
 #'             \url{http://rcompanion.org/handbook/F_04.html}
 #'             
-#' @seealso \code{\link{cliffDelta}}, \code{\link{vda}}
+#' @seealso \code{\link{cliffDelta}}, 
+#'          \code{\link{vda}}
+#'          
 #' @concept effect size
+#' @concept Grissom and Kim's probability of superiority
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept confidence interval
+#' 
 #' @return A single statistic, PS.
 #'         Or a small data frame consisting of PS,
 #'         and the lower and upper confidence limits.

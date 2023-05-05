@@ -20,16 +20,23 @@
 #'            \code{DescTools::GTest}, or \code{stats::chisq.test}.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/H_04.html}
-#' @concept Chi-square G-test Fisher contingency table nominal
+#' 
+#' @seealso \code{\link{pairwiseMcnemar}}, 
+#'          \code{\link{groupwiseCMH}},
+#'          \code{\link{nominalSymmetryTest}}, 
+#'          \code{\link{pairwiseNominalIndependence}}
+#'            
+#' @concept post-hoc
+#' @concept chi square test
+#' @concept G test
+#' @concept Fisher's exact test
+#' 
 #' @return A list consisting of: the test used,
 #'         a matrix of unadjusted p-values,
 #'         the p-value adjustment method used,
 #'         and a matrix of adjusted p-values.
-#'         
-#'  @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
-#'           \code{\link{nominalSymmetryTest}}, 
-#'           \code{\link{pairwiseNominalIndependence}}
 #'         
 #' @examples
 #' ### Independence test for a 4 x 2 matrix

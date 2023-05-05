@@ -45,7 +45,7 @@ The parsing of the formula is simplistic. The first variable on the
          left side is used as the measurement variable.  The variables on the
          right side are used for the grouping variables.
 
-Beginning in version 2.0, there is no rounding of results by
+         Beginning in version 2.0, there is no rounding of results by
          default.  Rounding results can cause confusion if the
          user is expecting exact sums.
 }
@@ -63,7 +63,8 @@ groupwiseSum(data        = AndersonBias,
                       
 }
 \seealso{
-\code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}},
+\code{\link{groupwiseMean}}, 
+         \code{\link{groupwiseMedian}},
          \code{\link{groupwiseHuber}},
          \code{\link{groupwiseGeometric}}
 }
@@ -71,3 +72,4 @@ groupwiseSum(data        = AndersonBias,
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{sum}
+\concept{summary statistics}

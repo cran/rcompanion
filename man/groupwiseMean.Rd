@@ -131,10 +131,13 @@ groupwiseMean(data        = Catbus,
 \url{http://rcompanion.org/handbook/C_03.html}
 }
 \seealso{
-\code{\link{groupwiseMedian}}, \code{\link{groupwiseHuber}}
+\code{\link{groupwiseMedian}}, 
+         \code{\link{groupwiseHuber}},
          \code{\link{groupwiseGeometric}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{mean confidence interval bootstrap}
+\concept{confidence interval}
+\concept{mean}
+\concept{summary statistics}

@@ -20,9 +20,16 @@
 #'           relies on the \code{density} function.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/C_04.html}
-#' @seealso \code{\link{plotNormalHistogram}} \code{\link{plotNormalDensity}}
-#' @concept density distribution histogram
+#' 
+#' @seealso \code{\link{plotNormalHistogram}}, 
+#'          \code{\link{plotNormalDensity}}
+#'          
+#' @concept histogram
+#' @concept density plot
+#' @concept normal distribution
+#' 
 #' @return Produces a plot. Returns nothing.
 #'         
 #' @examples

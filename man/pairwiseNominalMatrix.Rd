@@ -44,10 +44,6 @@ A list consisting of: the test used,
         a matrix of unadjusted p-values,
         the p-value adjustment method used,
         and a matrix of adjusted p-values.
-        
- @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
-          \code{\link{nominalSymmetryTest}}, 
-          \code{\link{pairwiseNominalIndependence}}
 }
 \description{
 Conducts pairwise tests for a 2-dimensional matrix,
@@ -72,7 +68,16 @@ multcompLetters(PT)
 \references{
 \url{http://rcompanion.org/handbook/H_04.html}
 }
+\seealso{
+\code{\link{pairwiseMcnemar}}, 
+         \code{\link{groupwiseCMH}},
+         \code{\link{nominalSymmetryTest}}, 
+         \code{\link{pairwiseNominalIndependence}}
+}
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Chi-square G-test Fisher contingency table nominal}
+\concept{Fisher's exact test}
+\concept{G test}
+\concept{chi square test}
+\concept{post-hoc}

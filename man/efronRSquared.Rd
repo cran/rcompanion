@@ -18,7 +18,8 @@ efronRSquared(
 \arguments{
 \item{model}{A model of the class lm, glm, nls, betareg, gls,
 lme, lmerMod, lmerModLmerTest, glmmTMB,
-rq, loess, gam, negbin, glmRob, or rlm.}
+rq, loess, gam, negbin, glmRob, rlm,
+or mblm.}
 
 \item{actual}{A vector of actual y values}
 
@@ -102,9 +103,16 @@ summary(model.1)$r.squared
 \url{https://rcompanion.org/handbook/F_16.html}
 }
 \seealso{
-\code{\link{accuracy}}
+\code{\link{accuracy}}, 
+         \code{\link{nagelkerke}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{pseudo r-squared}
+\concept{MAE}
+\concept{MAPE}
+\concept{RMSE}
+\concept{accuracy}
+\concept{coefficient of variation}
+\concept{pseudo r squared}
+\concept{r squared}

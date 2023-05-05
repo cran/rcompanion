@@ -11,8 +11,16 @@
 #'           letter display.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_08.html}
-#' @concept pairwise multiple comparisons cld
+#' 
+#' @seealso \code{\link{cldList}}
+#' 
+#' @concept multiple comparisons
+#' @concept compact letter display
+#' @concept cld
+#' @concept post-hoc
+#' 
 #' @return A full matrix.
 #'         
 #' @examples

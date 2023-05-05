@@ -119,4 +119,7 @@ Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research.
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Agresti's generalized odds ratio for stochastic dominance}
+\concept{Wilcoxon-Mann-Whitney}
+\concept{confidence interval}
 \concept{effect size}

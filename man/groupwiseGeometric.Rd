@@ -61,7 +61,7 @@ The parsing of the formula is simplistic. The first variable on the
          left side is used as the measurement variable.  The variables on the
          right side are used for the grouping variables.
          
-       Results for ungrouped (one-sample) data can be obtained by either
+         Results for ungrouped (one-sample) data can be obtained by either
          setting the right side of the formula to 1, e.g.  y ~ 1, or by
          setting \code{group=NULL}.
 }
@@ -82,10 +82,13 @@ groupwiseGeometric(data   = Catbus,
 \url{http://rcompanion.org/handbook/C_03.html}
 }
 \seealso{
-\code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}}
+\code{\link{groupwiseMean}}, 
+         \code{\link{groupwiseMedian}},
          \code{\link{groupwiseHuber}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{geometric mean confidence interval standard deviation error}
+\concept{confidence interval}
+\concept{geometric mean}
+\concept{summary statistics}

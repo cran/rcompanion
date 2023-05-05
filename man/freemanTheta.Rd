@@ -140,4 +140,6 @@ Freeman, L.C. 1965. Elementary Applied Statistics for Students
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation Freeman theta ordinal nominal}
+\concept{Cochran-Armitage}
+\concept{Freeman's theta}
+\concept{Kruskal-Wallis}

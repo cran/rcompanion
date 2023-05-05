@@ -50,16 +50,30 @@ The count pseudo r-squared is simply the number of correctly
           The adjusted value deducts the count of the most frequent
           outcome from both the numerator and the denominator.
           
+          It is recommended that the model is fit on data in long
+          format.  That is, that the \code{weight} option not be used in
+          the model.
+          
           The function makes no provisions for \code{NA} values.
           It is recommended that \code{NA} values be removed before
           the determination of the model.
 }
 \examples{
 data(AndersonBias)
+
+### Covert data to long format
+
+Long = AndersonBias[rep(row.names(AndersonBias), AndersonBias$Count),
+                    c("Result", "County", "Gender")]
+rownames(Long) = seq(1:nrow(Long))
+str(Long)
+
+### Fit model and determine count r-square
+
 model = glm(Result ~ County + Gender + County:Gender,
-           weight = Count,
-           data = AndersonBias,
-           family = binomial(link="logit"))
+            data = Long,
+            family = binomial())
+
 countRSquare(model)
 
 }
@@ -69,9 +83,13 @@ countRSquare(model)
             \url{https://rcompanion.org/rcompanion/e_06.html}
 }
 \seealso{
-\code{\link{nagelkerke}}, \code{\link{accuracy}}
+\code{\link{nagelkerke}}, 
+         \code{\link{efronRSquared}}, 
+         \code{\link{accuracy}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{pseudo r-squared}
+\concept{logistic regression}
+\concept{pseudo r squared}
+\concept{r squared}

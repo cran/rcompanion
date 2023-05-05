@@ -85,4 +85,5 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{moods median nonparametric post-hoc one-way}
+\concept{Mood's median test}
+\concept{post-hoc}

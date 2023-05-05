@@ -51,9 +51,18 @@
 #'           \code{VDA = Dominance / 2 + 0.5}.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{https://rcompanion.org/handbook/F_03.html}
-#' @seealso \code{\link{cliffDelta}}
+#' 
+#' @seealso \code{\link{pairedSampleDominance}},
+#'          \code{\link{cliffDelta}},
+#'          \code{\link{vda}}
+#' 
 #' @concept effect size
+#' @concept dominance
+#' @concept sign test
+#' @concept confidence interval
+#' 
 #' @return A small data frame consisting of descriptive statistics,
 #'         the dominance statistic,
 #'         and potentially the lower and upper confidence limits.

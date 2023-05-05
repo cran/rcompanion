@@ -91,4 +91,7 @@ wilcoxonOneSampleRC(x = A, mu=15, verbose=TRUE, zero.method="none")
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation effect size ordinal nominal}
+\concept{Matched-pairs rank biserial correlation}
+\concept{Wilcoxon signed rank}
+\concept{confidence interval}
+\concept{effect size}

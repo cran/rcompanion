@@ -94,10 +94,13 @@ groupwiseHuber(Steps ~ Teacher + Gender,
 \url{http://rcompanion.org/rcompanion/d_08a.html}
 }
 \seealso{
-\code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}}
+\code{\link{groupwiseMean}}, 
+         \code{\link{groupwiseMedian}},
          \code{\link{groupwiseGeometric}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{huber m-estimator confidence interval robust bootstrap}
+\concept{Huber M-estimator}
+\concept{confidence interval}
+\concept{summary statistics}

@@ -66,10 +66,17 @@
 #'          Hypothesis Testing.                
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/C_03.html}
-#' @seealso \code{\link{groupwiseMedian}}, \code{\link{groupwiseHuber}}
+#' 
+#' @seealso \code{\link{groupwiseMedian}}, 
+#'          \code{\link{groupwiseHuber}},
 #'          \code{\link{groupwiseGeometric}}
-#' @concept mean confidence interval bootstrap 
+#'          
+#' @concept summary statistics
+#' @concept mean
+#' @concept confidence interval
+#' 
 #' @return A data frame of requested statistics by group.
 #'          
 #' @examples

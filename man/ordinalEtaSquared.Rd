@@ -105,12 +105,17 @@ ordinalEtaSquared(XT)
 }
 \references{
 Cohen, B.H. 2013. Explaining Psychological Statistics, 4th ed. 
-            Wiley.; \url{http://rcompanion.org/handbook/F_08.html}
+            Wiley.
+            
+            \url{http://rcompanion.org/handbook/F_08.html}
 }
 \seealso{
-\code{\link{freemanTheta}}, \code{\link{epsilonSquared}}
+\code{\link{freemanTheta}}, 
+         \code{\link{epsilonSquared}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation eta ordinal nominal}
+\concept{Kruskal-Wallis}
+\concept{effect size}
+\concept{eta squared}

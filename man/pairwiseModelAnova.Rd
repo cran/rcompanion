@@ -51,4 +51,5 @@ pairwiseModelAnova(model.1, model.2, model.3, model.4)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{likelihood ratio anova model}
+\concept{F test}
+\concept{likelihood ratio test}

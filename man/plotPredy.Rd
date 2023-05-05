@@ -139,4 +139,3 @@ plotPredy(data  = BullyHill,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{plot polynomial bivariate}

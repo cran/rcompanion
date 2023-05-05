@@ -127,8 +127,16 @@ cateNelson(x          = Nurseries$Size,
 }
 \references{
 \url{http://rcompanion.org/rcompanion/h_02.html}
+
+    Cate, R. B., & Nelson, L.A. (1971). A simple statistical procedure
+    for partitioning soil test correlation data into two classes. 
+    Soil Science Society of America Proceedings 35, 658–660.
+}
+\seealso{
+\code{\link{cateNelsonFixedY}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Cate Nelson bivariate soil agronomy}
+\concept{Cate-Nelson}
+\concept{agronomy}

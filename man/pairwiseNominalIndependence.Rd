@@ -91,4 +91,7 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Chi-square G-test Fisher contingency table nominal}
+\concept{Fisher's exact test}
+\concept{G test}
+\concept{chi square test}
+\concept{post-hoc}

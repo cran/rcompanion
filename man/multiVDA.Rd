@@ -60,9 +60,9 @@ VDA and CD are effect size statistic appropriate
          and a positive result indicating
          that values in the first group are greater than in the second.
          
-          Be cautious with this interpretation, as R will alphabetize
-          groups in the formula interface if the grouping variable
-          is not already a factor.
+         Be cautious with this interpretation, as R will alphabetize
+         groups in the formula interface if the grouping variable
+         is not already a factor.
                    
          In the function output,
          \code{VDA.m} is the greater of VDA or 1-VDA.
@@ -101,9 +101,14 @@ multiVDA(Likert ~ Speaker, data=PoohPiglet)
 \url{http://rcompanion.org/handbook/F_08.html}
 }
 \seealso{
-\code{\link{vda}}, \code{\link{cliffDelta}}
+\code{\link{vda}}, 
+         \code{\link{cliffDelta}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Cliff's delta}
+\concept{Glass rank biserial correlation}
+\concept{Kruskal-Wallis}
+\concept{Vargha and Delaney's A}
 \concept{effect size}

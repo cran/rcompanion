@@ -58,9 +58,16 @@
 #'          method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_05.html}
+#' 
 #' @seealso \code{\link{multiMangiaficoD}}
+#' 
 #' @concept effect size
+#' @concept Mangiafico's d
+#' @concept Mood's median test
+#' @concept confidence interval
+#' 
 #' @return A single statistic, d.
 #'         Or a small data frame consisting of d,
 #'         and the lower and upper confidence limits.

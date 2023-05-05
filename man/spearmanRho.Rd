@@ -73,15 +73,15 @@ This function is a wrapper for \code{stats::cor}
          The input should include either \code{formula} and \code{data};
          or \code{x}, and \code{y}.
          
-          Currently, the function makes no provisions for \code{NA}
-          values in the data.  It is recommended that \code{NA}s be removed
-          beforehand.
+         Currently, the function makes no provisions for \code{NA}
+         values in the data.  It is recommended that \code{NA}s be removed
+         beforehand.
 
-          When the returned statistic is close to -1 or close to 1,
-          or with small sample size,
-          the confidence intervals 
-          determined by this
-          method may not be reliable, or the procedure may fail.
+         When the returned statistic is close to -1 or close to 1,
+         or with small sample size,
+         the confidence intervals 
+         determined by this
+         method may not be reliable, or the procedure may fail.
 }
 \examples{
 data(Catbus)
@@ -94,4 +94,9 @@ spearmanRho( ~ Steps + Rating, data=Catbus)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Kendall's tau}
+\concept{Pearson's r}
+\concept{Spearman's rho}
+\concept{confidence interval}
+\concept{correlation}
 \concept{effect size}

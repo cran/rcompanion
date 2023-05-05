@@ -30,8 +30,13 @@
 #'          transformation may be helpful. Large values may need to be scaled. 
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/I_12.html}
-#' @concept Tukey ladder transform normal
+#' 
+#' @concept Tukey's ladder of powers
+#' @concept normal distribution
+#' @concept transformation
+#' 
 #' @return The transformed vector of values. The chosen lambda value is printed
 #'         directly.
 #'         

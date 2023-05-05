@@ -13,6 +13,7 @@
 #' @param jitter If \code{TRUE}, jitters the "actual" values in the plot.
 #' @param pch Passed to \code{plot}. 
 #' @param ... Additional arguments.
+#' 
 #' @details  The count pseudo r-squared is simply the number of correctly
 #'           predicted observations divided the total number of observations.
 #'           
@@ -21,27 +22,49 @@
 #'           The adjusted value deducts the count of the most frequent
 #'           outcome from both the numerator and the denominator.
 #'           
+#'           It is recommended that the model is fit on data in long
+#'           format.  That is, that the \code{weight} option not be used in
+#'           the model.
+#'           
 #'           The function makes no provisions for \code{NA} values.
 #'           It is recommended that \code{NA} values be removed before
 #'           the determination of the model.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{https://stats.oarc.ucla.edu/other/mult-pkg/faq/general/faq-what-are-pseudo-r-squareds/},
 #'             \url{https://rcompanion.org/handbook/H_08.html},
 #'             \url{https://rcompanion.org/rcompanion/e_06.html}
-#' @seealso \code{\link{nagelkerke}}, \code{\link{accuracy}}
-#' @concept pseudo r-squared
+#'             
+#' @seealso \code{\link{nagelkerke}}, 
+#'          \code{\link{efronRSquared}}, 
+#'          \code{\link{accuracy}}
+#' 
+#' @concept r squared
+#' @concept pseudo r squared
+#' @concept logistic regression
+#' 
 #' @return A list including a description of the submitted model,
 #'         a data frame with the pseudo r-squared results,
 #'         and a confusion matrix of the results.
 #'          
 #' @examples
 #' data(AndersonBias)
+#'
+#' ### Covert data to long format
+#'
+#' Long = AndersonBias[rep(row.names(AndersonBias), AndersonBias$Count),
+#'                     c("Result", "County", "Gender")]
+#' rownames(Long) = seq(1:nrow(Long))
+#' str(Long)
+#'
+#' ### Fit model and determine count r-square
+#'
 #' model = glm(Result ~ County + Gender + County:Gender,
-#'            weight = Count,
-#'            data = AndersonBias,
-#'            family = binomial(link="logit"))
-#' countRSquare(model)
+#'             data = Long,
+#'             family = binomial())
+#'
+#'countRSquare(model)
 #' 
 #' @importFrom stats predict addmargins
 #' 

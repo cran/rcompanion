@@ -70,11 +70,15 @@ groupwiseCMH(Table,
 \url{http://rcompanion.org/handbook/H_06.html}
 }
 \seealso{
-\code{\link{nominalSymmetryTest}}, \code{\link{pairwiseMcnemar}},
+\code{\link{nominalSymmetryTest}}, 
+         \code{\link{pairwiseMcnemar}},
          \code{\link{pairwiseNominalIndependence}}, 
          \code{\link{pairwiseNominalMatrix}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Cochran Mantel Haenszel post-hoc fisher Chi square G}
+\concept{Cochran-Mantel-Haenszel}
+\concept{Fisher's exact test}
+\concept{chi square test}
+\concept{post-hoc}

@@ -9,7 +9,8 @@
 #' 
 #' @param model A model of the class lm, glm, nls, betareg, gls,
 #'                                   lme, lmerMod, lmerModLmerTest, glmmTMB,
-#'                                   rq, loess, gam, negbin, glmRob, or rlm.
+#'                                   rq, loess, gam, negbin, glmRob, rlm,
+#'                                   or mblm.
 #'              
 #' @param actual A vector of actual y values
 #' @param residual A vector of residuals
@@ -55,9 +56,20 @@
 #'           \code{residuals(model.object, type="response")}.
 #'
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{https://rcompanion.org/handbook/F_16.html}
-#' @seealso \code{\link{accuracy}}
-#' @concept pseudo r-squared
+#' 
+#' @seealso \code{\link{accuracy}}, 
+#'          \code{\link{nagelkerke}}
+#'
+#' @concept pseudo r squared
+#' @concept r squared
+#' @concept accuracy
+#' @concept RMSE
+#' @concept MAPE
+#' @concept coefficient of variation
+#' @concept MAE
+#' 
 #' @return A single statistic
 #'         
 #' @examples
@@ -132,6 +144,9 @@ function (model=NULL, actual=NULL, predicted=NULL, residual=NULL,
    if(class(model)[1]=="glmmTMB"){
                                predicted  = predict(model, type="response")
                                residual = residuals(model, type="response")}
+   if(class(model)[1]=="mblm"){
+     predicted  = predict(model)
+     residual = residuals(model)}
       }
 
   if(is.null(actual)){    actual    = predicted + residual}

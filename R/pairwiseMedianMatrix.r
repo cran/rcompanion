@@ -26,22 +26,27 @@
 #'          \code{coin::median_test}.
 #'          
 #'          The matrix output can be converted to a compact letter display,
-#'          as in the example.                                                                                    
-#'           
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_09.html}
-#' @seealso \code{\link{pairwiseMedianTest}} 
-#' @concept moods median nonparametric post-hoc one-way cld
-#' @return A list consisting of:
-#'         a matrix of p-values;
-#'         the p-value adjustment method;
-#'         a matrix of adjusted p-values.
-#'         
+#'          as in the example.
+#'          
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
 #'          The first variable on the
-#'          right side is used for the grouping variable.
+#'          right side is used for the grouping variable.                                                                                 
+#'           
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/F_09.html}
+#' 
+#' @seealso \code{\link{pairwiseMedianTest}} 
+#' 
+#' @concept post-hoc
+#' @concept Mood's median test
+#' 
+#' @return A list consisting of:
+#'         a matrix of p-values;
+#'         the p-value adjustment method;
+#'         a matrix of adjusted p-values.
 #'          
 #' @examples
 #' data(PoohPiglet)

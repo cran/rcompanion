@@ -47,16 +47,21 @@
 #'           It is not clear to the author if this approach produces accurate
 #'           confidence intervals, but it appears to be reasonable.
 #'           
-#'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_04.html}
-#' @concept Friedman effect size
+#' 
+#' @references \url{http://rcompanion.org/handbook/F_10.html}
+#' 
+#' @concept effect size
+#' @concept Kendall's W
+#' @concept Friedman's test
+#' @concept confidence interval
+#' 
 #' @return A single statistic, W.  
 #'         Or a small data frame consisting of W,
 #'         and the lower and upper confidence limits.  
 #'         
 #' @section Acknowledgments:
-#'  Thanks to Indrajeet Patil, author of \code{ggstatsplot},
+#'  My thanks to Indrajeet Patil, author of \code{ggstatsplot},
 #'  and \code{groupedstats} for help in the inspiring and 
 #'  coding of this function.
 #'               

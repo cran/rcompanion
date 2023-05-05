@@ -42,7 +42,7 @@ cohenH(Pennsylvania18, observation="row")
 
 }
 \references{
-\url{http://rcompanion.org/handbook/H_05.html}
+\url{https://rcompanion.org/handbook/H_10.html}
 }
 \seealso{
 \code{\link{cohenG}}
@@ -50,4 +50,6 @@ cohenH(Pennsylvania18, observation="row")
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Effect size Cohen h contingency table nominal}
+\concept{Cohen's h}
+\concept{chi square test}
+\concept{effect size}

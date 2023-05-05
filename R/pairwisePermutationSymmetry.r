@@ -1,7 +1,6 @@
-#' @title Pairwise two-sample permutation symmetry tests
+#' @title Pairwise two-sample symmetry tests
 #'
-#' @description Conducts pairwise two-sample permutation tests 
-#'              of symmetry across groups.
+#' @description Conducts pairwise two-sample symmetry tests across groups.
 #' 
 #' @param formula A formula indicating the measurement variable and
 #'                the grouping variable. e.g. y ~ group | block.
@@ -17,22 +16,10 @@
 #' @details The input should include either \code{formula} and \code{data};
 #'          or \code{x}, \code{g}, and \code{b}.
 #' 
-#'          Permutation tests are non-parametric tests 
-#'          that do not assume normally-distributed errors.
-#'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
-#'          futher discussion of this test.
-#' 
-#'          The \code{pairwisePermutationSymmetry} function
-#'          can be used as a post-hoc method following an omnibus 
-#'          permutation test
-#'          analogous to a paired one-way analysis of variance.
-#'                                                                                              
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/K_03.html}
-#' @seealso \code{\link{pairwisePermutationSymmetryMatrix}}
-#' @concept permutation nonparametric post-hoc one-way symmetry
-#' @return A dataframe of the groups being compared, the p-values,
-#'         and the adjusted p-values. 
+#'          This function is a wrapper for \code{coin::symmetry_test},
+#'          passing pairwise groups to the function. It's critical to read
+#'          and understand the documentation for this function to understand
+#'          its use and options.
 #'
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
@@ -41,21 +28,43 @@
 #'          right side is used for the grouping variable.
 #'          The second variable on the
 #'          right side is used for the blocking variable.
+#'                                                                                              
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/K_03.html}
+#' 
+#' @seealso \code{\link{pairwisePermutationSymmetryMatrix}}
+#' 
+#' @concept post-hoc 
+#' @concept permutation test
+#' 
+#' @return A dataframe of the groups being compared, the p-values,
+#'         and the adjusted p-values. 
 #'
 #' @examples
 #' data(BobBelcher)
+#' 
 #' BobBelcher$Instructor = factor( BobBelcher$Instructor, 
-#'                   levels = c("Linda Belcher", "Louise Belcher",
-#'                              "Tina Belcher", "Bob Belcher",
-#'                              "Gene Belcher"))
-#' BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
-#' PT = pairwisePermutationSymmetry(Likert.f ~ Instructor | Rater,
-#'                                  data      = BobBelcher,
-#'                                  method = "fdr")
+#'                                 levels = c("Linda Belcher", "Louise Belcher",
+#'                                            "Tina Belcher", "Bob Belcher",
+#'                                            "Gene Belcher"))
+#'                                            
+#' library(coin)
+#' 
+#' symmetry_test(Likert ~ Instructor | Rater, data= BobBelcher,
+#'               ytrafo   = rank_trafo,
+#'               teststat = "quadratic")
+#' 
+#' PT = pairwisePermutationSymmetry(Likert ~ Instructor | Rater,
+#'                                  data     = BobBelcher,
+#'                                  ytrafo   = rank_trafo,
+#'                                  teststat = "quadratic",
+#'                                  method   = "fdr")
 #' PT
+#' 
 #' cldList(comparison = PT$Comparison,
 #'         p.value    = PT$p.adjust,
-#'         threshold  = 0.05)
+#'        threshold  = 0.05)
 #' 
 #' @importFrom stats p.adjust
 #' @importFrom coin symmetry_test statistic

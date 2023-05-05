@@ -41,10 +41,19 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/H_10.html}
-#' @concept correlation phi cramer V
+#' 
 #' @seealso \code{\link{cramerV}}
-#' @return A single statistic, phi.  
+#' 
+#' @concept effect size
+#' @concept phi
+#' @concept Cramer's V
+#' @concept chi square test
+#' @concept correlation
+#' @concept confidence interval
+#' 
+#' @return A single statistic, phi. 
 #'         Or a small data frame consisting of phi,
 #'         and the lower and upper confidence limits.
 #'         

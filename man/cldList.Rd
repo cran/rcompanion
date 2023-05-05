@@ -85,14 +85,14 @@ The input should include either \code{formula} and \code{data};
 }
 \note{
 The parsing of the formula is simplistic. 
-         The first variable on the
-         left side is used as the measurement variable.  
-         The first variable on the
-         right side is used for the grouping variable.  
+       The first variable on the
+       left side is used as the measurement variable.  
+       The first variable on the
+       right side is used for the grouping variable.  
      
-      It is often helpful to reorder the factor levels in the data
-      set so that the group with the largest e.g.
-      mean or median is first, and so on.
+       It is often helpful to reorder the factor levels in the data
+       set so that the group with the largest e.g.
+       mean or median is first, and so on.
 }
 \examples{
 data(BrendonSmall)
@@ -117,9 +117,15 @@ cldList(p.adj ~ Comparison, data = HSD,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_08.html}
+\url{https://rcompanion.org/handbook/G_06.html}
+}
+\seealso{
+\code{\link{fullPTable}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{compact letter display cld post-hoc}
+\concept{cld}
+\concept{compact letter display}
+\concept{multiple comparisons}
+\concept{post-hoc}

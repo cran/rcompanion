@@ -27,10 +27,18 @@
 #'               larger sample sizes.
 #'               
 #' @author       Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references   \url{http://rcompanion.org/handbook/E_04.html},
+#' 
+#' @references   \url{http://rcompanion.org/handbook/E_04.html}
+#' 
 #'               Conover, W.J., Practical Nonparametric Statistics, 3rd.
-#' @seealso      \code{\link{groupwisePercentile}}, \code{\link{groupwiseMedian}}
-#' @concept      percentile quantile confidence interval
+#'               
+#' @seealso      \code{\link{groupwisePercentile}}, 
+#'               \code{\link{groupwiseMedian}}
+#' 
+#' @concept      percentile
+#' @concept      quantile
+#' @concept      confidence interval
+#' 
 #' @return       A data frame of summary statistics, quantile estimate, 
 #'               and confidence limits.
 #'          

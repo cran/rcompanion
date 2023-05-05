@@ -12,6 +12,7 @@
 #' @param restrictNobs If \code{TRUE}, limits the observations for the null
 #'                     model to those used in the fitted model.
 #'                     Works with only some model object types.
+#'                     
 #' @details  Pseudo R-squared values are not directly comparable to the  
 #'           R-squared for OLS models.  Nor can they be interpreted as the  
 #'           proportion of the variability in the dependent variable that is  
@@ -55,9 +56,18 @@
 #'           Results may be different than those based on deviance.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/G_10.html}
+#' 
 #' @seealso \code{\link{efronRSquared}}
-#' @concept pseudo r-squared cox snell nagelkerke likelihood
+#' 
+#' @concept r squared
+#' @concept pseudo r squared
+#' @concept Cox and Snell
+#' @concept McFadden
+#' @concept Nagelkerke
+#' @concept likelihood ratio test
+#' 
 #' @return A list of six objects describing the models used, the pseudo 
 #'         r-squared values, the likelihood ratio test for the model,
 #'         the number of observations for the models,

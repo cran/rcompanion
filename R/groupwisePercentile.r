@@ -44,15 +44,23 @@
 #'          left side is used as the measurement variable.  The variables on the
 #'          right side are used for the grouping variables.
 #'          
-#'        Results for ungrouped (one-sample) data can be obtained by either
+#'          Results for ungrouped (one-sample) data can be obtained by either
 #'          setting the right side of the formula to 1, e.g.  y ~ 1, or by
 #'          setting \code{group=NULL}.                
 #'                    
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_15.html}
-#' @seealso \code{\link{groupwiseMean}}, \code{\link{groupwiseHuber}}, 
-#'          \code{\link{groupwiseGeometric}}, \code{\link{groupwiseMedian}}
-#' @concept percentile confidence interval bootstrap 
+#' 
+#' @seealso \code{\link{groupwiseMean}}, 
+#'          \code{\link{groupwiseHuber}}, 
+#'          \code{\link{groupwiseGeometric}}, 
+#'          \code{\link{groupwiseMedian}}
+#'          
+#' @concept summary statistics
+#' @concept percentile
+#' @concept confidence interval
+#' 
 #' @return A data frame of requested statistics by group
 #'          
 #' @examples

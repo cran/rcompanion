@@ -13,8 +13,12 @@
 #'           To be valid, models need to be nested.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @seealso \code{\link{compareGLM}}, \code{\link{compareLM}}
-#' @concept likelihood ratio anova model
+#' 
+#' @concept likelihood ratio test
+#' @concept F test
+#' 
 #' @return A list of: The calls of the models compared; a data frame of 
 #'         comparisons and F tests; and a data frame of
 #'         comparisons and likelihood ratio tests.

@@ -20,15 +20,19 @@
 #'          left side is used as the measurement variable.  The variables on the
 #'          right side are used for the grouping variables.
 #' 
-#' @note    Beginning in version 2.0, there is no rounding of results by
+#'          Beginning in version 2.0, there is no rounding of results by
 #'          default.  Rounding results can cause confusion if the
 #'          user is expecting exact sums.               
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @seealso \code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}},
+#' @seealso \code{\link{groupwiseMean}}, 
+#'          \code{\link{groupwiseMedian}},
 #'          \code{\link{groupwiseHuber}},
 #'          \code{\link{groupwiseGeometric}}
-#' @concept sum 
+#'          
+#' @concept summary statistics
+#' @concept sum
+#'  
 #' @return A data frame of statistics by group.
 #'          
 #' @examples

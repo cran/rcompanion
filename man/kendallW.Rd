@@ -82,7 +82,7 @@ See the \code{KendallW} function in the \code{DescTools} package
 }
 \section{Acknowledgments}{
 
- Thanks to Indrajeet Patil, author of \code{ggstatsplot},
+ My thanks to Indrajeet Patil, author of \code{ggstatsplot},
  and \code{groupedstats} for help in the inspiring and 
  coding of this function.
 }
@@ -94,9 +94,12 @@ kendallW(Table)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_04.html}
+\url{http://rcompanion.org/handbook/F_10.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Friedman effect size}
+\concept{Friedman's test}
+\concept{Kendall's W}
+\concept{confidence interval}
+\concept{effect size}

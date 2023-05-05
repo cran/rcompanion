@@ -63,9 +63,12 @@ plotDensityHistogram(residuals(model))
 \url{http://rcompanion.org/handbook/C_04.html}
 }
 \seealso{
-\code{\link{plotNormalHistogram}} \code{\link{plotNormalDensity}}
+\code{\link{plotNormalHistogram}}, 
+         \code{\link{plotNormalDensity}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{density distribution histogram}
+\concept{density plot}
+\concept{histogram}
+\concept{normal distribution}

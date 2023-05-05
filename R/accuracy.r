@@ -58,13 +58,26 @@
 #'           
 #'           Model objects currently supported: lm, glm, nls, betareg, gls,
 #'           lme, lmer, lmerTest, glmmTMB, 
-#'           rq, loess, gam, glm.nb, glmRob, rlm.
+#'           rq, loess, gam, glm.nb, glmRob, mblm, and rlm.
 #'           
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/G_14.html}
-#' @seealso \code{\link{compareLM}}, \code{\link{compareGLM}}, \code{\link{nagelkerke}}
-#' @concept accuracy mape r-squared cv
+#' 
+#' @seealso \code{\link{compareLM}}, 
+#'          \code{\link{compareGLM}}, 
+#'          \code{\link{nagelkerke}}
+#'
+#' @concept accuracy
+#' @concept r squared
+#' @concept pseudo r squared
+#' @concept RMSE
+#' @concept MAPE
+#' @concept coefficient of variation
+#' @concept CV
+#' @concept MAE
+#' 
 #' @return A list of two objects: The series of model calls, and a data 
 #'         frame of statistics for each model.
 #'         
@@ -212,6 +225,12 @@ function (fits, plotit=FALSE, digits=3, ...)
                                   predy  = predict(fits[[i]], type="response")
                                   actual = predict(fits[[i]], type="response") + 
                                   residuals(fits[[i]], type="response")
+                                  call   = fits[[i]]$call
+                                  TOGGLE = TRUE}
+   if(class(fits[[i]])[1]=="mblm"){
+                                  predy  = predict(fits[[i]])
+                                  actual = predict(fits[[i]]) + 
+                                  residuals(fits[[i]])
                                   call   = fits[[i]]$call
                                   TOGGLE = TRUE}
    

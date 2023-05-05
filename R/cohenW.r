@@ -53,14 +53,21 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#'
 #' @references \url{http://rcompanion.org/handbook/H_10.html}
 #' 
 #' Cohen J. 1992. "A Power Primer". Psychological Bulletin 12(1): 155-159.
 #' 
 #' Cohen, J. 1988. Statistical Power Analysis for the Behavioral Sciences, 2nd Ed. Routledge.
 #'             
-#' @seealso \code{\link{cramerV}} \code{\link{cramerVFit}}
-#' @concept correlation phi cohen w omega
+#' @seealso \code{\link{cramerV}}
+#' 
+#' @concept effect size
+#' @concept Cohen's w
+#' @concept omega
+#' @concept chi square test
+#' @concept confidence interval
+#' 
 #' @return A single statistic, Cohen's w.
 #'         Or a small data frame consisting of Cohen's w,
 #'         and the lower and upper confidence limits.
@@ -86,6 +93,7 @@
 #' cohenW(Species, Color)
 #' 
 #' @importFrom stats chisq.test
+#' @importFrom boot boot boot.ci
 #' 
 #' @export
 

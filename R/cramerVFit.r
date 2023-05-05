@@ -53,9 +53,16 @@
 #'           interval if there are zeros in any cell.
 #' 
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/H_03.html}
-#' @concept correlation effect size cramer V
+#'
 #' @seealso \code{\link{cramerV}}
+#' 
+#' @concept effect size
+#' @concept Cramer's V
+#' @concept chi square test
+#' @concept confidence interval
+#' 
 #' @return A single statistic, Cramer's V.  
 #'         Or a small data frame consisting of Cramer's V,
 #'         and the lower and upper confidence limits.

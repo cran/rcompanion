@@ -114,9 +114,14 @@ cldList(p.adjust ~ Comparison,
 \url{http://rcompanion.org/handbook/F_15.html}
 }
 \seealso{
-\code{\link{percentileTest}}, \code{\link{groupwisePercentile}}
+\code{\link{percentileTest}}, 
+         \code{\link{groupwisePercentile}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{median percentile quantile permutation}
+\concept{median}
+\concept{percentile}
+\concept{permutation test}
+\concept{post-hoc}
+\concept{quantile}

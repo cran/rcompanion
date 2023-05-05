@@ -41,7 +41,13 @@ multcompLetters(PT1)
 \references{
 \url{http://rcompanion.org/handbook/F_08.html}
 }
+\seealso{
+\code{\link{cldList}}
+}
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{pairwise multiple comparisons cld}
+\concept{cld}
+\concept{compact letter display}
+\concept{multiple comparisons}
+\concept{post-hoc}

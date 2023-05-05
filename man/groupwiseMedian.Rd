@@ -91,7 +91,7 @@ The parsing of the formula is simplistic. The first variable on the
          left side is used as the measurement variable.  The variables on the
          right side are used for the grouping variables.
          
-       Results for ungrouped (one-sample) data can be obtained by either
+         Results for ungrouped (one-sample) data can be obtained by either
          setting the right side of the formula to 1, e.g.  y ~ 1, or by
          setting \code{group=NULL}.
 }
@@ -118,10 +118,13 @@ groupwiseMedian(data         = Catbus,
 \url{http://rcompanion.org/handbook/E_04.html}
 }
 \seealso{
-\code{\link{groupwiseMean}}, \code{\link{groupwiseHuber}}
+\code{\link{groupwiseMean}}, 
+         \code{\link{groupwiseHuber}},
          \code{\link{groupwiseGeometric}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{median confidence interval bootstrap}
+\concept{confidence interval}
+\concept{median}
+\concept{summary statistics}

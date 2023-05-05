@@ -64,9 +64,16 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_04.html}
-#' @seealso \code{\link{freemanTheta}, \link{wilcoxonRG}}
-#' @concept correlation effect size ordinal nominal
+#' 
+#' @seealso \code{\link{freemanTheta}}, 
+#'          \code{\link{wilcoxonRG}}
+#'          
+#' @concept effect size
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept confidence interval
+#' 
 #' @return A single statistic, r.  
 #'         Or a small data frame consisting of r,
 #'         and the lower and upper confidence limits.  

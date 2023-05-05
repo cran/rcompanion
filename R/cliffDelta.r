@@ -63,20 +63,28 @@
 #'           the confidence intervals 
 #'           determined by this
 #'           method may not be reliable, or the procedure may fail.
-#'                      
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_04.html}
-#' @seealso \code{\link{vda}}, \code{\link{multiVDA}}
-#' @concept effect size
-#' @return A single statistic, Cliff's delta.
-#'         Or a small data frame consisting of Cliff's delta,
-#'         and the lower and upper confidence limits.
-#'         
+#'           
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
 #'          The first variable on the
-#'          right side is used for the grouping variable.   
+#'          right side is used for the grouping variable
+#'                      
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/F_04.html}
+#' 
+#' @seealso \code{\link{vda}}, 
+#'          \code{\link{multiVDA}}
+#' 
+#' @concept effect size
+#' @concept Cliff's delta
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept confidence interval
+#' 
+#' @return A single statistic, Cliff's delta.
+#'         Or a small data frame consisting of Cliff's delta,
+#'         and the lower and upper confidence limits.
 #'          
 #' @examples
 #' data(Catbus)

@@ -18,11 +18,16 @@
 #' @param ... Additional arguments, passed to \code{stats::chisq_test}. 
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/H_09.html}
-#' @concept Linear-by-linear Contingency table Ordinal Ordered Chi-square.
-#' @return A data frame of comparisons, p-values, and adjusted p-values.
-#'         
+#' 
 #' @seealso \code{\link{pairwiseNominalIndependence}}
+#' 
+#' @concept post-hoc
+#' @concept ordinal chi square
+#' @concept Cochran-Armitage
+#' 
+#' @return A data frame of comparisons, p-values, and adjusted p-values.
 #'         
 #' @examples
 #' ### Independence test for table with one ordered variable

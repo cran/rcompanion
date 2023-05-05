@@ -117,9 +117,12 @@ wilcoxonR(x = Catbus$Steps, g = Catbus$Gender)
 \url{http://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
-\code{\link{freemanTheta}, \link{wilcoxonRG}}
+\code{\link{freemanTheta}}, 
+         \code{\link{wilcoxonRG}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation effect size ordinal nominal}
+\concept{Wilcoxon-Mann-Whitney}
+\concept{confidence interval}
+\concept{effect size}

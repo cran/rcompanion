@@ -122,4 +122,7 @@ mangiaficoD(x = Nadja, y = Nandor, verbose=TRUE)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Mangiafico's d}
+\concept{Mood's median test}
+\concept{confidence interval}
 \concept{effect size}

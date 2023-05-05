@@ -77,10 +77,14 @@ The parsing of the formula is simplistic.
          right side is used for the first independent variable.
          The second variable on the
          right side is used for the second independent variable.
-         
+}
+\section{Acknowledgments}{
+
+ 
          Thanks to Guillaume Loignon for the suggestion to
          include type-II sum-of-squares.
 }
+
 \examples{
 ### Example from Sokal and Rohlf, 1995.
 Value = c(709,679,699,657,594,677,592,538,476,508,505,539)
@@ -100,4 +104,4 @@ Sokal, R.R. and F.J. Rohlf. 1995. Biometry. 3rd ed. W.H. Freeman,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{nonparametric Scheirer Ray Hare two-way}
+\concept{Scheirer-Ray-Hare}

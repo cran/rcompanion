@@ -2,8 +2,7 @@
 % Please edit documentation in R/pairwisePermutationSymmetryMatrix.r
 \name{pairwisePermutationSymmetryMatrix}
 \alias{pairwisePermutationSymmetryMatrix}
-\title{Pairwise two-sample permutation symmetry 
-       tests with matrix output}
+\title{Pairwise two-sample symmetry tests with matrix output}
 \usage{
 pairwisePermutationSymmetryMatrix(
   formula = NULL,
@@ -40,23 +39,16 @@ A list consisting of:
         a matrix of adjusted p-values.
 }
 \description{
-Conducts pairwise two-sample permutation tests
-             for symmetry across groups.
+Conducts pairwise two-sample symmetry tests across groups.
 }
 \details{
 The input should include either \code{formula} and \code{data};
          or \code{x}, \code{g}, and \code{b}.
          
-         Permutation tests are non-parametric tests 
-         that do not assume normally-distributed errors.
-         See \url{http://rcompanion.org/rcompanion/d_06a.html} for
-         futher discussion of this test.
-
-         The \code{pairwisePermutationSymmetryMatrix} function
-         can be used as a post-hoc method following an omnibus 
-         permutation test analogous to a paired one-way analysis
-         of variance.
-         The matrix output can be converted to a compact letter display.
+         This function is a wrapper for \code{coin::symmetry_test},
+         passing pairwise groups to the function. It's critical to read
+         and understand the documentation for this function to understand
+         its use and options.
 }
 \note{
 The parsing of the formula is simplistic. 
@@ -69,20 +61,31 @@ The parsing of the formula is simplistic.
 }
 \examples{
 data(BobBelcher)
+
 BobBelcher$Instructor = factor( BobBelcher$Instructor, 
-                  levels = c("Linda Belcher", "Louise Belcher",
-                             "Tina Belcher", "Bob Belcher",
-                             "Gene Belcher"))
-BobBelcher$Likert.f = factor(BobBelcher$Likert, ordered=TRUE)
-PT = pairwisePermutationSymmetryMatrix(Likert.f ~ Instructor | Rater,
-                                       data   = BobBelcher,
-                                       method = "fdr")$Adjusted
+                                levels = c("Linda Belcher", "Louise Belcher",
+                                           "Tina Belcher", "Bob Belcher",
+                                           "Gene Belcher"))
+
+library(coin)
+
+symmetry_test(Likert ~ Instructor | Rater, data= BobBelcher,
+              ytrafo   = rank_trafo,
+              teststat = "quadratic")
+
+PT = pairwisePermutationSymmetryMatrix(Likert ~ Instructor | Rater,
+                                 data     = BobBelcher,
+                                 ytrafo   = rank_trafo,
+                                 teststat = "quadratic",
+                                 method   = "fdr")
 PT
+
+PA = PT$Adjusted
 library(multcompView)
-multcompLetters(PT,
+multcompLetters(PA,
                 compare="<",
                 threshold=0.05,
-                Letters=letters)   
+                Letters=letters)     
 
 }
 \references{
@@ -94,4 +97,5 @@ multcompLetters(PT,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{permutation nonparametric post-hoc one-way cld symmetry}
+\concept{permutation test}
+\concept{post-hoc}

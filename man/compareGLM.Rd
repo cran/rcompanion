@@ -29,6 +29,7 @@ Produces a table of fit statistics for multiple glm models:
           data without having too many terms.
           
           BIC tends to choose models with fewer parameters relative to AIC.
+
           For comparisons with AIC, etc., to be valid, both models must
           have the same data, without transformations, use the same 
           dependent variable, and be fit with the same method.
@@ -55,9 +56,15 @@ compareGLM(model.0, model.1, model.2, model.3)
 \url{http://rcompanion.org/rcompanion/e_07.html}
 }
 \seealso{
-\code{\link{compareLM}}, \code{\link{pairwiseModelAnova}}, \code{\link{accuracy}}
+\code{\link{compareLM}}, 
+         \code{\link{pairwiseModelAnova}}, 
+         \code{\link{accuracy}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{AIC BIC AICc p-value pseudo R-squared glm}
+\concept{AIC}
+\concept{AICc}
+\concept{BIC}
+\concept{glm}
+\concept{pseudo r squared}

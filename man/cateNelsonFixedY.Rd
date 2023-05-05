@@ -95,7 +95,11 @@ cateNelsonFixedY(x          = Nurseries$Size,
 \references{
 \url{http://rcompanion.org/rcompanion/h_02.html}
 }
+\seealso{
+\code{\link{cateNelson}}
+}
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Cate Nelson bivariate soil agronomy}
+\concept{Cate-Nelson}
+\concept{agronomy}

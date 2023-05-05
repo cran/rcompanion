@@ -102,9 +102,15 @@ cramerV(Species, Color)
 \url{http://rcompanion.org/handbook/H_10.html}
 }
 \seealso{
-\code{\link{cohenW}}
+\code{\link{phi}}, 
+         \code{\link{cohenW}}, 
+         \code{\link{cramerVFit}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation phi cramer V}
+\concept{Cramer's V}
+\concept{chi square test}
+\concept{confidence interval}
+\concept{effect size}
+\concept{phi}

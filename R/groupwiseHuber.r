@@ -39,10 +39,17 @@
 #'          \code{DescTools::HuberM} function.            
 #'              
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/rcompanion/d_08a.html}
-#' @seealso \code{\link{groupwiseMean}}, \code{\link{groupwiseMedian}}
+#' 
+#' @seealso \code{\link{groupwiseMean}}, 
+#'          \code{\link{groupwiseMedian}},
 #'          \code{\link{groupwiseGeometric}}
-#' @concept huber m-estimator confidence interval robust bootstrap 
+#'          
+#' @concept summary statistics
+#' @concept Huber M-estimator
+#' @concept confidence interval
+#' 
 #' @return A data frame of requested statistics by group.
 #'          
 #' @examples

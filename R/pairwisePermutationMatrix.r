@@ -1,6 +1,6 @@
-#' @title Pairwise two-sample permutation tests with matrix output
+#' @title Pairwise two-sample independence tests with matrix output
 #'
-#' @description Conducts pairwise two-sample permutation tests across groups.
+#' @description Conducts pairwise two-sample independence tests across groups.
 #' 
 #' @param formula A formula indicating the measurement variable and
 #'                the grouping variable. e.g. y ~ group.
@@ -15,43 +15,56 @@
 #' @details The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{g}.
 #' 
-#'          Permutation tests are non-parametric tests 
-#'          that do not assume normally-distributed errors.
-#'          See \url{http://rcompanion.org/rcompanion/d_06a.html} for
-#'          futher discussion of this test.
-#' 
-#'          The \code{pairwisePermutationTest} function
-#'          can be used as a post-hoc method following an omnibus 
-#'          permutation test analogous to a one-way analysis
-#'          of variance.
-#'          The matrix output can be converted to a compact letter display.                                                                                   
-#'           
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/K_02.html}
-#' @seealso \code{\link{pairwisePermutationTest}}
-#' @concept permutation nonparametric post-hoc one-way cld
-#' @return A list consisting of:
-#'         A matrix of p-values;
-#'         the p-value adjustment method;
-#'         a matrix of adjusted p-values. 
-#'
+#'          This function is a wrapper for \code{coin::independence_test},
+#'          passing pairwise groups to the function. It's critical to read
+#'          and understand the documentation for this function to understand
+#'          its use and options.
+#'          
+#'          For some options for common tests, see Horthorn et al., 2008.
+#'          
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
 #'          The first variable on the
-#'          right side is used for the grouping variable.
+#'          right side is used for the grouping variable.                                                                                 
+#'           
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/K_02.html}
+#' 
+#'             Hothorn, T., K. Hornik, M.A. van de Wiel, and A. Zeileis. 2008. 
+#'             Implementing a Class of Permutation Tests: The coin Package. 
+#'             Journal of Statistical Software, 28(8), 1–23.
+#'             
+#' @seealso \code{\link{pairwisePermutationTest}}
+#' 
+#' @concept post-hoc 
+#' @concept permutation test
+#' 
+#' @return A list consisting of:
+#'         A matrix of p-values;
+#'         the p-value adjustment method;
+#'         a matrix of adjusted p-values.
 #'
 #' @examples
-#' data(PoohPiglet)
-#' PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
-#'                      levels = c("Pooh", "Tigger", "Piglet"))            
-#' PT = pairwisePermutationMatrix(Likert ~ Speaker,
-#'                                data   = PoohPiglet,
-#'                                method = "fdr")
+#' ### Fisher-Pitman test
+#' 
+#' data(BrendonSmall)
+#' 
+#' library(coin)
+#'                                  
+#' independence_test(Sodium ~ Instructor, data = BrendonSmall, 
+#'                   teststat = "quadratic") 
+#'                                       
+#' PT = pairwisePermutationMatrix(Sodium ~ Instructor,
+#'                                data     = BrendonSmall,
+#'                                teststat = "quadratic",
+#'                                method   = "fdr")
 #' PT
-#' PT = PT$Adjusted
+#' 
+#' PA = PT$Adjusted
 #' library(multcompView)
-#' multcompLetters(PT,
+#' multcompLetters(PA,
 #'                 compare="<",
 #'                 threshold=0.05,
 #'                 Letters=letters)   

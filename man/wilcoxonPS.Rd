@@ -112,15 +112,19 @@ wilcoxonPS(Steps ~ Gender, data=Catbus, verbose=TRUE)
 
 }
 \references{
-Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research. 2nd ed. 
-            Routledge, New York.
+Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research. 
+            2nd ed. Routledge, New York.
             
             \url{http://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
-\code{\link{cliffDelta}}, \code{\link{vda}}
+\code{\link{cliffDelta}}, 
+         \code{\link{vda}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Grissom and Kim's probability of superiority}
+\concept{Wilcoxon-Mann-Whitney}
+\concept{confidence interval}
 \concept{effect size}

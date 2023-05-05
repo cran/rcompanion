@@ -118,4 +118,7 @@ percentileTest(Sodium ~ Instructor,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{median percentile quantile permutation}
+\concept{median}
+\concept{percentile}
+\concept{permutation test}
+\concept{quantile}

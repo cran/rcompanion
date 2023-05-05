@@ -54,12 +54,18 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references Freeman, L.C. 1965. Elementary Applied Statistics for Students
 #'             in Behavioral Science. Wiley.
 #' 
 #'             \url{http://rcompanion.org/handbook/H_11.html}
-#' @seealso \code{\link{epsilonSquared}}             
-#' @concept correlation Freeman theta ordinal nominal
+#'             
+#' @seealso \code{\link{epsilonSquared}}
+#' 
+#' @concept Freeman's theta
+#' @concept Kruskal-Wallis
+#' @concept Cochran-Armitage
+#' 
 #' @return A single statistic, Freeman's theta.
 #'         Or a small data frame consisting of Freeman's theta,
 #'         and the lower and upper confidence limits. 

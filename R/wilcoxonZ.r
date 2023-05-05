@@ -30,6 +30,10 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}, 
 #'         R Core Team
+#'         
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept Wilcoxon signed rank
+#'         
 #' @return A single statistic, \code{z}.
 #'         
 #' @examples

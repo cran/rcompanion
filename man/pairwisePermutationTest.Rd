@@ -2,7 +2,7 @@
 % Please edit documentation in R/pairwisePermutationTest.r
 \name{pairwisePermutationTest}
 \alias{pairwisePermutationTest}
-\title{Pairwise two-sample permutation tests}
+\title{Pairwise two-sample independence tests}
 \usage{
 pairwisePermutationTest(
   formula = NULL,
@@ -34,21 +34,18 @@ A dataframe of the groups being compared, the p-values,
         and the adjusted p-values.
 }
 \description{
-Conducts pairwise two-sample permutation tests across groups.
+Conducts pairwise two-sample independence tests across groups.
 }
 \details{
 The input should include either \code{formula} and \code{data};
          or \code{x}, and \code{g}.
          
-         Permutation tests are non-parametric tests 
-         that do not assume normally-distributed errors.
-         See \url{http://rcompanion.org/rcompanion/d_06a.html} for
-         further discussion of this test.
-
-         The \code{pairwisePermutationTest} function
-         can be used as a post-hoc method following an omnibus 
-         permutation test
-         analogous to a one-way analysis of variance.
+         This function is a wrapper for \code{coin::independence_test},
+         passing pairwise groups to the function. It's critical to read
+         and understand the documentation for this function to understand
+         its use and options.
+         
+         For some options for common tests, see Horthorn et al., 2008.
 }
 \note{
 The parsing of the formula is simplistic. 
@@ -58,13 +55,21 @@ The parsing of the formula is simplistic.
          right side is used for the grouping variable.
 }
 \examples{
-data(PoohPiglet)
-PoohPiglet$Speaker = factor(PoohPiglet$Speaker,
-                     levels = c("Pooh", "Tigger", "Piglet"))
-PT = pairwisePermutationTest(Likert ~   Speaker,
-                             data   = PoohPiglet,
+### Fisher-Pitman test
+
+data(BrendonSmall)
+
+library(coin)
+                     
+independence_test(Sodium ~ Instructor, data = BrendonSmall, 
+                 teststat="quadratic")
+                                       
+PT = pairwisePermutationTest(Sodium ~ Instructor,
+                             data   = BrendonSmall,
+                             teststat="quadratic",
                              method = "fdr")
 PT
+
 cldList(comparison = PT$Comparison,
         p.value    = PT$p.adjust,
         threshold  = 0.05)
@@ -72,6 +77,10 @@ cldList(comparison = PT$Comparison,
 }
 \references{
 \url{http://rcompanion.org/handbook/K_02.html}
+
+            Hothorn, T., K. Hornik, M.A. van de Wiel, and A. Zeileis. 2008. 
+            Implementing a Class of Permutation Tests: The coin Package. 
+            Journal of Statistical Software, 28(8), 1–23.
 }
 \seealso{
 \code{\link{pairwisePermutationMatrix}}
@@ -79,4 +88,5 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{permutation nonparametric post-hoc one-way}
+\concept{permutation test}
+\concept{post-hoc}

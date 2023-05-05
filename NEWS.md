@@ -1,4 +1,8 @@
-## rcompanion v 2.4.26 (2023-04-02)
+## rcompanion v 2.4.30 (2023-05-03)
+
+-   Package documentation updated.
+
+## rcompanion v 2.4.26 (2023-04-03)
 
 -   MASS::rlm models were added to the `accuracy()` function.
 -   The `ephronRSquared()` function now accepts model objects.

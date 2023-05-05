@@ -85,11 +85,11 @@ For a 2 x 2 table, where a and d are the concordant cells
          However, if \code{type="norm"}, the confidence interval
          may cross the values for no effect.
          
-          When the reported statistics are close to their extremes,
-          or with small counts, 
-          the confidence intervals 
-          determined by this
-          method may not be reliable, or the procedure may fail.
+         When the reported statistics are close to their extremes,
+         or with small counts, 
+         the confidence intervals 
+         determined by this
+         method may not be reliable, or the procedure may fail.
 }
 \examples{
 ### 2 x 2 repeated matrix example
@@ -105,9 +105,13 @@ cohenG(AndersonRainGarden)
 \url{http://rcompanion.org/handbook/H_05.html}
 }
 \seealso{
-\code{\link{nominalSymmetryTest}}
+\code{\link{nominalSymmetryTest}}, 
+         \code{\link{cohenH}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Effect size Cohen g McNemar Bowker contingency symmetry nominal}
+\concept{Cohen's g}
+\concept{McNemar's test}
+\concept{confidence interval}
+\concept{effect size}

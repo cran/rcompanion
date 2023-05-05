@@ -64,3 +64,5 @@ wilcoxonZ(x = Pooh$Likert[Pooh$Time==1], y = Pooh$Likert[Pooh$Time==2],
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}, 
         R Core Team
 }
+\concept{Wilcoxon signed rank}
+\concept{Wilcoxon-Mann-Whitney}

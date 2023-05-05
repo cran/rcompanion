@@ -71,9 +71,11 @@ model = lm(Steps ~ Gender + Teacher,
 \url{http://rcompanion.org/handbook/I_01.html}
 }
 \seealso{
-\code{\link{plotNormalHistogram}} \code{\link{plotDensityHistogram}}
+\code{\link{plotNormalHistogram}},
+         \code{\link{plotDensityHistogram}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{normal distribution density}
+\concept{density plot}
+\concept{normal distribution}

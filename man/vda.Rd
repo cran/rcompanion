@@ -120,9 +120,13 @@ vda(Steps ~ Gender, data=Catbus)
 \url{http://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
-\code{\link{cliffDelta}}, \code{\link{multiVDA}}
+\code{\link{cliffDelta}}, 
+         \code{\link{multiVDA}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Vargha and Delaney's A}
+\concept{Wilcoxon-Mann-Whitney}
+\concept{confidence interval}
 \concept{effect size}

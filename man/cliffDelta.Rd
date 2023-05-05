@@ -111,7 +111,7 @@ The parsing of the formula is simplistic.
          The first variable on the
          left side is used as the measurement variable.  
          The first variable on the
-         right side is used for the grouping variable.
+         right side is used for the grouping variable
 }
 \examples{
 data(Catbus)
@@ -122,9 +122,13 @@ cliffDelta(Steps ~ Gender, data=Catbus)
 \url{http://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
-\code{\link{vda}}, \code{\link{multiVDA}}
+\code{\link{vda}}, 
+         \code{\link{multiVDA}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Cliff's delta}
+\concept{Wilcoxon-Mann-Whitney}
+\concept{confidence interval}
 \concept{effect size}

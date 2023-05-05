@@ -110,4 +110,6 @@ wilcoxonOneSampleR(X, mu=3)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{effect size ordinal nominal}
+\concept{Wilcoxon signed rank}
+\concept{confidence interval}
+\concept{effect size}

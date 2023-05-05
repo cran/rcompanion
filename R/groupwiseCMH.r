@@ -20,13 +20,20 @@
 #'          will be conducted.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/H_06.html}
-#' @concept Cochran Mantel Haenszel post-hoc fisher Chi square G
-#' @return A data frame of groups, test used, p-values, and adjusted p-values.
 #' 
-#' @seealso \code{\link{nominalSymmetryTest}}, \code{\link{pairwiseMcnemar}},
+#' @references \url{http://rcompanion.org/handbook/H_06.html}
+#' 
+#' @seealso \code{\link{nominalSymmetryTest}}, 
+#'          \code{\link{pairwiseMcnemar}},
 #'          \code{\link{pairwiseNominalIndependence}}, 
 #'          \code{\link{pairwiseNominalMatrix}} 
+#' 
+#' @concept post-hoc
+#' @concept Cochran-Mantel-Haenszel
+#' @concept chi square test
+#' @concept Fisher's exact test
+#' 
+#' @return A data frame of groups, test used, p-values, and adjusted p-values.
 #'         
 #' @examples
 #' ### Post-hoc for Cochran-Mantel-Haenszel test

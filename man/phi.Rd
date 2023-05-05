@@ -52,7 +52,7 @@ failing during the bootstrap procedure.}
 \item{...}{Additional arguments. (Ignored.)}
 }
 \value{
-A single statistic, phi.  
+A single statistic, phi. 
         Or a small data frame consisting of phi,
         and the lower and upper confidence limits.
 }
@@ -97,4 +97,9 @@ phi(Species, Color)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation phi cramer V}
+\concept{Cramer's V}
+\concept{chi square test}
+\concept{confidence interval}
+\concept{correlation}
+\concept{effect size}
+\concept{phi}

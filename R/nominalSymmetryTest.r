@@ -23,15 +23,21 @@
 #'          than 2 x 2 will not produce an omnibus test result. 
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/H_05.html}
-#' @concept McNemar Bowker contingency table symmetry nominal
+#' 
+#' @seealso \code{\link{pairwiseMcnemar}}, 
+#'          \code{\link{groupwiseCMH}},
+#'          \code{\link{pairwiseNominalIndependence}}, 
+#'          \code{\link{pairwiseNominalMatrix}}
+#' 
+#' @concept post-hoc
+#' @concept McNemar's test
+#' @concept McNemar Bowker
+#' 
 #' @return A list containing: a data frame of results of the global test;
 #'         a data frame of results of the pairwise results;
 #'         and a data frame mentioning the p-value adjustment method.
-#'         
-#' @seealso \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
-#'          \code{\link{pairwiseNominalIndependence}}, 
-#'          \code{\link{pairwiseNominalMatrix}}
 #'         
 #' @examples
 #' ### 2 x 2 repeated matrix example

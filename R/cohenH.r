@@ -21,12 +21,17 @@
 #'          Phi = 2 * asin(sqrt(P))
 #'        
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/H_05.html}
-#' @concept Effect size Cohen h contingency table nominal
-#' @return A single statistic.
-#'         
+#' 
+#' @references \url{https://rcompanion.org/handbook/H_10.html}
+#' 
 #' @seealso \code{\link{cohenG}}
-#'         
+#' 
+#' @concept effect size 
+#' @concept Cohen's h
+#' @concept chi square test
+#' 
+#' @return A single statistic.
+#'
 #' @examples
 #' data(Pennsylvania18)
 #' Pennsylvania18

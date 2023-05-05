@@ -117,9 +117,13 @@ Cohen J. 1992. "A Power Primer". Psychological Bulletin 12(1): 155-159.
 Cohen, J. 1988. Statistical Power Analysis for the Behavioral Sciences, 2nd Ed. Routledge.
 }
 \seealso{
-\code{\link{cramerV}} \code{\link{cramerVFit}}
+\code{\link{cramerV}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation phi cohen w omega}
+\concept{Cohen's w}
+\concept{chi square test}
+\concept{confidence interval}
+\concept{effect size}
+\concept{omega}

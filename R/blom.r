@@ -45,9 +45,8 @@
 #' @param max  For the \code{"scale"} method, the maximum value of the
 #'             transformed values.
 #' @param ...  additional arguments passed to \code{rank}.
-#' @details 
-#'          
-#'          By default, \code{NA} values are retained in the output.
+#' 
+#' @details By default, \code{NA} values are retained in the output.
 #'          This behavior can be changed with the \code{na.rm} argument
 #'          for \code{"zscore"} and \code{"scale"} methods, or
 #'          with \code{na.last} for the normal scores methods.
@@ -83,8 +82,6 @@
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @return A vector of numeric values.
-#'          
 #' @references Conover, 1995, Practical Nonparametric Statistics, 3rd.
 #' 
 #'             Solomon & Sawilowsky, 2009, 
@@ -93,7 +90,18 @@
 #'             
 #'             Beasley and Erickson, 2009, Rank-based inverse normal 
 #'             transformations are increasingly used, but are they merited?
-#'          
+#'
+#' @concept normal scores
+#' @concept z score
+#' @concept standardization
+#' @concept normalization
+#' @concept van der Waerden
+#' @concept Blom
+#' @concept Elfving
+#' @concept rankit
+#' 
+#' @return A vector of numeric values.
+#'           
 #' @examples
 #' set.seed(12345)
 #' A = rlnorm(100)

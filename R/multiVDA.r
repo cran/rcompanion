@@ -32,9 +32,9 @@
 #'          and a positive result indicating
 #'          that values in the first group are greater than in the second.
 #'          
-#'           Be cautious with this interpretation, as R will alphabetize
-#'           groups in the formula interface if the grouping variable
-#'           is not already a factor.
+#'          Be cautious with this interpretation, as R will alphabetize
+#'          groups in the formula interface if the grouping variable
+#'          is not already a factor.
 #'                    
 #'          In the function output,
 #'          \code{VDA.m} is the greater of VDA or 1-VDA.
@@ -56,21 +56,30 @@
 #'           Currently, the function makes no provisions for \code{NA}
 #'           values in the data.  It is recommended that \code{NA}s be removed
 #'           beforehand.
-#'                      
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/F_08.html}
-#' @seealso \code{\link{vda}}, \code{\link{cliffDelta}}
-#' @concept effect size
-#' @return A list containing a data frame of pairwise statistics,
-#'         and the comparison with the most extreme value
-#'         of the chosen statistic.
 #'         
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
 #'          The first variable on the
-#'          right side is used for the grouping variable.   
+#'          right side is used for the grouping variable.
+#'                                
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/F_08.html}
+#' 
+#' @seealso \code{\link{vda}}, 
+#'          \code{\link{cliffDelta}}
 #'          
+#' @concept effect size
+#' @concept Vargha and Delaney's A
+#' @concept Cliff's delta
+#' @concept Glass rank biserial correlation
+#' @concept Kruskal-Wallis
+#' 
+#' @return A list containing a data frame of pairwise statistics,
+#'         and the comparison with the most extreme value
+#'         of the chosen statistic.
+#'         
 #' @examples
 #' data(PoohPiglet)
 #' multiVDA(Likert ~ Speaker, data=PoohPiglet)

@@ -72,4 +72,6 @@ Conc.trans = transformTukey(Conc)
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Tukey ladder transform normal}
+\concept{Tukey's ladder of powers}
+\concept{normal distribution}
+\concept{transformation}

@@ -42,10 +42,29 @@
 #'           
 #'           This function will fail if either of the largest two or smallest 
 #'           two x values are identical.
+#'
+#' @note  The method in this function follows \cite{Cate, R. B., & Nelson, L.A. 
+#'        (1971). A simple statistical procedure for partitioning soil test 
+#'        correlation data into two classes. Soil Science Society of America 
+#'        Proceedings 35, 658-660.}
+#'           
+#'        An earlier version of this function was published in \cite{Mangiafico, 
+#'        S.S. 2013. Cate-Nelson Analysis for Bivariate Data Using 
+#'        R-project. J.of Extension 51:5, 5TOT1.}
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/rcompanion/h_02.html}
-#' @concept Cate Nelson bivariate soil agronomy
+#' 
+#'     Cate, R. B., & Nelson, L.A. (1971). A simple statistical procedure
+#'     for partitioning soil test correlation data into two classes. 
+#'     Soil Science Society of America Proceedings 35, 658–660.
+#' 
+#' @seealso \code{\link{cateNelsonFixedY}}
+#' 
+#' @concept Cate-Nelson
+#' @concept agronomy
+#' 
 #' @return A data frame of statistics from the analysis: number of observations,
 #'         critical level for x, sum of squares, critical value for y, the
 #'         number of observations in each of the quadrants (I, II, III, IV),
@@ -65,15 +84,6 @@
 #'         critical y value; 
 #'         and y vs. x with the critical values shown as lines on the plot, 
 #'         and the quadrants labeled.
-#' 
-#' @note  The method in this function follows \cite{Cate, R. B., & Nelson, L.A. 
-#'        (1971). A simple statistical procedure for partitioning soil test 
-#'        correlation data into two classes. Soil Science Society of America 
-#'        Proceedings 35, 658-660.}
-#'           
-#'        An earlier version of this function was published in \cite{Mangiafico, 
-#'        S.S. 2013. Cate-Nelson Analysis for Bivariate Data Using 
-#'        R-project. J.of Extension 51:5, 5TOT1.}
 #'                   
 #' @examples
 #' data(Nurseries)

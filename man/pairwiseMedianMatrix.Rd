@@ -89,4 +89,5 @@ multcompLetters(PT,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{moods median nonparametric post-hoc one-way cld}
+\concept{Mood's median test}
+\concept{post-hoc}

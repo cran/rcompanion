@@ -59,13 +59,19 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references King, B.M., P.J. Rosopa, and E.W. Minium. 2011. 
 #'             Statistical Reasoning in the Behavioral Sciences, 6th ed.
 #'             
 #'             \url{http://rcompanion.org/handbook/F_04.html}
 #'             
 #' @seealso \code{\link{wilcoxonR}}
-#' @concept correlation effect size ordinal nominal
+#' 
+#' @concept effect size
+#' @concept Glass rank biserial correlation
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept confidence interval
+#' 
 #' @return A single statistic, rg.  
 #'         Or a small data frame consisting of rg,
 #'         and the lower and upper confidence limits.  

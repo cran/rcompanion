@@ -95,9 +95,14 @@ oneSampleDominance(Catbus$Rating, mu=5.5)
 \url{https://rcompanion.org/handbook/F_03.html}
 }
 \seealso{
-\code{\link{cliffDelta}}
+\code{\link{pairedSampleDominance}},
+         \code{\link{cliffDelta}},
+         \code{\link{vda}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{confidence interval}
+\concept{dominance}
 \concept{effect size}
+\concept{sign test}

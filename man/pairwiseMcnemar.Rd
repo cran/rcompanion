@@ -92,11 +92,14 @@ cldList(comparison = PT$Comparison,
 \url{http://rcompanion.org/handbook/H_07.html}
 }
 \seealso{
-\code{\link{nominalSymmetryTest}}, \code{\link{groupwiseCMH}},
+\code{\link{nominalSymmetryTest}}, 
+         \code{\link{groupwiseCMH}},
          \code{\link{pairwiseNominalIndependence}}, 
          \code{\link{pairwiseNominalMatrix}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{McNemar Cochran Q permutation exact}
+\concept{Cochran's Q}
+\concept{McNemar's test}
+\concept{post-hoc}

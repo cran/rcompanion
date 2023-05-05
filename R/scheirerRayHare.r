@@ -37,18 +37,7 @@
 #'          or \code{y}, \code{x1}, and \code{x2}.
 #'          
 #'          The function removes cases with NA in any of the variables.
-#'           
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references Sokal, R.R. and F.J. Rohlf. 1995. Biometry. 3rd ed. W.H. Freeman, 
-#'             New York.
-#'             
-#'             \url{http://rcompanion.org/handbook/F_14.html}
-#'             
-#' @concept nonparametric Scheirer Ray Hare two-way
-#' @return A data frame of results similar to an anova table. Output from the
-#'         \code{verbose} option is printed directly and not returned with
-#'         the data frame.
-#'         
+#'        
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
@@ -56,10 +45,25 @@
 #'          right side is used for the first independent variable.
 #'          The second variable on the
 #'          right side is used for the second independent variable.
-#'          
-#'          Thanks to Guillaume Loignon for the suggestion to
-#'          include type-II sum-of-squares. 
+#'           
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references Sokal, R.R. and F.J. Rohlf. 1995. Biometry. 3rd ed. W.H. Freeman, 
+#'             New York.
+#'             
+#'             \url{http://rcompanion.org/handbook/F_14.html}
+#'             
+#' @concept Scheirer-Ray-Hare
+#' 
+#' @return A data frame of results similar to an anova table. Output from the
+#'         \code{verbose} option is printed directly and not returned with
+#'         the data frame.
+#'         
+#' @section Acknowledgments:
 #'  
+#'          Thanks to Guillaume Loignon for the suggestion to
+#'          include type-II sum-of-squares.
+#'          
 #' @examples
 #' ### Example from Sokal and Rohlf, 1995.
 #' Value = c(709,679,699,657,594,677,592,538,476,508,505,539)

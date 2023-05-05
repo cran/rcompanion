@@ -155,3 +155,11 @@ Conover, 1995, Practical Nonparametric Statistics, 3rd.
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{Blom}
+\concept{Elfving}
+\concept{normal scores}
+\concept{normalization}
+\concept{rankit}
+\concept{standardization}
+\concept{van der Waerden}
+\concept{z score}

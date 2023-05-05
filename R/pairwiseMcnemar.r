@@ -25,14 +25,7 @@
 #'          
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{x}, \code{g}, and \code{block}.
-#'           
-#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/H_07.html}
-#' @concept McNemar Cochran Q permutation exact 
-#' @return A list containing: a data frame of results of the global test;
-#'         a data frame of results of the pairwise results;
-#'         and a data frame mentioning the p-value adjustment method.
-#'         
+#'      
 #' @note    The parsing of the formula is simplistic. 
 #'          The first variable on the
 #'          left side is used as the measurement variable.  
@@ -40,8 +33,22 @@
 #'          right side is used for the grouping variable.
 #'          The second variable on the
 #'          right side is used for the blocking variable.
+#'           
+#' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
+#' @references \url{http://rcompanion.org/handbook/H_07.html}
+#' 
+#' @concept post-hoc
+#' @concept Cochran's Q
+#' @concept McNemar's test  
+#' 
+#' @return A list containing: a data frame of results of the global test;
+#'         a data frame of results of the pairwise results;
+#'         and a data frame mentioning the p-value adjustment method.
+
 #'  
-#' @seealso \code{\link{nominalSymmetryTest}}, \code{\link{groupwiseCMH}},
+#' @seealso \code{\link{nominalSymmetryTest}}, 
+#'          \code{\link{groupwiseCMH}},
 #'          \code{\link{pairwiseNominalIndependence}}, 
 #'          \code{\link{pairwiseNominalMatrix}}              
 #'         

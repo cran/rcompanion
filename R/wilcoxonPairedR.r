@@ -66,9 +66,15 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_06.html}
+#' 
 #' @seealso \code{\link{wilcoxonPairedRC}}
-#' @concept effect size ordinal nominal
+#' 
+#' @concept effect size
+#' @concept Wilcoxon signed rank
+#' @concept confidence interval
+#' 
 #' @return A single statistic, r.
 #'         Or a small data frame consisting of r,
 #'         and the lower and upper confidence limits.  

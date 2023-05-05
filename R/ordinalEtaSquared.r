@@ -52,11 +52,19 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references Cohen, B.H. 2013. Explaining Psychological Statistics, 4th ed. 
-#'             Wiley.; \url{http://rcompanion.org/handbook/F_08.html}
+#'             Wiley.
 #'             
-#' @seealso \code{\link{freemanTheta}}, \code{\link{epsilonSquared}}
-#' @concept correlation eta ordinal nominal
+#'             \url{http://rcompanion.org/handbook/F_08.html}
+#'             
+#' @seealso \code{\link{freemanTheta}}, 
+#'          \code{\link{epsilonSquared}}
+#'          
+#' @concept effect size
+#' @concept eta squared
+#' @concept Kruskal-Wallis
+#' 
 #' @return A single statistic, eta-squared.
 #'         Or a small data frame consisting of eta-squared,
 #'         and the lower and upper confidence limits.  

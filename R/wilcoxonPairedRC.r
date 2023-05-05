@@ -48,13 +48,19 @@
 #'           method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references King, B.M., P.J. Rosopa, and E.W. Minium. 2011. 
 #'             Statistical Reasoning in the Behavioral Sciences, 6th ed.
 #'             
 #'             \url{https://rcompanion.org/handbook/F_06.html}             
 #'             
 #' @seealso \code{\link{wilcoxonPairedR}}
-#' @concept correlation effect size ordinal nominal
+#' 
+#' @concept effect size
+#' @concept Matched-pairs rank biserial correlation
+#' @concept Wilcoxon signed rank
+#' @concept confidence interval
+#' 
 #' @return A single statistic, rc.  
 #'         Or a small data frame consisting of rc,
 #'         and the lower and upper confidence limits.  

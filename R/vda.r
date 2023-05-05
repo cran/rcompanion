@@ -63,9 +63,17 @@
 #'          method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/F_04.html}
-#' @seealso \code{\link{cliffDelta}}, \code{\link{multiVDA}}
+#' 
+#' @seealso \code{\link{cliffDelta}}, 
+#'          \code{\link{multiVDA}}
+#' 
 #' @concept effect size
+#' @concept Vargha and Delaney's A
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept confidence interval
+#' 
 #' @return A single statistic, VDA.
 #'         Or a small data frame consisting of VDA,
 #'         and the lower and upper confidence limits.

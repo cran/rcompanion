@@ -54,25 +54,31 @@
 #'          the confidence intervals 
 #'          determined by this
 #'          method may not be reliable, or the procedure may fail.
+#'          
+#' @note    The parsing of the formula is simplistic. 
+#'          The first variable on the
+#'          left side is used as the measurement variable.  
+#'          The first variable on the
+#'          right side is used for the grouping variable. 
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research.
 #'             2nd ed. Routledge, New York.
 #'             
 #'             \url{http://rcompanion.org/handbook/F_04.html}
 #'             
 #' @seealso \code{\link{wilcoxonPS}}
+#' 
 #' @concept effect size
+#' @concept Agresti's generalized odds ratio for stochastic dominance
+#' @concept Wilcoxon-Mann-Whitney
+#' @concept confidence interval
+#' 
 #' @return A single statistic, OR.
 #'         Or a small data frame consisting of OR,
 #'         and the lower and upper confidence limits.
-#'         
-#' @note    The parsing of the formula is simplistic. 
-#'          The first variable on the
-#'          left side is used as the measurement variable.  
-#'          The first variable on the
-#'          right side is used for the grouping variable.   
-#'          
+#'
 #' @examples
 #' data(Catbus)
 #' wilcoxonOR(Steps ~ Gender, data=Catbus, verbose=TRUE)

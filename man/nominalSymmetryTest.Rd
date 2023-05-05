@@ -55,11 +55,14 @@ nominalSymmetryTest(AndersonRainGarden,
 \url{http://rcompanion.org/handbook/H_05.html}
 }
 \seealso{
-\code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},
+\code{\link{pairwiseMcnemar}}, 
+         \code{\link{groupwiseCMH}},
          \code{\link{pairwiseNominalIndependence}}, 
          \code{\link{pairwiseNominalMatrix}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{McNemar Bowker contingency table symmetry nominal}
+\concept{McNemar Bowker}
+\concept{McNemar's test}
+\concept{post-hoc}

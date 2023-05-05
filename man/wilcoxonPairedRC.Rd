@@ -120,4 +120,7 @@ King, B.M., P.J. Rosopa, and E.W. Minium. 2011.
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{correlation effect size ordinal nominal}
+\concept{Matched-pairs rank biserial correlation}
+\concept{Wilcoxon signed rank}
+\concept{confidence interval}
+\concept{effect size}

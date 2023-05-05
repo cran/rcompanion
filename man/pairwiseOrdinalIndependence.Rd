@@ -75,4 +75,6 @@ cldList(comparison = PT$Comparison,
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{Linear-by-linear Contingency table Ordinal Ordered Chi-square.}
+\concept{Cochran-Armitage}
+\concept{ordinal chi square}
+\concept{post-hoc}

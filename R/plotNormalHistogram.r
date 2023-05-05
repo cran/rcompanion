@@ -20,9 +20,15 @@
 #'           vector.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/I_01.html}
-#' @seealso \code{\link{plotNormalDensity}} \code{\link{plotDensityHistogram}}
-#' @concept normal distribution histogram
+#' 
+#' @seealso \code{\link{plotNormalDensity}},
+#'          \code{\link{plotDensityHistogram}}
+#'          
+#' @concept histogram
+#' @concept normal distribution
+#' 
 #' @return Produces a plot. Returns nothing.
 #'         
 #' @examples

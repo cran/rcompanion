@@ -31,8 +31,9 @@
 #' @details  Any model for which \code{predict()} is defined can be used.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references \url{http://rcompanion.org/handbook/I_10.html}
-#' @concept plot polynomial bivariate
+#' 
 #' @return Produces a plot. Returns nothing.
 #'         
 #' @examples

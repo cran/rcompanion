@@ -33,19 +33,26 @@
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{y}.
 #'          
-#'           Currently, the function makes no provisions for \code{NA}
-#'           values in the data.  It is recommended that \code{NA}s be removed
-#'           beforehand.
+#'          Currently, the function makes no provisions for \code{NA}
+#'          values in the data.  It is recommended that \code{NA}s be removed
+#'          beforehand.
 #'
-#'           When the returned statistic is close to -1 or close to 1,
-#'           or with small sample size,
-#'           the confidence intervals 
-#'           determined by this
-#'           method may not be reliable, or the procedure may fail.
+#'          When the returned statistic is close to -1 or close to 1,
+#'          or with small sample size,
+#'          the confidence intervals 
+#'          determined by this
+#'          method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' @references \url{http://rcompanion.org/handbook/I_10.html}
+#' 
 #' @concept effect size
+#' @concept confidence interval
+#' @concept correlation
+#' @concept Pearson's r
+#' @concept Spearman's rho
+#' @concept Kendall's tau
+#' 
 #' @return A single statistic, rho, tau, or r.
 #'         Or a small data frame consisting of rho, tau, or r, 
 #'         and the lower and upper confidence limits.

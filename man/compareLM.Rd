@@ -60,13 +60,18 @@ compareLM(model.1, model.2, model.3, model.4)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/I_10.html}
+\url{http://rcompanion.org/handbook/I_10.html},
             \url{http://rcompanion.org/rcompanion/e_05.html}
 }
 \seealso{
-\code{\link{compareGLM}}, \code{\link{pairwiseModelAnova}}, , \code{\link{accuracy}}
+\code{\link{compareGLM}}, 
+         \code{\link{pairwiseModelAnova}},
+         \code{\link{accuracy}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{AIC BIC AICc p-value R-squared}
+\concept{AIC}
+\concept{AICc}
+\concept{BIC}
+\concept{r squared}

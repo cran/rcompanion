@@ -52,10 +52,20 @@
 #'           method may not be reliable, or the procedure may fail.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
+#' 
 #' @references King, B.M., P.J. Rosopa, and E.W. Minium. 2018. 
-#'             Statistical Reasoning in the Behavioral Sciences, 7th ed. Wiley.;
+#'             Statistical Reasoning in the Behavioral Sciences, 7th ed. Wiley.
+#'             
 #'             \url{http://rcompanion.org/handbook/F_08.html}
-#' @concept correlation epsilon ordinal nominal
+#'
+#' @seealso \code{\link{multiVDA}},
+#'          \code{\link{ordinalEtaSquared}}
+#'             
+#' @concept effect size
+#' @concept Kruskal-Wallis
+#' @concept epsilon squared
+#' @concept confidence interval
+#' 
 #' @return A single statistic, epsilon-squared.
 #'         Or a small data frame consisting of epsilon-squared,
 #'         and the lower and upper confidence limits.  

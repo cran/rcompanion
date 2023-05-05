@@ -69,13 +69,17 @@ quantileCI(Sample)
                  
 }
 \references{
-\url{http://rcompanion.org/handbook/E_04.html},
+\url{http://rcompanion.org/handbook/E_04.html}
+
               Conover, W.J., Practical Nonparametric Statistics, 3rd.
 }
 \seealso{
-\code{\link{groupwisePercentile}}, \code{\link{groupwiseMedian}}
+\code{\link{groupwisePercentile}}, 
+              \code{\link{groupwiseMedian}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{percentile quantile confidence interval}
+\concept{confidence interval}
+\concept{percentile}
+\concept{quantile}

@@ -88,15 +88,15 @@ The calculated \code{Dominance} statistic is simply
          Ordered category data need to re-coded as
          numeric, e.g. as with \code{as.numeric(Ordinal.variable)}.
 
-          When the statistic is close to 1 or close to -1,
-          or with small sample size,
-          the confidence intervals 
-          determined by this
-          method may not be reliable, or the procedure may fail.
+         When the statistic is close to 1 or close to -1,
+         or with small sample size,
+         the confidence intervals 
+         determined by this
+         method may not be reliable, or the procedure may fail.
           
-          VDA is the analogous statistic, converted to a probability,
-          ranging from 0 to 1, specifically,
-          \code{VDA = Dominance / 2 + 0.5}
+         VDA is the analogous statistic, converted to a probability,
+         ranging from 0 to 1, specifically,
+         \code{VDA = Dominance / 2 + 0.5}
 }
 \examples{
 data(Pooh)
@@ -112,9 +112,13 @@ pairedSampleDominance(Likert ~ Time, data=Pooh)
 \url{https://rcompanion.org/handbook/F_07.html}
 }
 \seealso{
-\code{\link{cliffDelta}}
+\code{\link{oneSampleDominance}},
+         \code{\link{vda}},
+         \code{\link{cliffDelta}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
+\concept{dominance}
 \concept{effect size}
+\concept{sign test}

@@ -74,7 +74,7 @@ Produces a table of fit statistics for multiple models:
           
           Model objects currently supported: lm, glm, nls, betareg, gls,
           lme, lmer, lmerTest, glmmTMB, 
-          rq, loess, gam, glm.nb, glmRob, rlm.
+          rq, loess, gam, glm.nb, glmRob, mblm, and rlm.
 }
 \examples{
 data(BrendonSmall)
@@ -108,9 +108,18 @@ accuracy(list(perfect, poor), plotit=FALSE)
 \url{http://rcompanion.org/handbook/G_14.html}
 }
 \seealso{
-\code{\link{compareLM}}, \code{\link{compareGLM}}, \code{\link{nagelkerke}}
+\code{\link{compareLM}}, 
+         \code{\link{compareGLM}}, 
+         \code{\link{nagelkerke}}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
-\concept{accuracy mape r-squared cv}
+\concept{CV}
+\concept{MAE}
+\concept{MAPE}
+\concept{RMSE}
+\concept{accuracy}
+\concept{coefficient of variation}
+\concept{pseudo r squared}
+\concept{r squared}
