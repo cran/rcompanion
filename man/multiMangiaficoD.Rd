@@ -76,7 +76,7 @@ multiMangiaficoD(Steps ~ Teacher, data=Catbus)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_09.html}
+\url{https://rcompanion.org/handbook/F_09.html}
 }
 \seealso{
 \code{\link{mangiaficoD}}

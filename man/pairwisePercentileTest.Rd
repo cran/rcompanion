@@ -111,7 +111,7 @@ cldList(p.adjust ~ Comparison,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_15.html}
+\url{https://rcompanion.org/handbook/F_15.html}
 }
 \seealso{
 \code{\link{percentileTest}}, 

@@ -37,7 +37,7 @@
 #'              
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/C_03.html}
+#' @references \url{https://rcompanion.org/handbook/C_03.html}
 #' 
 #' @seealso \code{\link{groupwiseMean}}, 
 #'          \code{\link{groupwiseMedian}},

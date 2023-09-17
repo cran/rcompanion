@@ -66,7 +66,7 @@
 #' @references Grissom, R.J. and J.J. Kim. 2012. Effect Sizes for Research.
 #'             2nd ed. Routledge, New York.
 #'             
-#'             \url{http://rcompanion.org/handbook/F_04.html}
+#'             \url{https://rcompanion.org/handbook/F_04.html}
 #'             
 #' @seealso \code{\link{wilcoxonPS}}
 #' 

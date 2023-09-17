@@ -40,7 +40,7 @@
 #'              
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/rcompanion/d_08a.html}
+#' @references \url{https://rcompanion.org/rcompanion/d_08a.html}
 #' 
 #' @seealso \code{\link{groupwiseMean}}, 
 #'          \code{\link{groupwiseMedian}},

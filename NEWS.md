@@ -1,12 +1,27 @@
+## rcompanion v 2.4.34 (2023-09-15)
+
+-   A fix was applied to the `cramerV()` function to avoid an error 
+    in the case of certain sparse matrices.
+    
+-   An update was made in the example for `wilcoxonPairedR()` 
+    to reflect the handling of
+    paired samples in `wilcox.test()`. Specifically, this is in reference to 
+    PR 14359, the correction for which doesn't allow paired arguments for 
+    formula input for the `t.test()` and `wilcox.test()` functions.
+    
+- URLs in the documentation were updated to https where appropriate.
+
 ## rcompanion v 2.4.30 (2023-05-03)
 
 -   Package documentation updated.
 
 ## rcompanion v 2.4.26 (2023-04-03)
 
--   MASS::rlm models were added to the `accuracy()` function.
--   The `ephronRSquared()` function now accepts model objects.
--   The `accuracy(`), `ephronRSquared()`, and `nagelkerke()` functions now accept glmmTMB model objects.
+-   MASS::rlm models were added to the accuracy() function.
+
+-   The ephronRSquared() function now accepts model objects.
+
+-   The accuracy(), ephronRSquared(), and nagelkerke() functions now accept glmmTMB model objects.
 
 ## rcompanion v 2.4.21 (2023-01-16)
 
@@ -217,4 +232,4 @@ Functions for nominal data include post-hoc tests for Cochran-Mantel-Haenszel te
 
 A function close to my heart is `cateNelson()`, which performs Cate--Nelson analysis for bivariate data.
 
-Examples and vignettes can be found at <http://rcompanion.org/handbook/> and <http://rcompanion.org/rcompanion/>.
+Examples and vignettes can be found at <https://rcompanion.org/handbook/> and <https://rcompanion.org/rcompanion/>.

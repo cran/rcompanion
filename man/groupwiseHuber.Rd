@@ -91,7 +91,7 @@ groupwiseHuber(Steps ~ Teacher + Gender,
                                       
 }
 \references{
-\url{http://rcompanion.org/rcompanion/d_08a.html}
+\url{https://rcompanion.org/rcompanion/d_08a.html}
 }
 \seealso{
 \code{\link{groupwiseMean}}, 

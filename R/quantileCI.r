@@ -28,7 +28,7 @@
 #'               
 #' @author       Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references   \url{http://rcompanion.org/handbook/E_04.html}
+#' @references   \url{https://rcompanion.org/handbook/E_04.html}
 #' 
 #'               Conover, W.J., Practical Nonparametric Statistics, 3rd.
 #'               

@@ -65,7 +65,7 @@
 #'                                
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/F_08.html}
+#' @references \url{https://rcompanion.org/handbook/F_08.html}
 #' 
 #' @seealso \code{\link{vda}}, 
 #'          \code{\link{cliffDelta}}

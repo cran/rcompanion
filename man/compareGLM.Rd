@@ -53,7 +53,7 @@ compareGLM(model.0, model.1, model.2, model.3)
 
 }
 \references{
-\url{http://rcompanion.org/rcompanion/e_07.html}
+\url{https://rcompanion.org/rcompanion/e_07.html}
 }
 \seealso{
 \code{\link{compareLM}}, 

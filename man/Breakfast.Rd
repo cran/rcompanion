@@ -8,7 +8,7 @@
 An object of class \code{table} with 3 rows and 5 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/H_09.html}
+\url{https://rcompanion.org/handbook/H_09.html}
 }
 \usage{
 Breakfast

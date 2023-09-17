@@ -16,6 +16,7 @@ cramerV(
   bias.correct = FALSE,
   reportIncomplete = FALSE,
   verbose = FALSE,
+  tolerance = 1e-16,
   ...
 )
 }
@@ -51,6 +52,10 @@ are instances of the calculation of the statistic
 failing during the bootstrap procedure.}
 
 \item{verbose}{If \code{TRUE}, prints additional statistics.}
+
+\item{tolerance}{If the variance of the bootstrapped values are less than
+\code{tolerance}, NA is returned for the confidence interval
+values.}
 
 \item{...}{Additional arguments passed to \code{chisq.test}.}
 }
@@ -99,7 +104,7 @@ cramerV(Species, Color)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/H_10.html}
+\url{https://rcompanion.org/handbook/H_10.html}
 }
 \seealso{
 \code{\link{phi}}, 

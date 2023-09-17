@@ -67,7 +67,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/F_06.html}
+#' @references \url{https://rcompanion.org/handbook/F_06.html}
 #' 
 #' @seealso \code{\link{wilcoxonPairedRC}}
 #' 
@@ -85,7 +85,9 @@
 #'         
 #' @examples
 #' data(Pooh)
-#' wilcox.test(Likert ~ Time, data=Pooh, paired=TRUE, exact=FALSE)
+#' Time1 = Pooh$Likert[Pooh$Time==1]
+#' Time2 = Pooh$Likert[Pooh$Time==2]
+#' wilcox.test(x = Time1, y = Time2, paired=TRUE, exact=FALSE)
 #' wilcoxonPairedR(x = Pooh$Likert, g = Pooh$Time)
 #' 
 #' @importFrom coin wilcoxsign_test

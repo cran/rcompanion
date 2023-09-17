@@ -44,7 +44,7 @@ The input should include either \code{formula} and \code{data};
          or \code{x}, and \code{g}.
          
          Mood's median test compares medians among two or more groups.
-         See \url{http://rcompanion.org/handbook/F_09.html} for
+         See \url{https://rcompanion.org/handbook/F_09.html} for
          further discussion of this test.
 
          The \code{pairwiseMedianTest} function
@@ -77,7 +77,7 @@ cldList(comparison = PT$Comparison,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_09.html}
+\url{https://rcompanion.org/handbook/F_09.html}
 }
 \seealso{
 \code{\link{pairwiseMedianMatrix}}

@@ -32,7 +32,7 @@ Should produce meaningful output for all-pairs
          and many-to-one comparisons.
 }
 \references{
-\url{http://rcompanion.org/handbook/F_08.html}
+\url{https://rcompanion.org/handbook/F_08.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

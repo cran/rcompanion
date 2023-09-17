@@ -54,7 +54,7 @@
 #' 
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/H_03.html}
+#' @references \url{https://rcompanion.org/handbook/H_03.html}
 #'
 #' @seealso \code{\link{cramerV}}
 #' 
@@ -69,7 +69,7 @@
 #'         
 #' @examples
 #' ### Equal probabilities example
-#' ### From http://rcompanion.org/handbook/H_03.html
+#' ### From https://rcompanion.org/handbook/H_03.html
 #' nail.color = c("Red", "None", "White", "Green", "Purple", "Blue")
 #' observed   = c( 19,    3,      1,       1,       2,        2    )
 #' expected   = c( 1/6,   1/6,    1/6,     1/6,     1/6,      1/6  )
@@ -77,7 +77,7 @@
 #' cramerVFit(x = observed, p = expected)
 #' 
 #' ### Unequal probabilities example
-#' ### From http://rcompanion.org/handbook/H_03.html
+#' ### From https://rcompanion.org/handbook/H_03.html
 #' race = c("White", "Black", "American Indian", "Asian", "Pacific Islander",
 #'           "Two or more races")
 #' observed = c(20, 9, 9, 1, 1, 1)

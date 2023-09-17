@@ -107,7 +107,7 @@ epsilonSquared(XT)
 King, B.M., P.J. Rosopa, and E.W. Minium. 2018. 
             Statistical Reasoning in the Behavioral Sciences, 7th ed. Wiley.
             
-            \url{http://rcompanion.org/handbook/F_08.html}
+            \url{https://rcompanion.org/handbook/F_08.html}
 }
 \seealso{
 \code{\link{multiVDA}},

@@ -32,7 +32,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/I_10.html}
+#' @references \url{https://rcompanion.org/handbook/I_10.html}
 #' 
 #' @return Produces a plot. Returns nothing.
 #'         

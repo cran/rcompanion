@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 40 rows and 3 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/F_10.html}
+\url{https://rcompanion.org/handbook/F_10.html}
 }
 \usage{
 BobBelcher

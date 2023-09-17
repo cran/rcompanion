@@ -54,7 +54,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #'
-#' @references \url{http://rcompanion.org/handbook/H_10.html}
+#' @references \url{https://rcompanion.org/handbook/H_10.html}
 #' 
 #' Cohen J. 1992. "A Power Primer". Psychological Bulletin 12(1): 155-159.
 #' 

@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 16 rows and 4 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/H_06.html}
+\url{https://rcompanion.org/handbook/H_06.html}
 }
 \usage{
 AndersonBias

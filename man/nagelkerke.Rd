@@ -107,7 +107,7 @@ nagelkerke(model, null=null.model)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/G_10.html}
+\url{https://rcompanion.org/handbook/G_10.html}
 }
 \seealso{
 \code{\link{efronRSquared}}

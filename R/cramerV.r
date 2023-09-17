@@ -23,7 +23,10 @@
 #'                         \code{NA} will be reported in cases where there
 #'                         are instances of the calculation of the statistic
 #'                         failing during the bootstrap procedure.
-#' @param verbose If \code{TRUE}, prints additional statistics. 
+#' @param verbose If \code{TRUE}, prints additional statistics.
+#' @param tolerance If the variance of the bootstrapped values are less than
+#'                  \code{tolerance}, NA is returned for the confidence interval
+#'                  values.
 #' @param ...    Additional arguments passed to \code{chisq.test}. 
 #' 
 #' @details  Cramer's V is used as a measure of association
@@ -48,7 +51,7 @@
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/H_10.html}
+#' @references \url{https://rcompanion.org/handbook/H_10.html}
 #' 
 #' @seealso \code{\link{phi}}, 
 #'          \code{\link{cohenW}}, 
@@ -86,7 +89,8 @@ cramerV = function(x, y=NULL,
                    R=1000, histogram=FALSE, 
                    digits=4, bias.correct=FALSE, 
                    reportIncomplete=FALSE, 
-                   verbose=FALSE, ...) {
+                   verbose=FALSE,
+                   tolerance=1e-16, ...) {
   
   CV=NULL
   
@@ -203,11 +207,17 @@ if(ci==TRUE){
              }
 
   Boot = boot(Long, Function, R=R)
+  
+  CI1=NA; CI2=NA
+  
+  if(var(Boot$t[,1], na.rm=TRUE) > tolerance){
+  
   BCI  = boot.ci(Boot, conf=conf, type=type)
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3]}
   if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5]}
   if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5]}
   if(type=="bca")  {CI1=BCI$bca[4];     CI2=BCI$bca[5]}
+  }
   
   if(sum(Boot$t[,2])>0 & reportIncomplete==FALSE) {CI1=NA; CI2=NA}
   

@@ -93,7 +93,7 @@ cateNelsonFixedY(x          = Nurseries$Size,
 
 }
 \references{
-\url{http://rcompanion.org/rcompanion/h_02.html}
+\url{https://rcompanion.org/rcompanion/h_02.html}
 }
 \seealso{
 \code{\link{cateNelson}}

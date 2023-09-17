@@ -105,7 +105,7 @@ accuracy(list(perfect, poor), plotit=FALSE)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/G_14.html}
+\url{https://rcompanion.org/handbook/G_14.html}
 }
 \seealso{
 \code{\link{compareLM}}, 

@@ -49,7 +49,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/F_10.html}
+#' @references \url{https://rcompanion.org/handbook/F_10.html}
 #' 
 #' @concept effect size
 #' @concept Kendall's W

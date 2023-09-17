@@ -60,8 +60,8 @@ compareLM(model.1, model.2, model.3, model.4)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/I_10.html},
-            \url{http://rcompanion.org/rcompanion/e_05.html}
+\url{https://rcompanion.org/handbook/I_10.html},
+            \url{https://rcompanion.org/rcompanion/e_05.html}
 }
 \seealso{
 \code{\link{compareGLM}}, 

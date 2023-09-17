@@ -24,7 +24,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/H_05.html}
+#' @references \url{https://rcompanion.org/handbook/H_05.html}
 #' 
 #' @seealso \code{\link{pairwiseMcnemar}}, 
 #'          \code{\link{groupwiseCMH}},

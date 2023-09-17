@@ -69,7 +69,7 @@ quantileCI(Sample)
                  
 }
 \references{
-\url{http://rcompanion.org/handbook/E_04.html}
+\url{https://rcompanion.org/handbook/E_04.html}
 
               Conover, W.J., Practical Nonparametric Statistics, 3rd.
 }

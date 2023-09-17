@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 30 rows and 2 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/F_08.html}
+\url{https://rcompanion.org/handbook/F_08.html}
 }
 \usage{
 PoohPiglet

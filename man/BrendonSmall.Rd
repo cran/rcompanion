@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 45 rows and 6 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/I_10.html}
+\url{https://rcompanion.org/handbook/I_10.html}
 }
 \usage{
 BrendonSmall

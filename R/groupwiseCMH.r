@@ -21,7 +21,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/H_06.html}
+#' @references \url{https://rcompanion.org/handbook/H_06.html}
 #' 
 #' @seealso \code{\link{nominalSymmetryTest}}, 
 #'          \code{\link{pairwiseMcnemar}},

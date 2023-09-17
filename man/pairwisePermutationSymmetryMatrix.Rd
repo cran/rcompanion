@@ -89,7 +89,7 @@ multcompLetters(PA,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/K_03.html}
+\url{https://rcompanion.org/handbook/K_03.html}
 }
 \seealso{
 \code{\link{pairwisePermutationSymmetry}}

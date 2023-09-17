@@ -44,7 +44,7 @@
 #'          method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
-#' @references \url{http://rcompanion.org/handbook/I_10.html}
+#' @references \url{https://rcompanion.org/handbook/I_10.html}
 #' 
 #' @concept effect size
 #' @concept confidence interval

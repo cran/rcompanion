@@ -114,7 +114,7 @@ mangiaficoD(x = Nadja, y = Nandor, verbose=TRUE)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_05.html}
+\url{https://rcompanion.org/handbook/F_05.html}
 }
 \seealso{
 \code{\link{multiMangiaficoD}}

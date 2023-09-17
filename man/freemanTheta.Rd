@@ -132,7 +132,7 @@ freemanTheta(Matrix, verbose=TRUE)
 Freeman, L.C. 1965. Elementary Applied Statistics for Students
             in Behavioral Science. Wiley.
 
-            \url{http://rcompanion.org/handbook/H_11.html}
+            \url{https://rcompanion.org/handbook/H_11.html}
 }
 \seealso{
 \code{\link{epsilonSquared}}

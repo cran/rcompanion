@@ -26,7 +26,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/rcompanion/e_07.html}
+#' @references \url{https://rcompanion.org/rcompanion/e_07.html}
 #' 
 #' @seealso \code{\link{compareLM}}, 
 #'          \code{\link{pairwiseModelAnova}}, 

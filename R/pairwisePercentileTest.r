@@ -48,7 +48,7 @@
 #'                     
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/F_15.html}
+#' @references \url{https://rcompanion.org/handbook/F_15.html}
 #' 
 #' @seealso \code{\link{percentileTest}}, 
 #'          \code{\link{groupwisePercentile}}

@@ -3,7 +3,7 @@
 #' @description A data frame of counts of students passing and failing.
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/J_02.html}
+#' @source \url{https://rcompanion.org/handbook/J_02.html}
 "BullyHill"
 
 ###############################################################################
@@ -13,7 +13,7 @@
 #'              Piglet, and Tigger.
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/F_08.html}
+#' @source \url{https://rcompanion.org/handbook/F_08.html}
 "PoohPiglet"
 
 ###############################################################################
@@ -24,7 +24,7 @@
 #'              for each of 10 respondents, paired before and after. 
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/F_06.html}
+#' @source \url{https://rcompanion.org/handbook/F_06.html}
 "Pooh"
 
 ###############################################################################
@@ -36,7 +36,7 @@
 #'              Arranged in unreplicated complete block design.
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/F_10.html}
+#' @source \url{https://rcompanion.org/handbook/F_10.html}
 "BobBelcher"
 
 ###############################################################################
@@ -46,7 +46,7 @@
 #'              lawn care practices for each of 14 respondents.
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_05.html}
+#' @source \url{https://rcompanion.org/handbook/H_05.html}
 "HayleySmith"
 
 ###############################################################################
@@ -57,7 +57,7 @@
 #'              and after an event.
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_05.html}
+#' @source \url{https://rcompanion.org/handbook/H_05.html}
 "Religion"
 
 ###############################################################################
@@ -67,7 +67,7 @@
 #' @description A matrix of paired counts for students planning to install rain
 #'              barrels before and after a class. Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_05.html}
+#' @source \url{https://rcompanion.org/handbook/H_05.html}
 "AndersonRainBarrel"
 
 ###############################################################################
@@ -77,7 +77,7 @@
 #' @description A matrix of paired counts for students planning to install rain
 #'              gardens before and after a class. Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_05.html}
+#' @source \url{https://rcompanion.org/handbook/H_05.html}
 "AndersonRainGarden"
 
 ###############################################################################
@@ -87,7 +87,7 @@
 #' @description A matrix of counts for students passing or failing a pesticide 
 #' training course across four counties. Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_04.html}
+#' @source \url{https://rcompanion.org/handbook/H_04.html}
 "Anderson"
 
 ###############################################################################
@@ -98,7 +98,7 @@
 #' pesticicde training course across four counties, with gender of students. 
 #' Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_06.html}
+#' @source \url{https://rcompanion.org/handbook/H_06.html}
 "AndersonBias"
 
 ###############################################################################
@@ -108,7 +108,7 @@
 #' @description A data frame of the intake of calories and sodium for students 
 #'              in five classes. Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/I_10.html}
+#' @source \url{https://rcompanion.org/handbook/I_10.html}
 "BrendonSmall"
 
 ###############################################################################
@@ -118,7 +118,7 @@
 #' @description A data frame of the number of steps taken by students in three
 #'              classes. Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/C_03.html}
+#' @source \url{https://rcompanion.org/handbook/C_03.html}
 "Catbus"
 
 ###############################################################################
@@ -128,7 +128,7 @@
 #' @description A data frame of the number of monarch butterflies in three
 #'              gardens. Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/J_01.html}
+#' @source \url{https://rcompanion.org/handbook/J_01.html}
 "Monarchs"
 
 ###############################################################################
@@ -154,7 +154,7 @@
 #'              and Travel is a non-ordered nominal variable.
 #'              Hypothetical data.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_09.html}
+#' @source \url{https://rcompanion.org/handbook/H_09.html}
 "Breakfast"
 
 ###############################################################################
@@ -168,7 +168,7 @@
 #'              election with Conor Lamb.  These data are for
 #'              Pennsylvania's 18th Congressional District.
 #' 
-#' @source \url{http://rcompanion.org/handbook/H_10.html}
+#' @source \url{https://rcompanion.org/handbook/H_10.html}
 "Pennsylvania18"
 
 ###############################################################################

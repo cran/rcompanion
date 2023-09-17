@@ -134,7 +134,7 @@ plotPredy(data  = BullyHill,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/I_10.html}
+\url{https://rcompanion.org/handbook/I_10.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

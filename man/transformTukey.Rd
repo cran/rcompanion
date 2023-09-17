@@ -67,7 +67,7 @@ Conc.trans = transformTukey(Conc)
                       
 }
 \references{
-\url{http://rcompanion.org/handbook/I_12.html}
+\url{https://rcompanion.org/handbook/I_12.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

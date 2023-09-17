@@ -94,7 +94,7 @@ kendallW(Table)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_10.html}
+\url{https://rcompanion.org/handbook/F_10.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

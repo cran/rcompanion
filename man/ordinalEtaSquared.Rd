@@ -107,7 +107,7 @@ ordinalEtaSquared(XT)
 Cohen, B.H. 2013. Explaining Psychological Statistics, 4th ed. 
             Wiley.
             
-            \url{http://rcompanion.org/handbook/F_08.html}
+            \url{https://rcompanion.org/handbook/F_08.html}
 }
 \seealso{
 \code{\link{freemanTheta}}, 

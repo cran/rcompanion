@@ -54,7 +54,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/rcompanion/h_02.html}
+#' @references \url{https://rcompanion.org/rcompanion/h_02.html}
 #' 
 #'     Cate, R. B., & Nelson, L.A. (1971). A simple statistical procedure
 #'     for partitioning soil test correlation data into two classes. 

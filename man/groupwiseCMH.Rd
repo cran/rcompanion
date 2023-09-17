@@ -67,7 +67,7 @@ groupwiseCMH(Table,
                       
 }
 \references{
-\url{http://rcompanion.org/handbook/H_06.html}
+\url{https://rcompanion.org/handbook/H_06.html}
 }
 \seealso{
 \code{\link{nominalSymmetryTest}}, 

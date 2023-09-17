@@ -128,7 +128,7 @@ groupwiseMean(data        = Catbus,
                                      
 }
 \references{
-\url{http://rcompanion.org/handbook/C_03.html}
+\url{https://rcompanion.org/handbook/C_03.html}
 }
 \seealso{
 \code{\link{groupwiseMedian}}, 

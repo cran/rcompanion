@@ -21,7 +21,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/C_04.html}
+#' @references \url{https://rcompanion.org/handbook/C_04.html}
 #' 
 #' @seealso \code{\link{plotNormalHistogram}}, 
 #'          \code{\link{plotNormalDensity}}

@@ -51,7 +51,7 @@
 #' @references Sokal, R.R. and F.J. Rohlf. 1995. Biometry. 3rd ed. W.H. Freeman, 
 #'             New York.
 #'             
-#'             \url{http://rcompanion.org/handbook/F_14.html}
+#'             \url{https://rcompanion.org/handbook/F_14.html}
 #'             
 #' @concept Scheirer-Ray-Hare
 #' 

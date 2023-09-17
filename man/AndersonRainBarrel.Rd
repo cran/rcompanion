@@ -8,7 +8,7 @@
 An object of class \code{matrix} (inherits from \code{array}) with 2 rows and 2 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/H_05.html}
+\url{https://rcompanion.org/handbook/H_05.html}
 }
 \usage{
 AndersonRainBarrel

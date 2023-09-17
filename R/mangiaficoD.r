@@ -59,7 +59,7 @@
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/F_05.html}
+#' @references \url{https://rcompanion.org/handbook/F_05.html}
 #' 
 #' @seealso \code{\link{multiMangiaficoD}}
 #' 

@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 26 rows and 5 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/C_03.html}
+\url{https://rcompanion.org/handbook/C_03.html}
 }
 \usage{
 Catbus

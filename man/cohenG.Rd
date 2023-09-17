@@ -102,7 +102,7 @@ cohenG(AndersonRainGarden)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/H_05.html}
+\url{https://rcompanion.org/handbook/H_05.html}
 }
 \seealso{
 \code{\link{nominalSymmetryTest}}, 

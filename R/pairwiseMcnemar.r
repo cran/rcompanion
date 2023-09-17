@@ -36,7 +36,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/H_07.html}
+#' @references \url{https://rcompanion.org/handbook/H_07.html}
 #' 
 #' @concept post-hoc
 #' @concept Cochran's Q

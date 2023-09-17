@@ -4,11 +4,11 @@ bibentry(
   author = "Salvatore S. Mangiafico",
   organization = "Rutgers Cooperative Extension",
   address = "New Brunswick, New Jersey",
-  note = "version 2.4.30",
+  note = "version 2.4.34",
   year = 2023,
   url = "https://CRAN.R-project.org/package=rcompanion/",
   textVersion  = paste("Mangiafico, Salvatore S. (2023).",
         "rcompanion: Functions to Support Extension Education Program Evaluation.",
-        "version 2.4.30. Rutgers Cooperative Extension. New Brunswick, New Jersey.",
+        "version 2.4.34. Rutgers Cooperative Extension. New Brunswick, New Jersey.",
         "https://CRAN.R-project.org/package=rcompanion")
 )

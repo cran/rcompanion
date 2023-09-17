@@ -63,7 +63,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/G_14.html}
+#' @references \url{https://rcompanion.org/handbook/G_14.html}
 #' 
 #' @seealso \code{\link{compareLM}}, 
 #'          \code{\link{compareGLM}}, 

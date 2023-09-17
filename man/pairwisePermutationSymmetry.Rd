@@ -84,7 +84,7 @@ cldList(comparison = PT$Comparison,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/K_03.html}
+\url{https://rcompanion.org/handbook/K_03.html}
 }
 \seealso{
 \code{\link{pairwisePermutationSymmetryMatrix}}

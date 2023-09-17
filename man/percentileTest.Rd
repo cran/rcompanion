@@ -113,7 +113,7 @@ percentileTest(Sodium ~ Instructor,
                
 }
 \references{
-\url{http://rcompanion.org/handbook/F_15.html}
+\url{https://rcompanion.org/handbook/F_15.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

@@ -81,7 +81,7 @@ cldList(comparison = PT$Comparison,
                                                               
 }
 \references{
-\url{http://rcompanion.org/handbook/H_04.html}
+\url{https://rcompanion.org/handbook/H_04.html}
 }
 \seealso{
 \code{\link{pairwiseMcnemar}}, \code{\link{groupwiseCMH}},

@@ -110,7 +110,7 @@ cohenW(Species, Color)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/H_10.html}
+\url{https://rcompanion.org/handbook/H_10.html}
 
 Cohen J. 1992. "A Power Primer". Psychological Bulletin 12(1): 155-159.
 

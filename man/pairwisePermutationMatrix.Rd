@@ -81,7 +81,7 @@ multcompLetters(PA,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/K_02.html}
+\url{https://rcompanion.org/handbook/K_02.html}
 
             Hothorn, T., K. Hornik, M.A. van de Wiel, and A. Zeileis. 2008. 
             Implementing a Class of Permutation Tests: The coin Package. 

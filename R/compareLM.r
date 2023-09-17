@@ -29,8 +29,8 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/I_10.html},
-#'             \url{http://rcompanion.org/rcompanion/e_05.html}
+#' @references \url{https://rcompanion.org/handbook/I_10.html},
+#'             \url{https://rcompanion.org/rcompanion/e_05.html}
 #'             
 #' @seealso \code{\link{compareGLM}}, 
 #'          \code{\link{pairwiseModelAnova}},

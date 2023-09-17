@@ -31,7 +31,7 @@
 #'          
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/I_12.html}
+#' @references \url{https://rcompanion.org/handbook/I_12.html}
 #' 
 #' @concept Tukey's ladder of powers
 #' @concept normal distribution

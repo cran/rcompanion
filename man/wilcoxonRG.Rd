@@ -122,7 +122,7 @@ wilcoxonRG(x = Y, g = Group, verbose=TRUE)
 King, B.M., P.J. Rosopa, and E.W. Minium. 2011. 
             Statistical Reasoning in the Behavioral Sciences, 6th ed.
             
-            \url{http://rcompanion.org/handbook/F_04.html}
+            \url{https://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
 \code{\link{wilcoxonR}}

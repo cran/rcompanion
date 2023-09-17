@@ -56,7 +56,7 @@ model = lm(Steps ~ Gender + Teacher,
 
 }
 \references{
-\url{http://rcompanion.org/handbook/I_01.html}
+\url{https://rcompanion.org/handbook/I_01.html}
 }
 \seealso{
 \code{\link{plotNormalDensity}},

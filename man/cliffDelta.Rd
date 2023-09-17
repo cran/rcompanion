@@ -119,7 +119,7 @@ cliffDelta(Steps ~ Gender, data=Catbus)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_04.html}
+\url{https://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
 \code{\link{vda}}, 

@@ -26,7 +26,7 @@
 #' Efron's pseudo r-squared, and coefficient of variation.
 #' 
 #' The functions \code{\link{nagelkerke}} and \code{\link{efronRSquared}}
-#' provides pseudo R-squared values for a variety of model types, as well as
+#' provide pseudo R-squared values for a variety of model types, as well as
 #' a likelihood ratio test for the model as a whole.
 #'
 #' There are also functions that are useful for comparing models.
@@ -48,20 +48,20 @@
 #' values for a bivariate model.  Other plotting functions include producing
 #' density plots.
 #'
-#' A function close to my heart is (\code{\link{cateNelson}}), which performs
+#' A function close to my heart is \code{\link{cateNelson}}, which performs
 #' Cate-Nelson analysis for bivariate data.
 #'
 #' @section Vignettes and examples:
 #' The functions in this package are used in
 #' "Extension Education Program Evaluation in R" which is available at
-#' \url{http://rcompanion.org/handbook/}
+#' \url{https://rcompanion.org/handbook/}
 #' and "An R Companion for the Handbook of Biological Statistics" 
-#' which is available at \url{http://rcompanion.org/rcompanion/}.
+#' which is available at \url{https://rcompanion.org/rcompanion/}.
 #' 
 #' The documentation for each function includes an example as well.
 #'
 #' @section  Version notes:
-#' Version 2.0 is not entirely back-compatable
+#' Version 2.0 is not entirely back-compatible
 #' as several functions have been removed.
 #' These include some of the pairwise methods that can be replaced with
 #' better methods.  Also, some functions have been removed or modified

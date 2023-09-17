@@ -105,7 +105,7 @@ wilcoxonOneSampleR(X, mu=3)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_02.html}
+\url{https://rcompanion.org/handbook/F_02.html}
 }
 \author{
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}

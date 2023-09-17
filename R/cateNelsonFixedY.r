@@ -34,7 +34,7 @@
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/rcompanion/h_02.html}
+#' @references \url{https://rcompanion.org/rcompanion/h_02.html}
 #' 
 #' @seealso \code{\link{cateNelson}}
 #' 

@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 12 rows and 5 columns.
 }
 \source{
-\url{http://rcompanion.org/handbook/J_02.html}
+\url{https://rcompanion.org/handbook/J_02.html}
 }
 \usage{
 BullyHill

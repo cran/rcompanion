@@ -42,7 +42,7 @@
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{http://rcompanion.org/handbook/H_10.html}
+#' @references \url{https://rcompanion.org/handbook/H_10.html}
 #' 
 #' @seealso \code{\link{cramerV}}
 #' 

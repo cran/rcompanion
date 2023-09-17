@@ -67,7 +67,7 @@ cldList(comparison = PT$Comparison,
                                                               
 }
 \references{
-\url{http://rcompanion.org/handbook/H_09.html}
+\url{https://rcompanion.org/handbook/H_09.html}
 }
 \seealso{
 \code{\link{pairwiseNominalIndependence}}

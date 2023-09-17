@@ -114,7 +114,7 @@ wilcoxonR(x = Catbus$Steps, g = Catbus$Gender)
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_04.html}
+\url{https://rcompanion.org/handbook/F_04.html}
 }
 \seealso{
 \code{\link{freemanTheta}}, 

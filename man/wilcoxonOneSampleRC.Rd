@@ -83,7 +83,7 @@ wilcoxonOneSampleRC(x = A, mu=15, verbose=TRUE, zero.method="none")
 
 }
 \references{
-\url{http://rcompanion.org/handbook/F_02.html}
+\url{https://rcompanion.org/handbook/F_02.html}
 }
 \seealso{
 \code{\link{wilcoxonPairedRC}}
