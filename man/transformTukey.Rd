@@ -35,6 +35,8 @@ W or Anderson-Darling A vs. lambda.}
 \item{quiet}{If \code{TRUE}, doesn't print any output to the screen.}
 
 \item{statistic}{If \code{1}, uses Shapiro-Wilks test.
+Will report \code{NA} if the sample size is greater than
+5000.
 If \code{2}, uses Anderson-Darling test.}
 
 \item{returnLambda}{If \code{TRUE}, returns only the lambda value,

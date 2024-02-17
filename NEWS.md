@@ -1,3 +1,11 @@
+## rcompanion v 2.4.35 (2024-02-15)
+
+-   A fix was applied to the `transformTukey()` function
+    to allow for samples sizes greater than 5000.
+    
+-   A fix was applied to the `cramerV()` function
+    to not round the value for the total sample size.
+
 ## rcompanion v 2.4.34 (2023-09-15)
 
 -   A fix was applied to the `cramerV()` function to avoid an error 

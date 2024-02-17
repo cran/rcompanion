@@ -135,7 +135,7 @@ cramerV = function(x, y=NULL,
      cat("\n")
      cat("Columns       =", signif(C, digits=digits))
      cat("\n")
-     cat("N             =", signif(N, digits=digits))
+     cat("N             =", N)
      cat("\n")
      cat("Chi-squared   =", signif(Chi.sq, digits=digits))
      cat("\n")

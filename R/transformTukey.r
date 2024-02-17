@@ -8,6 +8,8 @@
 #' @param end The ending value of lambda to try.
 #' @param int The interval between lambda values to try.
 #' @param statistic If \code{1}, uses Shapiro-Wilks test.
+#'                  Will report \code{NA} if the sample size is greater than
+#'                  5000.
 #'                  If \code{2}, uses Anderson-Darling test.
 #' @param plotit If \code{TRUE}, produces plots of Shapiro-Wilks W or 
 #'               Anderson-Darling A vs. lambda, a histogram of transformed
@@ -55,6 +57,11 @@ transformTukey =
             plotit=TRUE, verbose=FALSE, quiet=FALSE, statistic=1, 
             returnLambda=FALSE)
    {
+   N=length(x)
+   if(N>5000 & statistic==1){
+       stop("Shapiro-Wilks cannot be used with sample sizes > 5000.
+             Try the statistic=2 option.")
+       }
    n=(end-start)/int
    lambda=as.numeric(rep(0.00, n))
    W=as.numeric(rep(0.00, n))
@@ -69,11 +76,14 @@ transformTukey =
       if (lambda[i]==0){TRANS = log(x)}
       if (lambda[i]<0) {TRANS = -1 * x ^ lambda[i]}
       W[i]=NA
+      Shapiro.p.value[i]=NA
       if(statistic==2){A[i]=NA}
       if (any(is.infinite(TRANS))==FALSE & any(is.nan(TRANS))==FALSE)
          {
+        if(N<=5000){
          W[i]=signif(shapiro.test(TRANS)$statistic, digits=4)
          Shapiro.p.value[i]=signif(shapiro.test(TRANS)$p.value, digits=4)
+        }
          if(statistic==2){
             A[i]=signif(ad.test(TRANS)$statistic, digits=4)
             Anderson.p.value[i]=signif(ad.test(TRANS)$p.value, digits=4)

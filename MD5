@@ -1,6 +1,6 @@
-d8bd3a5f20f3384aec73cddd355ed721 *DESCRIPTION
+5145fc31d4909496c890090722d2949a *DESCRIPTION
 300c86e63fe46fb5731b02b7d1b73211 *NAMESPACE
-867458c7bd8f7b81656c2b7fe2ad0dc3 *NEWS.md
+d23dfd0e0ad5c26e2bb3c28bd7a22742 *NEWS.md
 e65a39728487078569db6d4eb4355215 *R/Data.R
 1619cc58264a84e35120d1f31701b12e *R/PMCMRTable.r
 725df3b0b71ace9195d43c0dcbf8b0f4 *R/accuracy.r
@@ -15,7 +15,7 @@ c882665ae03640903add36050a4a8bde *R/cliffDelta.r
 ebf666718a1269ed8c6730643657c536 *R/compareGLM.r
 68a35b468b9661140f6be30943d82ec3 *R/compareLM.r
 cbe8d7b8038aa14bee501335e9b4667b *R/countRSquare.r
-851848f263310e7de3973ef7a652c686 *R/cramerV.r
+d587b800f7236a5f672a8197f704e1de *R/cramerV.r
 85b10a7c7ab086452a8dd035a7ea62db *R/cramerVFit.r
 227e0fb19eb81ea83264c9dc55e5bfc5 *R/efronRSquared.r
 f89ff56f9b2fac2bc9d504ff370e24cf *R/epsilonSquared.r
@@ -69,7 +69,7 @@ a0da4b2c22e22e63f2eea256dba4bbbf *R/plotNormalHistogram.r
 69ad770bba613c811a0c9c81e7f5b836 *R/rcompanion.R
 8a1da722c92dbd90698334ada7a4d43e *R/scheirerRayHare.r
 89948d98ea5d7fbfda32e47d0eff5b60 *R/spearmanRho.r
-dc5f8b3e90c89c3b63434bd46ff55f52 *R/transformTukey.r
+4c5eecec1623b2ef6c7c3f0490745e27 *R/transformTukey.r
 91c130c019d3344d4496b5ea61783f99 *R/vda.r
 20dd2f53e6e17d87e821f4da118593de *R/wilcoxonOR.r
 9835fc280acb27418f65ff5e2f669d6f *R/wilcoxonOneSampleR.r
@@ -96,7 +96,7 @@ be4c1e6e96fbc329b88ece4e5038e963 *data/Monarchs.rda
 345132e4a6671b91852de2767dc464c9 *data/Pooh.rda
 7cada6c161e558c29c95ed72856ad1c5 *data/PoohPiglet.rda
 3896bae8d2511ed63ba13df210d4ab6d *data/Religion.rda
-09308d0b137f918b4a26ac2395883dbd *inst/CITATION
+27e0f71f3f152c7b262502fb1fa9df0d *inst/CITATION
 fccd135ae36ffc92cf67ad605c9a1d35 *man/Anderson.Rd
 5b81364f37cc20e1f5f74085576d1d68 *man/AndersonBias.Rd
 1bdfd8ab889f2484a7991e0d3f1d26ec *man/AndersonRainBarrel.Rd
@@ -180,7 +180,7 @@ ed75a8486a230d191e285a931d2f1c43 *man/quantileCI.Rd
 475d383127cd45523dc76e1f1d8a5b87 *man/rcompanion-package.Rd
 e42373bb7bb9446907a2694ded338657 *man/scheirerRayHare.Rd
 e284b498ca610e2413c4d1c372a02286 *man/spearmanRho.Rd
-49bcc2588a5b98962917edddb43b012d *man/transformTukey.Rd
+b1d2cc8bdfcf43e5bae54a0e71c70c38 *man/transformTukey.Rd
 50fe4eee5a96218a426c7bc7f13cac70 *man/vda.Rd
 e29714043ad4df176756d2d7fd329678 *man/wilcoxonOR.Rd
 a48e645f581ebecdc8683d35f7a6e3ca *man/wilcoxonOneSampleR.Rd
