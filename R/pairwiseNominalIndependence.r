@@ -15,12 +15,13 @@
 #' @param method  The method to adjust multiple p-values. 
 #'                See \code{stats::p.adjust}.
 #' @param correct The correction method to pass to \code{DescTools::GTest}.
-#' @param stats If \code{"TRUE"}, includes the Chi-square value and degrees of 
-#'              freedom for Chi-square tests, and the G value.
-#' @param cramer If \code{"TRUE"}, includes an effect size, Cramer's V in the
-#'               output.
-#' @param digits The number of significant digits in the output.
-#' @param ... Additional arguments, passed to \code{stats::fisher.test}, 
+#' @param yates   Passed to \code{correct} in \code{stats::chisq.test}.
+#' @param stats   If \code{"TRUE"}, includes the Chi-square value and degrees of 
+#'                freedom for Chi-square tests, and the G value.
+#' @param cramer  If \code{"TRUE"}, includes an effect size, Cramer's V in the
+#'                output.
+#' @param digits  The number of significant digits in the output.
+#' @param ...     Additional arguments, passed to \code{stats::fisher.test}, 
 #'            \code{DescTools::GTest}, or \code{stats::chisq.test}.
 #'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
@@ -67,7 +68,8 @@
 pairwiseNominalIndependence = 
   function(x, compare="row",
            fisher=TRUE, gtest=TRUE, chisq=TRUE,
-           method="fdr", correct="none", stats=FALSE, cramer=FALSE, 
+           method="fdr", correct="none", yates=FALSE,
+           stats=FALSE, cramer=FALSE, 
            digits=3, ...) 
   {
   if(compare=="row"){n = nrow(x)}
@@ -103,7 +105,7 @@ pairwiseNominalIndependence =
  if(gtest==TRUE){
     p.Gtest[k] = signif(GTest(Dataz, correct=correct, ...)$p.value, digits=digits)}
  if(chisq==TRUE){
-    p.Chisq[k] = signif(chisq.test(Dataz, ...)$p.value, digits=digits)}
+    p.Chisq[k] = signif(chisq.test(Dataz, correct=yates, ...)$p.value, digits=digits)}
   if(cramer==TRUE){
     Cramer[k] = cramerV(Dataz, digits=digits)}
  if(stats==TRUE){

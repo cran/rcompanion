@@ -55,7 +55,7 @@ Produces a table of fit statistics for multiple models:
           For mean absolute percent error (MAPE), smaller
           indicates a better fit,
           and a perfect fit is equal to 0. The result is reported
-          as a fraction.  That is, a result of 0.1 is equal to 10%.
+          as a fraction.  That is, a result of 0.1 is equal to 10 percent.
           
           Root mean square error (RMSE) has the same units as the predicted
           values.
@@ -70,7 +70,8 @@ Produces a table of fit statistics for multiple models:
           as r-squared, but can still be useful as a relative measure.
           
           \code{CV.prcnt} is the coefficient of variation for the model.
-          Here it is expressed as a percent.  That is, a result of 10 = 10%.
+          Here it is expressed as a percent.  That is, a result of 10 = 
+          10 percent.
           
           Model objects currently supported: lm, glm, nls, betareg, gls,
           lme, lmer, lmerTest, glmmTMB, 

@@ -1,9 +1,9 @@
-5145fc31d4909496c890090722d2949a *DESCRIPTION
+8d2f893cd43131594ba87975028ee5eb *DESCRIPTION
 300c86e63fe46fb5731b02b7d1b73211 *NAMESPACE
-d23dfd0e0ad5c26e2bb3c28bd7a22742 *NEWS.md
+52aa6883219a613398cde31686f443dc *NEWS.md
 e65a39728487078569db6d4eb4355215 *R/Data.R
 1619cc58264a84e35120d1f31701b12e *R/PMCMRTable.r
-725df3b0b71ace9195d43c0dcbf8b0f4 *R/accuracy.r
+bd5356edeb1ac903178c6d2afba7fcd9 *R/accuracy.r
 c5c6143f1f318b8cbdf0124a8d763670 *R/blom.r
 5732cd79db0081ef243740618596823d *R/cateNelson.r
 9900d4d7367b5e5072b653d50ea33519 *R/cateNelsonFixedY.r
@@ -43,7 +43,7 @@ ac60fe5466507859e5436784da873d69 *R/pairwiseDifferences.r
 5e06b387398421d633705570253a9372 *R/pairwiseMedianMatrix.r
 33d7eec0d4e920fe5aa1869559fb38bc *R/pairwiseMedianTest.r
 75f8aa5190bc32be5ff8a92fd39bfb5c *R/pairwiseModelAnova.r
-b894661f29f45af2b03ad8a265ecde5d *R/pairwiseNominalIndependence.r
+a586dc02479a9b808c40c13db775c79c *R/pairwiseNominalIndependence.r
 063cdce6cffaf5bda8acfe5f28187503 *R/pairwiseNominalMatrix.r
 9ebd6e237dc2c6dba9a21d518b0b620e *R/pairwiseOrdinalIndependence.r
 483227c875b6d36aa33623a492010bad *R/pairwiseOrdinalMatrix.r
@@ -66,7 +66,7 @@ fd1ef92955cac7f91a69e158ae17578a *R/plotNormalDensity.r
 a0da4b2c22e22e63f2eea256dba4bbbf *R/plotNormalHistogram.r
 51aba43379a0fd23fd7c6dd8186a7baa *R/plotPredy.r
 4885a9a92f674173fec025b3c1ee5957 *R/quantileCI.r
-69ad770bba613c811a0c9c81e7f5b836 *R/rcompanion.R
+0974829cb3c02178a42c6dfbca3e0fda *R/rcompanion.R
 8a1da722c92dbd90698334ada7a4d43e *R/scheirerRayHare.r
 89948d98ea5d7fbfda32e47d0eff5b60 *R/spearmanRho.r
 4c5eecec1623b2ef6c7c3f0490745e27 *R/transformTukey.r
@@ -96,7 +96,7 @@ be4c1e6e96fbc329b88ece4e5038e963 *data/Monarchs.rda
 345132e4a6671b91852de2767dc464c9 *data/Pooh.rda
 7cada6c161e558c29c95ed72856ad1c5 *data/PoohPiglet.rda
 3896bae8d2511ed63ba13df210d4ab6d *data/Religion.rda
-27e0f71f3f152c7b262502fb1fa9df0d *inst/CITATION
+ef9fc1a8b6801ec18244c7824e39cdca *inst/CITATION
 fccd135ae36ffc92cf67ad605c9a1d35 *man/Anderson.Rd
 5b81364f37cc20e1f5f74085576d1d68 *man/AndersonBias.Rd
 1bdfd8ab889f2484a7991e0d3f1d26ec *man/AndersonRainBarrel.Rd
@@ -114,7 +114,7 @@ a5d4ffe60db2d54a176b9ea2fe4f2755 *man/Pennsylvania18.Rd
 eb52cf40a24afab6160e0f99f6c24636 *man/Pooh.Rd
 cd06f62674ea6eb04a9935e072e5fd99 *man/PoohPiglet.Rd
 2b44e6e62662dab252c81d306edc430b *man/Religion.Rd
-0730bafbf5524c2fa084703d9866f902 *man/accuracy.Rd
+69b2d96ef319df9fd9dd618853d4db2f *man/accuracy.Rd
 84017c9635385586117fb96f75d839c3 *man/blom.Rd
 3291673ceba90e474399987f9103b1e0 *man/cateNelson.Rd
 494f05151f22705b9c27d0daadfb4256 *man/cateNelsonFixedY.Rd
@@ -154,7 +154,7 @@ b2d230c1d0c4820348318794c83d7ac2 *man/pairwiseDifferences.Rd
 1158e9f514d2987c9d19f5b1f3343226 *man/pairwiseMedianMatrix.Rd
 ef0c7486c56c6fb34d9186536863c934 *man/pairwiseMedianTest.Rd
 d311b50c82f110f1f67d10f9dd438cf7 *man/pairwiseModelAnova.Rd
-7c657452543f08cfc626c3a843ef7f34 *man/pairwiseNominalIndependence.Rd
+746ce4bcff901a493be55c6820b00ae3 *man/pairwiseNominalIndependence.Rd
 03ffcc7524c7dfa89ac476db7ecdeedb *man/pairwiseNominalMatrix.Rd
 d7542f41dc1b4d0f3efd2307acb0ef8c *man/pairwiseOrdinalIndependence.Rd
 4ae08ef8be3af403c68abac8f8891a62 *man/pairwiseOrdinalMatrix.Rd
@@ -177,7 +177,7 @@ e77fa3b3b49a5e00018dfa233e9462c8 *man/plotDensityHistogram.Rd
 7f3f70f50226802da7b333d14f7bc0bb *man/plotNormalHistogram.Rd
 7be96774f4c83d80cf98c5a9d97dc390 *man/plotPredy.Rd
 ed75a8486a230d191e285a931d2f1c43 *man/quantileCI.Rd
-475d383127cd45523dc76e1f1d8a5b87 *man/rcompanion-package.Rd
+286baf251f4ae928629c90dc4765b7b2 *man/rcompanion-package.Rd
 e42373bb7bb9446907a2694ded338657 *man/scheirerRayHare.Rd
 e284b498ca610e2413c4d1c372a02286 *man/spearmanRho.Rd
 b1d2cc8bdfcf43e5bae54a0e71c70c38 *man/transformTukey.Rd

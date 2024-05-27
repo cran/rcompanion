@@ -1,3 +1,8 @@
+## rcompanion v 2.4.36 (2024-05-27)
+
+-   An option was added to the `pairwiseNominalIndependence()` function
+    to allow for not using Yates' correction in 2 x 2 chi-square test.
+    
 ## rcompanion v 2.4.35 (2024-02-15)
 
 -   A fix was applied to the `transformTukey()` function

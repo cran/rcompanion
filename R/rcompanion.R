@@ -68,8 +68,6 @@
 #' in order to import fewer packages.
 #' 
 #' Removed packages are indicated with 'Defunct' in their titles.
-#'
-#' @docType package
 #' 
 #' @name rcompanion-package
 #' 

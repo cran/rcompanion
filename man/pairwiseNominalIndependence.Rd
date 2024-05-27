@@ -12,6 +12,7 @@ pairwiseNominalIndependence(
   chisq = TRUE,
   method = "fdr",
   correct = "none",
+  yates = FALSE,
   stats = FALSE,
   cramer = FALSE,
   digits = 3,
@@ -35,6 +36,8 @@ If \code{"column"}, treats the columns as the grouping variable.}
 See \code{stats::p.adjust}.}
 
 \item{correct}{The correction method to pass to \code{DescTools::GTest}.}
+
+\item{yates}{Passed to \code{correct} in \code{stats::chisq.test}.}
 
 \item{stats}{If \code{"TRUE"}, includes the Chi-square value and degrees of 
 freedom for Chi-square tests, and the G value.}
