@@ -1,3 +1,11 @@
+## rcompanion v 2.5.0 (2025-01-01)
+
+-   The `correlation()` function
+    was added.  This function returns the correlation or association
+    statistics for different types of variables in a data frame.
+
+-   Updates to documentation.
+
 ## rcompanion v 2.4.36 (2024-05-27)
 
 -   An option was added to the `pairwiseNominalIndependence()` function

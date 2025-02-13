@@ -112,6 +112,13 @@ By default, \code{NA} values are retained in the output.
          1 but won't be coerced into a normal distribution.
          Sometimes this method is called "standardization".
 }
+\note{
+It's possible that Gustav Elfving didn't recommend the 
+      formula used in this function for the \code{Elfving} method.  
+      I would like thank Terence Cooke
+      at the University of Exeter for their
+      diligence at trying to track down a reference for this formula.
+}
 \examples{
 set.seed(12345)
 A = rlnorm(100)

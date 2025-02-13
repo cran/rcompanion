@@ -87,6 +87,13 @@ Epsilon-squared is used as a measure of association
           determined by this
           method may not be reliable, or the procedure may fail.
 }
+\note{
+Note that epsilon-squared as calculated by this function
+          is equivalent to the eta-squared, or r-squared, as
+          determined by an anova on the rank-transformed values.
+          Epsilon-squared for Kruskal-Wallis is typically
+          defined this way in the literature.
+}
 \examples{
 data(Breakfast)
 library(coin)

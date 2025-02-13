@@ -50,19 +50,19 @@ the group.}
 
 \item{basic}{If \code{TRUE}, includes the basic confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot.ci}.}
 
 \item{normal}{If \code{TRUE}, includes the normal confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot.ci}.}
 
 \item{percentile}{If \code{TRUE}, includes the percentile confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot.ci}.}
 
 \item{bca}{If \code{TRUE}, includes the BCa confidence
 intervals for the group means by bootstrap.
-See \code{\link{boot.ci}}.}
+See \code{boot.ci}.}
 
 \item{digits}{The number of significant figures to use in output.}
 

@@ -74,18 +74,24 @@ Eta-squared is used as a measure of association
           values in the data.  It is recommended that \code{NA}s be removed
           beforehand.
           
-          Because eta-squared is always positive, 
-          if \code{type="perc"}, the confidence interval will
-          never cross zero, and should not
+          eta-squared is typically positive, though may be negative in
+          some cases, as is the case with adjusted r-squared. 
+          It's not recommended that the confidence interval
           be used for statistical inference.
-          However, if \code{type="norm"}, the confidence interval
-          may cross zero. 
           
           When eta-squared is close to 0 or very large,
           or with small counts in some cells,
           the confidence intervals 
           determined by this
           method may not be reliable, or the procedure may fail.
+}
+\note{
+Note that eta-squared as calculated by this function
+          is equivalent to the epsilon-squared, or
+          adjusted r-squared, as
+          determined by an anova on the rank-transformed values.
+          Eta-squared for Kruskal-Wallis is typically
+          defined this way in the literature.
 }
 \examples{
 data(Breakfast)

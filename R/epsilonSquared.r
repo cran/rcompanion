@@ -51,6 +51,12 @@
 #'           determined by this
 #'           method may not be reliable, or the procedure may fail.
 #'           
+#' @note     Note that epsilon-squared as calculated by this function
+#'           is equivalent to the eta-squared, or r-squared, as
+#'           determined by an anova on the rank-transformed values.
+#'           Epsilon-squared for Kruskal-Wallis is typically
+#'           defined this way in the literature.
+#'           
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
 #' @references King, B.M., P.J. Rosopa, and E.W. Minium. 2018. 

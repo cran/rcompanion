@@ -91,6 +91,12 @@
 #'             Beasley and Erickson, 2009, Rank-based inverse normal 
 #'             transformations are increasingly used, but are they merited?
 #'
+#' @note It's possible that Gustav Elfving didn't recommend the 
+#'       formula used in this function for the \code{Elfving} method.  
+#'       I would like thank Terence Cooke
+#'       at the University of Exeter for their
+#'       diligence at trying to track down a reference for this formula. 
+#'
 #' @concept normal scores
 #' @concept z score
 #' @concept standardization

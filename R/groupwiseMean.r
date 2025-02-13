@@ -29,16 +29,16 @@
 #'                    will produce \code{NA}. 
 #' @param normal If \code{TRUE}, includes the normal confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot.ci}.
 #' @param basic If \code{TRUE}, includes the basic confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot.ci}.
 #' @param percentile If \code{TRUE}, includes the percentile confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.
+#'                    See \code{boot.ci}.
 #' @param bca If \code{TRUE}, includes the BCa confidence
 #'                    intervals for the group means by bootstrap.
-#'                    See \code{\link{boot.ci}}.                 
+#'                    See \code{boot.ci}.                 
 #' @param digits The number of significant figures to use in output.
 #' @param ... Other arguments passed to the \code{boot} function.
 #' 
