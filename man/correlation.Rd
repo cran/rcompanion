@@ -118,7 +118,7 @@ It’s important that variables are assigned the correct class
           Nonparametric measures of association will be reported
           with the options
           \code{methodNum = "spearman", methodNumNom = "epsilon",
-          methodNumBin = "glass"}.
+          methodNumBin = "glass", methodNumOrd="spearman"}.
 }
 \examples{
 

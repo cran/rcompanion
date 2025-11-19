@@ -9,6 +9,7 @@ multiMangiaficoD(
   data = NULL,
   x = NULL,
   g = NULL,
+  correct = FALSE,
   digits = 3,
   ...
 )
@@ -22,6 +23,8 @@ the independent variable. e.g. y ~ group.}
 \item{x}{If no formula is given, the response variable.}
 
 \item{g}{If no formula is given, the grouping variable.}
+
+\item{correct}{If \code{TRUE}, applies Hedges' correction.}
 
 \item{digits}{The number of significant digits in the output.}
 
@@ -76,7 +79,11 @@ multiMangiaficoD(Steps ~ Teacher, data=Catbus)
 
 }
 \references{
-\url{https://rcompanion.org/handbook/F_09.html}
+Ricca, B.P. and Blaine, B.E. Brief research report: 
+            Notes on a nonparametric estimate of effect size. 
+            Journal of Experimental Education 90(1):249–258.
+
+            \url{https://rcompanion.org/handbook/F_05.html}
 }
 \seealso{
 \code{\link{mangiaficoD}}
@@ -85,5 +92,7 @@ multiMangiaficoD(Steps ~ Teacher, data=Catbus)
 Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 }
 \concept{Mangiafico's d}
+\concept{Mood's median test}
 \concept{confidence interval}
+\concept{delta MAD}
 \concept{effect size}

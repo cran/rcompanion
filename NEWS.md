@@ -1,3 +1,15 @@
+## rcompanion v 2.5.1 (2025-11-17)
+
+-   Hedges correction option was added to the `mangiaficoD()` function.
+    The formula used to calculate the pooled MAD was changed.
+
+-   Updates to documentation for the `mangiaficoD()` function.
+
+-   Hedges correction option was added to the `multiMangiaficoD()` function.
+    The formula used to calculate the pooled MAD was changed.
+    
+-   Updates to documentation for the `mutiMangiaficoD()` function.
+
 ## rcompanion v 2.5.0 (2025-01-01)
 
 -   The `correlation()` function

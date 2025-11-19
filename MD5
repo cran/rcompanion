@@ -1,6 +1,6 @@
-eaf3c296e3d4d84147d19a31ec40d610 *DESCRIPTION
+7ff3306c717a261a644a2fab3262a835 *DESCRIPTION
 18392492573464d863841d71c8c08aa1 *NAMESPACE
-ae8214a120bbc6ec7a74974f436411b0 *NEWS.md
+838485364e65f1e324385831f77f13a8 *NEWS.md
 e65a39728487078569db6d4eb4355215 *R/Data.R
 1619cc58264a84e35120d1f31701b12e *R/PMCMRTable.r
 bd5356edeb1ac903178c6d2afba7fcd9 *R/accuracy.r
@@ -14,7 +14,7 @@ c882665ae03640903add36050a4a8bde *R/cliffDelta.r
 6619b0d1991be49cb1b1c1acbb62a7b9 *R/cohenW.r
 ebf666718a1269ed8c6730643657c536 *R/compareGLM.r
 68a35b468b9661140f6be30943d82ec3 *R/compareLM.r
-ddaec25dcc03d973014aab3dc25ce7c4 *R/correlation.r
+9b2dee7dc63772a5c3ece53b509b64ac *R/correlation.r
 cbe8d7b8038aa14bee501335e9b4667b *R/countRSquare.r
 d587b800f7236a5f672a8197f704e1de *R/cramerV.r
 85b10a7c7ab086452a8dd035a7ea62db *R/cramerVFit.r
@@ -30,10 +30,10 @@ d5046416ac56b9e20cbc62db1cec0c52 *R/epsilonSquared.r
 d4d5e995fb0974f6b678a0a02c7ff633 *R/groupwisePercentile.r
 4c6180e16710f4ec9a2adf4634875b5e *R/groupwiseSum.r
 d718b0407316d50919095c6a4f8fdae5 *R/kendallW.r
-9c17fa72bc01d137af28a6ce74d3567e *R/mangiaficoD.r
-80e5adf80067567550645b68846e6861 *R/multiMangiaficoD.r
+bcb6d7aebb8a893d0231c5105024900e *R/mangiaficoD.r
+591dae38c6db8233210f7d6da8dfb1fc *R/multiMangiaficoD.r
 ba8709fe068d126b168be6fdfba4223e *R/multiVDA.r
-ba77525461cbbe584cb5c468af3cccfd *R/nagelkerke.r
+a6533d98342fe33e390efa7925a650ee *R/nagelkerke.r
 a8bd77dde3ced805beb23e7841aab88a *R/nagelkerkeHermite.r
 59c890b9a7f596871f71076c9552d060 *R/nominalSymmetryTest.r
 f36ed401b706d5c3365462f6572e1952 *R/oneSampleDominance.r
@@ -97,7 +97,7 @@ be4c1e6e96fbc329b88ece4e5038e963 *data/Monarchs.rda
 345132e4a6671b91852de2767dc464c9 *data/Pooh.rda
 7cada6c161e558c29c95ed72856ad1c5 *data/PoohPiglet.rda
 3896bae8d2511ed63ba13df210d4ab6d *data/Religion.rda
-4e618887cafb82a194a27636fcd1f5e5 *inst/CITATION
+ce72ded8d6a3c78121f2ff27b4d1a095 *inst/CITATION
 fccd135ae36ffc92cf67ad605c9a1d35 *man/Anderson.Rd
 5b81364f37cc20e1f5f74085576d1d68 *man/AndersonBias.Rd
 1bdfd8ab889f2484a7991e0d3f1d26ec *man/AndersonRainBarrel.Rd
@@ -126,7 +126,7 @@ bffe483e1cac9322ca5b5a6f63f3af1e *man/cohenG.Rd
 9ec493040ae4dbba12f150d18cc4a078 *man/cohenW.Rd
 a450438b857ec1b38480c43b2d7914fe *man/compareGLM.Rd
 98ab232a5392fcfec1dfdeb541aeae86 *man/compareLM.Rd
-d4ca18cbd7abe47603b0cb114795c831 *man/correlation.Rd
+9871d2d7102004527b516e89e37ccfcd *man/correlation.Rd
 62677f81e9f25abd8353481a71027d05 *man/countRSquare.Rd
 a4eb40124553f238b9d35b030886ff5a *man/cramerV.Rd
 3deda1da86f50c42dfb97a19cc5af0a8 *man/cramerVFit.Rd
@@ -142,8 +142,8 @@ f701957b60d2ff07d3470b62e2883481 *man/groupwiseHuber.Rd
 6266e1a60db832a27753e6e92d47cd3a *man/groupwisePercentile.Rd
 ca988d8fd987e5120d23885ef6725382 *man/groupwiseSum.Rd
 b22e81472c9b73567f86f3f51eae65d5 *man/kendallW.Rd
-4c4dca1b623b2a9dcc4f58c6b7146111 *man/mangiaficoD.Rd
-07ca475d17abc55f99469b1ff2c7adc3 *man/multiMangiaficoD.Rd
+7b09b9904022caf6504cb30dce1876da *man/mangiaficoD.Rd
+b1a585ebf02012d5c182e0452cb71fb8 *man/multiMangiaficoD.Rd
 1a841dec3e835e9a5bcf7d5f7eb213f7 *man/multiVDA.Rd
 159635e1929c1625da0941a5dbe60076 *man/nagelkerke.Rd
 3d7bb10761dc930624b81c761e5b499e *man/nagelkerkeHermite.Rd

@@ -1,6 +1,7 @@
-#' @title Mangiafico's d
+#' @title Mangiafico's d, or delta MAD
 #'
-#' @description Calculates Mangiafico's d, which is the difference in medians
+#' @description Calculates Mangiafico's d, or delta MAD, which is the
+#'              difference in medians
 #'              divided by the pooled median absolute deviation,
 #'              with confidence intervals by bootstrap
 #' 
@@ -9,6 +10,7 @@
 #' @param data   The data frame to use. 
 #' @param x If no formula is given, the response variable for one group.
 #' @param y The response variable for the other group.
+#' @param correct If \code{TRUE}, applies Hedges' correction.
 #' @param ci If \code{TRUE}, returns confidence intervals by bootstrap.
 #'           May be slow.
 #' @param conf The level for the confidence interval.
@@ -24,9 +26,11 @@
 #'                         failing during the bootstrap procedure.
 #' @param verbose If \code{TRUE}, reports the median difference and MAD.
 #' @param digits The number of significant digits in the output.      
-#' @param ... Other arguments passed to \code{mad()}.
+#' @param ... Other arguments passed to \code{mad()}. Of particular
+#'            interest may be the \code{constant=} argument.
 #'             
-#' @details Mangiafico's d is an appropriate effect size statistic where
+#' @details Mangiafico's d, or delta MAD, is an appropriate effect size
+#'          statistic where 
 #'          Mood's median test, or another test comparing two medians,
 #'          might be used.  Note that the response variable is treated
 #'          as at least interval.
@@ -51,20 +55,24 @@
 #'          groups in the formula interface if the grouping variable
 #'          is not already a factor.
 #'
-#'          When d is close to 0 or close to 1,
-#'          or with small sample size,
+#'          With a small sample size,
 #'          the confidence intervals 
 #'          determined by this
 #'          method may not be reliable, or the procedure may fail.
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{https://rcompanion.org/handbook/F_05.html}
+#' @references Ricca, B.P. and Blaine, B.E. Brief research report: 
+#'             Notes on a nonparametric estimate of effect size. 
+#'             Journal of Experimental Education 90(1):249–258.
+#' 
+#'             \url{https://rcompanion.org/handbook/F_05.html}
 #' 
 #' @seealso \code{\link{multiMangiaficoD}}
 #' 
 #' @concept effect size
 #' @concept Mangiafico's d
+#' @concept delta MAD
 #' @concept Mood's median test
 #' @concept confidence interval
 #' 
@@ -92,7 +100,8 @@
 #' @export
 
 mangiaficoD = 
- function(formula=NULL, data=NULL, x=NULL, y=NULL, 
+ function(formula=NULL, data=NULL, x=NULL, y=NULL,
+          correct=FALSE,
           ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, 
           reportIncomplete=FALSE, verbose=FALSE, digits=3,
           ...){
@@ -113,12 +122,17 @@ mangiaficoD =
   
    MedianA = median(A)
    MedianB = median(B)
+   n1      = length(A)
+   n2      = length(B)
    MADA    = mad(A,...)
    MADB    = mad(B,...)
    DIFF    = MedianA - MedianB
-   MAD     = sqrt((MADA^2 + MADB^2)/2)
+   MAD     = ((n1-1)*MADA+(n2-1)*MADB)/(n1+n2-2)
    D       = DIFF / MAD
-   
+   if(correct){
+    N = n1+n2
+    D = D * (1-(3/(4*N-9)))
+    }
    if(verbose){
      G1        = levels(g)[1]
      G2        = levels(g)[2]
@@ -151,11 +165,17 @@ mangiaficoD =
                       B = Input$x[Input$g==levels(Input$g)[2]]
                       MedianA = median(A)
                       MedianB = median(B)
+                      n1      = length(A)
+                      n2      = length(B)
                       MADA    = mad(A,...)
                       MADB    = mad(B,...)
                       DIFF    = MedianA - MedianB
-                      MAD     = sqrt((MADA^2 + MADB^2)/2)
+                      MAD     = ((n1-1)*MADA+(n2-1)*MADB)/(n1+n2-2)
                       dd       = DIFF / MAD
+                      if(correct){
+                       N = n1+n2
+                       dd = dd * (1-(3/(4*N-9)))
+                      }
                          FLAG=0}
                       
                       return(c(dd, FLAG))}

@@ -10,6 +10,7 @@
 #' @param data   The data frame to use. 
 #' @param x If no formula is given, the response variable.
 #' @param g If no formula is given, the grouping variable.
+#' @param correct If \code{TRUE}, applies Hedges' correction. 
 #' @param digits The number of significant digits in the output.
 #' @param ... Additional arguments passed to the \code{mad()} function. 
 #'             
@@ -39,12 +40,18 @@
 #'                      
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 
-#' @references \url{https://rcompanion.org/handbook/F_09.html}
+#' @references Ricca, B.P. and Blaine, B.E. Brief research report: 
+#'             Notes on a nonparametric estimate of effect size. 
+#'             Journal of Experimental Education 90(1):249–258.
+#' 
+#'             \url{https://rcompanion.org/handbook/F_05.html}
 #' 
 #' @seealso \code{\link{mangiaficoD}}
 #' 
 #' @concept effect size
 #' @concept Mangiafico's d
+#' @concept delta MAD
+#' @concept Mood's median test
 #' @concept confidence interval
 #'
 #' @return A list containing a data frame of pairwise statistics,
@@ -68,6 +75,7 @@
 #'
 multiMangiaficoD = function(formula=NULL, data=NULL, 
     x=NULL, g=NULL,
+    correct=FALSE,
     digits = 3, ...)
   {
   if(!is.null(formula)){
@@ -100,11 +108,17 @@ multiMangiaficoD = function(formula=NULL, data=NULL,
      
      m1         = median(Dataz$x[Dataz$g2==levels(g)[i]])
      m2         = median(Dataz$x[Dataz$g2==levels(g)[j]])
+     n1         = length(Dataz$x[Dataz$g2==levels(g)[i]])
+     n2         = length(Dataz$x[Dataz$g2==levels(g)[j]])
      mad1       = mad(Dataz$x[Dataz$g2==levels(g)[i]], ...)
      mad2       = mad(Dataz$x[Dataz$g2==levels(g)[j]], ...)
-     difference = signif((m1 - m2), digits=digits)
-     pooled     = sqrt((mad1^2 + mad2^2)/2)
-     mangia     = (difference / pooled) / pooled
+     difference = m1 - m2
+     pooled     = ((n1-1)*mad1+(n2-1)*mad2)/(n1+n2-2)
+     mangia     = difference / pooled
+     if(correct){
+      N = n1+n2
+      mangia = mangia * (1-(3/(4*N-9)))
+     }
      
      M1     = signif(m1, digits=digits)
      M2     = signif(m2, digits=digits)

@@ -2,13 +2,14 @@
 % Please edit documentation in R/mangiaficoD.r
 \name{mangiaficoD}
 \alias{mangiaficoD}
-\title{Mangiafico's d}
+\title{Mangiafico's d, or delta MAD}
 \usage{
 mangiaficoD(
   formula = NULL,
   data = NULL,
   x = NULL,
   y = NULL,
+  correct = FALSE,
   ci = FALSE,
   conf = 0.95,
   type = "perc",
@@ -29,6 +30,8 @@ the independent variable. e.g. y ~ group.}
 \item{x}{If no formula is given, the response variable for one group.}
 
 \item{y}{The response variable for the other group.}
+
+\item{correct}{If \code{TRUE}, applies Hedges' correction.}
 
 \item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
 May be slow.}
@@ -53,7 +56,8 @@ failing during the bootstrap procedure.}
 
 \item{digits}{The number of significant digits in the output.}
 
-\item{...}{Other arguments passed to \code{mad()}.}
+\item{...}{Other arguments passed to \code{mad()}. Of particular
+interest may be the \code{constant=} argument.}
 }
 \value{
 A single statistic, d.
@@ -61,12 +65,14 @@ A single statistic, d.
         and the lower and upper confidence limits.
 }
 \description{
-Calculates Mangiafico's d, which is the difference in medians
+Calculates Mangiafico's d, or delta MAD, which is the
+             difference in medians
              divided by the pooled median absolute deviation,
              with confidence intervals by bootstrap
 }
 \details{
-Mangiafico's d is an appropriate effect size statistic where
+Mangiafico's d, or delta MAD, is an appropriate effect size
+         statistic where 
          Mood's median test, or another test comparing two medians,
          might be used.  Note that the response variable is treated
          as at least interval.
@@ -91,8 +97,7 @@ Mangiafico's d is an appropriate effect size statistic where
          groups in the formula interface if the grouping variable
          is not already a factor.
 
-         When d is close to 0 or close to 1,
-         or with small sample size,
+         With a small sample size,
          the confidence intervals 
          determined by this
          method may not be reliable, or the procedure may fail.
@@ -114,7 +119,11 @@ mangiaficoD(x = Nadja, y = Nandor, verbose=TRUE)
 
 }
 \references{
-\url{https://rcompanion.org/handbook/F_05.html}
+Ricca, B.P. and Blaine, B.E. Brief research report: 
+            Notes on a nonparametric estimate of effect size. 
+            Journal of Experimental Education 90(1):249–258.
+
+            \url{https://rcompanion.org/handbook/F_05.html}
 }
 \seealso{
 \code{\link{multiMangiaficoD}}
@@ -125,4 +134,5 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \concept{Mangiafico's d}
 \concept{Mood's median test}
 \concept{confidence interval}
+\concept{delta MAD}
 \concept{effect size}

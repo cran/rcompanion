@@ -50,7 +50,6 @@
 #'                     The default is \code{"chisq"}. The other option is
 #'                     \code{"fisher"}.
 #'                     
-#' 
 #' @param R            The number of replications to use for bootstrap 
 #'                     confidence intervals for applicable methods.
 #'                     
@@ -87,7 +86,7 @@
 #'           Nonparametric measures of association will be reported
 #'           with the options
 #'           \code{methodNum = "spearman", methodNumNom = "epsilon",
-#'           methodNumBin = "glass"}.
+#'           methodNumBin = "glass", methodNumOrd="spearman"}.
 #'
 #' @author Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 #' 

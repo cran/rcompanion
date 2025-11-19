@@ -147,7 +147,7 @@ function(fit, null=NULL, restrictNobs=FALSE)
   if(NOGGLE & BOGGLE)
      {ERROR = "You need to supply a null model for nls, lmer, glmer, or clmm"}
   if((!TOGGLE) & (!BOGGLE))
-   {ERROR = "This function will work with lm, gls, lme, lmer, glmer, glm, negbin, zeroinfl, nls, clm, clmm, and vglm"}
+   {ERROR = "This function will work with lm, gls, lme, lmer, glmer, glm, negbin, zeroinfl, glmmTMB, nls, clm, clmm, and vglm"}
   
    SMOGGLE2 = (class(null)[1]=="lmerMod"
               | class(null)[1]=="glmerMod"
