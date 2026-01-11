@@ -1,6 +1,6 @@
 #' @title Mangiafico's d
 #'
-#' @description Calculates Mangiafico's d,
+#' @description Calculates Mangiafico's d, or delta MAD,
 #'              which is the difference in medians
 #'              divided by the pooled median absolute deviation,
 #'              for several groups in a pairwise manner.

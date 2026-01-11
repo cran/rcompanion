@@ -10,6 +10,8 @@
 #' @param data   The data frame to use. 
 #' @param x If no formula is given, the response variable for one group.
 #' @param y The response variable for the other group.
+#' @param mu In the one-sample case, the median against which to compare
+#'           \code{x}
 #' @param correct If \code{TRUE}, applies Hedges' correction.
 #' @param ci If \code{TRUE}, returns confidence intervals by bootstrap.
 #'           May be slow.
@@ -24,7 +26,8 @@
 #'                         \code{NA} will be reported in cases where there
 #'                         are instances of the calculation of the statistic
 #'                         failing during the bootstrap procedure.
-#' @param verbose If \code{TRUE}, reports the median difference and MAD.
+#' @param verbose If \code{TRUE}, reports the medians, median difference, 
+#'                and MAD.
 #' @param digits The number of significant digits in the output.      
 #' @param ... Other arguments passed to \code{mad()}. Of particular
 #'            interest may be the \code{constant=} argument.
@@ -40,7 +43,9 @@
 #'            
 #'          The input should include either \code{formula} and \code{data};
 #'          or \code{x}, and \code{y}. If there are more than two groups,
-#'          only the first two groups are used.
+#'          only the first two groups are used. 
+#'          Alternately, \code{x} and \code{mu} can be used for
+#'          the one-sample case. 
 #'          
 #'          Currently, the function makes no provisions for \code{NA}
 #'          values in the data.  It is recommended that \code{NA}s be removed
@@ -90,9 +95,16 @@
 #' data(Catbus)
 #' mangiaficoD(Steps ~ Gender, data=Catbus, verbose=TRUE)
 #' 
-#' Nadja = c(5,5,6,6,6,7,7,11,11,11)
+#' Nadja = c(6,6,6,7,7,8,8,9,9,9,11,11,11)
 #' Nandor = c(0,1,2,3,4,5,6,7,8,9,10,11)
 #' mangiaficoD(x = Nadja, y = Nandor, verbose=TRUE)
+#' 
+#' Nadja = c(6,6,6,7,7,8,8,9,9,9,11,11,11)
+#' Nandor = c(0,1,2,3,4,5,6,7,8,9,10,11)
+#' mangiaficoD(x = Nadja, y = Nandor, correct=TRUE)
+#' 
+#' Guillermo = c(9,8,7,7,7,6,6,6,6,5,5,5,5,5,4,4,4,4,4,4)
+#' mangiaficoD(x = Guillermo, mu=7, verbose=TRUE)
 #' 
 #' @importFrom stats median mad
 #' @importFrom boot boot boot.ci
@@ -101,16 +113,23 @@
 
 mangiaficoD = 
  function(formula=NULL, data=NULL, x=NULL, y=NULL,
-          correct=FALSE,
+          correct=FALSE, mu=0,
           ci=FALSE, conf=0.95, type="perc", R=1000, histogram=FALSE, 
           reportIncomplete=FALSE, verbose=FALSE, digits=3,
           ...){
+  
+ONESAMPLE = FALSE
+FLAG      = NULL
 
+if(is.null(formula) & is.null(y)){ONESAMPLE=TRUE}
+  
+if(! ONESAMPLE){
   if(!is.null(formula)){
     x  = eval(parse(text=paste0("data","$",all.vars(formula[[2]])[1])))
     g  = factor(eval(parse(text=paste0("data","$",all.vars(formula[[3]])[1]))))
     A  = x[g==levels(g)[1]]
     B  = x[g==levels(g)[2]]
+    if(length(unique(droplevels(g)))==1){warning("There is only one level of the grouping variable.")}
   }
   
   if(is.null(formula)){
@@ -119,7 +138,7 @@ mangiaficoD =
    x = c(A, B)
    g = factor(c(rep("x", length(A)), rep("y", length(B))))
   }
-  
+ 
    MedianA = median(A)
    MedianB = median(B)
    n1      = length(A)
@@ -129,11 +148,25 @@ mangiaficoD =
    DIFF    = MedianA - MedianB
    MAD     = ((n1-1)*MADA+(n2-1)*MADB)/(n1+n2-2)
    D       = DIFF / MAD
+  }
+ 
+  if(ONESAMPLE){
+  A       = x
+  g = factor(c(rep("x", length(A))))
+  MedianA = median(A)
+  n1      = length(A)
+  n2      = 0
+  MADA    = mad(A,...)
+  DIFF    = MedianA - mu
+  D       = DIFF / MADA
+  }
+
    if(correct){
     N = n1+n2
     D = D * (1-(3/(4*N-9)))
-    }
-   if(verbose){
+   }
+ 
+   if(verbose & !ONESAMPLE){
      G1        = levels(g)[1]
      G2        = levels(g)[2]
      Out = data.frame(
@@ -150,11 +183,27 @@ mangiaficoD =
      cat("\n")
      print(Out)
      cat("\n")
-   } 
-  
+   }
+
+if(verbose & ONESAMPLE){
+ G1        = levels(g)[1]
+ Out = data.frame(
+  Statistic = c("Median", "mu", "Difference", "MAD"),
+  Value     = c(signif(MedianA, digits=digits),
+                signif(mu, digits=digits),
+                signif(DIFF, digits=digits),
+                signif(MADA, digits=digits))
+ )
+ cat("\n")
+ print(Out)
+ cat("\n")
+}
+
   if(ci==TRUE){
   Data = data.frame(x,g)
-  Function = function(input, index){
+  
+  if( ! ONESAMPLE){
+      Function = function(input, index){
                     Input = input[index,]
                     if(length(unique(droplevels(Input$g)))==1){
                        FLAG=1
@@ -179,13 +228,33 @@ mangiaficoD =
                          FLAG=0}
                       
                       return(c(dd, FLAG))}
+  }
+  
+      if(ONESAMPLE){
+      Function = function(input, index){
+       Input = input[index,]
+        A = Input$x[Input$g==levels(Input$g)[1]]
+        MedianA = median(A)
+        n1      = length(A)
+        MADA    = mad(A,...)
+        DIFF    = MedianA - mu
+        dd       = DIFF / MADA
+        if(correct){
+         N  = n1
+         dd = dd * (1-(3/(4*N-9)))
+        }
+        FLAG = 0
+       
+       return(c(dd, FLAG))
+        }
+     }
   
   Boot = boot(Data, Function, R=R)
   BCI  = boot.ci(Boot, conf=conf, type=type)
   if(type=="norm") {CI1=BCI$normal[2];  CI2=BCI$normal[3];}
   if(type=="basic"){CI1=BCI$basic[4];   CI2=BCI$basic[5];}
   if(type=="perc") {CI1=BCI$percent[4]; CI2=BCI$percent[5];}
-  if(type=="bca") {CI1=BCI$bca[4];      CI2=BCI$bca[5];}  
+  if(type=="bca")  {CI1=BCI$bca[4];      CI2=BCI$bca[5];}  
   
   if(sum(Boot$t[,2])>0 & reportIncomplete==FALSE) {CI1=NA; CI2=NA} 
   

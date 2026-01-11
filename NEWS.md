@@ -1,3 +1,9 @@
+## rcompanion v 2.5.2 (2026-01-10)
+
+-   A one-sample option was added to the `mangiaficoD()` function.
+
+-   Updates to documentation for the `accuracy()` function.
+
 ## rcompanion v 2.5.1 (2025-11-17)
 
 -   Hedges correction option was added to the `mangiaficoD()` function.

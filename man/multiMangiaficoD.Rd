@@ -36,7 +36,7 @@ A list containing a data frame of pairwise statistics,
         of the statistic.
 }
 \description{
-Calculates Mangiafico's d,
+Calculates Mangiafico's d, or delta MAD,
              which is the difference in medians
              divided by the pooled median absolute deviation,
              for several groups in a pairwise manner.

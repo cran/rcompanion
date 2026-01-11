@@ -19,11 +19,17 @@ methods and bootstrap.
 
 Functions to produce effect size statistics, 
 some with bootstrapped confidence intervals, 
-include those for Cramer's V, 
-Cohen's g and odds ratio for paired tables, Cohen's h, 
-Cohen's w, Vargha and Delaney's A, Cliff's delta,
+include those for Cramer’s V, Cohen’s g and odds ratio for paired tables, 
+Cohen’s h, Cohen’s w, Vargha and Delaney’s A, Cliff’s delta, 
 r for one-sample, two-sample, and paired Wilcoxon and Mann-Whitney tests, 
-epsilon-squared, and Freeman's theta. 
+epsilon-squared, Freeman’s theta, 
+Grissom and Kim’s Probability of Superiority, 
+Glass rank biserial correlation coefficient, 
+Agresti’s Generalized Odds Ratio for Stochastic Dominance, 
+Dominance statistic for one-sample data, 
+Dominance statistic for two-sample paired data, 
+delta MAD, the difference in medians 
+divided by the pooled median absolute deviation.
 
 The \code{\link{accuracy}} function
 reports statistics for

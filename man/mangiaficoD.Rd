@@ -10,6 +10,7 @@ mangiaficoD(
   x = NULL,
   y = NULL,
   correct = FALSE,
+  mu = 0,
   ci = FALSE,
   conf = 0.95,
   type = "perc",
@@ -33,6 +34,9 @@ the independent variable. e.g. y ~ group.}
 
 \item{correct}{If \code{TRUE}, applies Hedges' correction.}
 
+\item{mu}{In the one-sample case, the median against which to compare
+\code{x}}
+
 \item{ci}{If \code{TRUE}, returns confidence intervals by bootstrap.
 May be slow.}
 
@@ -52,7 +56,8 @@ Passed to \code{boot.ci}.}
 are instances of the calculation of the statistic
 failing during the bootstrap procedure.}
 
-\item{verbose}{If \code{TRUE}, reports the median difference and MAD.}
+\item{verbose}{If \code{TRUE}, reports the medians, median difference, 
+and MAD.}
 
 \item{digits}{The number of significant digits in the output.}
 
@@ -82,7 +87,9 @@ Mangiafico's d, or delta MAD, is an appropriate effect size
            
          The input should include either \code{formula} and \code{data};
          or \code{x}, and \code{y}. If there are more than two groups,
-         only the first two groups are used.
+         only the first two groups are used. 
+         Alternately, \code{x} and \code{mu} can be used for
+         the one-sample case. 
          
          Currently, the function makes no provisions for \code{NA}
          values in the data.  It is recommended that \code{NA}s be removed
@@ -113,9 +120,16 @@ The parsing of the formula is simplistic.
 data(Catbus)
 mangiaficoD(Steps ~ Gender, data=Catbus, verbose=TRUE)
 
-Nadja = c(5,5,6,6,6,7,7,11,11,11)
+Nadja = c(6,6,6,7,7,8,8,9,9,9,11,11,11)
 Nandor = c(0,1,2,3,4,5,6,7,8,9,10,11)
 mangiaficoD(x = Nadja, y = Nandor, verbose=TRUE)
+
+Nadja = c(6,6,6,7,7,8,8,9,9,9,11,11,11)
+Nandor = c(0,1,2,3,4,5,6,7,8,9,10,11)
+mangiaficoD(x = Nadja, y = Nandor, correct=TRUE)
+
+Guillermo = c(9,8,7,7,7,6,6,6,6,5,5,5,5,5,4,4,4,4,4,4)
+mangiaficoD(x = Guillermo, mu=7, verbose=TRUE)
 
 }
 \references{
