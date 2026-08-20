@@ -1,6 +1,6 @@
-c8dddbb29ab9cb81ab05a3f9341e6280 *DESCRIPTION
-18392492573464d863841d71c8c08aa1 *NAMESPACE
-009d779a02e1aa1553b7a77e88965ef9 *NEWS.md
+ce68dd6c3f5ff0fb171b9d8a2fa5ba1a *DESCRIPTION
+b6bcae42038c4d7d15aa1f8bcd3a55f5 *NAMESPACE
+f31c881db964162a99b39a7a1a3a656b *NEWS.md
 e65a39728487078569db6d4eb4355215 *R/Data.R
 1619cc58264a84e35120d1f31701b12e *R/PMCMRTable.r
 04e4218045ac8e8a370041ceb7f0b1f1 *R/accuracy.r
@@ -18,11 +18,12 @@ ebf666718a1269ed8c6730643657c536 *R/compareGLM.r
 cbe8d7b8038aa14bee501335e9b4667b *R/countRSquare.r
 d587b800f7236a5f672a8197f704e1de *R/cramerV.r
 85b10a7c7ab086452a8dd035a7ea62db *R/cramerVFit.r
-227e0fb19eb81ea83264c9dc55e5bfc5 *R/efronRSquared.r
+e9bde74f5c168f0ec531307696d8ed5c *R/efronRSquared.r
 d5046416ac56b9e20cbc62db1cec0c52 *R/epsilonSquared.r
 77f7b9b43ea8b4dc516a9fff49167000 *R/freemanTheta.r
 303beef452ca087967bde1fda3e34e68 *R/fullPTable.r
 425a8a6abd4df7074b1e0f20c5bb04f8 *R/groupwiseCMH.r
+c7b6383e2ceaf8610d4fab6adad5831d *R/groupwiseFiveNumber.r
 44fde64d0c348845769f2c0b8ab2c20f *R/groupwiseGeometric.r
 7556fe5bbc69cd0876f89a3dfb30fa82 *R/groupwiseHuber.r
 6eb458595b6b59579a515983ce86db1b *R/groupwiseMean.r
@@ -97,7 +98,7 @@ be4c1e6e96fbc329b88ece4e5038e963 *data/Monarchs.rda
 345132e4a6671b91852de2767dc464c9 *data/Pooh.rda
 7cada6c161e558c29c95ed72856ad1c5 *data/PoohPiglet.rda
 3896bae8d2511ed63ba13df210d4ab6d *data/Religion.rda
-2394f6b7bbae6ff8b0105539d8228de1 *inst/CITATION
+a41827d251dd22c48cea5de9bfd52de8 *inst/CITATION
 fccd135ae36ffc92cf67ad605c9a1d35 *man/Anderson.Rd
 5b81364f37cc20e1f5f74085576d1d68 *man/AndersonBias.Rd
 1bdfd8ab889f2484a7991e0d3f1d26ec *man/AndersonRainBarrel.Rd
@@ -130,11 +131,12 @@ a450438b857ec1b38480c43b2d7914fe *man/compareGLM.Rd
 62677f81e9f25abd8353481a71027d05 *man/countRSquare.Rd
 a4eb40124553f238b9d35b030886ff5a *man/cramerV.Rd
 3deda1da86f50c42dfb97a19cc5af0a8 *man/cramerVFit.Rd
-0869009be0f8b4f49b1f434de9390c87 *man/efronRSquared.Rd
+f4a22e65556577371743971ab648157d *man/efronRSquared.Rd
 539f12ccbb7de6a99072ad7f3e6845d6 *man/epsilonSquared.Rd
 f3f29be6faefbf25594d0c3a408d4185 *man/freemanTheta.Rd
 0481ca3cdd4c1f4706d268d3c98321b5 *man/fullPTable.Rd
 f9a3c7ee323c263e43dfcb04d7ef7624 *man/groupwiseCMH.Rd
+ad26d4c8112442c39bc8815cd50a5bbc *man/groupwiseFiveNumber.Rd
 35f9232a232fccf7b30d80f98b879467 *man/groupwiseGeometric.Rd
 f701957b60d2ff07d3470b62e2883481 *man/groupwiseHuber.Rd
 05c9598baa343bdbd6b1c647d2e2768e *man/groupwiseMean.Rd

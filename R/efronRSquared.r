@@ -6,17 +6,20 @@
 #'              Alternately produces minimum maximum accuracy, 
 #'              mean absolute percent error, 
 #'              root mean square error, or coefficient of variation.
+#'              Alternately produces a fit statistic based on
+#'              absolute deviations.
 #' 
 #' @param model A model of the class lm, glm, nls, betareg, gls,
 #'                                   lme, lmerMod, lmerModLmerTest, glmmTMB,
 #'                                   rq, loess, gam, negbin, glmRob, rlm,
-#'                                   or mblm.
+#'                                   rfit, or mblm.
 #'              
 #' @param actual A vector of actual y values
 #' @param residual A vector of residuals
 #' @param predicted A vector of predicted values
 #' @param statistic The statistic to produce.
 #'                  One of \code{"EfronRSquared"},
+#'                         \code{"AbsoluteDeviationRSquared"},
 #'                         \code{"MinMaxAccuracy"},
 #'                         \code{"MAE"},
 #'                         \code{"MAPE"},
@@ -24,15 +27,28 @@
 #'                         \code{"RMSE"},
 #'                         \code{"NRMSE.Mean"},
 #'                         \code{"CV"}.
+#' @param null.absolute.deviation For the \code{AbsoluteDeviationRSquared}
+#'          statistic whether the null model is based on the absolute deviations
+#'          of observed values from their mean or median.
+#' @param rescale.adr For the \code{AbsoluteDeviationRSquared} statistic,
+#'          if \code{TRUE}, the default, an empirical function is used to 
+#'          re-scale the statistic to
+#'           be similar in magnitude to an r-squared value.
 #' @param plotit If \code{TRUE}, produces plots of the predicted values
 #'               vs. the actual values.
 #' @param digits The number of significant digits in the output.              
 #' @param ... Other arguments passed to \code{plot}.
 #' 
 #' @details  Efron's pseudo r-squared is calculated as 1 minus the residual sum 
-#'           of squares divided by the total sum of squares.  For linear models
+#'           of squares divided by the total sum of squares.  For
 #'           (\code{lm} model objects), Efron's pseudo r-squared will be equal  
 #'           to r-squared.
+#'           
+#'           Absolute deviation pseudo r-squared is calculated as 1 minus the
+#'           absolute deviations of predicted and observed values
+#'           divided by the absolute deviation of observed values from their
+#'           mean or median. By default, this value is re-scaled to
+#'           be similar in magnitude to an r-squared value.
 #'           
 #'           This function produces the same statistics as does the
 #'           \code{accuracy} function.
@@ -46,7 +62,7 @@
 #'           value is presented as a percentage or fraction.
 #'           
 #'           If \code{model}is not supplied,
-#'           two of the following need to passed to the function:
+#'           two of the following need to be passed to the function:
 #'           \code{actual}, \code{predicted}, \code{residual}.
 #'
 #'           Note that, for some model objects, to extract residuals
@@ -69,6 +85,7 @@
 #' @concept MAPE
 #' @concept coefficient of variation
 #' @concept MAE
+#' @concept absolute deviations
 #' 
 #' @return A single statistic
 #'         
@@ -81,6 +98,8 @@
 #' efronRSquared(model.1)
 #' 
 #' efronRSquared(model.1, statistic="MAPE")
+#' 
+#' efronRSquared(model.1, statistic="AbsoluteDeviationRSquared")
 #' 
 #' efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals)
 #' efronRSquared(residual=model.1$residuals, predicted=model.1$fitted.values)
@@ -95,6 +114,8 @@
 efronRSquared = 
 function (model=NULL, actual=NULL, predicted=NULL, residual=NULL, 
           statistic="EfronRSquared",
+          null.absolute.deviation="mean",
+          rescale.adr = TRUE,
           plotit=FALSE, digits=3, ...) 
 {
  if(!is.null(model)){
@@ -141,13 +162,16 @@ function (model=NULL, actual=NULL, predicted=NULL, residual=NULL,
    if(class(model)[1]=="rlm"){
                               predicted  = predict(model)
                               residual = residuals(model)}
+   if(class(model)[1]=="rfit"){
+                              predicted  = model$fitted.values
+                              residual = model$residuals}
    if(class(model)[1]=="glmmTMB"){
-                               predicted  = predict(model, type="response")
-                               residual = residuals(model, type="response")}
+                              predicted  = predict(model, type="response")
+                              residual = residuals(model, type="response")}
    if(class(model)[1]=="mblm"){
-     predicted  = predict(model)
-     residual = residuals(model)}
-      }
+                              predicted  = predict(model)
+                              residual = residuals(model)}
+     }
 
   if(is.null(actual)){    actual    = predicted + residual}
   if(is.null(residual)){  residual  = actual    - predicted}
@@ -170,10 +194,29 @@ function (model=NULL, actual=NULL, predicted=NULL, residual=NULL,
   RSS           = sum((actual - predicted)^2)
   var_r_squared = 1 - RSS / Var
   cv_prcnt      = nrmse_mean*100
+  
+  nad = sum(abs(actual - mean(actual)))
+  if(null.absolute.deviation=="median"){
+        nad = sum(abs(actual - median(actual)))
+  }
+  sad = sum(abs(actual - predicted))
+  rad = 1 - sad/nad
+  
+  if(rescale.adr & null.absolute.deviation=="mean"){
+   rad = 1.903655*rad + -0.95909*rad^2 + 0.209404*rad^3 + -0.153956*rad^4
+  }
+  
+  if(rescale.adr & null.absolute.deviation=="median"){
+   rad = 1.919417*rad + -1.085953*rad^2 + 0.456150*rad^3 + -0.291534*rad^4
+  }
      
      if(statistic=="EfronRSquared")
       {STAT=signif(var_r_squared, digits=digits)
       names(STAT)="EfronRSquared"}
+  
+    if(statistic=="AbsoluteDeviationRSquared")
+     {STAT=signif(rad, digits=digits)
+     names(STAT)="AbsoluteDeviationRSquared"}
      
      if(statistic=="MinMaxAccuracy")
       {STAT=signif(mma, digits=digits)

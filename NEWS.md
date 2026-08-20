@@ -1,3 +1,16 @@
+## rcompanion v 2.5.4 (2026-08-20)
+
+-   An `AbsoluteDeviationRSquared` statistic was added to the 
+    `efronRSquared()` function.  This calculates an r-squared-like
+    statistic from absolute deviations rather than from squared
+    deviations. By default, this value is re-scaled to
+    be similar in magnitude to an r-squared value.
+    
+-   The `groupwiseFiveNumber()` function was added.  This function returns
+    quantiles for an ordered factor or numeric variable by a grouping
+    variable. By default returning a five-number summary.
+
+
 ## rcompanion v 2.5.2 (2026-01-10)
 
 -   A one-sample option was added to the `mangiaficoD()` function.

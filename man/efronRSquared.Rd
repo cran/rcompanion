@@ -10,6 +10,8 @@ efronRSquared(
   predicted = NULL,
   residual = NULL,
   statistic = "EfronRSquared",
+  null.absolute.deviation = "mean",
+  rescale.adr = TRUE,
   plotit = FALSE,
   digits = 3,
   ...
@@ -19,7 +21,7 @@ efronRSquared(
 \item{model}{A model of the class lm, glm, nls, betareg, gls,
 lme, lmerMod, lmerModLmerTest, glmmTMB,
 rq, loess, gam, negbin, glmRob, rlm,
-or mblm.}
+rfit, or mblm.}
 
 \item{actual}{A vector of actual y values}
 
@@ -29,6 +31,7 @@ or mblm.}
 
 \item{statistic}{The statistic to produce.
 One of \code{"EfronRSquared"},
+       \code{"AbsoluteDeviationRSquared"},
        \code{"MinMaxAccuracy"},
        \code{"MAE"},
        \code{"MAPE"},
@@ -36,6 +39,15 @@ One of \code{"EfronRSquared"},
        \code{"RMSE"},
        \code{"NRMSE.Mean"},
        \code{"CV"}.}
+
+\item{null.absolute.deviation}{For the \code{AbsoluteDeviationRSquared}
+statistic whether the null model is based on the absolute deviations
+of observed values from their mean or median.}
+
+\item{rescale.adr}{For the \code{AbsoluteDeviationRSquared} statistic,
+if \code{TRUE}, the default, an empirical function is used to 
+re-scale the statistic to
+ be similar in magnitude to an r-squared value.}
 
 \item{plotit}{If \code{TRUE}, produces plots of the predicted values
 vs. the actual values.}
@@ -54,12 +66,20 @@ Produces Efron's pseudo r-squared from certain models,
              Alternately produces minimum maximum accuracy, 
              mean absolute percent error, 
              root mean square error, or coefficient of variation.
+             Alternately produces a fit statistic based on
+             absolute deviations.
 }
 \details{
 Efron's pseudo r-squared is calculated as 1 minus the residual sum 
-          of squares divided by the total sum of squares.  For linear models
+          of squares divided by the total sum of squares.  For
           (\code{lm} model objects), Efron's pseudo r-squared will be equal  
           to r-squared.
+          
+          Absolute deviation pseudo r-squared is calculated as 1 minus the
+          absolute deviations of predicted and observed values
+          divided by the absolute deviation of observed values from their
+          mean or median. By default, this value is re-scaled to
+          be similar in magnitude to an r-squared value.
           
           This function produces the same statistics as does the
           \code{accuracy} function.
@@ -73,7 +93,7 @@ Efron's pseudo r-squared is calculated as 1 minus the residual sum
           value is presented as a percentage or fraction.
           
           If \code{model}is not supplied,
-          two of the following need to passed to the function:
+          two of the following need to be passed to the function:
           \code{actual}, \code{predicted}, \code{residual}.
 
           Note that, for some model objects, to extract residuals
@@ -91,6 +111,8 @@ model.1 = lm(Sodium ~ Calories + Calories2, data = BrendonSmall)
 efronRSquared(model.1)
 
 efronRSquared(model.1, statistic="MAPE")
+
+efronRSquared(model.1, statistic="AbsoluteDeviationRSquared")
 
 efronRSquared(actual=BrendonSmall$Sodium, residual=model.1$residuals)
 efronRSquared(residual=model.1$residuals, predicted=model.1$fitted.values)
@@ -112,6 +134,7 @@ Salvatore Mangiafico, \email{mangiafico@njaes.rutgers.edu}
 \concept{MAE}
 \concept{MAPE}
 \concept{RMSE}
+\concept{absolute deviations}
 \concept{accuracy}
 \concept{coefficient of variation}
 \concept{pseudo r squared}
